@@ -88,3 +88,36 @@ With Auth Access
 * Python/Flask, PostgreSQL, QLAlchemy, Heroku, Jinja, RESTful APIs, JavaScript, HTML, CSS, WTForms
 
 
+## Idea #2:
+
+### Coffee Shop locator-Sentiment Analysis- Menu Recommendations 
+
+###### Application Main Function
+
+* Provide users with locations of nearby coffee shops.
+
+###### Application Secondary Function
+* Provide sentiment analysis for the establishment and menu items.
+
+
+###### Problems Solved
+
+* Not a new problem but an iplementation of the combination of geolocation searcb and sentiment analysis.
+
+###### Application Features
+
+ No Auth Access
+* Location finder of coffeshops and menu items
+
+With Auth Access
+
+* Menu Reccomendations and sentiment analysis
+
+##### API
+
+* API's to be used is: <a style="color: CadetBlue" href="http://demo.intellexer.com/">intellexer</a>, <a style="color: CadetBlue" href="https://developers.google.com/maps/documentation/geolocation/overview">Geolocation API</a>
+                        
+
+##### Technologies
+* Python/Flask, PostgreSQL, QLAlchemy, Heroku, Jinja, RESTful APIs, JavaScript, HTML, CSS, WTForms
+
