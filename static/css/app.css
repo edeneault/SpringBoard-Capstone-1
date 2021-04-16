@@ -1,0 +1,41 @@
+@font-face {
+    font-family: tesla;
+    src: url(/static/fonts/TESLA.ttf);
+}
+
+@font-face {
+    font-family: gotham;
+    font-style: normal;
+    /* font-weight: 400; */
+    src: url(/static/fonts/Gotham-Font/GothamMedium_1.ttf)
+}
+
+.tes1 {
+    font-family: tesla;
+    font-size: 1.3rem;
+    font-style: oblique;
+}
+
+.tes2 {
+    font-family: gotham;
+    font-size: 0.9rem;
+}
+
+.navbar-brand {
+    padding: 0;
+}
+
+.navbar-nav .nav-link {
+    padding-top: 0;
+    padding-bottom: 0;
+    height: 50px;
+    line-height: 50px;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: black;
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+    color: rgb(148, 148, 148);
+}
