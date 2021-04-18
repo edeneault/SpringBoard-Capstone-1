@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+
+{% block content %} 
+
+<form method="POST">
+    <h1 class="text-center">Register</h1>
+    <p class="lead text-center">Register to join our feedback application.</p>
+    {{ form.hidden_tag() }}
+    <div class="row">
+        {% for field in form if field.widget.input_type != 'hidden'%}
+        <div class="cell small-10 small-centered medium-6">
+            {{field.label}}
+            {{field}}
+            {% for err in field.errors %}
+            <small>
+                {{err}}
+            </small>
+            {% endfor %}
+        </div>
+        {% endfor %}
+       
+        <div class="cell small-10 small-offset-1 medium-offset-3 medium-2">
+            <button class="button button-submit rounded" type="submit">Submit</button>
+        </div>
+    </div>
+</form>
+
+  {% endblock %}

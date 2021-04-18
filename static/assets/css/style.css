@@ -1,11 +1,11 @@
-body {
+/* body {
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
     font-weight: 300;
     color: #888;
     line-height: 30px;
     text-align: center;
-}
+} */
 
 strong {
     font-weight: 500;
@@ -207,7 +207,7 @@ a[aria-expanded="true"] {
 
 .sidebar.light .dismiss {
     background: #ddd;
-    color: #888;
+    color: rgb(0, 0, 0);
 }
 
 .sidebar.light .dismiss:hover,
@@ -229,7 +229,7 @@ a[aria-expanded="true"] {
 }
 
 .sidebar.light ul li a {
-    color: #888;
+    color: rgb(0, 0, 0);
 }
 
 .sidebar.light ul li a:hover,

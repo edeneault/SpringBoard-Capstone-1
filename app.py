@@ -5,9 +5,13 @@ from flask_debugtoolbar import DebugToolbarExtension
 from sqlalchemy.exc import IntegrityError
 # import requests
 
-# from forms import UserAddForm, LoginForm, MessageForm, UserEditForm
-from models import db, connect_db, User, Team, Athlete, Workout, Athlete_workout
+
+from forms import LoginForm, RegisterForm
+from models import ( db, connect_db, User, Team, Athlete, Workout, Athlete_workout, Category, 
+                    Equipment, Muscle, Exercise, Workout_exercise, Athlete_workout_exercise )
 from utils import *
+
+
 
 CURR_USER_KEY = "curr_user"
 
@@ -24,9 +28,12 @@ app.config['WTF_CSRF_ENABLED'] = True
 # toolbar = DebugToolbarExtension(app)
 
 connect_db(app)
+# db.create_all() 
+
+# import declared routes
+import login_routes
 
 
-db.create_all() 
 
 ### TIMER ROUTE ###
 @app.route('/timers')
@@ -44,7 +51,8 @@ def homepage():
     - anon users: no messages
     - logged in: 100 most recent messages of followed_users
     """
-
+    form = LoginForm()
+    form1 = RegisterForm()
     # if g.user:
     #     following_id_user_id = [
     #         follow.id for follow in g.user.following] + [g.user.id]
@@ -58,7 +66,7 @@ def homepage():
 
     #     liked_msg_ids = [msg.id for msg in g.user.likes]
 
-    return render_template('home.html')
+    return render_template('home.html', form=form, form1=form1)
 
     # else:
     #     return render_template('home-anon.html')

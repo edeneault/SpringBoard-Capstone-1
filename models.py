@@ -6,14 +6,14 @@ import datetime
 bcrypt = Bcrypt()
 db = SQLAlchemy()
 
-# SET DATE ##
+# SET DATE AND DEFAULTS ##
 
 CURR_DATE = datetime.datetime.now().strftime('%Y-%m-%d')
 HEIGHT_DEFAULT = 0
 WEIGHT_DEFAULT = 0.0
 RPE_DEFAULT = 0
+REPS_DEFAULT = 7
 
-# print(CURR_DATE)
 
 
 def connect_db(app):
@@ -46,8 +46,6 @@ class User(db.Model):
         """Return full name of user."""
 
         return f"{self.first_name} {self.last_name}"
-
-    
 
     # @classmethod
     # def register(cls, username, pwd, first_name, last_name, email):
@@ -118,6 +116,7 @@ class Workout(db.Model):
     description = db.Column(db.Text, nullable=False)
 
     athlete_workouts = db.relationship("Athlete_workout", backref="workout", cascade="all, delete")
+    workout_exercises = db.relationship("Workout_exercise", backref="workout", cascade="all, delete")
 
     def __repr__(self):
         return f"<Workout #{self.id}: {self.name}, {self.description}>"
@@ -133,7 +132,90 @@ class Athlete_workout(db.Model):
     workout_id = db.Column(db.Integer, db.ForeignKey('workouts.id', ondelete='cascade'))
     athlete_id = db.Column(db.Integer, db.ForeignKey('athletes.id', ondelete='cascade')) 
 
-
+    athlete_workout_exercise = db.relationship("Athlete_workout_exercise", backref="athlete_workout", cascade="all, delete")
 
     def __repr__(self):
         return f"<Athlete_workout #{self.id}: {self.rpe_avg}, {self.workout_date}, {self.workout_id}, {self.athlete_id}>"
+
+class Category(db.Model):
+    """ Class to instantiate a Category class and methods"""
+    __tablename__ = "categories"
+
+    id = db.Column(db.Integer, primary_key=True)
+    category_name = db.Column(db.String(20), nullable=False)
+
+    def __repr__(self):
+        return f"<Category #{self.id}: {self.category_name}>"
+
+
+class Equipment(db.Model):
+    """ Class to instantiate a Equipment class and methods"""
+    __tablename__ = "equipment"
+
+    id = db.Column(db.Integer, primary_key=True)
+    equipment_name = db.Column(db.String(50), nullable=False)
+
+    def __repr__(self):
+        return f"<Category #{self.id}: {self.equipment_name}>"
+
+
+class Muscle(db.Model):
+    """ Class to instantiate a Muscle class and methods"""
+    __tablename__ = "muscles"
+
+    id = db.Column(db.Integer, primary_key=True)
+    muscle_name = db.Column(db.String(50), nullable=False)
+    image_url = db.Column(db.Text, default="/static/images/default-pic.png")
+
+    def __repr__(self):
+        return f"<Category #{self.id}: {self.muscle_name}, {self.image_url}>"
+
+
+class Exercise(db.Model):
+    """ Class to instantiate a Exercise class and methods"""
+    __tablename__ = "exercises"
+
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(50), nullable=False)
+    description = db.Column(db.Text, nullable=False)
+    default_reps = db.Column(db.Integer, default=REPS_DEFAULT)
+    image_url = db.Column(db.Text, default="/static/images/default-pic.png")
+    category_id = db.Column(db.Integer, db.ForeignKey('categories.id', ondelete='cascade'))
+    equipment_id = db.Column(db.Integer, db.ForeignKey('equipment.id', ondelete='cascade')) 
+    muscle_id = db.Column(db.Integer, db.ForeignKey('muscles.id', ondelete='cascade')) 
+
+    categories = db.relationship("Category", backref="exercise", cascade="all, delete")
+    equipment = db.relationship("Equipment", backref="exercise", cascade="all, delete")
+    muscles = db.relationship("Muscle", backref="exercise", cascade="all, delete")
+
+    workout_exercises = db.relationship("Workout_exercise", backref="exercise", cascade="all, delete")
+
+    def __repr__(self):
+        return f"<Exercise #{self.id}: {self.name}, {self.description}, {self.default_reps}, {self.image_url}, {self.category_id}, {self.equipment_id}, {self.muscle_id}>"
+
+
+class Workout_exercise(db.Model):
+    """ Class to instantiate a Workout_exercise class and methods"""
+    __tablename__ = "workout_exercises"
+
+    id = db.Column(db.Integer, primary_key=True)
+    workout_id = db.Column(db.Integer, db.ForeignKey('workouts.id', ondelete='cascade'))
+    exercise_id = db.Column(db.Integer, db.ForeignKey('exercises.id', ondelete='cascade')) 
+
+    athlete_workout_exercise = db.relationship("Athlete_workout_exercise", backref="workout_exercise", cascade="all, delete")
+    
+    def __repr__(self):
+        return f"<Athlete_workout #{self.id}: {self.workout_id}, {self.exercise_id}>"
+
+
+
+class Athlete_workout_exercise(db.Model):
+    """ Class to instantiate a Athlete_workout_exercise class and methods"""
+    __tablename__ = "athlete_workouts_exercises"
+
+    id = db.Column(db.Integer, primary_key=True)
+    athlete_workout_id = db.Column(db.Integer, db.ForeignKey('athlete_workouts.id', ondelete='cascade'))
+    workout_exercise_id = db.Column(db.Integer, db.ForeignKey('workout_exercises.id', ondelete='cascade')) 
+
+    def __repr__(self):
+        return f"<Athlete_workouts_exercise#{self.id}: {self.athlete_workout_id}, {self.workout_exercise_id}>"

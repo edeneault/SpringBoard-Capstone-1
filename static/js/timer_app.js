@@ -87,6 +87,7 @@ function handleClickStart(e) {
     // homeView.removeChild(homeView.childNodes[0]);
     console.log(homeView);
     changeVisibility(homeView);
+    console.log(timerType);
     changeVisibility(timerType);
     showTimerExercise();
     startTimer();
@@ -119,19 +120,13 @@ function startTimer() {
                     exerciseView.removeChild(exerciseView.childNodes[0]);
                 }
                 catch (e) { };
-                try {
-                    toggleFullScreen();
-                }
-                catch (err) { };
+                
                 snd1.play();  
                 timerCompleted = true;
                 showTimerHome();  
             }
             else if (sets <= 0) {
-                try {
-                    toggleFullScreen();
-                }
-                catch (err) { };
+               
                 snd1.play();  
                 showTimerComplete(totalSets);
                 changeVisibility(timerType);

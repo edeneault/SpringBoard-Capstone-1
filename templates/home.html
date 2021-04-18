@@ -1,9 +1,148 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<div class="container py-2">
+    <div class="card my-2 p-1">
+        <div class="row">
+        <!-- <div class="col col-sm-6 align-self-center">
+            <a href="/timers" class="d-flex justify-content-center text-dark text-decoration-none">
+                <div class="logo1"></div>
+                <span class="d-flex align-items-center tes2">Use the timers anytime. No registration required!</span>
+            </a>
+        </div> -->
+        <div class="col col-sm-6 align-self-center">
+            <a href="/timers" class="d-flex justify-content-center text-dark text-decoration-none tes2">
+                <div class="d-flex align-items-center tes2">
+                    <i class="fs-2 far fa-clock me-4"></i> 
+                    <span>Use the timers for your workout. No registration required!</span>  
+                </div>
+            </a>
+        </div>
+        <div class="col col-sm-6 align-self-center">
+            <a href="/" class="d-flex justify-content-center text-dark text-decoration-none tes2">
+                <div class="d-flex align-items-center tes2">
+                    <i class="fs-2 fas fa-dumbbell me-4"></i> 
+                    <span>Choose a pre-made workout. No registration required!</span>  
+                </div>
+            </a>
+        </div>
+    </div>
+    
+    </header>
+   
+</div>
+<div id="myCarousel" class="carousel carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner item1">
+      <div class="carousel-item active">
+        
+        <div class="container">
+          <div class="carousel-caption text-start">
+         
+                <h1 class="display-4 tes2 mx-1 px-1">Performance Management</h1>
+                <p class="col-md-8 tes2 mx-1 px-1">Lightweight Athlete Management Application.</p>  
+                <!-- <p class="col-md-8 display-2 tes2 m-1 p-1">Easy and Simple Team Management Tool.</p> -->
+                <p class="col-md-8 tes2 d-inline mx-2 py-3">Try it! It's FREE. Build your team.</p>
+                <button class="btn btn-primary btn-customized btn-lg ms-2 " type="button">REGISTER NOW!</button>
+   
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item item2">
+       
 
+        <div class="container">
+          <div class="carousel-caption">
+            <h1 class="display-4 tes2 mx-1 px-1">Register and create your team.</h1>
+            <p class="col-md-12 tes2 mx-1 px-1">Built for Coaches. Simple to use in realtime.</p>
+            <button class="btn btn-primary btn-customized btn-lg ms-2 " type="button">LEARN MORE</button>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item item3">
+
+        <div class="container">
+          <div class="carousel-caption text-end">
+            <h1 class="display-4 tes2 mx-1 px-1">Track your Athletes Progress. </h1>
+            <p class="col-md-12 tes2 mx-1 px-1">Focus on the Basics. View simple data analysis.</p>
+            <button class="btn btn-primary btn-customized btn-lg ms-2 " type="button">LEARN MORE</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
 <div class="container">
-    <h5 class="tes2">HOME PAGE</h5>
+    <div class="container py-4">
+        <div class="row align-items-md-stretch">
+          
+            <div class="col-md-6">
+            <div class="h-100 p-5 text-white bg-login rounded-3">
+                <h1 class="display-4 text-center tes2">Login</h1>
+                <p class="text-center"><a class="page-links-light text-decoration-none" href="#">Reset your password here.</a></p>
+              <form class="form" method="POST">
+                {{ form.hidden_tag() }}
+                <div class="row d-row align-self-center justify-content-center">
+                    {% for field in form if field.widget.input_type != 'hidden'%}
+                    <div class="fs-5 p-2 col-12 col-sm-12">
+                            {{field.label}}
+                     
+                            {{field}}  
+                        {% for err in field.errors %}
+                        <small>
+                            {{err}}
+                        </small>
+                        {% endfor %}
+                    </div>
+                    {% endfor %}
+                    <div class="">
+                        <button class="btn btn-primary btn-customized btn my-2 " type="submit">LOGIN</button>
+                    </div>
+                </div>
+            </form>
+            
+            </div>
+          </div>
+          <div class="col-md-6 ">
+            <div class="h-100 p-5 text-white bg-register rounded-3">
+                <h1 class="display-4 text-center tes2">Register</h1>
+                <p class="text-center">No spam. Totally free. Only username and password required.</p>
+                <form class="form" method="POST">
+                    {{ form1.hidden_tag() }}
+                    <div class="row d-row align-self-center justify-content-center">
+                        {% for field in form1 if field.widget.input_type != 'hidden'%}
+                        <div class="fs-5 p-2 col-12 col-sm-12">
+                            {{field.label}}
+                            {{field}}
+                            {% for err in field.errors %}
+                            <small>
+                                {{err}}
+                            </small>
+                            {% endfor %}
+                        </div>
+                        {% endfor %}
+                        <div class="">
+                            <button class="btn btn-primary btn-customized btn my-2 " type="submit">REGISTER</button>
+                        </div>
+                        
+                    </div>
+                
+                </form>
+            </div>
+          </div>
+        </div>
+      </div>
 </div>
 
 

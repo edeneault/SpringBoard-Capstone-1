@@ -1,6 +1,7 @@
 """Seed file to make sample data for users and posts db."""
 
-from models import db, User, Team, Athlete, Workout, Athlete_workout
+from models import (db, User, Team, Athlete, Workout, Athlete_workout, Exercise, Category, 
+                    Equipment, Muscle, Workout_exercise, Athlete_workout_exercise)
 from app import app
 from datetime import datetime as dt
 import datetime
@@ -191,12 +192,160 @@ athlete_workouts = [ athlete_workout_1_1, athlete_workout_2_1, athlete_workout_2
                      athlete_workout_2_24, athlete_workout_3_24, athlete_workout_4_34, athlete_workout_5_34, 
                      athlete_workout_7_16, athlete_workout_8_15, athlete_workout_6_16, athlete_workout_9_27  ]
 
+
+## EXERCISES ##
+
+exercise_1 = Exercise(name="flat bench press", 
+    description="On you bench press rack of choice, set-up in flat configuration, use a barbell to press up and down, make sure to have a spotter.",
+    category_id=5, equipment_id=1, muscle_id=1)
+exercise_2 = Exercise(name="Air Squat", 
+    description="Perform a squat with no resistance, make sure stance is slightly wider then shoulder width and feet are turned out.",
+    category_id=6, equipment_id=7, muscle_id=2)
+exercise_3 = Exercise(name="push up", 
+    description="Assume a support position, perform a push up, make sure to engage your core while performing each repetition.",
+    category_id=5, equipment_id=7, muscle_id=1)
+exercise_4 = Exercise(name="core half crunch", 
+    description="Sit and lay back on a swiss ball, position feet slightly wider then shoulder width, perform a half-crunch fully engaging the core.",
+    category_id=1, equipment_id=9, muscle_id=3)
+exercise_5 = Exercise(name="concentration curl", 
+    description="Using dumbells, sit on a bench, one arm at a time, position your arm against your leg and perform a curl.",
+    category_id=2, equipment_id=3, muscle_id=4)
+
+
+exercises = [ exercise_1, exercise_2, exercise_3, exercise_4, exercise_5 ]
+
+
+## CATEGORIES ##
+
+category_1 = Category(category_name="Abs")
+category_2 = Category(category_name="Arms")
+category_3 = Category(category_name="Back")
+category_4 = Category(category_name="Calves")
+category_5 = Category(category_name="Chest")
+category_6 = Category(category_name="Legs")
+category_7 = Category(category_name="Shoulders")
+
+categories = [ category_1, category_2, category_3, category_4, category_5, category_6, category_7 ]
+
+
+## EQUIQMENT ##
+
+equipment_1 = Equipment(equipment_name="Barbell")
+equipment_2 = Equipment(equipment_name="Bench")
+equipment_3 = Equipment(equipment_name="Dumbbell")
+equipment_4 = Equipment(equipment_name="Gym mat")
+equipment_5 = Equipment(equipment_name="Incline bench")
+equipment_6 = Equipment(equipment_name="Kettlebell")
+equipment_7 = Equipment(equipment_name="none (bodyweight exercise)")
+equipment_8 = Equipment(equipment_name="Pull-up bar")
+equipment_9 = Equipment(equipment_name="Swiss Ball")
+equipment_10 = Equipment(equipment_name="SZ-Bar")
+
+equipment = [ equipment_1, equipment_2, equipment_3, equipment_4, equipment_5,
+             equipment_6, equipment_7, equipment_8, equipment_9, equipment_10 ]
+
+## MUSCLES ##
+
+muscle_1 = Muscle(muscle_name="Anterior deltoid")
+muscle_2 = Muscle(muscle_name="Biceps brachii")
+muscle_3 = Muscle(muscle_name="Biceps femoris")
+muscle_4 = Muscle(muscle_name="Brachialis")
+muscle_5 = Muscle(muscle_name="Gastrocnemius")
+muscle_6 = Muscle(muscle_name="Gluteus maximus")
+muscle_7 = Muscle(muscle_name="Latissimus dorsi")
+muscle_8 = Muscle(muscle_name="Obliquus externus abdominis")
+muscle_9 = Muscle(muscle_name="Pectoralis major")
+muscle_10 = Muscle(muscle_name="Quadriceps femoris")
+muscle_11 = Muscle(muscle_name="Rectus abdominis")
+muscle_12 = Muscle(muscle_name="Serratus anterior")
+muscle_13 = Muscle(muscle_name="Soleus")
+muscle_14 = Muscle(muscle_name="Trapezius")
+muscle_15 = Muscle(muscle_name="Triceps brachii")
+
+muscles = [ muscle_1, muscle_2, muscle_3, muscle_4, muscle_5,
+             muscle_6, muscle_7, muscle_8, muscle_9, muscle_10,
+             muscle_11, muscle_12, muscle_13, muscle_14, muscle_15 ]
+
+## WORKOUT_EXERCISE ##
+
+workout_exercise_1_1 = Workout_exercise( workout_id=1, exercise_id=1 )
+workout_exercise_1_2 = Workout_exercise( workout_id=1, exercise_id=2 )
+workout_exercise_2_3 = Workout_exercise( workout_id=2, exercise_id=3 )
+workout_exercise_2_4 = Workout_exercise( workout_id=2, exercise_id=4 )
+workout_exercise_2_5 = Workout_exercise( workout_id=2, exercise_id=5 )
+workout_exercise_3_1 = Workout_exercise( workout_id=2, exercise_id=1 )
+workout_exercise_3_3 = Workout_exercise( workout_id=3, exercise_id=3 )
+workout_exercise_3_2 = Workout_exercise( workout_id=3, exercise_id=2 )
+workout_exercise_4_5 = Workout_exercise( workout_id=4, exercise_id=5 )
+workout_exercise_4_4 = Workout_exercise( workout_id=4, exercise_id=4 )
+workout_exercise_4_2 = Workout_exercise( workout_id=4, exercise_id=2 )
+
+workout_exercise_5_1 = Workout_exercise( workout_id=5, exercise_id=1 )
+workout_exercise_5_2 = Workout_exercise( workout_id=5, exercise_id=2 )
+workout_exercise_5_3 = Workout_exercise( workout_id=5, exercise_id=3 )
+workout_exercise_6_4 = Workout_exercise( workout_id=6, exercise_id=4 )
+workout_exercise_6_5 = Workout_exercise( workout_id=6, exercise_id=5 )
+workout_exercise_6_1 = Workout_exercise( workout_id=6, exercise_id=1 )
+workout_exercise_7_3 = Workout_exercise( workout_id=7, exercise_id=3 )
+workout_exercise_7_4 = Workout_exercise( workout_id=7, exercise_id=2 )
+workout_exercise_7_5 = Workout_exercise( workout_id=7, exercise_id=5 )
+workout_exercise_8_1 = Workout_exercise( workout_id=8, exercise_id=1 )
+workout_exercise_8_2 = Workout_exercise( workout_id=8, exercise_id=2 )
+
+workout_exercise_8_5 = Workout_exercise( workout_id=8, exercise_id=5 )
+workout_exercise_9_4 = Workout_exercise( workout_id=9, exercise_id=4)
+workout_exercise_9_4 = Workout_exercise( workout_id=9, exercise_id=1 )
+workout_exercise_9_2 = Workout_exercise( workout_id=9, exercise_id=2 )
+workout_exercise_10_4 = Workout_exercise( workout_id=10, exercise_id=4 )
+workout_exercise_10_5 = Workout_exercise( workout_id=10, exercise_id=5 )
+
+workout_exercises = [ workout_exercise_1_1, workout_exercise_1_2, workout_exercise_2_3, workout_exercise_2_4,
+workout_exercise_2_5, workout_exercise_3_1, workout_exercise_3_3,  workout_exercise_3_2,  workout_exercise_4_5, 
+workout_exercise_4_4, workout_exercise_4_2, workout_exercise_5_1, workout_exercise_5_2, workout_exercise_5_3, 
+workout_exercise_6_4, workout_exercise_6_5, workout_exercise_6_4, workout_exercise_6_5, workout_exercise_7_3, 
+workout_exercise_7_4, workout_exercise_7_5, workout_exercise_8_1, workout_exercise_8_2, workout_exercise_8_5, 
+workout_exercise_9_4, workout_exercise_9_2, workout_exercise_10_4, workout_exercise_10_5 ]
+
+
+## ATHLETE_WORKOUT_EXERCISES ##
+
+athlete_workout_exercise_1 = Athlete_workout_exercise( athlete_workout_id=1, workout_exercise_id =1  )
+athlete_workout_exercise_2 = Athlete_workout_exercise( athlete_workout_id=2, workout_exercise_id =2  )
+athlete_workout_exercise_3 = Athlete_workout_exercise( athlete_workout_id=3, workout_exercise_id =3  )
+athlete_workout_exercise_4 = Athlete_workout_exercise( athlete_workout_id=4, workout_exercise_id =4  )
+athlete_workout_exercise_5 = Athlete_workout_exercise( athlete_workout_id=5, workout_exercise_id =5  )
+athlete_workout_exercise_6 = Athlete_workout_exercise( athlete_workout_id=6, workout_exercise_id =6  )
+athlete_workout_exercise_7 = Athlete_workout_exercise( athlete_workout_id=7, workout_exercise_id =7  )
+athlete_workout_exercise_8 = Athlete_workout_exercise( athlete_workout_id=8, workout_exercise_id =8  )
+athlete_workout_exercise_9 = Athlete_workout_exercise( athlete_workout_id=9, workout_exercise_id =9  )
+athlete_workout_exercise_10 = Athlete_workout_exercise( athlete_workout_id=10, workout_exercise_id=10  )
+athlete_workout_exercise_11 = Athlete_workout_exercise( athlete_workout_id=11, workout_exercise_id =11  )
+athlete_workout_exercise_12 = Athlete_workout_exercise( athlete_workout_id=12, workout_exercise_id =12  )
+athlete_workout_exercise_13 = Athlete_workout_exercise( athlete_workout_id=13, workout_exercise_id =13  )
+athlete_workout_exercise_14 = Athlete_workout_exercise( athlete_workout_id=14, workout_exercise_id =14  )
+athlete_workout_exercise_15 = Athlete_workout_exercise( athlete_workout_id=15, workout_exercise_id =15  )
+athlete_workout_exercise_16 = Athlete_workout_exercise( athlete_workout_id=16, workout_exercise_id =16  )
+athlete_workout_exercise_17 = Athlete_workout_exercise( athlete_workout_id=17, workout_exercise_id =17  )
+athlete_workout_exercise_18 = Athlete_workout_exercise( athlete_workout_id=18, workout_exercise_id =18  )
+athlete_workout_exercise_19 = Athlete_workout_exercise( athlete_workout_id=19, workout_exercise_id =19  )
+athlete_workout_exercise_20 = Athlete_workout_exercise( athlete_workout_id=20, workout_exercise_id =20  )
+
+athlete_workout_exercises = [ athlete_workout_exercise_1, athlete_workout_exercise_2, athlete_workout_exercise_3, athlete_workout_exercise_4,
+                              athlete_workout_exercise_5, athlete_workout_exercise_6, athlete_workout_exercise_7, athlete_workout_exercise_8,
+                              athlete_workout_exercise_9, athlete_workout_exercise_10, athlete_workout_exercise_11, athlete_workout_exercise_12,
+                              athlete_workout_exercise_13, athlete_workout_exercise_14, athlete_workout_exercise_15, athlete_workout_exercise_16,
+                              athlete_workout_exercise_17, athlete_workout_exercise_18, athlete_workout_exercise_19, athlete_workout_exercise_20 ]
+
 ## ADD OBJECTS TO SESSION ##
 
 db.session.add_all(users)
 db.session.add_all(teams)
 db.session.add_all(athletes)
 db.session.add_all(workouts)
+db.session.add_all(exercises)
+db.session.add_all(categories)
+db.session.add_all(equipment)
+db.session.add_all(muscles)
 
 ## COMMIT !IMPORTANT ##
 db.session.commit()
@@ -204,4 +353,12 @@ db.session.commit()
 
 ## COMMIT AFTER CREATION OF ATHLETES AND WORKOUTS !IMPORTANT ##
 db.session.add_all(athlete_workouts)
+db.session.commit()
+
+## COMMIT AFTER CREATION OF EXERCISES AND WORKOUTS !IMPORTANT ## 
+db.session.add_all(workout_exercises)
+db.session.commit()
+
+## COMMIT AFTER CREATION OF workout_exercises AND athlete_workouts !IMPORTANT ## 
+db.session.add_all(athlete_workout_exercises)
 db.session.commit()
