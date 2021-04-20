@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1 class="text-dark">TEAM PAGE</h1>
+
+<div class="col-sm-12 teams-container py-3">
+    <div class="team-single-text padding-50px-left sm-no-padding-left">
+ 
+        
+        <div class="row">
+            <div class="d-flex justify-content-center align-items-center col-md-12 col-12 mt-2">
+                <div class="flex-grow-1">
+                    <i class="teams-fa-color fas fa-users mt-2 fa-5x"></i>
+                    <h1 class="d-inline teams-fa-color display-1 px-1">Team - </h1>
+                    <h5 class="d-inline teams-fa-color display-3 mx-auto">{{ team.name}} </h5>
+                </div>
+                <div class="img-square-wrapper text-center pt-4">
+                    <img class="team-coach-img m-1" src="{{ g.user.image_url }}" alt="Card image cap">
+                </div>
+                
+                <div class="pt-4">
+                    <h5 class="tes1 text-center fs-5">Coach </h5>
+                    <h6 class="tes2 text-center sm-font-size12 px-2">{{ g.user.full_name }}</h6>
+                    <h6 class="tes2 text-center sm-font-size12 px-2">Joined: {{ g.user.friendly_date  }}</h6>
+                </div>
+            </div>  
+        </div>
+
+        <div class="row">
+            <div class="d-flex justify-content-center align-items-center col-md-12 col-12 mt-2">
+                <div class="col-md-12 col-12 mt-2">
+                  
+                    <div class="card border rounded border-dark mb-2"> 
+                        <div class="d-flex">
+                            <div class="img-square-wrapper text-center">
+                                <img class="teams-team-image rounded-circle m-1" src="{{ team.team_image_url }}" alt="Card image cap">
+                            </div>
+    
+                            <div class="text-center fs-5">
+                                <p class="card-title tes2 fs-4 mt-3 pt-4">{{ team.name }}</p> 
+                                <p class="card-text tes2 ">LOCATION: {{ team.location }}</p>
+                                <h5 class="card-text tes2 py-2">ATHLETES</h5>
+                            </div>
+
+                        </div>
+                        
+
+                        <div class="card-body text-dark"> 
+                            
+                        
+                            
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">Headshot</th> 
+                                            <th scope="col">Full Name</th>
+                                            <th scope="col">Height</th>
+                                            <th scope="col">Weight</th>
+                                            <th scope="col">Position</th>
+                                            <th scope="col">Medical Status</th>
+                                            <th scope="col">Start Date</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for athlete in team.athletes %}
+                                        <tr>
+                                            <th scope="row">Athlete ID {{ athlete.id }}</th>
+                                         
+                                            <td><a href="{{ url_for('.athlete_show', athlete_id=athlete.id )}}" class="page-links-dark"><img class="athlete-thumb card-link" src="{{ athlete.athlete_image_url }}" alt="Athlete-image"></a></td> 
+                                                   
+                                                    <td><a href="{{ url_for('.athlete_show', athlete_id=athlete.id )}}" class="page-links-dark"> {{ athlete.full_name }}</a> </td>
+                                            <td>{{ athlete.height }} </td>
+                                            <td>{{ athlete.weight }} </td>
+                                            <td>{{ athlete.position }}</td>
+                                            <td>{{ athlete.medical_status }}</td>
+                                            <td>{{ athlete.friendly_date }}</td>
+
+                                        </tr>
+                                                                                                        
+                                    {% endfor %}                  
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>               
+                    </div>
+              
+                </div>
+            </div>
+        </div>
+    </div>    
+</div>
+
+
+{% endblock %}

@@ -1,32 +1,35 @@
 {% extends 'home.html' %}
 
 
-{% block login_form %} 
+{% block content1 %} 
 
-<form method="POST">
-
-    <h1 class="text-center">Login</h1>
-    <p class="lead text-center"><a href="#">Reset your password here.</a></p>
-    {{ form.hidden_tag() }}
-    <div class="row">
-        {% for field in form if field.widget.input_type != 'hidden'%}
-        <div class="cell small-10 small-centered medium-6">
-            {{field.label}}
-            {{field}}
-            {% for err in field.errors %}
-            <small>
-                {{err}}
-            </small>
-            {% endfor %}
-        </div>
-        {% endfor %}
-        <div class="row">
-            <div class="cell small-10 small-offset-1 medium-offset-3 medium-2">
-                <button class="button button-submit rounded" type="submit">Login</button>
-            </div>
+    <div class="container m-0 py-4">
+        <div class="row align-items-md-stretch">  
+            <div id="login" class="col-md-12">
+            <div class="h-100 p-5 text-white bg-login rounded-3">
+                <h1 class="display-4 text-center tes2">Login</h1>
+                <p class="text-center"><a class="page-links-light text-decoration-none" href="#">Reset your password here.</a></p>
+            <form class="form" method="POST">
+                {{ form.hidden_tag() }}
+                <div class="row d-row align-self-center justify-content-center">
+                    {% for field in form if field.widget.input_type != 'hidden'%}
+                    <div class="fs-5 p-2 col-12 col-sm-12">
+                            {{field.label}}
+                    
+                            {{field}}  
+                        {% for err in field.errors %}
+                        <small>
+                            {{err}}
+                        </small>
+                        {% endfor %}
+                    </div>
+                    {% endfor %}
+                    <div class="">
+                        <button class="btn btn-primary btn-customized btn my-2 " type="submit">LOGIN</button>
+                    </div>
+                </div>
+            </form>     
         </div>
     </div>
-
-</form>
 
 {% endblock %}

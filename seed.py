@@ -24,8 +24,8 @@ coach1 = User(username="edeneault", password="password1", email="edeneault@gmail
 coach2 = User(username="msparks", password="password2", email="msparks@fakegmail.com", first_name="Matthew", last_name="Sparks")
 coach3 = User(username="adeneault", password="password3", email="apjarova@gmail.com", first_name="Alexandra", last_name="Deneault",
                  image_url="https://iv1.lisimg.com/image/20508627/666full-alexandra-apjarova.jpg")
-
-users = [coach1, coach2, coach3]
+coach4 = User(username="beachcoach", password="BeachCoach", email="beach@coach.com", first_name="Laura", last_name="Summers")
+users = [coach1, coach2, coach3, coach4]
 
 ## ADD TEAMS ##
 

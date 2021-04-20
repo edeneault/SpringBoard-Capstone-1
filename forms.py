@@ -3,6 +3,7 @@
 from wtforms import StringField, PasswordField
 from wtforms.validators import InputRequired, Length, NumberRange, Email, Optional
 from flask_wtf import FlaskForm
+from sqlalchemy.exc import IntegrityError
 
 
 class LoginForm(FlaskForm):
@@ -41,13 +42,16 @@ class RegisterForm(FlaskForm):
     first_name = StringField(
         "First Name",
         validators=[InputRequired(), Length(max=30)],
-        render_kw={"placeholder": "username", "class": "form-control mt-2"}
+        render_kw={"class": "form-control mt-2"}
     )
     last_name = StringField(
         "Last Name",
         validators=[InputRequired(), Length(max=30)],
-        render_kw={"placeholder": "username", "class": "form-control mt-2"}
+        render_kw={"class": "form-control mt-2"}
     )
+    image_url = StringField('(Optional) Image URL', render_kw={"class": "form-control mt-2"} )
+    header_image_url = StringField('(Optional) Header Image URL', render_kw={"class": "form-control mt-2"})
+
 
 
 # class FeedbackForm(FlaskForm):

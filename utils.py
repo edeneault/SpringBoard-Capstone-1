@@ -1,5 +1,7 @@
-## Utily functions for DEV Fitness ##
+## Utily functions for DEV Bull ##
 from flask import jsonify
+
+
 # def serialize(data):
 #     """Serialize a number number or year data to dictionary."""
 

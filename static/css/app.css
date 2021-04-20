@@ -36,9 +36,9 @@ footer .tes1 {
     font-size: 0.7rem;
     font-weight: bold;
     object-position: middle;
+    margin: 0px auto;
+    padding: 0px;
 }
-
-
 
 .display-4.tes2 {
     font-family: gotham;
@@ -50,6 +50,8 @@ footer .tes1 {
     font-family: gotham;
     font-size: 1.75rem;
     font-weight: 100;
+    margin: 0px auto;
+    padding: 0px;
 }
 
 .navbar-brand {
@@ -73,6 +75,7 @@ footer .tes1 {
 
 a.page-links-dark {
     color: black;
+    text-decoration: none;
 }
 
 a.page-links-dark:hover {
@@ -80,11 +83,13 @@ a.page-links-dark:hover {
 }
 
 a.page-links-light,
+i.page-links-light,
 footer li a {
     color: rgb(255, 255, 255);
 }
 
 a.page-links-light:hover,
+i.page-links-light:hover,
 footer li a:hover {
     color: #8d3ff3;
     color: #572796;
@@ -110,6 +115,12 @@ footer li a:hover {
     background-size: 40%;
     border: 0;
     /* text-indent: -999999px; */
+}
+
+.quicklinks:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    color: white;
+
 }
 
 
@@ -139,12 +150,12 @@ footer li a:hover {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    background-blend-mode: lighten;
 }
 
 /* BUTTONS CSS */
 
-button.btn-customized {
+button.btn-customized,
+a.btn-customized {
     /* margin-left: 35px;
     margin-right: 5px;
     margin-top: 35px; */
@@ -160,6 +171,13 @@ button.btn-customized {
     box-shadow: none;
 }
 
+a.btn-customized:hover,
+a.btn-customized:active,
+a.btn-customized:focus,
+a.btn-customized:active:focus,
+a.btn-customized.active:focus,
+a.btn-customized.btn.btn-primary:not(:disabled):not(.disabled):active,
+a.btn-customized.btn.btn-primary:not(:disabled):not(.disabled):active:focus button.btn-customized:hover,
 button.btn-customized:hover,
 button.btn-customized:active,
 button.btn-customized:focus,
@@ -195,24 +213,6 @@ button.btn-customized.btn.btn-primary:not(:disabled):not(.disabled):active:focus
     height: 32rem;
 }
 
-/* .carousel-item>img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    min-width: 100%;
-    height: 32rem;
-    overflow: hidden;
-
-} */
-
-/* .carousel img {
-    position: absolute;
-    object-position: contain;
-    min-width: 100%;
-    max-height: 100%;
-    max-width: none;
-    opacity: 95%;
-} */
 .item1 {
     background: url('/static/images/lucas-favre-JnoNcfFwrNA-unsplash.jpg') no-repeat center center fixed;
     -webkit-background-size: cover;
@@ -237,14 +237,7 @@ button.btn-customized.btn.btn-primary:not(:disabled):not(.disabled):active:focus
     background-size: cover;
 }
 
-/* .carousel img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    min-width: 100%;
-    height: 500px;
-    max-width: none;
-} */
+
 
 /* FOOTER */
 
@@ -271,8 +264,7 @@ button.btn-customized.btn.btn-primary:not(:disabled):not(.disabled):active:focus
 }
 
 
-/* RESPONSIVE CSS
--------------------------------------------------- */
+/* RESPONSIVE CSS */
 
 @media (min-width: 40em) {
 
@@ -294,3 +286,142 @@ button.btn-customized.btn.btn-primary:not(:disabled):not(.disabled):active:focus
         margin-top: 7rem;
     }
 }
+
+
+/* MODALS CSS  */
+
+.modal-header {
+    background-color: black;
+
+}
+
+.modal-body {
+    background-color: #e9ecef;
+    border-color: #e9ecef;
+    color: black;
+
+}
+
+.intro-1 {
+    font-size: 20px
+}
+
+.close {
+    color: #fff
+}
+
+.close:hover {
+    color: #fff
+}
+
+.intro-2 {
+    font-size: 13px;
+
+}
+
+/* USER PROFILE CSS  */
+
+.profile-img {
+    height: 203px;
+    width: 200px;
+    top: -125px;
+    position: relative;
+    border: 1px solid rgba(0, 0, 0, .5);
+}
+
+.nav-user-img {
+    height: 26px;
+    width: 26px;
+    border: 1px solid rgba(0, 0, 0, .5);
+
+}
+
+.nav-user-img:hover {
+    height: 26px;
+    width: 26px;
+    border: 2px solid rgba(0, 0, 0, .5);
+    opacity: 0.5;
+}
+
+
+
+
+
+.header-img {
+    /* background: url('/static/images/felipe-giacometti-ziaGSKwdzn8-unsplash-large.jpg') no-repeat top center fixed; */
+    height: 400px;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.profile-container {
+    /* position: relative; */
+    color: black;
+}
+
+/* TEAM CARDS - USER PROFILE CSS  */
+
+.card-horizontal {
+    display: flex;
+    flex: 1 1 auto;
+}
+
+.team-image {
+    height: 85px;
+    width: 85px;
+}
+
+.profile-text {
+    top: -125px;
+    position: relative;
+}
+
+.teams-container {
+    color: rgba(0, 0, 0, 1);
+}
+
+
+a.card-link:hover {
+    color: #0275d8 !important;
+}
+
+
+/* TEAM TABLE - TEAMS CSS  */
+
+.teams-team-image {
+    padding: 20px;
+    height: 150px;
+    width: 150px;
+}
+
+.teams-fa-color {
+    border-color: #8d3ff3;
+    color: #572796;
+}
+
+.athlete-card {
+    background-image: var(--bs-gradient);
+}
+
+.athlete-thumb {
+    height: 4rem;
+    width: 4rem;
+}
+
+.team-coach-img {
+    height: 4rem;
+    width: 4rem;
+}
+
+/* ATHLETE CARDS - TEAMS CSS  */
+/* .athlete-img {
+    height: 4rem;
+    width: 4rem;
+    top: -75px;
+    left: -75px;
+    position: relative;
+    border: 1px solid rgba(0, 0, 0, .5);
+} */

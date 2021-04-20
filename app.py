@@ -3,13 +3,14 @@ import os
 from flask import Flask, render_template, request, flash, redirect, session,  jsonify, g
 from flask_debugtoolbar import DebugToolbarExtension
 from sqlalchemy.exc import IntegrityError
+from datetime import datetime as dt
+import datetime
 # import requests
 
-
-from forms import LoginForm, RegisterForm
-from models import ( db, connect_db, User, Team, Athlete, Workout, Athlete_workout, Category, 
-                    Equipment, Muscle, Exercise, Workout_exercise, Athlete_workout_exercise )
 from utils import *
+from forms import LoginForm, RegisterForm
+from models import (connect_db, db, User, Team, Athlete, Workout, Athlete_workout, Exercise, Category, 
+                    Equipment, Muscle, Workout_exercise, Athlete_workout_exercise)
 
 
 
@@ -25,13 +26,14 @@ app.config['SQLALCHEMY_ECHO'] = False
 app.config['DEBUG_TB_INTERCEPT_REDIRECTS'] = False
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', "it's a secret")
 app.config['WTF_CSRF_ENABLED'] = True
-# toolbar = DebugToolbarExtension(app)
+toolbar = DebugToolbarExtension(app)
 
 connect_db(app)
 # db.create_all() 
 
+
 # import declared routes
-import login_routes
+from routes import login_routes, user_routes, team_routes, athlete_routes
 
 
 

@@ -6,6 +6,8 @@ import datetime
 bcrypt = Bcrypt()
 db = SQLAlchemy()
 
+
+
 # SET DATE AND DEFAULTS ##
 
 CURR_DATE = datetime.datetime.now().strftime('%Y-%m-%d')
@@ -47,16 +49,22 @@ class User(db.Model):
 
         return f"{self.first_name} {self.last_name}"
 
-    # @classmethod
-    # def register(cls, username, pwd, first_name, last_name, email):
-    #     """ Register user with Hashed passwor and return user. """
-    #     hashed = bcrypt.generate_password_hash(pwd)
+    @property
+    def friendly_date(self):
+        """Return nicely-formatted date."""
 
-    #     hashed_utf8 = hashed.decode("utf8")
-    #     user = cls(username=username, password=hashed_utf8,
-    #                first_name=first_name, last_name=last_name, email=email)
+        return self.created_on.strftime("%a %b %-d  %Y")
 
-    #     return user
+    @classmethod
+    def register(cls, username, password, first_name, last_name, email, image_url, header_image_url):
+        """ Register user with Hashed passwor and return user. """
+        hashed = bcrypt.generate_password_hash(password)
+
+        hashed_utf8 = hashed.decode("utf8")
+        user = cls(username=username, password=hashed_utf8,
+                   first_name=first_name, last_name=last_name, email=email, image_url=image_url, header_image_url=header_image_url)
+
+        return user
 
     # @classmethod
     # def authenticate(cls, username, password):
@@ -84,6 +92,7 @@ class Team(db.Model):
     def __repr__(self):
         return f"<Team #{self.id}: {self.name}, {self.location}, {self.discipline}, {self.team_image_url}, {self.created_on}>"
 
+    
 
 class Athlete(db.Model):
     """ Class to instantiate a Athlete class and methods"""
@@ -105,6 +114,18 @@ class Athlete(db.Model):
     
     def __repr__(self):
         return f"<Athlete #{self.id}: {self.first_name}, {self.last_name}, {self.email}, {self.position}, {self.height}, {self.weight}, {self.athlete_image_url}, {self.medical_status}, {self.created_on}>"
+
+    @property
+    def full_name(self):
+        """Return full name of athlete."""
+
+        return f"{self.first_name} {self.last_name}"
+    
+    @property
+    def friendly_date(self):
+        """Return nicely-formatted date."""
+
+        return self.created_on.strftime("%a %b %-d  %Y")
 
 
 class Workout(db.Model):

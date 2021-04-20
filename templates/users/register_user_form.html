@@ -1,29 +1,36 @@
-{% extends 'base.html' %}
+{% extends 'home.html' %}
 
 
-{% block content %} 
+{% block content1 %} 
 
-<form method="POST">
-    <h1 class="text-center">Register</h1>
-    <p class="lead text-center">Register to join our feedback application.</p>
-    {{ form.hidden_tag() }}
-    <div class="row">
-        {% for field in form if field.widget.input_type != 'hidden'%}
-        <div class="cell small-10 small-centered medium-6">
-            {{field.label}}
-            {{field}}
-            {% for err in field.errors %}
-            <small>
-                {{err}}
-            </small>
-            {% endfor %}
+        <div class="container m-0 py-4">
+            <div class="row align-items-md-stretch">
+                <div id="register" class="col-md-12">
+                    <div class="h-100 p-5 text-white bg-register rounded-3">
+                        <h1 class="display-4 text-center tes2">Register</h1>
+                        <p class="text-center">No spam. Totally free. Only username and password required.</p>
+                        <form class="form" method="POST">
+                            {{ form.hidden_tag() }}
+                            <div class="row d-row align-self-center justify-content-center">
+                                {% for field in form if field.widget.input_type != 'hidden'%}
+                                <div class="fs-5 p-2 col-12 col-sm-12">
+                                    {{field.label}}
+                                    {{field}}
+                                    {% for err in field.errors %}
+                                    <small>
+                                        {{err}}
+                                    </small>
+                                    {% endfor %}
+                                </div>
+                                {% endfor %}
+                                <div class="">
+                                    <button class="btn btn-primary btn-customized btn my-2 " type="submit">REGISTER</button>
+                                </div>  
+                            </div>         
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
-        {% endfor %}
-       
-        <div class="cell small-10 small-offset-1 medium-offset-3 medium-2">
-            <button class="button button-submit rounded" type="submit">Submit</button>
-        </div>
-    </div>
-</form>
 
-  {% endblock %}
+{% endblock %}
