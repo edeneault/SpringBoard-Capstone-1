@@ -12,6 +12,23 @@ console.log(carousel);
 
 
 
+// async function resquest_wger() {
+//     await axios.get(`https://wger.de/api/v2/exerciseinfo/?language=2`)
+//     .then(function (response) {
+//         // handle success
+//         console.log(response);
+//       })
+//       .catch(function (error) {
+//         // handle error
+//         console.log(error);
+//       })
+// }
+
+
+// resquest_wger();
+
+
+
 // LOGIN AND USER FORMS - TOGGLE && EXPAND ON NAV CLICK  //
 
 // window.onload = function () {

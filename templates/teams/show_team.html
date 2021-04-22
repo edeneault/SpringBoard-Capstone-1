@@ -67,11 +67,9 @@
                                     <tbody>
                                         {% for athlete in team.athletes %}
                                         <tr>
-                                            <th scope="row">Athlete ID {{ athlete.id }}</th>
-                                         
-                                            <td><a href="{{ url_for('.athlete_show', athlete_id=athlete.id )}}" class="page-links-dark"><img class="athlete-thumb card-link" src="{{ athlete.athlete_image_url }}" alt="Athlete-image"></a></td> 
-                                                   
-                                                    <td><a href="{{ url_for('.athlete_show', athlete_id=athlete.id )}}" class="page-links-dark"> {{ athlete.full_name }}</a> </td>
+                                            <th scope="row">Athlete ID {{ athlete.id }}</th>                                  
+                                            <td><a href="{{ url_for('.athlete_show', athlete_id=athlete.id )}}" class="page-links-dark"><img class="athlete-thumb card-link" src="{{ athlete.athlete_image_url }}" alt="Athlete-image"></a></td>        
+                                            <td><a href="{{ url_for('.athlete_show', athlete_id=athlete.id )}}" class="page-links-dark"> {{ athlete.full_name }}</a> </td>
                                             <td>{{ athlete.height }} </td>
                                             <td>{{ athlete.weight }} </td>
                                             <td>{{ athlete.position }}</td>

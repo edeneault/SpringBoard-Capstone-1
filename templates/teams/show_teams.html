@@ -11,9 +11,7 @@
                     <i class="teams-fa-color fas fa-users mt-2 fa-5x"></i>
                     <h1 class="d-inline teams-fa-color display-1 px-1">Teams</h1>
                 </div>
-                <!-- <div class="img-square-wrapper text-center pt-4">
-                    <img class="team-coach-img m-1" src="{{ user.image_url }}" alt="Card image cap">
-                </div> -->
+        
                 
                 <div class="pt-4">
                     <h5 class="tes1 text-center fs-5">Coach </h5>
@@ -33,8 +31,10 @@
                                 <img class="teams-team-image rounded-circle m-1" src="{{ team.team_image_url }}" alt="Card image cap">
                             </div>
     
-                            <div class="text-center fs-5">
-                                <a class="card-link text-dark text-decoration-none" href="/teams/{{ team.id }}"><p class="card-title tes2 fs-4 mt-3 pt-4">{{ team.name }}</p> </a>
+                            <div class="text-center card-teams  fs-5">
+                                <a class="card-link  text-decoration-none" href="/teams/{{ team.id }}">
+                                    <p class="card-title tes2 fs-4 mt-3 pt-4">{{ team.name }}</p> 
+                                </a>
                                 <p class="card-text tes2 ">LOCATION: {{ team.location }}</p>
                                 <h5 class="card-text tes2 py-2">ATHLETES</h5>
                             </div>

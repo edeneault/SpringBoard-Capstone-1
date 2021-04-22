@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<div class="col-sm-12 teams-container py-3">
+    <!-- <h1 class="text-dark text-center tes2 fs-3 mt-4"> WORKOUTS PAGE</h1> -->
+    <div class="team-single-text padding-50px-left sm-no-padding-left">
+ 
+        
+        <div class="row">
+            <div class="d-flex justify-content-center align-items-center col-md-12 col-12 mt-2">
+                <div class="flex-grow-1">
+                    <i class="teams-fa-color fas fa-dumbbell mt-2 fa-5x"></i>
+                    <h1 class="d-inline teams-fa-color display-1 px-1">Workout</h1>
+                </div>
+                
+                <div class="pt-4">
+                    <h5 class="tes1 text-center fs-5">Coach </h5>
+                    <h6 class="tes2 text-center sm-font-size12 px-2">{{ g.user.full_name }}</h6>
+                    <h6 class="tes2 text-center sm-font-size12 px-2">Joined: {{ g.user.friendly_date  }}</h6>
+                </div>
+            </div>  
+        </div> 
+
+    <div class="card bg-light m-2">
+        <div class="row justify-items-center">
+            <div class="d-flex align-items-center">
+                <div class="d-inline-flex row d-flex p-2">
+                    <a class="card-title card-link text-decoration-none" href="/workouts/{{ workout.id }}">
+                        <h5 class="card-link tes2 fs-4 ps-3 pt-3">{{workout.name}}</h5>
+                    </a>
+                    
+                    <p class="text-small text-dark tes2 fs-5 ps-3 mb-0 pb-0">&ldquo;{{ workout.description}}&rdquo;</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card-body text-dark"> 
+            <div class="container">
+        
+                <div class="row d-flex align-content-around flex-wrap">
+                    {% for exercise in workout.workout_exercises %}
+    
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                        
+                        <div class="card m-1 ">
+                            <div class="card-body"> 
+                                <div class="card-contents">
+                                    <p class="text-dark tes2">{{exercise.exercise.name.upper()}}</p>
+                                    <!-- <p class="text-dark"><img class="workout-img" src="{{exercise.exercise.image_url}}" alt=""></p> -->
+                                </div>
+                                <div class="image-wrapper">
+                                    <a href="/workouts/{{ workout.id }}" class="card-link">
+                                        <img src="https://wger.de/media/exercise-images/192/Bench-press-1.png" alt="Image for workout" 
+                                        class="card-img-bottom rounded rounded-3 ">
+                                    </a>
+                                </div>
+                            
+                            </div>
+                        </div>
+                    </div>
+                    
+                    {% endfor %}     
+                </div>       
+           </div>
+        </div>
+   
+    </div>
+
+   
+ </div>   
+</div>
+{% endblock %}

@@ -37,23 +37,33 @@
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav tes2 mx-auto ">
-                <li class="nav-item "><a class="nav-link ps-4" href="/">TEAMS</a></li> 
-                <li class="nav-item "><a class="nav-link ps-4" href="/">ATHLETES</a></li>  
-                <li class="nav-item "><a class="nav-link ps-4" href="/">WORKOUTS</a></li>   
-                <li class="nav-item "><a class="nav-link ps-4" href="/timers">TIMERS</a></li>  
-            </ul>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav tes2 mx-auto ">
+                    {% if not g.user %}
+                    <li class="nav-item "><a class="nav-link ps-4" href="/">HOME</a></li>  
+                    <li class="nav-item "><a class="nav-link ps-4" href="/">WORKOUTS</a></li>   
+                    <li class="nav-item "><a class="nav-link ps-4" href="/timers">TIMERS</a></li>
+                    {% else %}
+                    <li class="nav-item "><a class="nav-link ps-4" href="/">HOME</a></li>  
+                    <li class="nav-item "><a class="nav-link ps-4" href="/workouts">WORKOUTS</a></li>   
+                    <li class="nav-item "><a class="nav-link ps-4" href="/timers">TIMERS</a></li>
+                    <li class="nav-item "><a class="nav-link ps-4" href="/teams">TEAMS</a></li> 
+                    <li class="nav-item "><a class="nav-link ps-4" href="/athletes">ATHLETES</a></li>  
+                    {% endif %}   
+                </ul>
 
-            <ul class="navbar-nav align-self-center tes2 pe-1 ">
-                {% if 'username' in session %}
-                <li class="nav-item "><a class="nav-link ps-4" href="/">LOGOUT</a></li>
-                {% else %}
-                <li class="nav-item "><a class="nav-link ps-4" href="/">REGISTER</a></li>
-                <li class="nav-item "><a class="nav-link ps-4" href="/">LOGIN</a></li>
-                {% endif %} 
-            </ul>   
-        </div>
+                <ul class="navbar-nav align-self-center  pe-1 ">
+                    {% if g.user %}
+                    <li class="nav-item"><a id="profile-link" class="nav-link tes2 ps-4" href="{{ url_for('.users_show', user_id=g.user.id ) }} ">
+                        <img class="nav-user-img rounded-circle m-1" src="{{g.user.image_url}}" alt="user_small"> </a></li>
+                    <li class="nav-item"><a id="logout-link" class="nav-link tes2 ps-4" href="{{ url_for('.logout_user') }} ">LOGOUT</a></li>
+                
+                    {% else %}
+                    <li class="nav-item "><a id="register-link" class="nav-link tes2 ps-4" href="{{ url_for('.register_user') }}">REGISTER</a></li>
+                    <li class="nav-item "><a id="login-link" class="nav-link tes2 ps-4" href="{{ url_for('.login_user') }}">LOGIN</a></li>
+                    {% endif %} 
+                </ul>          
+            </div>
     </nav>
 
     <!-- Wrapper -->

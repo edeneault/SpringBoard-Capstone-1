@@ -211,3 +211,20 @@ a.btn-customized.btn.btn-primary:not(:disabled):not(.disabled):active:focus {
     color: #fff;
     box-shadow: none;
 }
+
+
+/* NAV USER IMG */
+
+.nav-user-img {
+    height: 26px;
+    width: 26px;
+    border: 1px solid rgba(0, 0, 0, .5);
+
+}
+
+.nav-user-img:hover {
+    height: 26px;
+    width: 26px;
+    border: 2px solid rgba(0, 0, 0, .5);
+    opacity: 0.5;
+}

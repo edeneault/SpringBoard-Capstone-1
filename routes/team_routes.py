@@ -1,10 +1,9 @@
 ## Import App ##
 from app import app
 from flask import Flask, render_template, request, flash, redirect, session,  jsonify, g
-from forms import LoginForm, RegisterForm
 from models import ( db, connect_db, User, Team, Athlete, Workout, Athlete_workout, Category, 
                     Equipment, Muscle, Exercise, Workout_exercise, Athlete_workout_exercise )
-from utils import *
+# from utils import *
 
 
 ### TEAM ROUTES ###

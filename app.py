@@ -5,9 +5,9 @@ from flask_debugtoolbar import DebugToolbarExtension
 from sqlalchemy.exc import IntegrityError
 from datetime import datetime as dt
 import datetime
-# import requests
+import requests
 
-from utils import *
+# from utils import *
 from forms import LoginForm, RegisterForm
 from models import (connect_db, db, User, Team, Athlete, Workout, Athlete_workout, Exercise, Category, 
                     Equipment, Muscle, Workout_exercise, Athlete_workout_exercise)
@@ -33,7 +33,7 @@ connect_db(app)
 
 
 # import declared routes
-from routes import login_routes, user_routes, team_routes, athlete_routes
+from routes import login_routes, user_routes, team_routes, athlete_routes, workout_routes, exercise_routes
 
 
 

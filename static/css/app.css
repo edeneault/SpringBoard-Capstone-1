@@ -46,6 +46,12 @@ footer .tes1 {
     font-weight: 100;
 }
 
+.top-title.tes2 {
+    font-family: gotham;
+    font-size: 1.2rem;
+    font-weight: 100;
+}
+
 .display-1.tes2 {
     font-family: gotham;
     font-size: 1.75rem;
@@ -383,9 +389,15 @@ button.btn-customized.btn.btn-primary:not(:disabled):not(.disabled):active:focus
     color: rgba(0, 0, 0, 1);
 }
 
+a.card-link,
+.card-teams a.card-link {
+    color: #000000;
+}
 
-a.card-link:hover {
-    color: #0275d8 !important;
+a.card-link:hover,
+.card-teams a.card-link:hover {
+    color: #8d3ff3;
+    color: #572796;
 }
 
 
