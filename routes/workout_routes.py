@@ -11,7 +11,8 @@ from models import ( db, connect_db, User, Team, Athlete, Workout, Athlete_worko
 def workouts_show():
     """ Show all workouts view """
     
-    user_id = g.user.id
+    if g.user:
+        user_id = g.user.id
 
     workouts = Workout.query.all()
     

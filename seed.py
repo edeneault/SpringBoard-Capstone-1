@@ -20,10 +20,13 @@ print(curr_date)
 
 ## ADD USERS ##
 coach1 = User(username="edeneault", password="password1", email="edeneault@gmail.com", first_name="Etienne", last_name="Deneault",
-                image_url="https://miro.medium.com/max/3150/1*vx4SBuW5YM3s1Pxyk00mSQ.jpeg")
+                image_url="https://miro.medium.com/max/3150/1*vx4SBuW5YM3s1Pxyk00mSQ.jpeg", 
+                header_image_url="https://images.unsplash.com/photo-1580237754794-0e26a1d7ee03?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1414&q=80")
+
 coach2 = User(username="msparks", password="password2", email="msparks@fakegmail.com", first_name="Matthew", last_name="Sparks")
 coach3 = User(username="adeneault", password="password3", email="apjarova@gmail.com", first_name="Alexandra", last_name="Deneault",
-                 image_url="https://iv1.lisimg.com/image/20508627/666full-alexandra-apjarova.jpg")
+                 image_url="https://iv1.lisimg.com/image/20508627/666full-alexandra-apjarova.jpg",
+                 header_image_url="https://images.unsplash.com/photo-1519925610903-381054cc2a1c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1350&q=80")
 coach4 = User(username="beachcoach", password="BeachCoach", email="beach@coach.com", first_name="Laura", last_name="Summers")
 users = [coach1, coach2, coach3, coach4]
 
@@ -197,19 +200,19 @@ athlete_workouts = [ athlete_workout_1_1, athlete_workout_2_1, athlete_workout_2
 
 exercise_1 = Exercise(name="flat bench press", 
     description="On you bench press rack of choice, set-up in flat configuration, use a barbell to press up and down, make sure to have a spotter.",
-    category_id=5, equipment_id=1, muscle_id=1)
+    wger_id=192, category_id=5, equipment_id=1, muscle_id=1)
 exercise_2 = Exercise(name="Air Squat", 
     description="Perform a squat with no resistance, make sure stance is slightly wider then shoulder width and feet are turned out.",
-    category_id=6, equipment_id=7, muscle_id=2)
+    wger_id=111, category_id=6, equipment_id=7, muscle_id=2)
 exercise_3 = Exercise(name="push up", 
     description="Assume a support position, perform a push up, make sure to engage your core while performing each repetition.",
-    category_id=5, equipment_id=7, muscle_id=1)
-exercise_4 = Exercise(name="core half crunch", 
+    wger_id=182, category_id=5, equipment_id=7, muscle_id=1)
+exercise_4 = Exercise(name="crunches", 
     description="Sit and lay back on a swiss ball, position feet slightly wider then shoulder width, perform a half-crunch fully engaging the core.",
-    category_id=1, equipment_id=9, muscle_id=3)
+    wger_id=91, category_id=1, equipment_id=9, muscle_id=3)
 exercise_5 = Exercise(name="concentration curl", 
     description="Using dumbells, sit on a bench, one arm at a time, position your arm against your leg and perform a curl.",
-    category_id=2, equipment_id=3, muscle_id=4)
+    wger_id=74, category_id=2, equipment_id=3, muscle_id=4)
 
 
 exercises = [ exercise_1, exercise_2, exercise_3, exercise_4, exercise_5 ]

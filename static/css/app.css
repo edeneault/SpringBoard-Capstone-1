@@ -349,10 +349,6 @@ button.btn-customized.btn.btn-primary:not(:disabled):not(.disabled):active:focus
     opacity: 0.5;
 }
 
-
-
-
-
 .header-img {
     /* background: url('/static/images/felipe-giacometti-ziaGSKwdzn8-unsplash-large.jpg') no-repeat top center fixed; */
     height: 400px;
@@ -366,6 +362,15 @@ button.btn-customized.btn.btn-primary:not(:disabled):not(.disabled):active:focus
 .profile-container {
     /* position: relative; */
     color: black;
+}
+
+.user-team-card:hover,
+.user-team-card:focus {
+    transform: scale(1.1);
+    background-color: rgba(0, 0, 0, 0.1);
+    color: #8d3ff3;
+    color: #572796;
+    border-color: black;
 }
 
 /* TEAM CARDS - USER PROFILE CSS  */
@@ -428,12 +433,62 @@ a.card-link:hover,
     width: 4rem;
 }
 
-/* ATHLETE CARDS - TEAMS CSS  */
-/* .athlete-img {
-    height: 4rem;
-    width: 4rem;
-    top: -75px;
-    left: -75px;
-    position: relative;
-    border: 1px solid rgba(0, 0, 0, .5);
-} */
+
+
+/* EXERCISE CARD CSS  */
+
+.exercise-card {
+    height: 130px;
+}
+
+.exercise-card:hover,
+.exercise-card-focus {
+    height: 130px;
+    transform: scale(1.1);
+    background-color: rgba(0, 0, 0, 0.1);
+    color: #8d3ff3;
+    color: #572796;
+    border-color: black;
+}
+
+/* WORKOUTS CSS */
+
+.workouts-container {
+    color: rgba(0, 0, 0, 1);
+}
+
+.workout-exercise:hover,
+.workout-exercise:focus {
+    background-color: rgba(0, 0, 0, 0.1);
+    color: #8d3ff3;
+    color: #572796;
+    border-color: black;
+}
+
+/* SPINNER */
+
+
+@keyframes spinner-border {
+    to {
+        transform: rotate(360deg)
+    }
+}
+
+@keyframes spinner-grow {
+    0% {
+        transform: scale(0);
+    }
+
+    50% {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* EXERCISE CARD */
+
+div.description {
+    display: inline-flex;
+    margin-left: 1rem;
+
+}

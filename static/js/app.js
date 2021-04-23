@@ -11,6 +11,31 @@ var carousel = new bootstrap.Carousel(myCarousel, {
 console.log(carousel);
 
 
+// $(window).load(function() {
+//     $('.spinner-grow').classList.toggle("d-none");
+//     $('.spinner-grow').classList.toggle("visible");
+// });
+// $("#spinner-link").click(function () {
+//     console.log("in spinner function")
+//     $("#spinner").hide();
+// });
+const loginLink = document.getElementById("spinner-link").addEventListener('click', changeClass);
+
+function changeClass(e) {
+  
+    const spinner = document.querySelector("#spinner");
+    spinner.classList.toggle("d-none");
+}
+// console.log(spinner)
+
+// window.onload = function () {
+//     console.log("in spinner function")
+//     document.getElementById("loading").style.display = "visible"
+// }
+
+
+// You can wait until the body is ready:
+
 
 // async function resquest_wger() {
 //     await axios.get(`https://wger.de/api/v2/exerciseinfo/?language=2`)

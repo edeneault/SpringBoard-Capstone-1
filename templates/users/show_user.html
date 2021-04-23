@@ -4,7 +4,7 @@
 
 <div    id="login-link"    
         class="container-fluid header-img" 
-        style="background: url(' {{ user.header_image_url }}') no-repeat top center fixed;">
+        style="background: url(' {{ user.header_image_url }}') no-repeat top center fixed; width:100%">
 </div>
 
 <div class="profile-container container mt-3">
@@ -37,7 +37,7 @@
                                     <div class="col-md-9 col-9 mt-2">
                                         {% for team in teams %}
                                         <a class="card-link text-dark text-decoration-none" href="/teams/{{ team.id }}">
-                                            <div class="card border border-dark rounded-pill mb-1">
+                                            <div class="card user-team-card border border-dark rounded-pill mb-1">
                                                 <div class="card-horizontal">
                                                     <div class="img-square-wrapper">
                                                         <img class="team-image rounded-circle m-1" src="{{ team.team_image_url }}" alt="Card image cap">

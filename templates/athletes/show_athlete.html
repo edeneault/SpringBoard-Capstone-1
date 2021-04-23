@@ -1,40 +1,38 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
-<h1 class="text-dark">ATHLETE PAGE</h1>
-<h5 class="text-dark">{{ athlete.full_name }}</h5>
-
-<div    id="login-link"    
-        class="container-fluid header-img" 
-        style="background: url(' {{ athlete.team.team_image_url }}') no-repeat top center fixed;">
-</div>
-
-<div class="profile-container container mt-3">
-    <div class="team-single">
-        <div class="row">
-            <div class="col-lg-4 col-md-5 xs-margin-30px-bottom">
-                <div class="text-center mb-2">
-                    <img class="profile-img img-fluid rounded-circle shadow" src="{{athlete.athlete_image_url}}" alt="" data-holder-rendered="true">
+<div class="container">
+    <h1 class="text-dark">ATHLETE PAGE</h1>
+    <h5 class="text-dark">{{ athlete.full_name }}</h5>
+    
+    <div  id="login-link" class="container-fluid header-img" style="background: url(' {{ athlete.team.team_image_url }}') no-repeat top center fixed;"></div>
+    
+    <div class="profile-container container mt-3">
+        <div class="team-single">
+            <div class="row">
+                <div class="col-lg-4 col-md-5 xs-margin-30px-bottom">
+                    <div class="text-center mb-2">
+                        <img class="profile-img img-fluid rounded-circle shadow" src="{{athlete.athlete_image_url}}" alt="" data-holder-rendered="true">
+                    </div>
+                    <div class="profile-text bg-light-gray padding-30px-all md-padding-25px-all sm-padding-20px-all text-center">
+                        <h4 class="margin-10px-bottom font-size24 md-font-size22 sm-font-size20 font-weight-600 pt-2">position - {{athlete.position}}</h4>
+                        <p>Name: {{athlete.full_name }}</p>
+                
+                  
+                    </div>
                 </div>
-                <div class="profile-text bg-light-gray padding-30px-all md-padding-25px-all sm-padding-20px-all text-center">
-                    <h4 class="margin-10px-bottom font-size24 md-font-size22 sm-font-size20 font-weight-600 pt-2">position - {{athlete.position}}</h4>
-                    <p>Name: {{athlete.full_name }}</p>
-            
-              
-                </div>
-            </div>
+    
+                <div class="col-lg-8 col-md-7">
+                    <div class="team-single-text padding-50px-left sm-no-padding-left">
+                        <h4 class="font-size38 sm-font-size32 xs-font-size30 mb-3 tes1">ATHLETE PROFILE</h4>
 
-            <div class="col-lg-8 col-md-7">
-                <div class="team-single-text padding-50px-left sm-no-padding-left">
-                    <h4 class="font-size38 sm-font-size32 xs-font-size30 mb-3 tes1">ATHLETE PROFILE</h4>
-                   
-                    <!--  -->
-                </div>    
+                    </div>    
+                </div>
             </div>
         </div>
     </div>
 </div>
+
 
 
 

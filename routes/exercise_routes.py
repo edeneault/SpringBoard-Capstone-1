@@ -1,85 +1,110 @@
-## Import App ##
+## Import App and needed modules ##
 from app import app
-from flask import Flask, render_template, request, flash, redirect, session,  jsonify, g
 
+from flask import Flask, render_template, request, flash, redirect, session,  jsonify, g
 from models import ( db, connect_db, User, Team, Athlete, Workout, Athlete_workout, Category, 
                     Equipment, Muscle, Exercise, Workout_exercise, Athlete_workout_exercise )
-# from utils import *
+from utils import *
 import requests
 
 NEXT = "next"
+NEXT_IMAGE = "next_image"
 
-CATEGORY_OBJ = { "Abs": 1, "Arms": 2, "Back": 3, "Calves": 4, "Chest": 5, "Legs": 6, "Shoulders": 7 }
-
-EQUIPMENT_OBJ = {   "Barbell": 1, "Bench": 2, "Dumbbell": 3, "Gym mat": 4, "Incline bench": 5, "Kettlebell": 6,
-                    "none (bodyweight exercise)": 7, "Pull-up bar": 8, "Swiss Ball": 9, "SZ-Bar": 10 }
-
-MUSCLE_OBJ = {  "Anterior deltoid": 1,  "Biceps brachii": 2, "Biceps femoris": 3, "Brachialis": 4, "Gastrocnemius": 5,
-                "Gluteus maximus": 6, "Latissimus dorsi": 7, "Obliquus externus abdominis": 8, "Pectoralis major": 9,
-                "Quadriceps femoris": 10, "Rectus abdominis": 11, "Serratus anterior": 12, "Soleus": 13, "Trapezius": 14,
-                 "Triceps brachii": 15 }
-
-
-@app.route('/exercises')
-def exercises_show():
-    """ Show all exercises view """
+@app.route('/exercises/<int:page_num>')
+def exercises_show(page_num):
+    """ Show all exercises view and call on API for exercise data """
     
-    user_id = g.user.id
+    # user_id = g.user.id
 
-    response = requests.get("https://wger.de/api/v2/exerciseinfo/?language=2", timeout=2)
+    ## API request for exercises - offset 5 every call ##
+    # if NEXT in session:
+    #     url = session[NEXT]  
+    #     response = requests.get(url=url, timeout=1.25)
+    #     response = response.json()
+    #     session[NEXT] = response["next"]
+    #     response = response["results"]
+    # else:
+    #     response = requests.get("https://wger.de/api/v2/exerciseinfo/?limit=5&language=2", timeout=1.25)
+    #     response = response.json()
+    #     session[NEXT] = response["next"]
+    #     response = response["results"]
 
-    response = response.json()
 
-    session[NEXT] = response["next"]
-
-    response = response["results"]
-
+    ## API request for image - offset 20 every call ##
+    # print(NEXT_IMAGE)
     
-
-    exercises_resp = []
-
-    for exercise in response:
-        name = exercise["name"]
-        description = exercise["description"]
-        category = exercise["category"]["name"]
-        if not exercise["equipment"]:
-           equipment = 1
-        else:
-            equipment = exercise["equipment"][0]["name"]
-
-        if not exercise["muscles"]:
-           muscle = 1
-        else:
-            muscle = exercise["muscles"][0]["name"]   
-
-        for cat in CATEGORY_OBJ.keys():
-            if cat == category:
-                category = CATEGORY_OBJ.get(cat, 1)
-
-        for equip in EQUIPMENT_OBJ.keys():
-            if equip == equipment:
-                equipment = EQUIPMENT_OBJ.get(equip, 7)
+    # if NEXT_IMAGE in session:
         
-        for musl in MUSCLE_OBJ.keys():
-            if musl == muscle:
-                muscle = MUSCLE_OBJ.get(musl, 11)
-
-        # equipment = ( equip["name"] for equip in exercise["equipment"] if equip == equipment )
-        try:
-            exercise = Exercise(name=name, description=description, category_id=category, equipment_id=equipment, muscle_id=muscle)
-            db.session.add(exercise)
-            db.session.commit()
-        except:
-            continue
-
-
-
-        # exercises_resp.append(exercise)
+    #     if session[NEXT_IMAGE] != None:
+    #         url = session[NEXT_IMAGE] 
+    #     else:
+    #         url = "https://wger.de/api/v2/exerciseimage/?is_main=True"
      
+    #     resp = requests.get(url=url, timeout=1.25)
+      
+    #     resp = resp.json()
+    #     session[NEXT_IMAGE] = resp["next"]
+    #     resp = resp["results"]
+    #     print(resp)
+    # else:
+    #     resp = requests.get("https://wger.de/api/v2/exerciseimage/?is_main=True", timeout=1.25)
+    #     resp = resp.json()
+    #     session[NEXT_IMAGE] = resp["next"]
+    #     resp = resp["results"]
+    #     print(resp)
 
+    # insert_to_db(response)
+    # insert_images(resp)
 
-    exercises = Exercise.query.all()
+    exercises = Exercise.query.paginate(per_page=21, page=page_num, error_out=True)
+    print("********************************************")
+    print(exercises.items[0].name)
+
 
     return render_template('/exercises/show_exercises.html',  exercises=exercises)
+
+
+# @app.route('/thread/<int:page_num>')
+# def thread(page_num):
+#     threads = Thread.query.paginate(per_page=5, page=page_num, error_out=True)
+
+#     return render_template('index.html', threads=threads)
+
+
+
+
+@app.route('/exercises/exercise/<int:exercise_id>')
+def exercise_show(exercise_id):
+    """ Show exercise by ID """
+    ALT_IMAGE= "https://w7.pngwing.com/pngs/165/675/png-transparent-black-person-lifting-barbell-illustration-computer-icons-physical-exercise-physical-fitness-personal-trainer-fitness-centre-muscle-building-routine-miscellaneous-logo-monochrome-thumbnail.png"
+  
+    # user_id = g.user
+
+    # user = User.query.get_or_404(user_id)
+
+    exercise = Exercise.query.get_or_404(exercise_id)
+
+    image_id = exercise.wger_id
+    print(image_id)
+
+    # exercise.description = f"{exercise.description}"
+    
+    try:
+        image = Image.query.filter(exercise.wger_id == Image.wger_id).first()
+        print(image)
+    except:
+        image = ALT_IMAGE
+    
+     
+    
+    # snagging athletes in order from the database;
+    # team.athletes won't be in order by default
+    # athletes = (Athlete
+    #             .query
+    #             .filter(Athlete.team_id == team_id)
+    #             .order_by(Athlete.created_on.desc())
+    #             .all())
+
+    return render_template('exercises/show_exercise.html', exercise=exercise, image=image, alt_image=ALT_IMAGE)
 
 

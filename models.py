@@ -201,9 +201,11 @@ class Exercise(db.Model):
     description = db.Column(db.Text, nullable=False)
     default_reps = db.Column(db.Integer, default=REPS_DEFAULT)
     image_url = db.Column(db.Text, default="/static/images/default-pic.png")
+    wger_id = db.Column(db.Integer)
     category_id = db.Column(db.Integer, db.ForeignKey('categories.id', ondelete='cascade'))
     equipment_id = db.Column(db.Integer, db.ForeignKey('equipment.id', ondelete='cascade')) 
     muscle_id = db.Column(db.Integer, db.ForeignKey('muscles.id', ondelete='cascade')) 
+
 
     categories = db.relationship("Category", backref="exercise", cascade="all, delete")
     equipment = db.relationship("Equipment", backref="exercise", cascade="all, delete")
@@ -214,6 +216,8 @@ class Exercise(db.Model):
     def __repr__(self):
         return f"<Exercise #{self.id}: {self.name}, {self.description}, {self.default_reps}, {self.image_url}, {self.category_id}, {self.equipment_id}, {self.muscle_id}>"
 
+
+    
 
 class Workout_exercise(db.Model):
     """ Class to instantiate a Workout_exercise class and methods"""
@@ -240,3 +244,15 @@ class Athlete_workout_exercise(db.Model):
 
     def __repr__(self):
         return f"<Athlete_workouts_exercise#{self.id}: {self.athlete_workout_id}, {self.workout_exercise_id}>"
+
+
+class Image(db.Model):
+    """ Class to instantiate a Image class and methods"""
+    __tablename__ = "images"
+
+    id = db.Column(db.Integer, primary_key=True)
+    exercise_image_url = db.Column(db.Text, nullable=False)
+    wger_id = db.Column(db.Integer, nullable=False)
+
+    def __repr__(self):
+        return f"<Image #{self.id}: {self.exercise_image_url }, {self.wger_id }>"

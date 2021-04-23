@@ -10,9 +10,7 @@ import requests
 # from utils import *
 from forms import LoginForm, RegisterForm
 from models import (connect_db, db, User, Team, Athlete, Workout, Athlete_workout, Exercise, Category, 
-                    Equipment, Muscle, Workout_exercise, Athlete_workout_exercise)
-
-
+                    Equipment, Muscle, Workout_exercise, Athlete_workout_exercise, Image)
 
 CURR_USER_KEY = "curr_user"
 
@@ -29,6 +27,7 @@ app.config['WTF_CSRF_ENABLED'] = True
 toolbar = DebugToolbarExtension(app)
 
 connect_db(app)
+# db.drop_all()
 # db.create_all() 
 
 

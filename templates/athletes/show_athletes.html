@@ -48,79 +48,83 @@
     </div>         
 
     {% endfor %} -->
-<div class="col-sm-12 teams-container py-3">
-    <!-- <h1 class="text-dark text-center tes2 fs-5">ATHLETES PAGE</h1> -->
-    <div class="team-single-text padding-50px-left sm-no-padding-left">
- 
+
+<div class="container">
+    <div class="col-sm-12 teams-container py-3">
+        <!-- <h1 class="text-dark text-center tes2 fs-5">ATHLETES PAGE</h1> -->
+        <div class="team-single-text padding-50px-left sm-no-padding-left">
+     
+            
+            <div class="row">
+                <div class="d-flex justify-content-center align-items-center col-md-12 col-12 mt-2">
+                    <div class="flex-grow-1">
+                        <i class="teams-fa-color fas fa-running mt-2 fa-3x"></i>
+                        <h1 class="d-inline teams-fa-color display-5 px-1">Athletes</h1>
+                    </div>
+                    
+                    <div class="pt-4">
+                        <h6 class="tes2 text-center sm-font-size12 px-2">{{ user.full_name }}</h6>
+                        <h6 class="tes2 text-center sm-font-size12 px-2">Joined: {{ user.friendly_date  }}</h6>
+                    </div>
+                </div>  
+            </div> 
         
-        <div class="row">
-            <div class="d-flex justify-content-center align-items-center col-md-12 col-12 mt-2">
-                <div class="flex-grow-1">
-                    <i class="teams-fa-color fas fa-running mt-2 fa-5x"></i>
-                    <h1 class="d-inline teams-fa-color display-1 px-1">Athletes</h1>
+        
+        
+        
+        
+        {% for team in teams %}
+        <div class="row justify-items-center">
+            <div class="d-flex  align-items-center ">
+                <div class="d-inline img-square-wrapper">
+                    <img class="teams-team-image rounded-circle m-1" src="{{ team.team_image_url }}" alt="Card image cap">
+                </div>
+                <div class="d-inline-flex row d-flex p-2">
+                    <h1 class="tes2 display-1 d-inline teams-fa-color mx-auto">{{ team.name.upper() }} </h1>
+                    <h5 class="tes2 fs-5 d-inline teams-fa-color">Athletes</h5>
+                    <p class="teams-fa-color p-0 mb-2 "><span class="fa fa-map-marker me-2"></span>{{team.location}}</p>
+                    <h5 class="tes2 teams-fa-color">Coach | {{ user.full_name }}</h5>
                 </div>
                 
-                <div class="pt-4">
-                    <h5 class="tes1 text-center fs-5">Coach </h5>
-                    <h6 class="tes2 text-center sm-font-size12 px-2">{{ user.full_name }}</h6>
-                    <h6 class="tes2 text-center sm-font-size12 px-2">Joined: {{ user.friendly_date  }}</h6>
-                </div>
-            </div>  
-        </div> 
-    
-    
-    
-    
-    
-    {% for team in teams %}
-    <div class="row justify-items-center">
-        <div class="d-flex  align-items-center ">
-            <div class="d-inline img-square-wrapper">
-                <img class="teams-team-image rounded-circle m-1" src="{{ team.team_image_url }}" alt="Card image cap">
-            </div>
-            <div class="d-inline-flex row d-flex p-2">
-                <h1 class="tes2 display-1 d-inline teams-fa-color mx-auto">{{ team.name.upper() }} </h1>
-                <h5 class="tes2 fs-5 d-inline teams-fa-color">Athletes</h5>
-                <p class="teams-fa-color p-0 mb-2 "><span class="fa fa-map-marker me-2"></span>{{team.location}}</p>
-                <h5 class="tes2 teams-fa-color">Coach | {{ user.full_name }}</h5>
             </div>
             
+    
         </div>
         
-
-    </div>
+        <div class="card-body text-dark"> 
+            <div class="container-fluid">
+        
+                <div class="row d-flex align-content-around flex-wrap">
+                {% for athlete in team.athletes %}
     
-    <div class="card-body text-dark"> 
-        <div class="container-fluid">
-    
-            <div class="row d-flex align-content-around flex-wrap">
-            {% for athlete in team.athletes %}
-
-                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                    
-                    <div class="card m-1 ">
-                        <div class="card-body">
-                        <div class="image-wrapper">
-                            <a href="/athletes/{{ athlete.id }}" class="card-link">
-                                <img src="{{ athlete.athlete_image_url }}" alt="Image for {{athlete.full_name }}" 
-                                class="card-img-top rounded-top rounded-3 ">
-                            </a>
-                        </div>
-                        <div class="card-contents">                      
-                            <p class="tes2 card-title fs-5 text-center px-2 py-1" >{{ athlete.full_name }}</p>
-                            <p class="tes2 px-2 py-1" >Team - {{ athlete.team.name }}</p>           
-                            <p class="tes2 px-2 py-1" >Position - {{ athlete.position }}</p>
-                        </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                        
+                        <div class="card m-1 ">
+                            <div class="card-body">
+                            <div class="image-wrapper">
+                                <a href="/athletes/{{ athlete.id }}" class="card-link">
+                                    <img src="{{ athlete.athlete_image_url }}" alt="Image for {{athlete.full_name }}" 
+                                    class="card-img-top rounded-top rounded-3 ">
+                                </a>
+                            </div>
+                            <div class="card-contents">                      
+                                <p class="tes2 card-title fs-5 text-center px-2 py-1" >{{ athlete.full_name }}</p>
+                                <p class="tes2 px-2 py-1" >Team - {{ athlete.team.name }}</p>           
+                                <p class="tes2 px-2 py-1" >Position - {{ athlete.position }}</p>
+                            </div>
+                            </div>
                         </div>
                     </div>
+                
+                {% endfor %}
                 </div>
-            
-            {% endfor %}
             </div>
+      
+        {% endfor %}
         </div>
-  
-    {% endfor %}
+        </div>
     </div>
-    </div>
+
 </div>
+
 {% endblock %}

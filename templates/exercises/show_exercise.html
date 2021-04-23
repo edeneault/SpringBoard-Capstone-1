@@ -2,7 +2,43 @@
 
 {% block content %}
 
-<h1 class="text-dark">EXERCISE</h1>
+<div class="container d-flex-block">
+    <div class="col-sm-12 teams-container py-3">
+        <div class="team-single-text padding-50px-left sm-no-padding-left">
+            <div class="flex-grow-1">
+                <i class="teams-fa-color fas fa-dumbbell mt-2 fa-3x"></i>
+                <h1 class="d-inline teams-fa-color display-5 px-1">Exercise</h1>
+            </div>
+        </div>
+    </div>
 
+    <div class="card mb-3">
+        <div class="row g-0">
+          <div class="col-md-4">
+            {% if image == None: %}
+                <img class="img-thumbnail" src="{{alt_image}}" alt="Image for workout">
+            {% else %}
+                
+                <img class="img-thumbnail" src="{{image.exercise_image_url}}" alt="Image for workout">
+            {% endif %}
+            </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-header tes2 fs-4 ps-3 pt-2 mb-0 pb-0">{{exercise.name}}</h5>
+                        <p class="card-text tes2 fs-5 ps-3 pt-4">CATEGORY:</p>
+                        <p class="card-text ps-3 mx-0 py-0">{{exercise.categories.category_name}}</p>
+                        
+                        <p class="card-text tes2 fs-5 ps-3 mb-0 pb-0">DESCRIPTION:</p> 
+                            
+                        <div class="description">{{exercise["description"]|safe}}</div>
+                        <p class="card-text tes2 fs-5 ps-3 mb-0 pb-0">EQUIPMENT:</p>
+                        <p class="card-text ps-3 mb-1 pb-1">{{ exercise.equipment.equipment_name}}</p>
+                        <p class="card-text tes2 fs-5 ps-3 mb-0 pb-0">PRIMARY MUSCLE: </p>
+                        <p class="card-text ps-3 mb-1 pb-1">{{ exercise.muscles.muscle_name}}</p>
+                    </div>
+                </div>
+            </div>
+      </div>
+</div>
 
 {% endblock %}
