@@ -4,6 +4,7 @@ from app import app
 from flask import Flask, render_template, request, flash, redirect, session,  jsonify, g
 from models import ( db, connect_db, User, Team, Athlete, Workout, Athlete_workout, Category, 
                     Equipment, Muscle, Exercise, Workout_exercise, Athlete_workout_exercise )
+from forms import LoginForm, RegisterForm, TeamForm, AthleteForm, ExerciseForm
 from utils import *
 import requests
 
@@ -14,9 +15,7 @@ NEXT_IMAGE = "next_image"
 def exercises_show(page_num):
     """ Show all exercises view and call on API for exercise data """
     
-    # user_id = g.user.id
-
-    ## API request for exercises - offset 5 every call ##
+    ###### API request for exercises - offset 5 every call ######
     # if NEXT in session:
     #     url = session[NEXT]  
     #     response = requests.get(url=url, timeout=1.25)
@@ -30,7 +29,7 @@ def exercises_show(page_num):
     #     response = response["results"]
 
 
-    ## API request for image - offset 20 every call ##
+    ###### API request for image - offset 20 every call ######
     # print(NEXT_IMAGE)
     
     # if NEXT_IMAGE in session:
@@ -64,47 +63,73 @@ def exercises_show(page_num):
     return render_template('/exercises/show_exercises.html',  exercises=exercises)
 
 
-# @app.route('/thread/<int:page_num>')
-# def thread(page_num):
-#     threads = Thread.query.paginate(per_page=5, page=page_num, error_out=True)
-
-#     return render_template('index.html', threads=threads)
-
-
-
 
 @app.route('/exercises/exercise/<int:exercise_id>')
 def exercise_show(exercise_id):
     """ Show exercise by ID """
     ALT_IMAGE= "https://w7.pngwing.com/pngs/165/675/png-transparent-black-person-lifting-barbell-illustration-computer-icons-physical-exercise-physical-fitness-personal-trainer-fitness-centre-muscle-building-routine-miscellaneous-logo-monochrome-thumbnail.png"
   
-    # user_id = g.user
-
-    # user = User.query.get_or_404(user_id)
-
     exercise = Exercise.query.get_or_404(exercise_id)
-
     image_id = exercise.wger_id
-    print(image_id)
 
-    # exercise.description = f"{exercise.description}"
-    
     try:
         image = Image.query.filter(exercise.wger_id == Image.wger_id).first()
-        print(image)
+    
     except:
-        image = ALT_IMAGE
-    
-     
-    
-    # snagging athletes in order from the database;
-    # team.athletes won't be in order by default
-    # athletes = (Athlete
-    #             .query
-    #             .filter(Athlete.team_id == team_id)
-    #             .order_by(Athlete.created_on.desc())
-    #             .all())
+        image = exercise.image_url
 
     return render_template('exercises/show_exercise.html', exercise=exercise, image=image, alt_image=ALT_IMAGE)
 
 
+
+@app.route('/exercises/add', methods=["GET", "POST"])
+def exercise_add():
+    """ Add an exercise. """
+
+    if not g.user:
+        flash("Access unauthorized.", "danger")
+        return redirect("/")
+    
+    user = g.user
+
+    categories = Category.query.all() 
+    categories = [ (c.id, c.category_name) for c in categories]
+
+    equipment = Equipment.query.all() 
+    equipment = [ (e.id, e.equipment_name) for e in equipment]
+
+    muscles = Muscle.query.all() 
+    muscles = [ (m.id, m.muscle_name) for m in muscles]
+
+    form = ExerciseForm()
+    form.category_id.choices = categories
+    form.equipment_id.choices = equipment
+    form.muscle_id.choices = muscles
+
+
+    if form.validate_on_submit():
+        try:
+            exercise = Exercise(
+                name=form.name.data,
+                description=form.description.data,
+                default_reps=form.default_reps.data,
+                image_url=form.image_url.data,
+                category_id= form.category_id.data,
+                equipment_id= form.equipment_id.data,
+                muscle_id= form.muscle_id.data
+                
+            )
+            print(exercise)
+            db.session.add(exercise)
+            db.session.commit()
+            print(exercise)
+
+        except:
+            flash("Something went wrong", "danger")
+            return render_template('/exercises/exercise_add_form.html', form=form)
+
+        return redirect(f"/exercises/exercise/{exercise.id}")
+
+    else:
+        return render_template('/exercises/exercise_add_form.html', form=form)
+    return render_template('/exercises/exercise_add_form.html', form=form)
