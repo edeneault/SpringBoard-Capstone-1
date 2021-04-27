@@ -19,13 +19,34 @@ console.log(carousel);
 //     console.log("in spinner function")
 //     $("#spinner").hide();
 // });
-const loginLink = document.getElementById("spinner-link").addEventListener('click', changeClass);
+const spinnerLink = document.getElementById("spinner-link").addEventListener('click', changeClass);
 
 function changeClass(e) {
   
     const spinner = document.querySelector("#spinner");
     spinner.classList.toggle("d-none");
 }
+
+
+// DISABLE SUBMIT BUTTON //
+// $(document).ready(function () {
+//     $("#submitBtn").on("click", function (e) {
+//         console.log(e)
+//         e.preventDefault()
+//         $(".submitBtn").remove("#submitBtn");
+//         console.log("d-block active")
+//     });
+// });
+
+// $(document).ready(function () {
+//     $("#completeBtn").on("click", function () {
+//         $(".submitBtn").toggleClass("d-block");
+//         console.log("disabled inactive")
+        
+//     });
+// })
+
+
 // console.log(spinner)
 
 // window.onload = function () {

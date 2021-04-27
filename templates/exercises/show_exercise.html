@@ -11,8 +11,10 @@
             </div>
         </div>
     </div>
-
-    <div class="card mb-3">
+    
+    {% block exercise_content %} {% endblock %}
+    
+    <div class="card my-3">
         <div class="row g-0">
           <div class="col-md-4">
             {% if image == None: %}
@@ -24,21 +26,34 @@
             </div>
                 <div class="col-md-8">
                     <div class="card-body">
-                        <h5 class="card-header tes2 fs-4 ps-3 pt-2 mb-0 pb-0">{{exercise.name}}</h5>
+                        <div class="d-flex  card-header">
+                            <h5 class="tes2-lg mt-2">{{exercise.name}}</h5>
+                            <div>
+                                <a class="btn btn-primary btn-customized btn me-1 p-2 " href="/exercises/edit/{{ exercise.id }}">EDIT</a>  
+                            </div>
+                            <div>
+                                <form action="/exercises/delete/{{ exercise.id }}" method="POST">
+                                    <button class="btn btn-customized-red btn p-2" type="submit">DELETE</button>  
+                                </form>
+                            </div>
+                            
+                        </div>
+                        
                         <p class="card-text tes2 fs-5 ps-3 pt-4">CATEGORY:</p>
                         <p class="card-text ps-3 mx-0 py-0">{{exercise.categories.category_name}}</p>
                         
                         <p class="card-text tes2 fs-5 ps-3 mb-0 pb-0">DESCRIPTION:</p> 
                             
-                        <div class="description">{{exercise["description"]|safe}}</div>
+                        <div class="description pb-3">{{exercise["description"]|safe}}</div>
                         <p class="card-text tes2 fs-5 ps-3 mb-0 pb-0">EQUIPMENT:</p>
-                        <p class="card-text ps-3 mb-1 pb-1">{{ exercise.equipment.equipment_name}}</p>
+                        <p class="card-text ps-3 mb-1 pb-3">{{ exercise.equipment.equipment_name}}</p>
                         <p class="card-text tes2 fs-5 ps-3 mb-0 pb-0">PRIMARY MUSCLE: </p>
                         <p class="card-text ps-3 mb-1 pb-1">{{ exercise.muscles.muscle_name}}</p>
                     </div>
                 </div>
             </div>
       </div>
+     
 </div>
 
 {% endblock %}

@@ -34,15 +34,15 @@
                     <li class="nav-item"><a class="nav-link ps-4" href="/workouts">WORKOUTS</a></li>   
                     <li class="nav-item"><a class="nav-link ps-4" href="/timers">TIMERS</a></li>
                     <li class="nav-item"><a class="nav-link ps-4" href="/teams">TEAMS</a></li> 
-                    <li class="nav-item"><a class="nav-link ps-4" href="/athletes">ATHLETES</a></li>  
+                    <li class="nav-item"><a class="nav-link ps-4" href="/athletes">ATHLETES</a></li>
+                    <li class="nav-item"><a class="nav-link ps-4" href="{{ url_for('.users_show', user_id=g.user.id ) }} ">PROFILE</a></li> 
                     {% endif %}   
                 </ul>
 
                 <ul class="navbar-nav align-self-center  pe-1 ">
                     {% if g.user %}
                     <li class="nav-item "><a id="profile-link" class="d-inline nav-link tes2 ps-4" href="{{ url_for('.users_show', user_id=g.user.id ) }}">
-                        <img class="nav-user-img rounded-circle m-1 d-inline" src="{{g.user.image_url}}" alt="user_small"></a>
-                        <a class="nav-link tes2 ps-4 d-inline" href="{{ url_for('.users_show', user_id=g.user.id ) }} ">PROFILE</a> 
+                        <img class="nav-user-img rounded-circle m-1 d-inline" src="{{g.user.image_url}}" alt="user_small"></a> 
                     </li>
                     <li class="nav-item"><a id="logout-link" class="nav-link tes2 ps-4" href="{{ url_for('.logout_user') }} ">LOGOUT</a></li>
                 

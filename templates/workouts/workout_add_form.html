@@ -1,0 +1,38 @@
+{% extends '/base.html' %}
+
+{% block content %}
+
+<div class="container col-md-12 text-light align-center">
+            
+    <div class="h-100 p-5 text-white bg-workouts rounded-3">
+        <h1 class="workout-builder-title tes1-lg text-center ">WORKOUT BUILDER</h1>
+
+        <div class="row">
+            
+            <div class="col-sm-12 bg-transparent"> 
+                <form id="add-form" class="form"  method="POST">
+                    <div>
+                        <h5 class="tes2 text-warning fs-5 pt-2">ENTER | WORKOUT NAME</h5>
+                    </div>
+                    {{ form.hidden_tag() }}
+                    <ul class="list-unstyled">
+                        <li class="pb-2">{{form.name.label}}{{form.name}}{{form.name.error}}</li>
+                        <li class="pb-2">{{form.description.label}}{{form.description(rows='8',cols='20')}}{{form.description.error}}</li>
+                    </ul>
+                 
+                    {% if session.get["workout_id"] != None %}
+                        <button id="submitBtn" class="btn btn-primary btn-customized btn my-2 "  type="submit">SUBMIT NAME & DESC</button>
+                    {% else %}
+                        <button disabled id="submitBtn" class="btn btn-primary btn-customized btn my-2 "  type="submit">SUBMIT NAME & DESC</button>
+                    {% endif %}
+                    </form> 
+            </div>    
+        {% block select_categories %} {% endblock %}             
+        </div>
+    </div> 
+    {% block show_exercises %} {% endblock %}  
+</div>           
+                
+
+        
+{% endblock %}

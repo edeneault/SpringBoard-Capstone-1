@@ -1,18 +1,19 @@
-{% extends '/exercises/show_exercises.html' %}
+{% extends '/athletes/show_athlete.html' %}
 
-{% block exercise_content %}
+
+{% block athlete_content %} 
 
 <div class="container m-0 p-0">
     <div class="row align-items-md-stretch">  
-        <div id="add_exercise" class="col-md-12">
+        <div id="add-athlete" class="col-md-12">
         <div class="h-100 p-5 text-white bg-login rounded-3">
-            <h1 class="display-4 text-center tes2">Add Exercise</h1>
+            <h1 class="display-4 text-center tes2">Edit Athlete</h1>
         <form class="form" method="POST">
             {{ form.hidden_tag() }}
             <div class="row d-row align-self-center justify-content-center">
                 <div class="">
-                    <button class="btn btn-primary btn-customized btn my-2 " type="submit">CONFIRM ADD</button>
-                    <a class="btn btn-primary btn-customized-red btn my-2 " href="/users/{{ g.user.id }}">CANCEL</a>
+                    <button class="btn btn-primary btn-customized btn my-2 " type="submit">SAVE</button>
+                    <a class="btn btn-primary btn-customized btn my-2 " href="/users/{{ g.user.id }}">CANCEL</a>
                 </div>
                 {% for field in form if field.widget.input_type != 'hidden'%}
                 <div class="fs-5 p-2 col-12 col-sm-12">
@@ -26,10 +27,7 @@
                     {% endfor %}
                 </div>
                 {% endfor %}
-                <div class="">
-                    <button class="btn btn-primary btn-customized btn my-2 " type="submit">CONFIRM ADD</button>
-                    <a class="btn btn-primary btn-customized-red btn my-2 " href="/users/{{ g.user.id }}">CANCEL</a>
-                </div>
+                
             </div>
         </form>     
     </div>

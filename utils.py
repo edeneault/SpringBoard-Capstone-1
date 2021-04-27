@@ -48,6 +48,48 @@ def ip6_force_disabled():
 
 urllib3_cn.ip6_force_disabled = ip6_force_disabled
 
+
+def exercises_api_request():
+    """ Request exercise data from wger API """
+     ###### API request for exercises - offset 5 every call ######
+    if NEXT in session:
+        url = session[NEXT]  
+        response = requests.get(url=url, timeout=1.25)
+        response = response.json()
+        session[NEXT] = response["next"]
+        response = response["results"]
+    else:
+        response = requests.get("https://wger.de/api/v2/exerciseinfo/?limit=5&language=2", timeout=1.25)
+        response = response.json()
+        session[NEXT] = response["next"]
+        response = response["results"]
+
+def exercise_images_api_request():
+    """ Request exercise image data from wger API """
+
+     ###### API request for image - offset 20 every call ######
+    print(NEXT_IMAGE)
+    
+    if NEXT_IMAGE in session:
+        
+        if session[NEXT_IMAGE] != None:
+            url = session[NEXT_IMAGE] 
+        else:
+            url = "https://wger.de/api/v2/exerciseimage/?is_main=True"
+     
+        resp = requests.get(url=url, timeout=1.25)
+      
+        resp = resp.json()
+        session[NEXT_IMAGE] = resp["next"]
+        resp = resp["results"]
+        print(resp)
+    else:
+        resp = requests.get("https://wger.de/api/v2/exerciseimage/?is_main=True", timeout=1.25)
+        resp = resp.json()
+        session[NEXT_IMAGE] = resp["next"]
+        resp = resp["results"]
+        print(resp)
+
 def insert_to_db(response):
     """ Function to insert retrieved API data into the database """
     for exercise in response:
@@ -85,10 +127,10 @@ def insert_to_db(response):
             continue
 
 
-def insert_images():
+def insert_images(resp):
     """ utility to collect all exercise images from API and input in table """
     NEXT_IMAGE = ""
-    for i in range(0,3):
+    for i in range(0,4):
 
         if NEXT_IMAGE != "":
             url = NEXT_IMAGE
@@ -145,45 +187,22 @@ def insert_images():
                 # except:
                 #     continue
         time.sleep(5)
-
-
-    # else:
-    #     resp = requests.get("https://wger.de/api/v2/exerciseimage/?is_main=True", timeout=1.25)
-    #     resp = resp.json()
-    #     NEXT_IMAGE = resp["next"]
-    #     resp = resp["results"]
-    #     print(resp)
-    
-    
-    
-     
+   
+### UNCOMMENT TO SEED images TABLE ###    
 # insert_images()
     
- ## API request for image - offset 20 every call ##
-    # print(NEXT_IMAGE)
+ 
+def get_exercise_image(exercise_id, exercise):
+    """ Function to get the image associated  
+    with exercise if available in image table """
+
+    try:
+        image = Image.query.filter(exercise.wger_id == Image.wger_id).first()
     
-    # if NEXT_IMAGE:
-        
-    #     if session[NEXT_IMAGE] != None:
-    #         url = session[NEXT_IMAGE] 
-    #     else:
-    #         url = "https://wger.de/api/v2/exerciseimage/?is_main=True"
-     
-    #     resp = requests.get(url=url, timeout=1.25)
-      
-    #     resp = resp.json()
-    #     session[NEXT_IMAGE] = resp["next"]
-    #     resp = resp["results"]
-    #     print(resp)
-    # else:
-    #     resp = requests.get("https://wger.de/api/v2/exerciseimage/?is_main=True", timeout=1.25)
-    #     resp = resp.json()
-    #     NEXT_IMAGE = resp["next"]
-    #     resp = resp["results"]
-    #     print(resp)
-
-
-
+    except:
+        image = exercise.image_url 
+    
+    return image
     
 
 

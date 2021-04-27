@@ -8,7 +8,9 @@ import datetime
 import requests
 
 # from utils import *
-from forms import LoginForm, RegisterForm, TeamForm, AthleteForm, ExerciseForm
+from forms import (LoginForm, RegisterForm, TeamForm, AthleteForm, ExerciseForm, WorkoutForm,
+                     AddCategoryToWorkoutForm, AddMuscleToWorkoutForm, AddEquipmentToWorkoutForm,
+                     WorkoutFormStep2, TeamEditForm, AthleteEditForm)
 from models import (connect_db, db, User, Team, Athlete, Workout, Athlete_workout, Exercise, Category, 
                     Equipment, Muscle, Workout_exercise, Athlete_workout_exercise, Image)
 

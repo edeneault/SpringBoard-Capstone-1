@@ -1,0 +1,119 @@
+{% extends '/workouts/workout_select_categories.html' %}
+
+{% block show_exercises %}
+<!--  -->
+
+<div class="container-fluid text-dark p-2 m-1">
+    <row>
+        <div class="col-sm-12 border border-dark p-2 m-2" >
+            <h5>SEARCH PARAMETERS | </h5>
+            <p class="mx-2"><strong>Category: </strong> {{ category.category_name }}</p>
+            <p class="mx-2"><strong>Muscle: </strong> {{muscle.muscle_name}}</p>
+            <p class="mx-2"><strong>Equipment: </strong> {{equipment.equipment_name}}</p>
+        </div>
+
+        <div class="col-sm-12 border border-dark p-2 m-2">
+            <h5>NEW WORKOUT | </h5>
+            <p class="mx-2"><strong>workout name: </strong> {{ workout.name }}</p>
+            <p class="mx-2"><strong>workout description: </strong> {{ workout.description }}</p>
+        </div>    
+    </row>
+   
+</div>
+
+
+<!-- <div class="row">
+    <div class="container col-sm-12 text-dark">
+        <div>
+            <h5 class="tes2 fs-5 pt-2">SELECT | EXERCISE</h5>
+            {{form2.categories.data}}
+            {{form2.muscles.data}}
+            {{form2.equipment.data}}
+
+            {{category.category}}
+        </div>
+    </div>
+    
+</div> -->
+<div class="container">
+  
+    <div class="team-single-text padding-50px-left sm-no-padding-left">
+ 
+        <div class="row">
+            <div class="d-flex justify-content-center align-items-center col-md-12 col-12 mt-2">
+                <div class="flex-grow-1">
+                    <i class="teams-fa-color fas fa-dumbbell mt-2 fa-3x"></i>
+                    <h1 class="d-inline teams-fa-color display-5 px-1">Exercises</h1>
+                </div>
+        
+            </div> 
+             
+        </div> 
+       <div class="row d-inline">    
+        {% for page in exercises.iter_pages(left_edge=3, right_edge=3, left_current=3, right_current=3) %}
+
+        {% if page %}
+          <a class="page-links-dark " href="{{ url_for('.workout_exercises_show', page_num=page)}}">{{ page }}</a>
+        {% else %}
+          ...
+        {% endif %}
+    
+      {% endfor %}
+        </div>
+
+
+        <div class="row d-flex align-content-around flex-wrap">
+            {% for exercise in exercises.items %}
+            
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="card exercise-card m-2">
+                    <div class="card-body"> 
+                        <div class="card-contents">
+                            <a class="card-title card-link text-decoration-none" href="/exercises/exercise/{{ exercise.id }}">
+                                <h5 class="card-link top-title tes2 font-size36 ps-3 pt-3">{{exercise.name.upper()}}</h5>
+                            </a>
+                            <p class="text-small text-dark tes2 ps-3 mb-0 pb-0"> CATEGORY: {{ exercise.categories.category_name }}</p>
+                            
+                            <p class="text-small text-dark tes2 ps-3 mb-0 pb-0">default reps: {{ exercise.default_reps}}</p>
+                            <form action="submit">
+                                <a href="{{ url_for('.workout_exercises_add', exercise_id=exercise.id)}}" class="submit btn btn-primary btn-customized btn my-2" >ADD TO WORKOUT</a>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {% endfor %}
+        </div>
+    </div>   
+
+    <div class="row d-inline">    
+
+        {% for page in exercises.iter_pages(left_edge=3, right_edge=3, left_current=3, right_current=3) %}
+
+            {% if page %}
+                <a class="page-links-dark " href="{{ url_for('.workout_exercises_show', page_num=page)}}">{{ page }}</a>
+            {% else %}
+            ...
+            {% endif %}
+
+        {% endfor %}
+    </div>
+
+</div>
+  
+    
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
+
+

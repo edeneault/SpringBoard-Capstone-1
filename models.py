@@ -85,8 +85,10 @@ class Team(db.Model):
     discipline = db.Column(db.Text, nullable=False)
     team_image_url = db.Column(db.Text, default="/static/images/default-pic.png")
     created_on = db.Column(db.DateTime, default=CURR_DATE)
-    user_id = db.Column(db.Integer, db.ForeignKey('users.id',ondelete='cascade'))
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id', ondelete='cascade'))
 
+    
+    
     athletes = db.relationship("Athlete", backref="team", cascade="all, delete-orphan")
 
     def __repr__(self):
@@ -202,14 +204,14 @@ class Exercise(db.Model):
     default_reps = db.Column(db.Integer, default=REPS_DEFAULT)
     image_url = db.Column(db.Text, default="/static/images/default-pic.png")
     wger_id = db.Column(db.Integer)
-    category_id = db.Column(db.Integer, db.ForeignKey('categories.id', ondelete='cascade'))
-    equipment_id = db.Column(db.Integer, db.ForeignKey('equipment.id', ondelete='cascade')) 
-    muscle_id = db.Column(db.Integer, db.ForeignKey('muscles.id', ondelete='cascade')) 
+    category_id = db.Column(db.Integer, db.ForeignKey('categories.id'))
+    equipment_id = db.Column(db.Integer, db.ForeignKey('equipment.id'))
+    muscle_id = db.Column(db.Integer, db.ForeignKey('muscles.id')) 
 
 
-    categories = db.relationship("Category", backref="exercise", cascade="all, delete")
-    equipment = db.relationship("Equipment", backref="exercise", cascade="all, delete")
-    muscles = db.relationship("Muscle", backref="exercise", cascade="all, delete")
+    categories = db.relationship("Category", backref="exercise")
+    equipment = db.relationship("Equipment", backref="exercise")
+    muscles = db.relationship("Muscle", backref="exercise")
 
     workout_exercises = db.relationship("Workout_exercise", backref="exercise", cascade="all, delete")
 
@@ -228,7 +230,7 @@ class Workout_exercise(db.Model):
     exercise_id = db.Column(db.Integer, db.ForeignKey('exercises.id', ondelete='cascade')) 
 
     athlete_workout_exercise = db.relationship("Athlete_workout_exercise", backref="workout_exercise", cascade="all, delete")
-    
+
     def __repr__(self):
         return f"<Athlete_workout #{self.id}: {self.workout_id}, {self.exercise_id}>"
 

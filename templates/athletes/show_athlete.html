@@ -2,8 +2,8 @@
 
 {% block content %}
 <div class="container">
-    <h1 class="text-dark">ATHLETE PAGE</h1>
-    <h5 class="text-dark">{{ athlete.full_name }}</h5>
+
+    <h1 class="text-dark tes2-lg">{{ athlete.full_name }}</h1>
     
     <div  id="login-link" class="container-fluid header-img" style="background: url(' {{ athlete.team.team_image_url }}') no-repeat top center fixed;"></div>
     
@@ -23,9 +23,17 @@
                 </div>
     
                 <div class="col-lg-8 col-md-7">
+                    
                     <div class="team-single-text padding-50px-left sm-no-padding-left">
                         <h4 class="font-size38 sm-font-size32 xs-font-size30 mb-3 tes1">ATHLETE PROFILE</h4>
-
+                        <div class="d-flex">
+                            <a class="btn btn-primary btn-customized btn me-1 " href="/athletes/edit/{{ athlete.id }}">EDIT</a>  
+                            <form action="/athletes/delete/{{ athlete.id }}" method="POST">
+                                <button class="btn btn-customized-red btn" type="submit">DELETE</button>  
+                            </form>
+                        </div>
+                        
+                        {% block athlete_content %} {% endblock %}
                     </div>    
                 </div>
             </div>

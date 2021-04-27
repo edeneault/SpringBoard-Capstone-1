@@ -11,12 +11,14 @@
                     <div class="flex-grow-1">
                         <i class="teams-fa-color fas fa-dumbbell mt-2 fa-3x"></i>
                         <h1 class="d-inline teams-fa-color display-5 px-1">Exercises</h1>
+                        <a class="btn btn-primary btn-customized btn my-2 mb-4 " href="/exercises/add">ADD</a>
                     </div>
             
                 </div> 
                  
             </div> 
-           <div class="row d-inline">    
+            {% block exercise_content %}  {% endblock %}
+           <div class="row d-inline mt-2">    
             {% for page in exercises.iter_pages(left_edge=3, right_edge=3, left_current=3, right_current=3) %}
 
             {% if page %}
@@ -41,7 +43,13 @@
                                 </a>
                                 <p class="text-small text-dark tes2 ps-3 mb-0 pb-0"> CATEGORY: {{ exercise.categories.category_name }}</p>
                                 
-                                <p class="text-small text-dark tes2 ps-3 mb-0 pb-0">default reps: {{ exercise.default_reps}}</p>
+                                <p class="text-small text-dark tes2 d-inline ps-3 mb-0 pb-0">default reps: {{ exercise.default_reps}}</p>
+                                <div class="d-block ms-3">
+                                    <a class="btn btn-primary btn-customized btn me-1  " href="/exercises/edit/{{ exercise.id }}">EDIT</a>  
+                                    <form  class="d-inline" action="/exercises/delete/{{ exercise.id }}" method="POST">
+                                        <button class="btn btn-customized-red btn d-inline" type="submit">DELETE</button>  
+                                    </form>
+                                </div>
                                 
                             </div>
                         </div>
@@ -64,7 +72,6 @@
 
             {% endfor %}
         </div>
-
 </div>
 
 {% endblock %}
