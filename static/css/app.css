@@ -41,7 +41,7 @@ footer .tes1 {
 
 .tes2 {
     font-family: gotham;
-    font-size: 0.95rem;
+    font-size: 0.85rem;
     font-weight: 400;
     object-position: middle;
     margin: 0px auto;
@@ -488,6 +488,23 @@ button.btn-customized-red.btn.btn-primary:not(:disabled):not(.disabled):active:f
     object-fit: cover;
 }
 
+
+/* EXERCISE CARD CSS  */
+
+.exercise-card {
+    height: 150px;
+}
+
+.exercise-card:hover,
+.exercise-card-focus {
+
+    transform: scale(1.1);
+    background-color: rgba(0, 0, 0, 0.1);
+    color: #8d3ff3;
+    color: #572796;
+    border-color: black;
+}
+
 /* TEAM CARDS - USER PROFILE CSS  */
 
 /* .user-team-card {
@@ -567,21 +584,6 @@ a.card-link:hover,
 
 
 
-/* EXERCISE CARD CSS  */
-
-.exercise-card {
-    height: 150px;
-}
-
-.exercise-card:hover,
-.exercise-card-focus {
-    height: 150px;
-    transform: scale(1.1);
-    background-color: rgba(0, 0, 0, 0.1);
-    color: #8d3ff3;
-    color: #572796;
-    border-color: black;
-}
 
 /* WORKOUTS CSS */
 

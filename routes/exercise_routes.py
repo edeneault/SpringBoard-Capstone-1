@@ -17,8 +17,8 @@ def exercises_show(page_num):
     """ Show all exercises view and call on API for exercise data """
     
     ### 3RD PARTY WGER API CALLS - UNCOMMENT TO ACTIVATE##
-    # exercises_api_request
-    # exercise_images_api_request()
+    # response = exercises_api_request()
+    # resp = exercise_images_api_request()
 
     # insert_to_db(response)
     # insert_images(resp)

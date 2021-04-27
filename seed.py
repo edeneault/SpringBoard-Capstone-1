@@ -27,7 +27,9 @@ coach2 = User(username="msparks", password="password2", email="msparks@fakegmail
 coach3 = User(username="adeneault", password="password3", email="apjarova@gmail.com", first_name="Alexandra", last_name="Deneault",
                  image_url="https://iv1.lisimg.com/image/20508627/666full-alexandra-apjarova.jpg",
                  header_image_url="https://images.unsplash.com/photo-1519925610903-381054cc2a1c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1350&q=80")
-coach4 = User(username="beachcoach", password="BeachCoach", email="beach@coach.com", first_name="Laura", last_name="Summers")
+coach4 = User(username="beachcoach", password="BeachCoach", email="beach@coach.com", first_name="Laura", last_name="Summers",
+                image_url="https://iv1.lisimg.com/image/20508627/666full-alexandra-apjarova.jpg",
+                header_image_url="https://images.unsplash.com/photo-1519925610903-381054cc2a1c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1350&q=80" )
 users = [coach1, coach2, coach3, coach4]
 
 ## ADD TEAMS ##

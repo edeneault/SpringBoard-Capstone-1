@@ -135,7 +135,7 @@ class Workout(db.Model):
     __tablename__ = "workouts"
 
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(20), nullable=False)
+    name = db.Column(db.String(100), nullable=False)
     description = db.Column(db.Text, nullable=False)
 
     athlete_workouts = db.relationship("Athlete_workout", backref="workout", cascade="all, delete")
