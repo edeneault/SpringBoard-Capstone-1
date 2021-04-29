@@ -6,17 +6,17 @@
 <div class="container m-0 p-0">
     <div class="row align-items-md-stretch">  
         <div id="add-athlete" class="col-md-12">
-        <div class="h-100 p-5 text-white bg-login rounded-3">
-            <h1 class="display-4 text-center tes2">Edit Exercise</h1>
+        <div class="h-100 p-2 text-white rounded-3">
+            <h1 class="display-4 text-dark text-center tes2">Edit Exercise</h1>
         <form class="form" method="POST">
             {{ form.hidden_tag() }}
             <div class="row d-row align-self-center justify-content-center">
-                <div class="">
+                <div>
                     <button class="btn btn-primary btn-customized btn my-2 " type="submit">SAVE</button>
-                    <a class="btn btn-primary btn-customized btn my-2 " href="/exercises/{{ exercise.id }}">CANCEL</a>
+                    <a class="btn btn-primary btn-customized-red btn my-2 " href="{{ url_for('.exercise_show', exercise_id=exercise.id)}}">CANCEL</a>
                 </div>
                 {% for field in form if field.widget.input_type != 'hidden'%}
-                <div class="fs-5 p-2 col-12 col-sm-12">
+                <div class="fs-5 col-12 col-sm-12 p-0 m-0">
                         {{field.label}}
                 
                         {{field}}  
@@ -27,6 +27,12 @@
                     {% endfor %}
                 </div>
                 {% endfor %}
+                <div class="pt-3">
+                    <button class="btn btn-primary btn-customized btn my-2 " type="submit">SAVE</button>
+                    <a class="btn btn-primary btn-customized-red btn my-2 " href="{{ url_for('.exercise_show', exercise_id=exercise.id)}}">CANCEL</a>
+                </div>
+
+                <br>
                 
             </div>
         </form>     

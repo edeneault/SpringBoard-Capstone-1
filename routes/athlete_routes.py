@@ -28,8 +28,30 @@ def athlete_show(athlete_id):
 
     athlete = Athlete.query.get_or_404(athlete_id)
 
+    user_id = g.user.id
+    user = User.query.get_or_404(user_id)
 
-    return render_template('athletes/show_athlete.html', athlete=athlete)
+    team = Team.query.filter(Team.id == athlete.team_id)
+  
+    
+    athlete_workouts = (Athlete_workout
+            .query
+            .filter(athlete_id == athlete.id)
+            .all())
+
+
+   
+    workouts = db.session.query(Workout.name, Workout.description, Workout.id.label("workout_id"), Athlete.first_name, Athlete.last_name, 
+                Athlete.athlete_image_url, Athlete.position, Athlete.medical_status, Athlete.team_id, Athlete.id ). \
+                select_from(Workout). \
+                join(Athlete_workout). \
+                join(Athlete). \
+                filter(Workout.id == Athlete_workout.workout_id). \
+                all()
+
+
+    return render_template('athletes/show_athlete.html', workouts=workouts, athlete_workouts=athlete_workouts,
+                                                                    team=team, athlete=athlete, user=user)
 
 
 @app.route('/athletes/add', methods=["GET", "POST"])

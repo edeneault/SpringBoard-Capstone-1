@@ -11,6 +11,7 @@
                 <div class="flex-grow-1">
                     <i class="teams-fa-color fas fa-dumbbell mt-2 fa-3x"></i>
                     <h1 class="d-inline teams-fa-color display-5 px-1">Workout</h1>
+                    <a class="btn btn-primary btn-customized btn my-2 mb-4 " href="/workouts/add">ADD</a>
                 </div>
                 
                 <div class="pt-4">
@@ -21,15 +22,25 @@
         </div> 
 
         <div class="card bg-light m-2">
-            <div class="row justify-items-center">
-                <div class="d-flex align-items-center">
-                    <div class="d-inline-flex row d-flex p-2">
-                        <a class="card-title card-link text-decoration-none" href="/workouts/{{ workout.id }}">
-                            <h5 class="card-link tes2 fs-4 ps-3 pt-3">{{workout.name}}</h5>
-                        </a>
-                        
-                        <p class="text-small text-dark tes2 fs-5 ps-3 mb-0 pb-0">&ldquo;{{ workout.description}}&rdquo;</p>
-                    </div>
+            <div class="row p-2 ">       
+                <div class="col-sm-12">
+                   <div class="col-sm-12">
+                    <a class="card-title card-link text-decoration-none" href="/workouts/{{ workout.id }}">
+                        <h5 class="card-link tes2 fs-4 ps-3 pt-2">{{workout.name}}</h5>
+                    </a>
+                   </div>
+                    
+                    <div class="col-sm-12  ms-3 mb-3">
+                        <a class="btn  btn-customized  col-sm-1 my-2 mb-4 d-inline" href="/workouts/edit/{{workout.id}}">EDIT</a> 
+                        <form  class="d-inline col-sm-1" action="/workouts/delete/{{ workout.id }}" method="POST">
+                            <button class="btn btn-customized-red p-1 d-inline" type="submit">DELETE</button>  
+                        </form>
+                    </div>  
+
+                    <div class="col-sm-12">
+                        <p class="text-small text-dark tes2 fs-5 ps-3 mb-0 pb-0">&ldquo;{{ workout.description}}&rdquo;</p>  
+                    </div> 
+            
                 </div>
             </div>
             
@@ -49,16 +60,9 @@
                                     <div class="image-wrapper">
                                         
                                         <a href="/exercises/exercise/{{ exercise.exercise.id }}" class="card-link">
-                                            <!-- <img src="https://wger.de/media/exercise-images/192/Bench-press-1.png" alt="Image for workout" 
-                                            class="card-img-bottom rounded rounded-3 "> -->
-                                        
                                             <img class="img-thumbnail" src="{{exercise.exercise.image_url}}" alt="Image for workout">
-                                    
                                         </a>
-                                        
-                                    
-                                    
-                                    
+          
                                     </div>
                                 
                                 </div>

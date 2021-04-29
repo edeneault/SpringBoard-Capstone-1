@@ -53,11 +53,11 @@
     </div>
 
 
-    <h2 class="workout-builder-title tes1-lg text-center">ADD EXERCISE TO WORKOUT</h2>
+    <h2 class="tes2-lg text-dark text-center mt-4">ADD EXERCISE TO WORKOUT</h2>
     <form class="form" action="{{ url_for('.workout_exercises_show', page_num=1)}}" method="POST">
         {{ form.hidden_tag() }}
         <div>
-            <h5 class="tes2 text-warning fs-5 pt-2">SELECT | CATEGORY OF EXERCISE</h5>
+            <h5 class="tes2 text-dark fs-5 pt-2">SELECT | CATEGORY OF EXERCISE</h5>
         </div>
         <ul class="list-unstyled" id="workout-form-list">
             <li class="pb-2">{{form2.categories.label}}{{form2.categories.category}}</li>

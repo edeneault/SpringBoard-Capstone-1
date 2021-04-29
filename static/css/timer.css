@@ -42,18 +42,67 @@ i {
     font-family: tesla;
     font-size: 1.2rem;
     font-style: oblique;
+    object-position: middle;
+    text-decoration: none;
 }
+
+.tes1-lg {
+    font-family: tesla;
+    font-size: 2rem;
+    font-style: oblique;
+    object-position: middle;
+    text-decoration: none;
+}
+
+
+footer .tes1 {
+    font-family: tesla;
+    font-size: 1.2rem;
+    font-style: oblique;
+    object-position: middle;
+    color: white;
+}
+
+
+.footer-base {
+    background-color: black;
+}
+
+
 
 .tes2 {
     font-family: gotham;
-    font-size: 0.7rem;
-    font-weight: bold;
+    font-size: 0.85rem;
+    font-weight: 400;
+    object-position: middle;
+    margin: 0px auto;
+    padding: 0px;
 }
+
+
+.tes2-md {
+    font-family: gotham;
+    font-size: 1rem;
+    font-weight: 400;
+    object-position: middle;
+    margin: 0px auto;
+    padding: 0px;
+}
+
 
 h1.tes2 {
     font-family: gotham;
     font-size: 1.3rem;
     color: black;
+}
+
+.tes2-lg {
+    font-family: gotham;
+    font-size: 1.5rem;
+    font-weight: 400;
+    object-position: middle;
+    margin: 0px auto;
+    padding: 0px;
 }
 
 h2.tes2 {
@@ -164,6 +213,10 @@ span.tes2 {
     border: none;
 }
 
+.navbar-brand {
+    padding: 0;
+}
+
 .navbar-nav .nav-link {
     padding-top: 0;
     padding-bottom: 0;
@@ -173,15 +226,38 @@ span.tes2 {
 
 .navbar-light .navbar-nav .nav-link {
     color: black;
-    border: none;
 }
 
 .navbar-light .navbar-nav .nav-link:hover {
     color: rgb(148, 148, 148);
-    border: none;
 }
 
 /***** Buttons *****/
+
+a.page-links-dark {
+    color: black;
+    text-decoration: none;
+}
+
+a.page-links-dark:hover {
+    color: rgb(148, 148, 148);
+
+}
+
+a.page-links-light,
+i.page-links-light,
+footer li a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    border: 0px;
+}
+
+a.page-links-light:hover,
+i.page-links-light:hover,
+footer li a:hover {
+    color: #8d3ff3;
+    color: #572796;
+}
 
 a.btn-customized {
     margin-left: 15px;

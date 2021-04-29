@@ -66,14 +66,14 @@ class User(db.Model):
 
         return user
 
-    # @classmethod
-    # def authenticate(cls, username, password):
-    #     """ Class method to users existence and that the password is correct. """
-    #     user = User.query.filter_by(username=username).first()
-    #     if user and bcrypt.check_password_hash(user.password, password):
-    #         return user
-    #     else:
-    #         return False
+    @classmethod
+    def authenticate(cls, username, password):
+        """ Class method to users existence and that the password is correct. """
+        user = User.query.filter_by(username=username).first()
+        if user and bcrypt.check_password_hash(user.password, password):
+            return user
+        else:
+            return False
 
 class Team(db.Model):
     """ Class to instantiate a Team class and methods"""
@@ -138,8 +138,8 @@ class Workout(db.Model):
     name = db.Column(db.String(100), nullable=False)
     description = db.Column(db.Text, nullable=False)
 
-    athlete_workouts = db.relationship("Athlete_workout", backref="workout", cascade="all, delete")
-    workout_exercises = db.relationship("Workout_exercise", backref="workout", cascade="all, delete")
+    athlete_workouts = db.relationship("Athlete_workout", backref="workout")
+    workout_exercises = db.relationship("Workout_exercise", backref="workout")
 
     def __repr__(self):
         return f"<Workout #{self.id}: {self.name}, {self.description}>"
@@ -152,8 +152,8 @@ class Athlete_workout(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     rpe_avg = db.Column(db.Integer, default=RPE_DEFAULT)
     workout_date = db.Column(db.DateTime, default=CURR_DATE)
-    workout_id = db.Column(db.Integer, db.ForeignKey('workouts.id', ondelete='cascade'))
-    athlete_id = db.Column(db.Integer, db.ForeignKey('athletes.id', ondelete='cascade')) 
+    workout_id = db.Column(db.Integer, db.ForeignKey('workouts.id'))
+    athlete_id = db.Column(db.Integer, db.ForeignKey('athletes.id')) 
 
     athlete_workout_exercise = db.relationship("Athlete_workout_exercise", backref="athlete_workout", cascade="all, delete")
 

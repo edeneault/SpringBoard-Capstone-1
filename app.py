@@ -9,8 +9,9 @@ import requests
 
 # from utils import *
 from forms import (LoginForm, RegisterForm, TeamForm, AthleteForm, ExerciseForm, WorkoutForm,
-                     AddCategoryToWorkoutForm, AddMuscleToWorkoutForm, AddEquipmentToWorkoutForm,
-                     WorkoutFormStep2, TeamEditForm, AthleteEditForm)
+                    AddCategoryToWorkoutForm, AddMuscleToWorkoutForm, AddEquipmentToWorkoutForm,
+                    WorkoutFormStep2, TeamEditForm, AthleteEditForm, WorkoutEditForm, WorkoutEditFormStep2,
+                    WorkoutExerciseEditForm, AthleteWorkoutAssignForm)
 from models import (connect_db, db, User, Team, Athlete, Workout, Athlete_workout, Exercise, Category, 
                     Equipment, Muscle, Workout_exercise, Athlete_workout_exercise, Image)
 

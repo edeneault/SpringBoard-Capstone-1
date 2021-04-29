@@ -1,35 +1,36 @@
 {% extends '/athletes/show_athlete.html' %}
 
 
-{% block athlete_content %} 
+{% block athlete_workout_content %} 
 
-<div class="container m-0 p-0">
+<div class="container col-sm-12 m-0 p-0">
     <div class="row align-items-md-stretch">  
         <div id="add-athlete" class="col-md-12">
-        <div class="h-100 p-5 text-white bg-login rounded-3">
-            <h1 class="display-4 text-center tes2">Edit Athlete</h1>
-        <form class="form" method="POST">
-            {{ form.hidden_tag() }}
-            <div class="row d-row align-self-center justify-content-center">
-                <div class="">
-                    <button class="btn btn-primary btn-customized btn my-2 " type="submit">SAVE</button>
-                    <a class="btn btn-primary btn-customized btn my-2 " href="/users/{{ g.user.id }}">CANCEL</a>
-                </div>
-                {% for field in form if field.widget.input_type != 'hidden'%}
-                <div class="fs-5 p-2 col-12 col-sm-12">
-                        {{field.label}}
-                
-                        {{field}}  
-                    {% for err in field.errors %}
-                    <small>
-                        {{err}}
-                    </small>
+            <div class="h-100 p-5 text-dark rounded-3">
+                <h1 class="display-4 text-center tes2">Edit Athlete</h1>
+                <form class="form" method="POST">
+                    {{ form.hidden_tag() }}
+                    <div class="row d-row align-self-center justify-content-center">
+                        <div>
+                            <button class="btn btn-primary btn-customized btn my-2 " type="submit">SAVE</button>
+                            <a class="btn btn-primary btn-customized btn my-2 " href="/athletes/{{ athlete.id }}">CANCEL</a>
+                        </div>
+                    </div>    
+                    {% for field in form if field.widget.input_type != 'hidden'%}
+                    <div class="fs-5 p-2 col-12 col-sm-12">
+                            {{field.label}}
+                    
+                            {{field}}  
+                        {% for err in field.errors %}
+                        <small>
+                            {{err}}
+                        </small>
+                        {% endfor %}
+                    </div>
                     {% endfor %}
-                </div>
-                {% endfor %}
-                
-            </div>
-        </form>     
+                </form> 
+            </div> 
+        </div>   
     </div>
 </div>
 

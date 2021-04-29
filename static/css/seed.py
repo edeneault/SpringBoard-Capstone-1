@@ -19,16 +19,18 @@ curr_date = datetime.datetime.now().strftime('%Y-%m-%d')
 print(curr_date)
 
 ## ADD USERS ##
-coach1 = User(username="coach_E", password="$2b$12$L/HD4t51NVFRvMI37MAmcO8Bw66XvpzPweAsiGlg29bdItUEVvtTS", email="edeneault@gmail.com", first_name="Etienne", last_name="Deneault",
+coach1 = User(username="edeneault", password="password1", email="edeneault@gmail.com", first_name="Etienne", last_name="Deneault",
                 image_url="https://miro.medium.com/max/3150/1*vx4SBuW5YM3s1Pxyk00mSQ.jpeg", 
                 header_image_url="https://images.unsplash.com/photo-1580237754794-0e26a1d7ee03?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1414&q=80")
 
-coach2 = User(username="coach_M", password="$2b$12$aMRinHJfFHPSZPJC/d2UuOgSSFd8ChPuHeI3rhaP.SW/cJuGG8rRy", email="msparks@fakegmail.com", first_name="Matthew", last_name="Sparks")
-coach3 = User(username="coach_A", password="p$2b$12$LEjxCuEgEfohtVqEwgzwjOzAmtLQSVguQYXDvpaIzvrfkY8/tqOqK", email="apjarova@gmail.com", first_name="Alexandra", last_name="Deneault",
+coach2 = User(username="msparks", password="password2", email="msparks@fakegmail.com", first_name="Matthew", last_name="Sparks")
+coach3 = User(username="adeneault", password="password3", email="apjarova@gmail.com", first_name="Alexandra", last_name="Deneault",
                  image_url="https://iv1.lisimg.com/image/20508627/666full-alexandra-apjarova.jpg",
                  header_image_url="https://images.unsplash.com/photo-1519925610903-381054cc2a1c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1350&q=80")
-
-users = [coach1, coach2, coach3 ]
+coach4 = User(username="beachcoach", password="BeachCoach", email="beach@coach.com", first_name="Laura", last_name="Summers",
+                image_url="https://iv1.lisimg.com/image/20508627/666full-alexandra-apjarova.jpg",
+                header_image_url="https://images.unsplash.com/photo-1519925610903-381054cc2a1c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1350&q=80" )
+users = [coach1, coach2, coach3, coach4]
 
 ## ADD TEAMS ##
 

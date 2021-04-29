@@ -31,6 +31,8 @@ def add_user_to_g():
 
     if CURR_USER_KEY in session:
         g.user = User.query.get(session[CURR_USER_KEY])
+        print("******************")
+        print(g.user)
 
     else:
         g.user = None
@@ -50,6 +52,8 @@ def register_user():
     form = RegisterForm()
 
     if form.validate_on_submit():
+
+        print("*************register validate***************")
         try:
             user = User.register(
                 username=form.username.data,
@@ -61,6 +65,7 @@ def register_user():
                 header_image_url=form.header_image_url.data or User.header_image_url.default.arg
               
             )
+            db.session.add(user)
             db.session.commit()
             print(user)
 
@@ -69,7 +74,7 @@ def register_user():
             return render_template('/users/login_user_form.html', form=form)
 
         do_login(user)
-
+        print("*******************redirecting****************")
         return redirect("/")
 
     else:
@@ -84,19 +89,22 @@ def login_user():
     #     return redirect(f"/users/{session['username']}")
 
     form = LoginForm()
-   
-
+    
     if form.validate_on_submit():
-        username = form.username.data
-        password = form.password.data
+        # username = form.username.data
+        # password = form.password.data
 
-        user = User.query.filter_by(username=username).first()
+        # user = User.query.filter_by(username=username).first()
+        user = User.authenticate(form.username.data,
+                                 form.password.data)
+
         if user:
             do_login(user)
             flash(f"Hello, {user.username}!", "success")
             return redirect(f"/users/{user.id}")
         else:
             form.username.errors = ["Invalid username/password."]
+            flash("Invalid credentials.", 'danger')
             return render_template("users/login_user_form.html", form=form)
 
     return render_template("/users/login_user_form.html", form=form)

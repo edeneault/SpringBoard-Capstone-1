@@ -320,7 +320,7 @@ class WorkoutFormStep2(FlaskForm):
     
 
 class WorkoutForm(FlaskForm):
-    """ Workout form. """
+    """ Workout Add form. """
 
     name = StringField(
         "Name",
@@ -333,8 +333,82 @@ class WorkoutForm(FlaskForm):
         render_kw={"class": "form-control bg-light bg-gradient mt-2", "placeholder": "workout description"}
     )
 
+
+class WorkoutEditForm(FlaskForm):
+    """ Workout Add form. """
+
+    name = StringField(
+        "Name",
+        validators=[InputRequired(), Length(max=100)],
+        render_kw={"class": "form-control bg-light bg-gradient mt-2", "placeholder": "workout name"}
+    )
+
+    description = TextAreaField("Description",
+        validators=[InputRequired(), Length(max=500)],
+        render_kw={"class": "form-control bg-light bg-gradient mt-2", "placeholder": "workout description"}
+    )
+
+   
+
+
+class WorkoutEditFormStep2(FlaskForm):
+    """ Step2 for """
+
+    default_reps = IntegerField(
+            "Reps:",
+            validators=[InputRequired(), NumberRange(min=1, max=300)],
+            render_kw={"class": "form-control mt-2", "placeholder": "number of reps"}
+        )
+
+class WorkoutExerciseEditForm(FlaskForm):
+    """ Exercise Edit form. """
+    
+    name = StringField(
+        "Name",
+        validators=[InputRequired(), Length(max=30)],
+        render_kw={"class": "form-control mt-2", "placeholder": "name"}
+    )
+
+    description = TextAreaField(
+        "Description",
+        validators=[InputRequired(), Length(max=600)],
+        render_kw={"class": "form-control mt-2", "placeholder": " exercise description"}
+    )
+
+    default_reps = IntegerField(
+        "Reps:",
+        validators=[InputRequired(), NumberRange(min=1, max=300)],
+        render_kw={"class": "form-control mt-2", "placeholder": "number of reps"}
+    )
+
+    image_url = StringField(
+        '(Optional) Exercise Image URL',
+        render_kw={"class": "form-control mt-2", "placeholder": "Exercise Image URL"}
+    )
+
+    category_id = SelectField('Category',
+        render_kw={"class": "form-select mt-2", "placeholder": "category"}, 
+        coerce=int)
+
+    equipment_id = SelectField('Equipment',
+        render_kw={"class": "form-select mt-2", "placeholder": "equipment"}, 
+        coerce=int)
+    
+    muscle_id = SelectField('muscle',
+        render_kw={"class": "form-select mt-2", "placeholder": "muscle"}, 
+        coerce=int)
     
 
+class AthleteWorkoutAssignForm(FlaskForm):
+    """ Exercise Edit form. """
+
+    athlete = SelectField('Athlete',
+        render_kw={"class": "form-select mt-2", "placeholder": "athlete"}, 
+        coerce=int)
+    
+    workout = SelectField('Workout',
+        render_kw={"class": "form-select mt-2", "placeholder": "workout"}, 
+        coerce=int)
 
 # class AboutYouForm(FlaskForm):
 #     first_name = wtforms.StringField(

@@ -39,12 +39,12 @@
                         <div class="card-body"> 
                             <div class="card-contents">
                                 <a class="card-title card-link text-decoration-none" href="/exercises/exercise/{{ exercise.id }}">
-                                    <h5 class="card-link top-title tes2 font-size36 ps-3 pt-3">{{exercise.name.upper()}}</h5>
+                                    <p class="card-link top-title tes2-md ps-3 pt-3">{{exercise.name.upper()}}</p>
                                 </a>
-                                <p class="text-small text-dark tes2 ps-3 mb-0 pb-0"> CATEGORY: {{ exercise.categories.category_name }}</p>
+                                <p class="text-small text-dark tes2 ps-3 mb-0 pb-0 "> CATEGORY: {{ exercise.categories.category_name }}</p>
                                 
                                 <p class="text-small text-dark tes2 d-inline ps-3 mb-0 pb-0">default reps: {{ exercise.default_reps}}</p>
-                                <div class="d-block ms-3">
+                                <div class="d-block ms-3 mb-1">
                                     <a class="btn btn-primary btn-customized btn me-1  " href="/exercises/edit/{{ exercise.id }}">EDIT</a>  
                                     <form  class="d-inline" action="/exercises/delete/{{ exercise.id }}" method="POST">
                                         <button class="btn btn-customized-red btn d-inline" type="submit">DELETE</button>  

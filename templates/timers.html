@@ -40,22 +40,26 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav tes2 mx-auto ">
                     {% if not g.user %}
-                    <li class="nav-item "><a class="nav-link ps-4" href="/">HOME</a></li>  
-                    <li class="nav-item "><a class="nav-link ps-4" href="/workouts">WORKOUTS</a></li>   
-                    <li class="nav-item "><a class="nav-link ps-4" href="/timers">TIMERS</a></li>
+                    <li class="nav-item"><a class="nav-link ps-4" href="/">HOME</a></li>  
+                    <li class="nav-item" id="spinner-link"><a class="nav-link ps-4" href="{{ url_for('.exercises_show', page_num=1 )}}">EXERCISES</a></li>  
+                    <li class="nav-item"><a class="nav-link ps-4" href="/workouts">WORKOUTS</a></li>   
+                    <li class="nav-item"><a class="nav-link ps-4" href="/timers">TIMERS</a></li>
                     {% else %}
-                    <li class="nav-item "><a class="nav-link ps-4" href="/">HOME</a></li>  
-                    <li class="nav-item "><a class="nav-link ps-4" href="/workouts">WORKOUTS</a></li>   
-                    <li class="nav-item "><a class="nav-link ps-4" href="/timers">TIMERS</a></li>
-                    <li class="nav-item "><a class="nav-link ps-4" href="/teams">TEAMS</a></li> 
-                    <li class="nav-item "><a class="nav-link ps-4" href="/athletes">ATHLETES</a></li>  
+                    <li class="nav-item"><a class="nav-link ps-4" href="/">HOME</a></li>
+                    <li class="nav-item" id="spinner-link"><a class="nav-link ps-4" href="{{ url_for('.exercises_show', page_num=1)}}">EXERCISES</a></li>  
+                    <li class="nav-item"><a class="nav-link ps-4" href="/workouts">WORKOUTS</a></li>   
+                    <li class="nav-item"><a class="nav-link ps-4" href="/timers">TIMERS</a></li>
+                    <li class="nav-item"><a class="nav-link ps-4" href="/teams">TEAMS</a></li> 
+                    <li class="nav-item"><a class="nav-link ps-4" href="/athletes">ATHLETES</a></li>
+                    <li class="nav-item"><a class="nav-link ps-4" href="{{ url_for('.users_show', user_id=g.user.id ) }} ">PROFILE</a></li> 
                     {% endif %}   
                 </ul>
 
                 <ul class="navbar-nav align-self-center  pe-1 ">
                     {% if g.user %}
-                    <li class="nav-item"><a id="profile-link" class="nav-link tes2 ps-4" href="{{ url_for('.users_show', user_id=g.user.id ) }} ">
-                        <img class="nav-user-img rounded-circle m-1" src="{{g.user.image_url}}" alt="user_small"> </a></li>
+                    <li class="nav-item "><a id="profile-link" class="d-inline nav-link tes2 ps-4" href="{{ url_for('.users_show', user_id=g.user.id ) }}">
+                        <img class="nav-user-img rounded-circle m-1 d-inline" src="{{g.user.image_url}}" alt="user_small"></a> 
+                    </li>
                     <li class="nav-item"><a id="logout-link" class="nav-link tes2 ps-4" href="{{ url_for('.logout_user') }} ">LOGOUT</a></li>
                 
                     {% else %}
@@ -130,59 +134,62 @@
     
     </div>
     <!-- End wrapper -->
-    <footer class="text-center text-muted border-top footer-base pt-3 mt-4">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 pr-md-5 text-white">
-                    <a href="#" class="d-block tes1">GYM HERO</a>
-                    <p class=" tes2">CAPSTONE PROJECT</p>
-                    <p class="tes2">SPRINGBOARD SOFTWARE ENGINEERING BOOTCAMP</p>
-                    <p class="tes2"> HTML | JAVASCRIPT | FLASK | POSTGRESQL</p>
-                </div>
-                <div class="col-md">
-                    <ul class="list-unstyled">
-                        <li class="nav-item tes2"><a class="nav-link" href="/">TEAMS</a></li> 
-                        <li class="nav-item tes2"><a class="nav-link" href="/">ATHLETES</a></li>  
-                        <li class="nav-item tes2"><a class="nav-link" href="/">WORKOUTS</a></li>   
-                        <li class="nav-item tes2"><a class="nav-link" href="/timers">TIMERS</a></li>  
-                    </ul>
-                </div>
-                <div class="col-md">
-                    <ul class="list-unstyled">
-                        <li class="nav-item tes2"><a class="nav-link" href="#">CLIENTS</a></li>
-                        <li class="nav-item tes2"><a class="nav-link" href="#">TEAM</a></li>
-                        <li class="nav-item tes2"><a class="nav-link" href="#">CAREER</a></li>
-                        <li class="nav-item tes2"><a class="nav-link" href="#">TESTIMONIALS</a></li>
-                    </ul>
-                </div>
-                
-                <div class="col-md text-md-center">
-                    <ul class="social list-unstyled text-white fs-5">
-                        <li><a href="#"><i class="fab fa-instagram-square"></i></a></li>
-                        <li><a href="#"><i class="fab fa-twitter-square"></i></a></li>
-                        <li><a href="#"><i class="fab fa-facebook-square"></i></a></li>
-                        <li><a href="#"><i class="fab fa-reddit-square"></i></a></li>
-                    </ul>
+    <div class="container-fluid">
+        <footer class="text-center text-muted border-top footer-base pt-3 mt-4">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-4 pr-md-5 text-white">
+                        <a href="#" class="d-block tes1 pb-2">GYM HERO</a>
+                        <p class=" tes2">CAPSTONE PROJECT</p>
+                        <p class="tes2">SPRINGBOARD SOFTWARE ENGINEERING BOOTCAMP</p>
+                        <p class="tes2"> HTML | JAVASCRIPT | FLASK | POSTGRESQL</p>
+                    </div>
+                    <div class="col-md">
+                        <ul class="list-unstyled">
+                            <li class="nav-item tes2"><a class="nav-link" href="/">TEAMS</a></li> 
+                            <li class="nav-item tes2"><a class="nav-link" href="/">ATHLETES</a></li>  
+                            <li class="nav-item tes2"><a class="nav-link" href="/">WORKOUTS</a></li>   
+                            <li class="nav-item tes2"><a class="nav-link" href="/timers">TIMERS</a></li>  
+                        </ul>
+                    </div>
+                    <div class="col-md">
+                        <ul class="list-unstyled">
+                            <li class="nav-item tes2"><a class="nav-link" href="#">CLIENTS</a></li>
+                            <li class="nav-item tes2"><a class="nav-link" href="#">TEAM</a></li>
+                            <li class="nav-item tes2"><a class="nav-link" href="#">CAREER</a></li>
+                            <li class="nav-item tes2"><a class="nav-link" href="#">TESTIMONIALS</a></li>
+                        </ul>
+                    </div>
                     
-                </div>
-            </div>
-            <div class="row ">
-                <div class="d-flex justify-content-center">
-                    <ul class="list-group list-group-horizontal ">
-                        <li class="nav-item tes2 "><a class="nav-link" href="#">CONTACT US</a></li>
-                        <li class="nav-item tes2"><a class="nav-link" href="#" href="#">PRIVACY POLICY</a></li>
-                        <li class="nav-item tes2"><a class="nav-link" href="#" href="#">TERMS &amp; CONDITIONS</a></li>
-
-                    </ul>
-                </div>
-                <div class="col-12 text-center">
-                    <div class="copyright">
-                        <p><small>&copy; 2019-2020 All Rights Reserved.</small></p>
+                    <div class="col-md text-md-center">
+                        <ul class="social list-unstyled text-white fs-5">
+                            <li><a href="#"><i class="fab fa-instagram-square"></i></a></li>
+                            <li><a href="#"><i class="fab fa-twitter-square"></i></a></li>
+                            <li><a href="#"><i class="fab fa-facebook-square"></i></a></li>
+                            <li><a href="#"><i class="fab fa-reddit-square"></i></a></li>
+                        </ul>
+                        
                     </div>
                 </div>
-             </div>
-        </div>
-    </footer>
+                <div class="row ">
+                    <div class="d-flex justify-content-center">
+                        <ul class="list-group list-group-horizontal ">
+                            <li class="nav-item tes2 "><a class="nav-link" href="#">CONTACT US</a></li>
+                            <li class="nav-item tes2"><a class="nav-link" href="#" href="#">PRIVACY POLICY</a></li>
+                            <li class="nav-item tes2"><a class="nav-link" href="#" href="#">TERMS &amp; CONDITIONS</a></li>
+
+                        </ul>
+                    </div>
+                    <div class="col-12 text-center">
+                        <div class="copyright">
+                            <p><small>&copy; 2019-2020 All Rights Reserved.</small></p>
+                        </div>
+                    </div>
+                 </div>
+            </div>
+        </footer>
+
+    </div>
     
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>

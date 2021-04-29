@@ -48,6 +48,15 @@ footer .tes1 {
     padding: 0px;
 }
 
+.tes2-md {
+    font-family: gotham;
+    font-size: 1rem;
+    font-weight: 400;
+    object-position: middle;
+    margin: 0px auto;
+    padding: 0px;
+}
+
 .tes2-lg {
     font-family: gotham;
     font-size: 1.5rem;
@@ -198,10 +207,13 @@ a.btn-customized {
     background: #572796;
     border: 0;
     border-radius: 4px;
-    font-size: 12px;
+    font-size: 10px;
     font-weight: 300;
     color: #fff;
     box-shadow: none;
+    padding-right: .5rem;
+    padding-left: .5rem;
+    /* margin: .5rem: */
 }
 
 button.btn-customized-green,
@@ -214,10 +226,12 @@ a.btn-customized-green {
     background: #7bb343;
     border: 0;
     border-radius: 4px;
-    font-size: 12px;
+    font-size: 10px;
     font-weight: 300;
     color: #fff;
     box-shadow: none;
+    padding-right: .5rem;
+    padding-left: .5rem;
 }
 
 button.btn-customized-red,
@@ -230,10 +244,12 @@ a.btn-customized-red {
     background: #be2841;
     border: 0;
     border-radius: 4px;
-    font-size: 12px;
+    font-size: 10px;
     font-weight: 300;
     color: #fff;
     box-shadow: none;
+    padding-right: .5rem;
+    padding-left: .5rem;
 }
 
 a.btn-customized:hover,
@@ -255,6 +271,8 @@ button.btn-customized.btn.btn-primary:not(:disabled):not(.disabled):active:focus
     border: 0;
     color: #fff;
     box-shadow: none;
+    padding-right: .5rem;
+    padding-left: .5rem;
 }
 
 a.btn-customized-green:hover,
@@ -276,6 +294,8 @@ button.btn-customized-green.btn.btn-primary:not(:disabled):not(.disabled):active
     border: 0;
     color: #fff;
     box-shadow: none;
+    padding-right: .5rem;
+    padding-left: .5rem;
 }
 
 a.btn-customized-red:hover,
@@ -297,6 +317,8 @@ button.btn-customized-red.btn.btn-primary:not(:disabled):not(.disabled):active:f
     border: 0;
     color: #fff;
     box-shadow: none;
+    padding-right: .5rem;
+    padding-left: .5rem;
 }
 
 /* CUSTOMIZE THE CAROUSEL
@@ -400,6 +422,11 @@ button.btn-customized-red.btn.btn-primary:not(:disabled):not(.disabled):active:f
     height: 100%;
 }
 
+#edit-modal {
+    width: 100%;
+    height: 100%;
+}
+
 
 .modal-header {
     background-color: black;
@@ -492,7 +519,7 @@ button.btn-customized-red.btn.btn-primary:not(:disabled):not(.disabled):active:f
 /* EXERCISE CARD CSS  */
 
 .exercise-card {
-    height: 150px;
+    height: 165px;
 }
 
 .exercise-card:hover,
@@ -530,8 +557,8 @@ button.btn-customized-red.btn.btn-primary:not(:disabled):not(.disabled):active:f
 .team-image {
     top: 0px;
     position: relative;
-    height: 160px;
-    width: 160px;
+    height: 120px;
+    width: 120px;
 }
 
 .profile-text {

@@ -27,6 +27,11 @@ function changeClass(e) {
     spinner.classList.toggle("d-none");
 }
 
+$(function() {
+    $('#flash-messages').delay(500).fadeIn('normal', function() {
+       $(this).delay(2500).fadeOut();
+    });
+ });
 
 // DISABLE SUBMIT BUTTON //
 // $(document).ready(function () {

@@ -19,21 +19,24 @@
                     <p>Name: {{g.user.full_name }}</p>
                     <p>Joined: {{ g.user.friendly_date }}</p>
                     <i class="fas fa-envelope text-pink"></i><p class="d-inline"><strong class="" > {{ g.user.email }}</strong></p>
+                    <h4 class="margin-10px-bottom font-size24 md-font-size22 sm-font-size20 font-weight-600 pt-2">Workout Assignments</h4>
+                    <a class="btn btn-primary btn-customized btn my-2 " href="{{ url_for('.athlete_workouts_show' ) }}">VIEW ASSIGMENTS</a>
+                    <a class="btn btn-primary btn-customized btn my-2 " href="{{ url_for('.athlete_workouts_assign' ) }}">ASSIGN WORKOUT</a>
                 </div>
             </div>
             
             <div class="col-lg-8 col-lg-7">
                 
                 <div class="padding-50px-left sm-no-padding-left">
-                    <h4 class="text-center">YOUR TEAMS</h4>
+                  
                    
                     <div class="margin-40px-tb">
                         <ul class="no-margin list-unstyled">
                             <li>
                                 <div class="row">
-                                    <div class="col-md-5 col-3">
+                                    <div class="col-md-4 col-3">
                                         <div class="flex-row justify-center mb-1">
-                                            <i class="d-inline fas fa-users fa-3x mt-2"></i>
+                                            <i class="d-inline fas fa-users fa-2x mt-2"></i>
                                             <strong class="tes2 fs-4">Teams</strong>
                                             <div>
                                                 <a class="btn btn-primary btn-customized btn my-2 " href="/teams/add">ADD</a>
@@ -43,7 +46,7 @@
                                             
                                         </div>
                                         <div class="flex-row justify-center">
-                                            <i class="d-inline fas fa-running fa-3x mt-2 pe-2 ms-2"></i>
+                                            <i class="d-inline fas fa-running fa-2x mt-2 pe-2 ms-2"></i>
                                             <strong class="tes2 fs-4">Athletes</strong>
                                             <div>
                                                 <a class="btn btn-primary btn-customized btn my-2 " href="/athletes/add">ADD</a>
@@ -51,7 +54,7 @@
                                             
                                         </div>
                                         <div class="flex-row justify-center">
-                                            <i class="d-inline fas fa-dumbbell fa-3x mt-2"></i>
+                                            <i class="d-inline fas fa-dumbbell fa-2x mt-2"></i>
                                             <strong class="tes2 fs-4">Workouts</strong>
                                             <div>
                                                 <a class="btn btn-primary btn-customized btn my-2 " href="/workouts/add">ADD</a>
@@ -59,7 +62,7 @@
                                            
                                         </div>
                                         <div class="flex-row justify-center">
-                                            <i class="d-inline fas fa-swimmer fa-3x mt-2"></i>
+                                            <i class="d-inline fas fa-swimmer fa-2x mt-2"></i>
                                             <strong class="tes2 fs-4">Exercises</strong>
                                             <div>
                                                 <a class="btn btn-primary btn-customized btn my-2 " href="/exercises/add">ADD</a>
@@ -67,16 +70,16 @@
                                        
                                         </div>
                                     </div>
-                                    <div class="col-md-7 col-9 mt-2">
+                                    <div class="col-md-8 col-9 mt-2">
                                         {% block user_content %} {% endblock %}
                                         {% for team in teams %}
                                         <a class="card-link text-dark text-decoration-none" href="/teams/{{ team.id }}">
                                             <div class="card user-team-card border border-dark rounded-pill mb-3">
                                                 <div class="card-horizontal ">
-                                                    <div class="img-square-wrapper d-none d-sm-block ps-1">
-                                                        <img class="team-image rounded-circle col p-1" src="{{ team.team_image_url }}" alt="Card image cap">
+                                                    <div class="img-square-wrapper  ps-1">
+                                                        <img class="team-image rounded-circle col p-1 m-2" src="{{ team.team_image_url }}" alt="Card image cap">
                                                     </div>
-                                                    <div class="card-body ms-2 ps-sm-5">                                                  
+                                                    <div class="card-body ">                                                  
                                                         <p class="card-title tes2 fs-4 mt-2 d-inline">{{ team.name }}</p> 
                                                         <div class="d-flex pb-2">
                                                             <a class="btn btn-primary btn-customized btn me-1 " href="/teams/edit/{{ team.id }}">EDIT</a>  
@@ -84,10 +87,7 @@
                                                                 <button class="btn btn-customized-red btn" type="submit">DELETE</button>  
                                                             </form>
                                                         </div> 
-                                                        <p class="card-text tes2">LOCATION: {{ team.location }}</p> 
-                                                   
-                                                        
-                                                                                                     
+                                                        <p class="card-text tes2">LOCATION: {{ team.location }}</p>                                         
                                                     </div>
                                                 </div>
                                             </div>
