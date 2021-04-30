@@ -2,6 +2,7 @@
 from app import app
 
 from flask import Flask, render_template, request, flash, redirect, session,  jsonify, g
+from sqlalchemy.exc import IntegrityError
 from models import ( db, connect_db, User, Team, Athlete, Workout, Athlete_workout, Category, 
                     Equipment, Muscle, Exercise, Workout_exercise, Athlete_workout_exercise )
 from forms import ExerciseForm, ExerciseEditForm
