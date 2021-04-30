@@ -1,59 +1,9 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
-    
-    
-
-
-    <!-- {% for team in teams %}
-    <p class="text-dark">{{ team.name }}</p>
-    <div class="card-body text-dark"> 
-                            
-                        
-                            
-        <div class="table-responsive">
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Headshot</th> 
-                        <th scope="col">Full Name</th>
-                        <th scope="col">Height</th>
-                        <th scope="col">Weight</th>
-                        <th scope="col">Position</th>
-                        <th scope="col">Medical Status</th>
-                        <th scope="col">Start Date</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for athlete in team.athletes %}
-                    <tr>
-                        <th scope="row">Athlete ID {{ athlete.id }}</th>
-                        <td><img class="athlete-thumb" src="{{ athlete.athlete_image_url }}" alt="Athlete-image"></td> 
-                        <td>{{ athlete.full_name }} </td>
-                        <td>{{ athlete.height }} </td>
-                        <td>{{ athlete.weight }} </td>
-                        <td>{{ athlete.position }}</td>
-                        <td>{{ athlete.medical_status }}</td>
-                        <td>{{ athlete.friendly_date }}</td>
-
-                    </tr>
-                                                                                    
-                {% endfor %}                  
-
-                </tbody>
-            </table>
-        </div>
-    </div>         
-
-    {% endfor %} -->
-
-<div class="container">
-    {% block athlete_workout_content %} {% endblock %}
-    
+<div class="container"> 
     <div class="col-sm-12 teams-container py-3">
-        {% block athlete_content %} {% endblock %}
+    
         <!-- <h1 class="text-dark text-center tes2 fs-5">ATHLETES PAGE</h1> -->
         <div class="padding-50px-left sm-no-padding-left">
      
@@ -65,6 +15,7 @@
                         <h1 class="d-inline teams-fa-color display-5 px-1">Athletes</h1>
                         <div class="d-inline ">
                             <a class="btn btn-primary btn-customized btn mb-3  " href="/athletes/add">ADD</a>
+                            <a class="btn btn-primary btn-customized btn mb-3  " href="/athletes/edit">EDIT</a>
                         </div>
                     </div>
                     
@@ -74,11 +25,7 @@
                     </div>
                 </div>  
             </div> 
-           
-        
-        
-        
-        
+
             {% for team in teams %}
             <div class="container">
                 <div class="row justify-items-center">
@@ -97,26 +44,21 @@
                 
                 <div class="card-body text-dark"> 
                     <div class="container-fluid">
-                
                         <div class="row d-flex align-content-around flex-wrap">
                         {% for athlete in team.athletes %}
             
                             <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                                
                                 <div class="card rounded card-athlete m-1 ">
                                     <a href="/athletes/{{ athlete.id }}" class="card-link">
                                         <img src="{{ athlete.athlete_image_url }}" alt="Image for {{athlete.full_name }}" 
                                         class="card-img-top card-athlete-img rounded-top rounded-3 p-2 ">
                                     </a>
                                     <div class="card-body">
-                                
-                                        
-                          
-                                    <div class="card-contents">                      
-                                        <p class="tes2 card-title fs-5 text-center px-2 py-1" >{{ athlete.full_name }}</p>
-                                        <p class="tes2 px-2 py-1" >Team - {{ athlete.team.name }}</p>           
-                                        <p class="tes2 px-2 py-1" >Position - {{ athlete.position }}</p>
-                                    </div>
+                                        <div class="card-contents">                      
+                                            <p class="tes2 card-title fs-5 text-center px-2 py-1" >{{ athlete.full_name }}</p>
+                                            <p class="tes2 px-2 py-1" >Team - {{ athlete.team.name }}</p>           
+                                            <p class="tes2 px-2 py-1" >Position - {{ athlete.position }}</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -125,12 +67,9 @@
                         </div>
                     </div>
                 </div>
-
             </div>
-               
             {% endfor %}
         </div>
     </div>
 </div>
-
 {% endblock %}

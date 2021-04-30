@@ -96,19 +96,31 @@ h1.tes2 {
     color: black;
 }
 
-.tes2-lg {
+.tes2-md {
     font-family: gotham;
-    font-size: 1.5rem;
+    font-size: 1rem;
     font-weight: 400;
     object-position: middle;
     margin: 0px auto;
     padding: 0px;
 }
 
+.tes2-lg {
+    font-family: gotham;
+    font-size: 1.5rem;
+    font-weight: 400;
+    object-position: middle;
+    margin: 0px auto;
+    margin-top: 5px;
+
+}
+
 h2.tes2 {
     font-family: gotham;
     font-size: 2rem;
     color: rgb(255, 255, 255);
+    margin: 0px auto;
+    padding: 0px;
 }
 
 span.tes2 {
@@ -133,6 +145,19 @@ span.tes2 {
     font-size: 1rem;
 }
 
+.dynamic-container {
+    height: 1000px;
+}
+
+.bg-timers {
+    background: url('/static/images/bg-images/bruce-mars-y0SMHt74yqc-unsplash.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    object-fit: scale-down;
+}
+
 .timer {
     display: block;
     font-size: 10rem;
@@ -141,16 +166,24 @@ span.tes2 {
     margin-bottom: .75rem;
 }
 
+#timers-exercise {
+
+    height: 100%;
+}
+
 .exercise-color {
     background-color: #8d3ff3;
+    height: 100vh;
+    width: 100%;
 }
 
 .rest-color {
     background-color: #7bb343;
+    height: 100%;
 }
 
 .main {
-    height: 100vh;
+    height: 100%;
 }
 
 
@@ -169,6 +202,10 @@ span.tes2 {
     .form {
         grid-template-columns: 1fr auto 1fr;
     }
+}
+
+.timer-home {
+    height: 30vh;
 }
 
 
@@ -259,18 +296,61 @@ footer li a:hover {
     color: #572796;
 }
 
+
+button.btn-customized,
 a.btn-customized {
-    margin-left: 15px;
-    margin-right: 5px;
-    margin-top: 35px;
-    padding: .25rem .75rem;
-    background: #000000;
+    background: #8d3ff3;
+    background: #572796;
     border: 0;
     border-radius: 4px;
-    font-size: 16px;
+    font-size: 10px;
     font-weight: 300;
     color: #fff;
     box-shadow: none;
+    padding-right: .5rem;
+    padding-left: .5rem;
+    padding-top: 1rem;
+
+}
+
+
+button.btn-customized-1,
+a.btn-customized-1 {
+    background: #8d3ff3;
+    background: #572796;
+    border: 0;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 300;
+    color: #fff;
+    box-shadow: none;
+    padding: 2rem;
+}
+
+button.btn-customized-green,
+a.btn-customized-green {
+    background: #7bb343;
+    border: 0;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 300;
+    color: #fff;
+    box-shadow: none;
+    padding-right: .5rem;
+    padding-left: .5rem;
+}
+
+button.btn-customized-red,
+a.btn-customized-red {
+    background: #be2841;
+    border: 0;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 300;
+    color: #fff;
+    box-shadow: none;
+    padding-right: .5rem;
+    padding-left: .5rem;
 }
 
 a.btn-customized:hover,
@@ -279,13 +359,90 @@ a.btn-customized:focus,
 a.btn-customized:active:focus,
 a.btn-customized.active:focus,
 a.btn-customized.btn.btn-primary:not(:disabled):not(.disabled):active,
-a.btn-customized.btn.btn-primary:not(:disabled):not(.disabled):active:focus {
+a.btn-customized.btn.btn-primary:not(:disabled):not(.disabled):active:focus button.btn-customized:hover,
+button.btn-customized:hover,
+button.btn-customized:active,
+button.btn-customized:focus,
+button.btn-customized:active:focus,
+button.btn-customized.active:focus,
+button.btn-customized.btn.btn-primary:not(:disabled):not(.disabled):active,
+button.btn-customized.btn.btn-primary:not(:disabled):not(.disabled):active:focus {
     outline: 0;
-    background: #8d3ff3;
-    background: #572796;
+    background: #000000;
     border: 0;
     color: #fff;
     box-shadow: none;
+    padding-right: .5rem;
+    padding-left: .5rem;
+}
+
+a.btn-customized-1:hover,
+a.btn-customized-1:active,
+a.btn-customized-1:focus,
+a.btn-customized-1:active:focus,
+a.btn-customized-1.active:focus,
+a.btn-customized-1.btn.btn-primary:not(:disabled):not(.disabled):active,
+a.btn-customized-1.btn.btn-primary:not(:disabled):not(.disabled):active:focus button.btn-customized:hover,
+button.btn-customized-1:hover,
+button.btn-customized-1:active,
+button.btn-customized-1:focus,
+button.btn-customized-1:active:focus,
+button.btn-customized-1.active:focus,
+button.btn-customized-1.btn.btn-primary:not(:disabled):not(.disabled):active,
+button.btn-customized-1.btn.btn-primary:not(:disabled):not(.disabled):active:focus {
+    outline: 0;
+    background: #000000;
+    border: 0;
+    color: #fff;
+    box-shadow: none;
+    padding-right: .5rem;
+    padding-left: .5rem;
+}
+
+a.btn-customized-green:hover,
+a.btn-customized-green:active,
+a.btn-customized-green:focus,
+a.btn-customized-green:active:focus,
+a.btn-customized-green.active:focus,
+a.btn-customized-green.btn.btn-primary:not(:disabled):not(.disabled):active,
+a.btn-customized-green.btn.btn-primary:not(:disabled):not(.disabled):active:focus button.btn-customized:hover,
+button.btn-customized-green:hover,
+button.btn-customized-green:active,
+button.btn-customized-green:focus,
+button.btn-customized-green:active:focus,
+button.btn-customized-green.active:focus,
+button.btn-customized-green.btn.btn-primary:not(:disabled):not(.disabled):active,
+button.btn-customized-green.btn.btn-primary:not(:disabled):not(.disabled):active:focus {
+    outline: 0;
+    background: #000000;
+    border: 0;
+    color: #fff;
+    box-shadow: none;
+    padding-right: .5rem;
+    padding-left: .5rem;
+}
+
+a.btn-customized-red:hover,
+a.btn-customized-red:active,
+a.btn-customized-red:focus,
+a.btn-customized-red:active:focus,
+a.btn-customized-red.active:focus,
+a.btn-customized-red.btn.btn-primary:not(:disabled):not(.disabled):active,
+a.btn-customized-red.btn.btn-primary:not(:disabled):not(.disabled):active:focus button.btn-customized:hover,
+button.btn-customized-red:hover,
+button.btn-customized-red:active,
+button.btn-customized-red:focus,
+button.btn-customized-red:active:focus,
+button.btn-customized-red.active:focus,
+button.btn-customized-red.btn.btn-primary:not(:disabled):not(.disabled):active,
+button.btn-customized-red.btn.btn-primary:not(:disabled):not(.disabled):active:focus {
+    outline: 0;
+    background: #000000;
+    border: 0;
+    color: #fff;
+    box-shadow: none;
+    padding-right: .5rem;
+    padding-left: .5rem;
 }
 
 

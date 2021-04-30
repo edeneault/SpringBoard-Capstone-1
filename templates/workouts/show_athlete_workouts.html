@@ -4,35 +4,17 @@
 {% block athlete_workout_content %} 
 
 <div class="container">
-
-<!-- {% for team in teams %}
-  
-
-    {{ team.id }}
-    {% for workout in workouts %}
-
-        {% if team.id == workout.team_id %}
-            {{ workout.name }}
-        {% endif %}
-
-    {% endfor %} 
-
-{% endfor %} -->
-
-
-
     <div class="row">
         <div class="d-flex justify-content-center align-items-center col-md-12 col-12 mt-2">
             <div class="flex-grow-1">
                 <i class="teams-fa-color fas fa-dumbbell mt-2 fa-3x"></i>
                 <h1 class="d-inline teams-fa-color display-5 px-1">Workouts - Athlete Workouts</h1>
-                <a class="btn btn-primary btn-customized btn my-2 mb-4 " href="/workouts/add">ADD</a>
-            
+                <a class="btn btn-primary btn-customized btn my-2 mb-4 " href="/workouts/add">ADD</a> 
+                <h4 class="margin-10px-bottom font-size24 md-font-size22 sm-font-size20 font-weight-600 pt-2">Asign Workout to Athlete</h4>
+                <a class="btn btn-primary btn-customized btn p-3 my-2 fs-5" href="{{ url_for('.athlete_workouts_assign' ) }}">ASSIGN WORKOUT</a>  
             </div>
         </div>  
     </div> 
-
-
 </div>
 
 <div class="container">
@@ -64,15 +46,9 @@
                             <th scope="col">Medical Status</th>
                         </tr>
                     </thead>
-                    <tbody>
-
-                  
+                    <tbody>                  
                     {% for workout in workouts|selectattr('team_id') %}
-                  
-                    
-
-                            {% if team.id == workout.team_id %}
-                        
+                            {% if team.id == workout.team_id %}               
                                 <tr>
                                     <td><strong>{{ workout.id }}</strong></td>
                                     <td><a href="{{url_for('.workout_show', workout_id=workout.id) }}" class="card-link">{{ workout.name }} </a> </td>
@@ -80,13 +56,10 @@
                                     <td><img class="athlete-thumb" src="{{ workout.athlete_image_url}}" alt="Athlete-image"></td> 
                                     <td>{{ workout.position }} </td>
                                     <td>{{ workout.team_id}} </td> 
-                                    <td>{{ workout.medical_status }}</td>
-                                
-                                    
+                                    <td>{{ workout.medical_status }}</td>                                
                                 </tr>
                             {% endif %}                                                               
                         {% endfor %}                  
-
                     </tbody>
                 </table>
             {% endfor %}   

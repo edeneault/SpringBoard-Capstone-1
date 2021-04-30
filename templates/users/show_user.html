@@ -3,7 +3,7 @@
 {% block content %}
 
 <div    id="login-link"    
-        class="container header-img" 
+        class="container-fluid header-img" 
         style="background: url(' {{ g.user.header_image_url }}') no-repeat top center fixed; width:100%">
 </div>
 
@@ -20,8 +20,8 @@
                     <p>Joined: {{ g.user.friendly_date }}</p>
                     <i class="fas fa-envelope text-pink"></i><p class="d-inline"><strong class="" > {{ g.user.email }}</strong></p>
                     <h4 class="margin-10px-bottom font-size24 md-font-size22 sm-font-size20 font-weight-600 pt-2">Workout Assignments</h4>
-                    <a class="btn btn-primary btn-customized btn my-2 " href="{{ url_for('.athlete_workouts_show' ) }}">VIEW ASSIGMENTS</a>
-                    <a class="btn btn-primary btn-customized btn my-2 " href="{{ url_for('.athlete_workouts_assign' ) }}">ASSIGN WORKOUT</a>
+                    <a class="btn btn-primary btn-customized btn my-2 p-2 " href="{{ url_for('.athlete_workouts_show' ) }}">VIEW ASSIGMENTS</a>
+                    <a class="btn btn-primary btn-customized btn my-2 p-2" href="{{ url_for('.athlete_workouts_assign' ) }}">ASSIGN WORKOUT</a>
                 </div>
             </div>
             

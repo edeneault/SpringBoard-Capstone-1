@@ -19,7 +19,7 @@
                     </div>
                     
                     <div class="text-center pt-1">
-                        <h6 class="d-inline tes2 text-center sm-font-size12 px-2">AHTLETE WORKOUTS</h6>
+                        <h6 class="d-inline tes2 text-center sm-font-size12 px-2">ATHLETE WORKOUTS</h6>
                         <a class="btn btn-primary btn-customized btn me-2" href="{{ url_for('.athlete_workouts_show') }} ">VIEW</a>
                         
                     </div>
@@ -35,9 +35,17 @@
                         </a>
                     </div>
                     <div class="col-sm-2  ms-3">
-                        <a class="btn  btn-customized  col-sm-1 my-2 mb-4 d-inline" href="/workouts/edit/{{workout.id}}">EDIT</a> 
+                        <a class="btn  btn-customized  col-sm-1 my-0 mb-4 d-inline" href="/workouts/edit/{{workout.id}}">EDIT</a> 
+
                         <form  class="d-inline col-sm-1" action="/workouts/delete/{{ workout.id }}" method="POST">
-                            <button class="btn btn-customized-red p-1 d-inline" type="submit">DELETE</button>  
+                            
+                            <!-- <button class="btn btn-customized-red p-1 d-inline" type="submit">DELETE</button>  -->
+                            
+                            <a class="tooltips  " data-toggle="tooltip" data-placement="top" title="Delete">
+                                <button class="page-links-dark" type="submit" onclick="return confirm('Are you sure to delete this workout ?');" style="border: 0; background: none;">
+                                <i class="fas fa-trash-alt" aria-hidden="true"></i>
+                                </button>
+                            </a> 
                         </form>
                     </div>
                    

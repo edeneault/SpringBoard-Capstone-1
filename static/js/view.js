@@ -2,34 +2,34 @@
 function showTimerHome() {
     const homeTimer = document.createElement("div");
     // homeTimer.classList.add("row");
-    homeTimer.innerHTML = `
-
-                            <div class="form-goup  pt-5"  method="post">
-                                  
-                                       
-                                        <div class="input-group row col-md-8 offset-md-2 mx-auto">
-                                            <label class="input-group-text col-4 col-sm-2 col-form-label bg-timer-form text-black" for="exercise">EXERCISE</label>
-                                            <input class="form-control col-4 col-sm-2 bg-timer-form text-black " type="number" name="exercise" id="exercise" value="10"/>
-                                            <span class="input-group-text col-4 col-sm-2 bg-timer-form text-black"><small>SECONDS</small></span>
-                                        </div>
-                                        
-                                        <div class="input-group row col-md-8 offset-md-2 mx-auto">
-                                            <label class="input-group-text col-4 col-sm-2 col-form-label bg-timer-form text-black" for="rest">REST</label>
-                                            <input class="form-control col-4 col-sm-2 bg-timer-form text-black" type="number" name="rest" id="rest" value="5"/>
-                                            <span class="input-group-text col-4 col-sm-2 bg-timer-form text-black"><small>SECONDS</small></span>
-                                        </div>
-                                        <div class="input-group row col-md-8 offset-md-2 mx-auto">
-                                            <label class="input-group-text col-4 col-sm-2 col-form-label bg-timer-form text-black" for="sets">SETS</label>
-                                            <input class="form-control col-4 col-sm-2 bg-timer-form text-black" type="number" name="sets" id="sets" value="1"/>
-                                            <span class="input-group-text col-4 col-sm-2 bg-timer-form text-black"><small>SETS</small></span>
-                                        </div>    
-                                        <div class="row">
-                                            <div class="col col-sm-12 align-self-center text-center mx-auto">
-                                                <a class="btn btn-primary btn-customized" role="button" type="submit" id="startBtn"><span class="tes2">START!</span></a>
-                                            </div>
-                                        </div>
-                               
+    homeTimer.innerHTML = `<div class="form-goup  pt-5"  method="post">
+                                <div class="input-group row col-md-8 offset-md-2 mx-auto">
+                                    <label class="input-group-text col-4 col-sm-2 col-form-label bg-timer-form text-black" for="exercise">EXERCISE</label>
+                                    <input class="form-control col-4 col-sm-2 bg-timer-form text-black " type="number" name="exercise" id="exercise" value="10"/>
+                                    <span class="input-group-text col-4 col-sm-2 bg-timer-form text-black"><small>SECONDS</small></span>
+                                </div>
+                                
+                                <div class="input-group row col-md-8 offset-md-2 mx-auto">
+                                    <label class="input-group-text col-4 col-sm-2 col-form-label bg-timer-form text-black" for="rest">REST</label>
+                                    <input class="form-control col-4 col-sm-2 bg-timer-form text-black" type="number" name="rest" id="rest" value="5"/>
+                                    <span class="input-group-text col-4 col-sm-2 bg-timer-form text-black"><small>SECONDS</small></span>
+                                </div>
+                                <div class="input-group row col-md-8 offset-md-2 mx-auto">
+                                    <label class="input-group-text col-4 col-sm-2 col-form-label bg-timer-form text-black" for="sets">SETS</label>
+                                    <input class="form-control col-4 col-sm-2 bg-timer-form text-black" type="number" name="sets" id="sets" value="1"/>
+                                    <span class="input-group-text col-4 col-sm-2 bg-timer-form text-black"><small>SETS</small></span>
+                                </div>    
+                                <div class="row">
+                                    <div class="col col-sm-12 align-self-center text-center mx-auto">
+                                        <a class="btn btn-primary btn-customized-1 px-4 py-2 m-2" role="button" type="submit" id="startBtn"><span class="text-white fs-5">START!</span></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="image-wrapper pt-4">
+                                    <img src="static/images/clipart1066235.png" alt="TIMER_IMAGE">
                             </div>`
+                            
+                            
     homeView.append(homeTimer);
     const submitBtn = document.querySelector("#startBtn");
     submitBtn.addEventListener("click", handleClickStart);
@@ -37,14 +37,14 @@ function showTimerHome() {
 
 function showTimerExercise() {
     const exerciseTimer = document.createElement("div");
-    exerciseTimer.classList.add("container-fluid", "main", "exercise-color");
+    exerciseTimer.classList.add("container-fluid", "main", "exercise-color");   
 
-    exerciseTimer.innerHTML = ` <p class="btn btn-outline-light col-2 col-md-1 m-3 fullscreen"><i class="fas fa-expand-arrows-alt fa-2x"></i></p>
+    exerciseTimer.innerHTML = ` <p id="fullscreen" class="btn btn-outline-light col-4 col-md-2 m-3 fullscreen"><i class="fas fa-expand-arrows-alt fa-2x"></i></p>
                                 <h2 class="display-1 text-center text-light mb-5 pb-5">Exercise</h2>
                                 <h1 class="display-1 timer text-light mb-5" id="timer">${ exercise } </h1>
                                 <h5 class=" text-center text-light my-5 py-5 " id="set">Sets left: ${sets} </h5>
                                 <progress max="${ exercise}" value="${exercise}" class="progress progress--rest" id="progressBar"></progress>
-                                <p id="resetBtn" class="btn btn-outline-dark col-2 col-md-1 m-3">RESET</p>
+                                <p id="resetBtn" class="btn btn-outline-light col-2 col-md-1 m-3">RESET</p>
                                 `
     exerciseView.append(exerciseTimer);  
      
@@ -54,10 +54,7 @@ function showTimerExercise() {
     });
     const resetBtn = document.querySelector("#resetBtn");
     resetBtn.addEventListener("click", () => {
-        timerCompleted = true;
-        abort = true;
-        sets = 0;
-        startTimer();
+        location.reload()
      
     });
 }
@@ -66,7 +63,7 @@ function showTimerRest() {
     const exerciseTimer = document.createElement("div");
     exerciseTimer.classList.add("container-fluid",  "main", "rest-color");
 
-    exerciseTimer.innerHTML = ` <p class="btn btn-outline-light col-2 col-md-1 m-2 fullscreen"><i class="fas fa-expand-arrows-alt fa-2x"></i></p> 
+    exerciseTimer.innerHTML = ` <p id="fullscreen1" class="btn btn-outline-light col-4 col-md-2 m-2 fullscreen"><i class="fas fa-expand-arrows-alt fa-2x"></i></p> 
                                 <h2 class="display-1 text-center text-light mb-5 pb-5">Rest</h2>
                                 <span class="display-1 timer text-light my-5" id="timer">${ rest } </span>
                                 <h5 class="text-center text-light my-5 py-5" id="set"> Sets left: ${sets} </h5>
@@ -79,11 +76,7 @@ function showTimerRest() {
     });
     const resetBtn = document.querySelector("#resetBtn");
     resetBtn.addEventListener("click", () => {
-        timerCompleted = true;
-        abort = true;
-        sets = 0;
-        startTimer();
- 
+        location.reload()
     });
 }
 

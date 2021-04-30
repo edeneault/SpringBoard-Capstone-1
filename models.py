@@ -219,8 +219,6 @@ class Exercise(db.Model):
         return f"<Exercise #{self.id}: {self.name}, {self.description}, {self.default_reps}, {self.image_url}, {self.category_id}, {self.equipment_id}, {self.muscle_id}>"
 
 
-    
-
 class Workout_exercise(db.Model):
     """ Class to instantiate a Workout_exercise class and methods"""
     __tablename__ = "workout_exercises"
@@ -258,3 +256,15 @@ class Image(db.Model):
 
     def __repr__(self):
         return f"<Image #{self.id}: {self.exercise_image_url }, {self.wger_id }>"
+
+
+class Assignment_log(db.Model):
+    """Class to track Assigment status"""
+
+    id = db.Column(db.Integer, primary_key=True)
+    athlete_workout_id = db.Column(db.Integer, nullable=False)
+    is_completed = db.Column(db.Boolean, default=False, nullable=False)
+
+     
+    def __repr__(self):
+        return f"<Assigment_log #{self.id}: {self.athlete_workout_id }, {self.is_completed}>"

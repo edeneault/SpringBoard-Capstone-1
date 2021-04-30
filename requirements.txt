@@ -1,4 +1,7 @@
+aiohttp==3.7.4.post0
 appnope==0.1.0
+async-timeout==3.0.1
+attrs==20.3.0
 backcall==0.1.0
 bcrypt==3.1.4
 beautifulsoup4==4.9.3
@@ -17,6 +20,7 @@ Flask-Bcrypt==0.7.1
 Flask-DebugToolbar==0.10.1
 Flask-SQLAlchemy==2.3.2
 Flask-WTF==0.14.2
+gunicorn==20.1.0
 idna==2.10
 ipython==7.22.0
 ipython-genutils==0.2.0
@@ -24,6 +28,7 @@ itsdangerous==0.24
 jedi==0.18.0
 Jinja2==2.10
 MarkupSafe==1.1.1
+multidict==5.1.0
 parso==0.8.2
 pexpect==4.6.0
 pickleshare==0.7.5
@@ -40,7 +45,9 @@ soupsieve==2.2.1
 SQLAlchemy==1.2.12
 text-unidecode==1.2
 traitlets==4.3.2
+typing-extensions==3.7.4.3
 urllib3==1.26.4
 wcwidth==0.1.7
 Werkzeug==0.14.1
 WTForms==2.2.1
+yarl==1.6.3

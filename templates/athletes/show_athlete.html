@@ -49,13 +49,13 @@
                                                     <div class="d-flex d-flex-row justify-content-center align-items-center pb-2">
                                                         <p class="d-inline tes2 pe-1">Actions:</p>
                                                         <a class="  me-1 d-flex-inline align-items-center page-links-dark" 
-                                                            href="{{ url_for('.workout_edit', workout_id=workout['workout_id'] ) }}"><i class="fas fa-edit"></i>
+                                                            href="{{ url_for('.workout_edit', workout_id=workout['workout_id'] ) }}"><i class="bi bi-pen"></i>
                                                         </a>
-                                                        <a class="page-links-dark" href="#"><i class="fas fa-check-circle"></i></a>    
+                                                        <a class="page-links-dark" href="#"><i class="bi bi-check-circle"></i></a>    
                                                         <form action="{{ url_for('.athlete_workout_delete', workout_id=workout['workout_id'], athlete_id=athlete.id ) }}" method="POST">
-                                                            <a class="tooltips " data-toggle="tooltip" data-placement="top" title="Delete">
+                                                            <a class="tooltips page-links-dark  " data-toggle="tooltip" data-placement="top" title="Delete">
                                                                 <button class="page-links-dark " type="submit" onclick="return confirm('Are you sure to delete this workout ?');" style="border: 0; background: none;">
-                                                                <i class="fas fa-trash-alt" aria-hidden="true"></i>
+                                                                    <i class="bi bi-trash"></i>
                                                                 </button>
                                                             </a> 
                                                         </form>

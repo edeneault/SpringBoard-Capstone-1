@@ -119,7 +119,9 @@ function startTimer() {
                 try {
                     exerciseView.removeChild(exerciseView.childNodes[0]);
                 }
-                catch (e) { };
+                catch (e) {
+                    console.log(e);
+                };
                 
                 snd1.play();  
                 timerCompleted = true;
@@ -158,6 +160,29 @@ function startTimer() {
     }, 1000);
 
 }
+
+
+$('#fullscreen').click(function() {
+    $('#theDiv').css({
+        position: 'fixed',
+        top: 0,
+        right: 0,
+        bottom: 0,
+        left: 0,
+        zIndex: 999
+    });
+});
+
+$('#fullscreen1').click(function() {
+    $('#theDiv').css({
+        position: 'fixed',
+        top: 0,
+        right: 0,
+        bottom: 0,
+        left: 0,
+        zIndex: 999
+    });
+});
 
 
 
