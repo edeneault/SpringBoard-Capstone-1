@@ -23,12 +23,17 @@
             
                 
                 <div class="col-lg-8 col-md-7">
-                    <h4 class="font-size38 sm-font-size32 xs-font-size30 mb-3 tes1">ATHLETE PROFILE</h4>
-                    <div class="d-flex">
-                        <a class="btn btn-primary btn-customized btn me-1 " href="/athletes/edit/{{ athlete.id }}">EDIT</a>  
-                        <form action="/athletes/delete/{{ athlete.id }}" method="POST">
-                            <button class="btn btn-customized-red btn" type="submit">DELETE</button>  
+                    <h4 class="tes1">ATHLETE PROFILE</h4>
+                    <div class="d-flex d-inline">
+                        <a class="btn btn-primary btn-customized btn mb-3 d-inline" href="/athletes/edit/{{ athlete.id }}">EDIT</a>  
+                        <form action="{{ url_for('.athlete_delete', athlete_id=athlete.id ) }}" method="POST">
+                            <a class="tooltips page-links-dark d-inline " data-toggle="tooltip" data-placement="top" title="Delete">
+                                <button class="page-links-dark " type="submit" onclick="return confirm('Are you sure to delete this athlete?');" style="border: 0; background: none;">
+                                    <i class="bi bi-trash"></i>
+                                </button>
+                            </a> 
                         </form>
+                        <button class="btn btn-primary btn-customized btn mb-3" onclick="goBack()">Go Back</button>
                     </div>
 
                 

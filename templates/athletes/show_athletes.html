@@ -12,11 +12,12 @@
                 <div class="d-flex justify-content-center align-items-center col-md-12 col-12 mt-2">
                     <div class="flex-grow-1">
                         <i class="teams-fa-color fas fa-running mt-2 fa-3x"></i>
-                        <h1 class="d-inline col-12 teams-fa-color display-5 px-1">Athletes</h1>
+                        <h1 class="d-inline teams-fa-color display-5 px-1">Athletes</h1>
                         <div class="d-inline ">
                             <a class="btn btn-primary btn-customized btn mb-3  " href="/athletes/add">ADD</a>
                             <a class="btn btn-primary btn-customized btn mb-3  " href="/athletes/edit">EDIT</a>
                             <a class="btn btn-primary btn-customized btn mb-3" href="{{ url_for('.athlete_workouts_assign' ) }}">ASSIGN WORKOUT</a>
+                            <button class="btn btn-primary btn-customized btn mb-3" onclick="goBack()">Go Back</button>
                         </div>
                     </div>
                 </div>  
