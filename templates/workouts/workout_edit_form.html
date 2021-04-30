@@ -78,7 +78,7 @@
                                                    
                                                     <a id="" href="{{ url_for('.exercise_edit', exercise_id=exercise.id)}}" 
                                                     class="btn btn-primary btn-customized btn-lg ms-2 " type="button" >EDIT</a> 
-                                                    <a id="completeBtn" href="{{ url_for('.workout_exercises_show', page_num=1)}}" 
+                                                    <a id="completeBtn" href="{{ url_for('workout_exercises_edit_delete', workout_id=workout.id, exercise_id=exercise.id)}}" 
                                                     class="btn btn-primary btn-customized-red btn-lg ms-2 " type="button" >DEL</a>
                                                 </td>
                                         </tr>

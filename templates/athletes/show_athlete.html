@@ -3,7 +3,7 @@
 {% block content %}
 <div class="container">
 
-    <h1 class="text-dark tes2-lg">{{ athlete.full_name }}</h1>
+    <h4 class="tes1">ATHLETE PROFILE</h4>
     
     <div  id="login-link" class="container-fluid header-img" style="background: url(' {{ athlete.team.team_image_url }}') no-repeat top center fixed;"></div>
     
@@ -29,7 +29,7 @@
             
                 
                 <div class="col-lg-8 col-md-7">
-                    <h4 class="tes1">ATHLETE PROFILE</h4>
+                    <h1 class="text-dark tes2-lg">{{ athlete.full_name }}</h1>
                     <div class="d-flex d-inline">
                         <a class="btn btn-primary btn-customized btn mb-3 me-1 d-inline" href="/athletes/edit/{{ athlete.id }}">EDIT</a>  
                         <button class="btn btn-primary btn-customized btn mb-3" onclick="goBack()">Go Back</button>

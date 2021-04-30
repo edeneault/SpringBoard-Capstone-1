@@ -231,6 +231,21 @@ def workout_edit(workout_id):
     return render_template('/workouts/workout_edit_form.html',  form=form, form2=form2, workout=workout, exercises=exercises )
 
 
+@app.route('/workouts/edit/delete/<int:workout_id>/<int:exercise_id>', methods=["GET", "POST"])
+def workout_exercises_edit_delete(exercise_id, workout_id):
+    """ Add exercise to workout """
+
+    exercise = Exercise.query.get_or_404(exercise_id)
+    workout = Workout.query.get_or_404(workout_id)
+
+    workout_exercise = Workout_exercise.query.filter(Workout_exercise.exercise_id == exercise_id, Workout_exercise.workout_id == workout_id).all()
+    workout_exercise = workout_exercise[0]
+    db.session.delete(workout_exercise)
+    db.session.commit()
+    flash(f"Succesfully deleted exercise {exercise.id} from workout {workout.id}", 'success')
+    return redirect(f'/workouts/edit/{workout_id}' )
+
+
 @app.route('/workouts/delete/<int:workout_id>', methods=["POST"])
 def workout_delete(workout_id):
     """Delete a workout."""
