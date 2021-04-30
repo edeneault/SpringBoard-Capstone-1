@@ -39,9 +39,9 @@ function showTimerExercise() {
     const exerciseTimer = document.createElement("div");
     exerciseTimer.classList.add("container-fluid", "main", "exercise-color");   
 
-    exerciseTimer.innerHTML = ` <p id="fullscreen" class="btn btn-outline-light col-4 col-md-2 m-3 fullscreen"><i class="fas fa-expand-arrows-alt fa-2x"></i></p>
+    exerciseTimer.innerHTML = ` <p id="fullscreen" class="btn btn-outline-light col-4 col-md-2 m-2 fullscreen"><i class="fas fa-expand-arrows-alt fa-2x"></i></p>
                                 <h2 class="display-1 text-center text-light mb-5 pb-5">Exercise</h2>
-                                <h1 class="display-1 timer text-light mb-5" id="timer">${ exercise } </h1>
+                                <span class="display-1 timer text-light mb-5" id="timer">${ exercise } </span>
                                 <h5 class=" text-center text-light my-5 py-5 " id="set">Sets left: ${sets} </h5>
                                 <progress max="${ exercise}" value="${exercise}" class="progress progress--rest" id="progressBar"></progress>
                                 <p id="resetBtn" class="btn btn-outline-light col-2 col-md-1 m-3">RESET</p>
