@@ -16,7 +16,13 @@
                     </div>
                     <div class="profile-text bg-light-gray padding-30px-all md-padding-25px-all sm-padding-20px-all text-center">
                         <h4 class="margin-10px-bottom font-size24 md-font-size22 sm-font-size20 font-weight-600 pt-2">position - {{athlete.position}}</h4>
-                        <p>Name: {{athlete.full_name }}</p>
+                        <p class="tes2">Name: {{athlete.full_name }}</p>
+                        <p class="tes2">Height: {{athlete.height }}</p>
+                        <p class="tes2">Weight: {{athlete.weight }}</p>
+                        <p class="tes2">Joined: {{athlete.friendly_date }}</p>
+                        <p class="tes2">Email: {{athlete.email }}</p>
+                        <p class="tes2">Medical Status: <span class="card-text tes2 text-success">{{ athlete.medical_status }}</span></p>
+                        <a class="btn btn-primary btn-customized btn mt-2 mb-3" href="{{ url_for('.athlete_workouts_assign' ) }}">ASSIGN WORKOUT</a>
                     </div>
                 </div>
            
@@ -26,7 +32,7 @@
                     <h4 class="tes1">ATHLETE PROFILE</h4>
                     <div class="d-flex d-inline">
                         <a class="btn btn-primary btn-customized btn mb-3 me-1 d-inline" href="/athletes/edit/{{ athlete.id }}">EDIT</a>  
-                        <button class="btn btn-primary btn-customized btn  mb-3" onclick="goBack()">Go Back</button>
+                        <button class="btn btn-primary btn-customized btn mb-3" onclick="goBack()">Go Back</button>
                         <form action="{{ url_for('.athlete_delete', athlete_id=athlete.id ) }}" method="POST">
                             <a class="tooltips page-links-dark d-inline " data-toggle="tooltip" data-placement="top" title="Delete">
                                 <button class="page-links-dark " type="submit" onclick="return confirm('Are you sure to delete this athlete?');" style="border: 0; background: none;">
