@@ -337,15 +337,24 @@ button.btn-customized-red.btn.btn-primary:not(:disabled):not(.disabled):active:f
 
 /* Declare heights because of positioning of img element */
 .carousel-item {
+    height: 450px;
+}
+
+.carousel-item>img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 100%;
     height: 32rem;
 }
+
 
 .item1 {
     background: url('/static/images/lucas-favre-JnoNcfFwrNA-unsplash.jpg') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    background-size: cover;
+    background-size: cover center center;
 }
 
 .item2 {
@@ -353,7 +362,7 @@ button.btn-customized-red.btn.btn-primary:not(:disabled):not(.disabled):active:f
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    background-size: cover;
+    background-size: cover center center;
 }
 
 .item3 {
@@ -411,6 +420,18 @@ button.btn-customized-red.btn.btn-primary:not(:disabled):not(.disabled):active:f
 @media (min-width: 62em) {
     .featurette-heading {
         margin-top: 7rem;
+    }
+
+
+}
+
+@media (min-width: 30rem) {
+    .carousel-item {
+
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
     }
 }
 

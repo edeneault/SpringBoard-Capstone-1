@@ -45,24 +45,24 @@
             <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
             <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
-        <div class="carousel-inner item1">
-            <div class="carousel-item active">
+        <div class="carousel-inner">
+            <div class="carousel-item item1 active">
             
             <div class="container">
                 <div class="carousel-caption text-start">
-                    <h1 class="display-4 tes2 fw-bold mx-1 px-1">Performance Management</h1>
+                    <h1 class="featurette-heading display-4 tes2 fw-bold mx-1 px-1">Performance Management</h1>
                     <p class="col-md-8 tes2 mx-1 px-1">Lightweight Athlete Management Application.</p>  
-                    <!-- <p class="col-md-8 display-2 tes2 m-1 p-1">Easy and Simple Team Management Tool.</p> -->
                     <p class="col-md-8 tes2 d-inline mx-2 py-3">Try it! It's FREE. Build your team.</p>
-                    <a id="register-carousel-link" class="btn btn-primary btn-customized btn-lg ms-2" href="{{ url_for('.register_user') }}" type="button">REGISTER NOW!</a>
+                    <a class="btn btn-primary btn-customized btn p-2 my-2 fs-6" href="{{ url_for('.register_user') }}">REGISTER NOW!</a>
+                    <!-- <button class="btn btn-primary btn-customized btn-lg ms-2 " type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">LEARN MORE</button> -->
                 </div>
             </div>
         </div>
 
-        <div class="carousel-item item2">  
+        <div class="carousel-item  img-fluid item2">  
             <div class="container">
                 <div class="carousel-caption">
-                    <h1 class="display-4 tes2 fw-bold mx-1 px-1">Register and create your team.</h1>
+                    <h1 class="featurette-heading display-4 tes2 fw-bold mx-1 px-1">Register and create your team.</h1>
                     <p class="col-md-12 tes2 mx-1 px-1">Built for Coaches. Simple to use in realtime.</p>
                     <button class="btn btn-primary btn-customized btn-lg ms-2 " type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">LEARN MORE</button>
                 </div>
@@ -73,7 +73,7 @@
 
             <div class="container">
                 <div class="carousel-caption text-end">
-                    <h1 class="display-4 tes2 fw-bold  mx-1 px-1">Track your Athletes Progress. </h1>
+                    <h1 class="featurette-heading display-4 tes2 fw-bold  mx-1 px-1">Track your Athletes Progress. </h1>
                     <p class="col-md-12 tes2 mx-1 px-1">Focus on the Basics. View simple data analysis.</p>
                     <button class="btn btn-primary btn-customized btn-lg ms-2 " type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop2">LEARN MORE</button>
                 </div>
