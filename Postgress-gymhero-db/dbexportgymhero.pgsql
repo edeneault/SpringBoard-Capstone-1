@@ -16,33 +16,12 @@ SET xmloption = content;
 SET client_min_messages = warning;
 SET row_security = off;
 
-DROP DATABASE gymhero;
---
--- Name: gymhero; Type: DATABASE; Schema: -; Owner: -
---
-
-CREATE DATABASE gymhero WITH TEMPLATE = template0 ENCODING = 'UTF8' LOCALE = 'en_US.UTF-8';
-
-
-\connect gymhero
-
-SET statement_timeout = 0;
-SET lock_timeout = 0;
-SET idle_in_transaction_session_timeout = 0;
-SET client_encoding = 'UTF8';
-SET standard_conforming_strings = on;
-SELECT pg_catalog.set_config('search_path', '', false);
-SET check_function_bodies = false;
-SET xmloption = content;
-SET client_min_messages = warning;
-SET row_security = off;
-
 SET default_tablespace = '';
 
 SET default_table_access_method = heap;
 
 --
--- Name: athlete_workouts; Type: TABLE; Schema: public; Owner: -
+-- Name: athlete_workouts; Type: TABLE; Schema: public; Owner: edeneault
 --
 
 CREATE TABLE public.athlete_workouts (
@@ -54,8 +33,10 @@ CREATE TABLE public.athlete_workouts (
 );
 
 
+ALTER TABLE public.athlete_workouts OWNER TO edeneault;
+
 --
--- Name: athlete_workouts_exercises; Type: TABLE; Schema: public; Owner: -
+-- Name: athlete_workouts_exercises; Type: TABLE; Schema: public; Owner: edeneault
 --
 
 CREATE TABLE public.athlete_workouts_exercises (
@@ -65,8 +46,10 @@ CREATE TABLE public.athlete_workouts_exercises (
 );
 
 
+ALTER TABLE public.athlete_workouts_exercises OWNER TO edeneault;
+
 --
--- Name: athlete_workouts_exercises_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+-- Name: athlete_workouts_exercises_id_seq; Type: SEQUENCE; Schema: public; Owner: edeneault
 --
 
 CREATE SEQUENCE public.athlete_workouts_exercises_id_seq
@@ -78,15 +61,17 @@ CREATE SEQUENCE public.athlete_workouts_exercises_id_seq
     CACHE 1;
 
 
+ALTER TABLE public.athlete_workouts_exercises_id_seq OWNER TO edeneault;
+
 --
--- Name: athlete_workouts_exercises_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+-- Name: athlete_workouts_exercises_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: edeneault
 --
 
 ALTER SEQUENCE public.athlete_workouts_exercises_id_seq OWNED BY public.athlete_workouts_exercises.id;
 
 
 --
--- Name: athlete_workouts_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+-- Name: athlete_workouts_id_seq; Type: SEQUENCE; Schema: public; Owner: edeneault
 --
 
 CREATE SEQUENCE public.athlete_workouts_id_seq
@@ -98,15 +83,17 @@ CREATE SEQUENCE public.athlete_workouts_id_seq
     CACHE 1;
 
 
+ALTER TABLE public.athlete_workouts_id_seq OWNER TO edeneault;
+
 --
--- Name: athlete_workouts_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+-- Name: athlete_workouts_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: edeneault
 --
 
 ALTER SEQUENCE public.athlete_workouts_id_seq OWNED BY public.athlete_workouts.id;
 
 
 --
--- Name: athletes; Type: TABLE; Schema: public; Owner: -
+-- Name: athletes; Type: TABLE; Schema: public; Owner: edeneault
 --
 
 CREATE TABLE public.athletes (
@@ -124,8 +111,10 @@ CREATE TABLE public.athletes (
 );
 
 
+ALTER TABLE public.athletes OWNER TO edeneault;
+
 --
--- Name: athletes_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+-- Name: athletes_id_seq; Type: SEQUENCE; Schema: public; Owner: edeneault
 --
 
 CREATE SEQUENCE public.athletes_id_seq
@@ -137,15 +126,17 @@ CREATE SEQUENCE public.athletes_id_seq
     CACHE 1;
 
 
+ALTER TABLE public.athletes_id_seq OWNER TO edeneault;
+
 --
--- Name: athletes_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+-- Name: athletes_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: edeneault
 --
 
 ALTER SEQUENCE public.athletes_id_seq OWNED BY public.athletes.id;
 
 
 --
--- Name: categories; Type: TABLE; Schema: public; Owner: -
+-- Name: categories; Type: TABLE; Schema: public; Owner: edeneault
 --
 
 CREATE TABLE public.categories (
@@ -154,8 +145,10 @@ CREATE TABLE public.categories (
 );
 
 
+ALTER TABLE public.categories OWNER TO edeneault;
+
 --
--- Name: categories_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+-- Name: categories_id_seq; Type: SEQUENCE; Schema: public; Owner: edeneault
 --
 
 CREATE SEQUENCE public.categories_id_seq
@@ -167,15 +160,17 @@ CREATE SEQUENCE public.categories_id_seq
     CACHE 1;
 
 
+ALTER TABLE public.categories_id_seq OWNER TO edeneault;
+
 --
--- Name: categories_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+-- Name: categories_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: edeneault
 --
 
 ALTER SEQUENCE public.categories_id_seq OWNED BY public.categories.id;
 
 
 --
--- Name: equipment; Type: TABLE; Schema: public; Owner: -
+-- Name: equipment; Type: TABLE; Schema: public; Owner: edeneault
 --
 
 CREATE TABLE public.equipment (
@@ -184,8 +179,10 @@ CREATE TABLE public.equipment (
 );
 
 
+ALTER TABLE public.equipment OWNER TO edeneault;
+
 --
--- Name: equipment_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+-- Name: equipment_id_seq; Type: SEQUENCE; Schema: public; Owner: edeneault
 --
 
 CREATE SEQUENCE public.equipment_id_seq
@@ -197,15 +194,17 @@ CREATE SEQUENCE public.equipment_id_seq
     CACHE 1;
 
 
+ALTER TABLE public.equipment_id_seq OWNER TO edeneault;
+
 --
--- Name: equipment_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+-- Name: equipment_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: edeneault
 --
 
 ALTER SEQUENCE public.equipment_id_seq OWNED BY public.equipment.id;
 
 
 --
--- Name: exercises; Type: TABLE; Schema: public; Owner: -
+-- Name: exercises; Type: TABLE; Schema: public; Owner: edeneault
 --
 
 CREATE TABLE public.exercises (
@@ -221,8 +220,10 @@ CREATE TABLE public.exercises (
 );
 
 
+ALTER TABLE public.exercises OWNER TO edeneault;
+
 --
--- Name: exercises_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+-- Name: exercises_id_seq; Type: SEQUENCE; Schema: public; Owner: edeneault
 --
 
 CREATE SEQUENCE public.exercises_id_seq
@@ -234,15 +235,17 @@ CREATE SEQUENCE public.exercises_id_seq
     CACHE 1;
 
 
+ALTER TABLE public.exercises_id_seq OWNER TO edeneault;
+
 --
--- Name: exercises_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+-- Name: exercises_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: edeneault
 --
 
 ALTER SEQUENCE public.exercises_id_seq OWNED BY public.exercises.id;
 
 
 --
--- Name: images; Type: TABLE; Schema: public; Owner: -
+-- Name: images; Type: TABLE; Schema: public; Owner: edeneault
 --
 
 CREATE TABLE public.images (
@@ -252,8 +255,10 @@ CREATE TABLE public.images (
 );
 
 
+ALTER TABLE public.images OWNER TO edeneault;
+
 --
--- Name: images_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+-- Name: images_id_seq; Type: SEQUENCE; Schema: public; Owner: edeneault
 --
 
 CREATE SEQUENCE public.images_id_seq
@@ -265,15 +270,17 @@ CREATE SEQUENCE public.images_id_seq
     CACHE 1;
 
 
+ALTER TABLE public.images_id_seq OWNER TO edeneault;
+
 --
--- Name: images_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+-- Name: images_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: edeneault
 --
 
 ALTER SEQUENCE public.images_id_seq OWNED BY public.images.id;
 
 
 --
--- Name: muscles; Type: TABLE; Schema: public; Owner: -
+-- Name: muscles; Type: TABLE; Schema: public; Owner: edeneault
 --
 
 CREATE TABLE public.muscles (
@@ -283,8 +290,10 @@ CREATE TABLE public.muscles (
 );
 
 
+ALTER TABLE public.muscles OWNER TO edeneault;
+
 --
--- Name: muscles_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+-- Name: muscles_id_seq; Type: SEQUENCE; Schema: public; Owner: edeneault
 --
 
 CREATE SEQUENCE public.muscles_id_seq
@@ -296,15 +305,17 @@ CREATE SEQUENCE public.muscles_id_seq
     CACHE 1;
 
 
+ALTER TABLE public.muscles_id_seq OWNER TO edeneault;
+
 --
--- Name: muscles_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+-- Name: muscles_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: edeneault
 --
 
 ALTER SEQUENCE public.muscles_id_seq OWNED BY public.muscles.id;
 
 
 --
--- Name: teams; Type: TABLE; Schema: public; Owner: -
+-- Name: teams; Type: TABLE; Schema: public; Owner: edeneault
 --
 
 CREATE TABLE public.teams (
@@ -318,8 +329,10 @@ CREATE TABLE public.teams (
 );
 
 
+ALTER TABLE public.teams OWNER TO edeneault;
+
 --
--- Name: teams_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+-- Name: teams_id_seq; Type: SEQUENCE; Schema: public; Owner: edeneault
 --
 
 CREATE SEQUENCE public.teams_id_seq
@@ -331,15 +344,17 @@ CREATE SEQUENCE public.teams_id_seq
     CACHE 1;
 
 
+ALTER TABLE public.teams_id_seq OWNER TO edeneault;
+
 --
--- Name: teams_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+-- Name: teams_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: edeneault
 --
 
 ALTER SEQUENCE public.teams_id_seq OWNED BY public.teams.id;
 
 
 --
--- Name: users; Type: TABLE; Schema: public; Owner: -
+-- Name: users; Type: TABLE; Schema: public; Owner: edeneault
 --
 
 CREATE TABLE public.users (
@@ -355,8 +370,10 @@ CREATE TABLE public.users (
 );
 
 
+ALTER TABLE public.users OWNER TO edeneault;
+
 --
--- Name: users_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+-- Name: users_id_seq; Type: SEQUENCE; Schema: public; Owner: edeneault
 --
 
 CREATE SEQUENCE public.users_id_seq
@@ -368,15 +385,17 @@ CREATE SEQUENCE public.users_id_seq
     CACHE 1;
 
 
+ALTER TABLE public.users_id_seq OWNER TO edeneault;
+
 --
--- Name: users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+-- Name: users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: edeneault
 --
 
 ALTER SEQUENCE public.users_id_seq OWNED BY public.users.id;
 
 
 --
--- Name: workout_exercises; Type: TABLE; Schema: public; Owner: -
+-- Name: workout_exercises; Type: TABLE; Schema: public; Owner: edeneault
 --
 
 CREATE TABLE public.workout_exercises (
@@ -386,8 +405,10 @@ CREATE TABLE public.workout_exercises (
 );
 
 
+ALTER TABLE public.workout_exercises OWNER TO edeneault;
+
 --
--- Name: workout_exercises_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+-- Name: workout_exercises_id_seq; Type: SEQUENCE; Schema: public; Owner: edeneault
 --
 
 CREATE SEQUENCE public.workout_exercises_id_seq
@@ -399,15 +420,17 @@ CREATE SEQUENCE public.workout_exercises_id_seq
     CACHE 1;
 
 
+ALTER TABLE public.workout_exercises_id_seq OWNER TO edeneault;
+
 --
--- Name: workout_exercises_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+-- Name: workout_exercises_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: edeneault
 --
 
 ALTER SEQUENCE public.workout_exercises_id_seq OWNED BY public.workout_exercises.id;
 
 
 --
--- Name: workouts; Type: TABLE; Schema: public; Owner: -
+-- Name: workouts; Type: TABLE; Schema: public; Owner: edeneault
 --
 
 CREATE TABLE public.workouts (
@@ -417,8 +440,10 @@ CREATE TABLE public.workouts (
 );
 
 
+ALTER TABLE public.workouts OWNER TO edeneault;
+
 --
--- Name: workouts_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+-- Name: workouts_id_seq; Type: SEQUENCE; Schema: public; Owner: edeneault
 --
 
 CREATE SEQUENCE public.workouts_id_seq
@@ -430,99 +455,101 @@ CREATE SEQUENCE public.workouts_id_seq
     CACHE 1;
 
 
+ALTER TABLE public.workouts_id_seq OWNER TO edeneault;
+
 --
--- Name: workouts_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+-- Name: workouts_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: edeneault
 --
 
 ALTER SEQUENCE public.workouts_id_seq OWNED BY public.workouts.id;
 
 
 --
--- Name: athlete_workouts id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: athlete_workouts id; Type: DEFAULT; Schema: public; Owner: edeneault
 --
 
 ALTER TABLE ONLY public.athlete_workouts ALTER COLUMN id SET DEFAULT nextval('public.athlete_workouts_id_seq'::regclass);
 
 
 --
--- Name: athlete_workouts_exercises id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: athlete_workouts_exercises id; Type: DEFAULT; Schema: public; Owner: edeneault
 --
 
 ALTER TABLE ONLY public.athlete_workouts_exercises ALTER COLUMN id SET DEFAULT nextval('public.athlete_workouts_exercises_id_seq'::regclass);
 
 
 --
--- Name: athletes id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: athletes id; Type: DEFAULT; Schema: public; Owner: edeneault
 --
 
 ALTER TABLE ONLY public.athletes ALTER COLUMN id SET DEFAULT nextval('public.athletes_id_seq'::regclass);
 
 
 --
--- Name: categories id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: categories id; Type: DEFAULT; Schema: public; Owner: edeneault
 --
 
 ALTER TABLE ONLY public.categories ALTER COLUMN id SET DEFAULT nextval('public.categories_id_seq'::regclass);
 
 
 --
--- Name: equipment id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: equipment id; Type: DEFAULT; Schema: public; Owner: edeneault
 --
 
 ALTER TABLE ONLY public.equipment ALTER COLUMN id SET DEFAULT nextval('public.equipment_id_seq'::regclass);
 
 
 --
--- Name: exercises id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: exercises id; Type: DEFAULT; Schema: public; Owner: edeneault
 --
 
 ALTER TABLE ONLY public.exercises ALTER COLUMN id SET DEFAULT nextval('public.exercises_id_seq'::regclass);
 
 
 --
--- Name: images id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: images id; Type: DEFAULT; Schema: public; Owner: edeneault
 --
 
 ALTER TABLE ONLY public.images ALTER COLUMN id SET DEFAULT nextval('public.images_id_seq'::regclass);
 
 
 --
--- Name: muscles id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: muscles id; Type: DEFAULT; Schema: public; Owner: edeneault
 --
 
 ALTER TABLE ONLY public.muscles ALTER COLUMN id SET DEFAULT nextval('public.muscles_id_seq'::regclass);
 
 
 --
--- Name: teams id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: teams id; Type: DEFAULT; Schema: public; Owner: edeneault
 --
 
 ALTER TABLE ONLY public.teams ALTER COLUMN id SET DEFAULT nextval('public.teams_id_seq'::regclass);
 
 
 --
--- Name: users id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: users id; Type: DEFAULT; Schema: public; Owner: edeneault
 --
 
 ALTER TABLE ONLY public.users ALTER COLUMN id SET DEFAULT nextval('public.users_id_seq'::regclass);
 
 
 --
--- Name: workout_exercises id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: workout_exercises id; Type: DEFAULT; Schema: public; Owner: edeneault
 --
 
 ALTER TABLE ONLY public.workout_exercises ALTER COLUMN id SET DEFAULT nextval('public.workout_exercises_id_seq'::regclass);
 
 
 --
--- Name: workouts id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: workouts id; Type: DEFAULT; Schema: public; Owner: edeneault
 --
 
 ALTER TABLE ONLY public.workouts ALTER COLUMN id SET DEFAULT nextval('public.workouts_id_seq'::regclass);
 
 
 --
--- Data for Name: athlete_workouts; Type: TABLE DATA; Schema: public; Owner: -
+-- Data for Name: athlete_workouts; Type: TABLE DATA; Schema: public; Owner: edeneault
 --
 
 COPY public.athlete_workouts (id, rpe_avg, workout_date, workout_id, athlete_id) FROM stdin;
@@ -562,7 +589,7 @@ COPY public.athlete_workouts (id, rpe_avg, workout_date, workout_id, athlete_id)
 
 
 --
--- Data for Name: athlete_workouts_exercises; Type: TABLE DATA; Schema: public; Owner: -
+-- Data for Name: athlete_workouts_exercises; Type: TABLE DATA; Schema: public; Owner: edeneault
 --
 
 COPY public.athlete_workouts_exercises (id, athlete_workout_id, workout_exercise_id) FROM stdin;
@@ -590,7 +617,7 @@ COPY public.athlete_workouts_exercises (id, athlete_workout_id, workout_exercise
 
 
 --
--- Data for Name: athletes; Type: TABLE DATA; Schema: public; Owner: -
+-- Data for Name: athletes; Type: TABLE DATA; Schema: public; Owner: edeneault
 --
 
 COPY public.athletes (id, first_name, last_name, email, "position", height, weight, athlete_image_url, medical_status, created_on, team_id) FROM stdin;
@@ -634,7 +661,7 @@ COPY public.athletes (id, first_name, last_name, email, "position", height, weig
 
 
 --
--- Data for Name: categories; Type: TABLE DATA; Schema: public; Owner: -
+-- Data for Name: categories; Type: TABLE DATA; Schema: public; Owner: edeneault
 --
 
 COPY public.categories (id, category_name) FROM stdin;
@@ -649,7 +676,7 @@ COPY public.categories (id, category_name) FROM stdin;
 
 
 --
--- Data for Name: equipment; Type: TABLE DATA; Schema: public; Owner: -
+-- Data for Name: equipment; Type: TABLE DATA; Schema: public; Owner: edeneault
 --
 
 COPY public.equipment (id, equipment_name) FROM stdin;
@@ -667,7 +694,7 @@ COPY public.equipment (id, equipment_name) FROM stdin;
 
 
 --
--- Data for Name: exercises; Type: TABLE DATA; Schema: public; Owner: -
+-- Data for Name: exercises; Type: TABLE DATA; Schema: public; Owner: edeneault
 --
 
 COPY public.exercises (id, name, description, default_reps, image_url, wger_id, category_id, equipment_id, muscle_id) FROM stdin;
@@ -695,6 +722,7 @@ COPY public.exercises (id, name, description, default_reps, image_url, wger_id, 
 160	Push Press	<p>olympic weight lifting</p>	7	/static/images/default-pic.png	190	7	1	14
 1	flat bench press	On you bench press rack of choice, set-up in flat configuration, use a barbell to press up and down, make sure to have a spotter.	7	https://wger.de/media/exercise-images/192/Bench-press-1.png	192	5	1	1
 2	Air Squat	Perform a squat with no resistance, make sure stance is slightly wider then shoulder width and feet are turned out.	7	https://upload.wikimedia.org/wikipedia/commons/6/6f/Squats-2.png	111	6	7	2
+184	Shoulder Press, Barbell	<p>Sit on a bench, the back rest should be almost vertical. Take a barbell with a shoulder wide grip and bring it up to chest height. Press the weight up, but don't stretch the arms completely. Go slowly down and repeat.</p>	7	/static/images/default-pic.png	119	7	1	1
 25	Bench Press	<p>Lay down on a bench, the bar should be directly above your eyes, the knees are somewhat angled and the feet are firmly on the floor. Concentrate, breath deeply and grab the bar more than shoulder wide. Bring it slowly down till it briefly touches your chest at the height of your nipples. Push the bar up.</p>\n<p>If you train with a high weight it is advisable to have a <em>spotter</em> that can help you up if you can't lift the weight on your own.</p>\n<p>With the width of the grip you can also control which part of the chest is trained more:</p>\n<ul>\n<li>wide grip: outer chest muscles</li>\n<li>narrow grip: inner chest muscles and triceps</li>\n</ul>	7	/static/images/default-pic.png	192	5	1	9
 26	Benchpress Dumbbells	<p>The movement is very similar to benchpressing with a barbell, however, the weight is brought down to the chest at a lower point.</p>\n<p>Hold two dumbbells and lay down on a bench. Hold the weights next to the chest, at the height of your nipples and press them up till the arms are stretched. Let the weight slowly and controlled down.</p>	7	/static/images/default-pic.png	97	5	2	9
 27	Bench Press Narrow Grip	<p>Lay down on a bench, the bar is directly over your eyes, the knees form a slight angle and the feet are firmly on the ground. Hold the bar with a narrow grip (around 20cm.). Lead the weight slowly down till the arms are parallel to the floor (elbow: right angle), press then the bar up. When bringing the bar down, don't let it down on your nipples as with the regular bench pressing, but somewhat lower.</p>	7	/static/images/default-pic.png	88	2	1	15
@@ -788,6 +816,7 @@ COPY public.exercises (id, name, description, default_reps, image_url, wger_id, 
 115	Kettlebell Swings	<p>Hold the kettlebell securely in both hands. Keep your back flat throughout the move, avoiding any rounding of the spine.Keeping your knees "soft", hinge your hips backwards, letting the kettlebell swing between your knees.</p>\n<p>You want to bend from the hips as far as you can <em>without letting your back round forwards</em>. Then, snap your hips forwards quickly and standing up straight, locking your body in an upright posture.</p>\n<p>The speed you do this will cause your arms and the kettlebell to swing up in front of you. Don't try to <em>lift</em> the kettlebell with your arms. The snapping forwards of your hips will cause the kettlebell to swing forwards through momentum. Depending on the weight of the kettlebell and the speed of your hip movement, your arms will swing up to about shoulder height. At the top of this swing, let your hips hinge backwards again as the kettlebell swings back down to between your legs and the start of the next repetition.</p>	7	/static/images/default-pic.png	249	6	1	6
 116	Lateral Raises	<p>.</p>	7	/static/images/default-pic.png	148	7	3	1
 117	Lateral Raises on Cable, One Armed	<p>.</p>	7	/static/images/default-pic.png	149	7	1	1
+186	Shoulder Press, on Machine		7	/static/images/default-pic.png	152	7	1	1
 118	Lateral-to-Front Raises	<p>-(1) Perform a lateral raise, pausing at the top of the lift (2).</p>\n<p>-Instead of lowering the weight, bring it to the front of your body so that you appear to be at the top position of a front raise.  You will do this by using a Pec Fly motion, maintaining straight arms. (3)</p>\n<p>-Now lower the weight to your quadriceps, or, in other words, lower the dumbbells as though you are completing a Front Raise repetition. (4)</p>\n<p>-Reverse the motion:  Perform a front raise (5), at the apex of the lift use a Reverse Fly motion to position the weights at the top of a Lateral Raise (6), and finally, lower the weights until your palms are essentially touching the sides of your thighs (7).  THIS IS ONE REP.</p>\n<p>(1) l  <em>front view  </em>(2) -l- <em> FV  </em>  (3) l-  <em>side view</em>   (4) l  <em>SV/FV</em>   (5) l-  <em>SV  </em> (6) -l-  <em>FV  </em>  (7)  l  <em>FV/SV</em></p>	7	/static/images/default-pic.png	306	7	3	1
 119	Lat Pull Down (Leaning Back)	<p>Lean Back, Pull into chest</p>	7	/static/images/default-pic.png	188	3	1	7
 120	Lat Pull Down (Straight Back)	<p>Pull bar down to strenum and keep straight back.</p>	7	/static/images/default-pic.png	187	3	1	7
@@ -854,8 +883,7 @@ COPY public.exercises (id, name, description, default_reps, image_url, wger_id, 
 181	Seated Triceps Press	<p>Sit down on a back (better with back support). Take a dumbbell firmly with both hands and hold it with extended arms over your head. With your palms facing upward and holding the weight of the dumbbell, slowly lower the weight behind your head.</p>\n<p> </p>	7	/static/images/default-pic.png	386	2	2	15
 182	Shotgun Row	<ol>\n<li>Attach a single handle to a low cable.</li>\n<li>After selecting the correct weight, stand a couple feet back with a wide-split stance. Your arm should be extended and your shoulder forward. This will be your starting position.</li>\n<li>Perform the movement by retracting the shoulder and flexing the elbow. As you pull, supinate the wrist, turning the palm upward as you go.</li>\n<li>After a brief pause, return to the starting position.</li>\n</ol>	7	/static/images/default-pic.png	339	3	1	7
 183	Shoulder Fly	The shoulder fly (also known as a lateral raise) works the deltoid muscle of the shoulder. The movement starts with the arms straight, and the hands holding weights at the sides or in front of the body. Body is in a slight forward-leaning position with hips and knees bent a little. Arms are kept straight or slightly bent, and raised through an arc of movement in the coronal plane that terminates when the hands are at approximately shoulder height. Weights are lowered to the starting position, completing one rep. When using a cable machine the individual stands with the coronal plane in line with the pulley, which is at or near the ground.[9] The exercise can be completed one shoulder at a time (with the other hand used to stabilize the body against the weight moved), or with both hands simultaneously if two parallel pulleys are available.	7	/static/images/default-pic.png	802	7	3	1
-184	Shoulder Press, Barbell	<p>Sit on a bench, the back rest should be almost vertical. Take a barbell with a shoulder wide grip and bring it up to chest height. Press the weight up, but don't stretch the arms completely. Go slowly down and repeat.</p>	7	/static/images/default-pic.png	119	7	1	1
-186	Shoulder Press, on Machine		7	/static/images/default-pic.png	152	7	1	1
+225	Trunk Rotation With Cable 	<p>Seated trunk rotation with cable </p>	7	/static/images/default-pic.png	310	1	1	8
 188	Shoulder Shrug	The shoulder shrug (usually called simply the shrug) is an exercise in weight training used to develop the upper trapezius muscle. The lifter stands erect, hands about shoulder width apart, and raises the shoulders as high as possible, and then lowers them, while not bending the elbows, or moving the body at all. The lifter may not have as large a range of motion as in a normal shrug done for active flexibility. It is usually considered good form if the slope of the shoulders is horizontal in the elevated position.	7	/static/images/default-pic.png	805	7	1	14
 190	Shrugs, Dumbbells	<p>Stand with straight body, the hands are hanging freely on the side and hold each a dumbbell. Lift from this position the shoulders as high as you can, but don't bend the arms during the movement. On the highest point, make a short pause of 1 or 2 seconds before returning slowly to the initial position.</p>\n<p>When training with a higher weight, make sure that you still do the whole movement!</p>	7	/static/images/default-pic.png	151	7	3	1
 192	Side Dumbbell Trunk Flexion	<p>AKA dumbbell side bends. Stand in line with the hips with slightly bent knees, maintain the natural curvature of the spine, hand stretched by the body, grip the barbell with one hand. <em> </em>Make slow and controlled torso side flexions till you reach the angle of approximately 45°.</p>	7	/static/images/default-pic.png	278	3	3	8
@@ -894,7 +922,6 @@ COPY public.exercises (id, name, description, default_reps, image_url, wger_id, 
 217	Superman	<p>Lay flat on your stomach with your arms extended in front of you on the ground as your legs are lying flat. Lift both your arms and legs at the same time, as if you were flying, and contract the lower back. Make sure that you are breathing and, depending on your fitness level, hold the movement for at least two to five seconds per repetition.</p>	7	/static/images/default-pic.png	330	3	4	6
 219	Tricep Dumbbell Kickback	<ol>\n<li>Start with a dumbbell in each hand and your palms facing your torso. Keep your back straight with a slight bend in the knees and bend forward at the waist. Your torso should be almost parallel to the floor. Make sure to keep your head up. Your upper arms should be close to your torso and parallel to the floor. Your forearms should be pointed towards the floor as you hold the weights. There should be a 90-degree angle formed between your forearm and upper arm. This is your starting position.</li>\n<li>Now, while keeping your upper arms stationary, exhale and use your triceps to lift the weights until the arm is fully extended. Focus on moving the forearm.</li>\n<li>After a brief pause at the top contraction, inhale and slowly lower the dumbbells back down to the starting position.</li>\n<li>Repeat the movement for the prescribed amount of repetitions.</li>\n</ol>\n<p><strong>Variations:</strong> This exercise can be executed also one arm at a time much like the one arm rows are performed.</p>\n<p>Also, if you like the one arm variety, you can use a low pulley handle instead of a dumbbell for better peak contraction. In this case, the palms should be facing up (supinated grip) as opposed to the torso (neutral grip).</p>	7	/static/images/default-pic.png	279	2	3	15
 223	Triceps Extensions on Cable With Bar	<p>Grab the bar, stand with your feet shoulder wide, keep your back straight and lean forward a little. Push the bar down, making sure the elbows don't move during the exercise. Without pause go back to the initial position.</p>	7	/static/images/default-pic.png	90	2	1	15
-225	Trunk Rotation With Cable 	<p>Seated trunk rotation with cable </p>	7	/static/images/default-pic.png	310	1	1	8
 227	Underhand Lat Pull Down	<p>Grip the pull-down bar with your palms facing you and your hands closer than shoulder-width apart. Lean back slightly and keep your back straight. Pull the bar down towards your chest, pulling your shoulders back slightly at the end of the motion.</p>	7	/static/images/default-pic.png	212	3	1	7
 229	Upper External Oblique	<p>Exercise for upper external oblique muscles</p>	7	/static/images/default-pic.png	258	5	8	8
 231	Upright Row, SZ-bar	<p>Stand straight, your feet are shoulder-width apart. Hold the SZ-bar with an overhand grip on your thighs, the arms are stretched. Lift the bar close to the body till your chin. The elbows point out so that at the highest point they form a V. Make here a short pause before going slowly down and repeating the movement.</p>	7	/static/images/default-pic.png	127	7	10	1
@@ -915,7 +942,7 @@ COPY public.exercises (id, name, description, default_reps, image_url, wger_id, 
 
 
 --
--- Data for Name: images; Type: TABLE DATA; Schema: public; Owner: -
+-- Data for Name: images; Type: TABLE DATA; Schema: public; Owner: edeneault
 --
 
 COPY public.images (id, exercise_image_url, wger_id) FROM stdin;
@@ -1001,7 +1028,7 @@ COPY public.images (id, exercise_image_url, wger_id) FROM stdin;
 
 
 --
--- Data for Name: muscles; Type: TABLE DATA; Schema: public; Owner: -
+-- Data for Name: muscles; Type: TABLE DATA; Schema: public; Owner: edeneault
 --
 
 COPY public.muscles (id, muscle_name, image_url) FROM stdin;
@@ -1024,7 +1051,7 @@ COPY public.muscles (id, muscle_name, image_url) FROM stdin;
 
 
 --
--- Data for Name: teams; Type: TABLE DATA; Schema: public; Owner: -
+-- Data for Name: teams; Type: TABLE DATA; Schema: public; Owner: edeneault
 --
 
 COPY public.teams (id, name, location, discipline, team_image_url, created_on, user_id) FROM stdin;
@@ -1038,7 +1065,7 @@ COPY public.teams (id, name, location, discipline, team_image_url, created_on, u
 
 
 --
--- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: -
+-- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: edeneault
 --
 
 COPY public.users (id, username, password, email, first_name, last_name, image_url, header_image_url, created_on) FROM stdin;
@@ -1049,7 +1076,7 @@ COPY public.users (id, username, password, email, first_name, last_name, image_u
 
 
 --
--- Data for Name: workout_exercises; Type: TABLE DATA; Schema: public; Owner: -
+-- Data for Name: workout_exercises; Type: TABLE DATA; Schema: public; Owner: edeneault
 --
 
 COPY public.workout_exercises (id, workout_id, exercise_id) FROM stdin;
@@ -1086,7 +1113,7 @@ COPY public.workout_exercises (id, workout_id, exercise_id) FROM stdin;
 
 
 --
--- Data for Name: workouts; Type: TABLE DATA; Schema: public; Owner: -
+-- Data for Name: workouts; Type: TABLE DATA; Schema: public; Owner: edeneault
 --
 
 COPY public.workouts (id, name, description) FROM stdin;
@@ -1105,91 +1132,91 @@ COPY public.workouts (id, name, description) FROM stdin;
 
 
 --
--- Name: athlete_workouts_exercises_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
+-- Name: athlete_workouts_exercises_id_seq; Type: SEQUENCE SET; Schema: public; Owner: edeneault
 --
 
 SELECT pg_catalog.setval('public.athlete_workouts_exercises_id_seq', 20, true);
 
 
 --
--- Name: athlete_workouts_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
+-- Name: athlete_workouts_id_seq; Type: SEQUENCE SET; Schema: public; Owner: edeneault
 --
 
 SELECT pg_catalog.setval('public.athlete_workouts_id_seq', 34, true);
 
 
 --
--- Name: athletes_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
+-- Name: athletes_id_seq; Type: SEQUENCE SET; Schema: public; Owner: edeneault
 --
 
 SELECT pg_catalog.setval('public.athletes_id_seq', 36, true);
 
 
 --
--- Name: categories_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
+-- Name: categories_id_seq; Type: SEQUENCE SET; Schema: public; Owner: edeneault
 --
 
 SELECT pg_catalog.setval('public.categories_id_seq', 7, true);
 
 
 --
--- Name: equipment_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
+-- Name: equipment_id_seq; Type: SEQUENCE SET; Schema: public; Owner: edeneault
 --
 
 SELECT pg_catalog.setval('public.equipment_id_seq', 10, true);
 
 
 --
--- Name: exercises_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
+-- Name: exercises_id_seq; Type: SEQUENCE SET; Schema: public; Owner: edeneault
 --
 
 SELECT pg_catalog.setval('public.exercises_id_seq', 240, true);
 
 
 --
--- Name: images_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
+-- Name: images_id_seq; Type: SEQUENCE SET; Schema: public; Owner: edeneault
 --
 
 SELECT pg_catalog.setval('public.images_id_seq', 78, true);
 
 
 --
--- Name: muscles_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
+-- Name: muscles_id_seq; Type: SEQUENCE SET; Schema: public; Owner: edeneault
 --
 
 SELECT pg_catalog.setval('public.muscles_id_seq', 15, true);
 
 
 --
--- Name: teams_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
+-- Name: teams_id_seq; Type: SEQUENCE SET; Schema: public; Owner: edeneault
 --
 
 SELECT pg_catalog.setval('public.teams_id_seq', 6, true);
 
 
 --
--- Name: users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
+-- Name: users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: edeneault
 --
 
 SELECT pg_catalog.setval('public.users_id_seq', 3, true);
 
 
 --
--- Name: workout_exercises_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
+-- Name: workout_exercises_id_seq; Type: SEQUENCE SET; Schema: public; Owner: edeneault
 --
 
 SELECT pg_catalog.setval('public.workout_exercises_id_seq', 29, true);
 
 
 --
--- Name: workouts_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
+-- Name: workouts_id_seq; Type: SEQUENCE SET; Schema: public; Owner: edeneault
 --
 
 SELECT pg_catalog.setval('public.workouts_id_seq', 12, true);
 
 
 --
--- Name: athlete_workouts_exercises athlete_workouts_exercises_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: athlete_workouts_exercises athlete_workouts_exercises_pkey; Type: CONSTRAINT; Schema: public; Owner: edeneault
 --
 
 ALTER TABLE ONLY public.athlete_workouts_exercises
@@ -1197,7 +1224,7 @@ ALTER TABLE ONLY public.athlete_workouts_exercises
 
 
 --
--- Name: athlete_workouts athlete_workouts_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: athlete_workouts athlete_workouts_pkey; Type: CONSTRAINT; Schema: public; Owner: edeneault
 --
 
 ALTER TABLE ONLY public.athlete_workouts
@@ -1205,7 +1232,7 @@ ALTER TABLE ONLY public.athlete_workouts
 
 
 --
--- Name: athletes athletes_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: athletes athletes_pkey; Type: CONSTRAINT; Schema: public; Owner: edeneault
 --
 
 ALTER TABLE ONLY public.athletes
@@ -1213,7 +1240,7 @@ ALTER TABLE ONLY public.athletes
 
 
 --
--- Name: categories categories_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: categories categories_pkey; Type: CONSTRAINT; Schema: public; Owner: edeneault
 --
 
 ALTER TABLE ONLY public.categories
@@ -1221,7 +1248,7 @@ ALTER TABLE ONLY public.categories
 
 
 --
--- Name: equipment equipment_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: equipment equipment_pkey; Type: CONSTRAINT; Schema: public; Owner: edeneault
 --
 
 ALTER TABLE ONLY public.equipment
@@ -1229,7 +1256,7 @@ ALTER TABLE ONLY public.equipment
 
 
 --
--- Name: exercises exercises_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: exercises exercises_pkey; Type: CONSTRAINT; Schema: public; Owner: edeneault
 --
 
 ALTER TABLE ONLY public.exercises
@@ -1237,7 +1264,7 @@ ALTER TABLE ONLY public.exercises
 
 
 --
--- Name: images images_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: images images_pkey; Type: CONSTRAINT; Schema: public; Owner: edeneault
 --
 
 ALTER TABLE ONLY public.images
@@ -1245,7 +1272,7 @@ ALTER TABLE ONLY public.images
 
 
 --
--- Name: muscles muscles_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: muscles muscles_pkey; Type: CONSTRAINT; Schema: public; Owner: edeneault
 --
 
 ALTER TABLE ONLY public.muscles
@@ -1253,7 +1280,7 @@ ALTER TABLE ONLY public.muscles
 
 
 --
--- Name: teams teams_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: teams teams_pkey; Type: CONSTRAINT; Schema: public; Owner: edeneault
 --
 
 ALTER TABLE ONLY public.teams
@@ -1261,7 +1288,7 @@ ALTER TABLE ONLY public.teams
 
 
 --
--- Name: users users_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: users users_pkey; Type: CONSTRAINT; Schema: public; Owner: edeneault
 --
 
 ALTER TABLE ONLY public.users
@@ -1269,7 +1296,7 @@ ALTER TABLE ONLY public.users
 
 
 --
--- Name: workout_exercises workout_exercises_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: workout_exercises workout_exercises_pkey; Type: CONSTRAINT; Schema: public; Owner: edeneault
 --
 
 ALTER TABLE ONLY public.workout_exercises
@@ -1277,7 +1304,7 @@ ALTER TABLE ONLY public.workout_exercises
 
 
 --
--- Name: workouts workouts_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: workouts workouts_pkey; Type: CONSTRAINT; Schema: public; Owner: edeneault
 --
 
 ALTER TABLE ONLY public.workouts
@@ -1285,7 +1312,7 @@ ALTER TABLE ONLY public.workouts
 
 
 --
--- Name: athlete_workouts athlete_workouts_athlete_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- Name: athlete_workouts athlete_workouts_athlete_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: edeneault
 --
 
 ALTER TABLE ONLY public.athlete_workouts
@@ -1293,7 +1320,7 @@ ALTER TABLE ONLY public.athlete_workouts
 
 
 --
--- Name: athlete_workouts_exercises athlete_workouts_exercises_athlete_workout_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- Name: athlete_workouts_exercises athlete_workouts_exercises_athlete_workout_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: edeneault
 --
 
 ALTER TABLE ONLY public.athlete_workouts_exercises
@@ -1301,7 +1328,7 @@ ALTER TABLE ONLY public.athlete_workouts_exercises
 
 
 --
--- Name: athlete_workouts_exercises athlete_workouts_exercises_workout_exercise_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- Name: athlete_workouts_exercises athlete_workouts_exercises_workout_exercise_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: edeneault
 --
 
 ALTER TABLE ONLY public.athlete_workouts_exercises
@@ -1309,7 +1336,7 @@ ALTER TABLE ONLY public.athlete_workouts_exercises
 
 
 --
--- Name: athlete_workouts athlete_workouts_workout_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- Name: athlete_workouts athlete_workouts_workout_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: edeneault
 --
 
 ALTER TABLE ONLY public.athlete_workouts
@@ -1317,7 +1344,7 @@ ALTER TABLE ONLY public.athlete_workouts
 
 
 --
--- Name: athletes athletes_team_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- Name: athletes athletes_team_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: edeneault
 --
 
 ALTER TABLE ONLY public.athletes
@@ -1325,7 +1352,7 @@ ALTER TABLE ONLY public.athletes
 
 
 --
--- Name: exercises exercises_category_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- Name: exercises exercises_category_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: edeneault
 --
 
 ALTER TABLE ONLY public.exercises
@@ -1333,7 +1360,7 @@ ALTER TABLE ONLY public.exercises
 
 
 --
--- Name: exercises exercises_equipment_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- Name: exercises exercises_equipment_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: edeneault
 --
 
 ALTER TABLE ONLY public.exercises
@@ -1341,7 +1368,7 @@ ALTER TABLE ONLY public.exercises
 
 
 --
--- Name: exercises exercises_muscle_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- Name: exercises exercises_muscle_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: edeneault
 --
 
 ALTER TABLE ONLY public.exercises
@@ -1349,7 +1376,7 @@ ALTER TABLE ONLY public.exercises
 
 
 --
--- Name: teams teams_user_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- Name: teams teams_user_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: edeneault
 --
 
 ALTER TABLE ONLY public.teams
@@ -1357,7 +1384,7 @@ ALTER TABLE ONLY public.teams
 
 
 --
--- Name: workout_exercises workout_exercises_exercise_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- Name: workout_exercises workout_exercises_exercise_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: edeneault
 --
 
 ALTER TABLE ONLY public.workout_exercises
@@ -1365,7 +1392,7 @@ ALTER TABLE ONLY public.workout_exercises
 
 
 --
--- Name: workout_exercises workout_exercises_workout_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- Name: workout_exercises workout_exercises_workout_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: edeneault
 --
 
 ALTER TABLE ONLY public.workout_exercises
