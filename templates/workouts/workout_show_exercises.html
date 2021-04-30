@@ -3,27 +3,27 @@
 {% block show_exercises %}
 
 
-<div class="container-fluid text-dark p-2 m-1">
+<div class="container text-dark m-2 p-2">
     <row>
-        <div class="col-sm-12 border border-dark p-2 m-2" >
+        <div class="d-flex d-inline" >
             <h5>SEARCH PARAMETERS | </h5>
             <p class="mx-2"><strong>Category: </strong> {{ category.category_name }}</p>
             <p class="mx-2"><strong>Muscle: </strong> {{muscle.muscle_name}}</p>
             <p class="mx-2"><strong>Equipment: </strong> {{equipment.equipment_name}}</p>
         </div>
 
-        <div class="col-sm-12 border border-dark p-2 m-2">
+        <div class="d-flex d-inline">
             <h5>NEW WORKOUT | </h5>
-            <p class="mx-2"><strong>workout name: </strong> {{ workout.name }}</p>
+            <p class="d-inline mx-2"><strong>workout name: </strong> {{ workout.name }}</p>
             <p class="mx-2"><strong>workout description: </strong> {{ workout.description }}</p>
         </div>    
     </row>
    
-</div>
 
-<div class="container">
+
+
   
-    <div class="team-single-text padding-50px-left sm-no-padding-left">
+  
  
         <div class="row">
             <div class="d-flex justify-content-center align-items-center col-md-12 col-12 mt-2">
@@ -35,6 +35,7 @@
             </div> 
              
         </div> 
+
        <div class="row d-inline">    
         {% for page in exercises.iter_pages(left_edge=3, right_edge=3, left_current=3, right_current=3) %}
 
@@ -44,7 +45,7 @@
           ...
         {% endif %}
     
-      {% endfor %}
+        {% endfor %}
         </div>
 
 
@@ -71,21 +72,21 @@
 
             {% endfor %}
         </div>
-    </div>   
+    
 
-    <div class="row d-inline">    
+        <div class="row d-inline">    
 
-        {% for page in exercises.iter_pages(left_edge=3, right_edge=3, left_current=3, right_current=3) %}
+            {% for page in exercises.iter_pages(left_edge=3, right_edge=3, left_current=3, right_current=3) %}
 
-            {% if page %}
-                <a class="page-links-dark " href="{{ url_for('.workout_exercises_show', page_num=page)}}">{{ page }}</a>
-            {% else %}
-            ...
-            {% endif %}
+                {% if page %}
+                    <a class="page-links-dark " href="{{ url_for('.workout_exercises_show', page_num=page)}}">{{ page }}</a>
+                {% else %}
+                ...
+                {% endif %}
 
-        {% endfor %}
+            {% endfor %}
+        </div>
     </div>
-
 </div>
   
     
