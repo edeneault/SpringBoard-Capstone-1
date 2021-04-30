@@ -46,12 +46,12 @@
                     <li class="nav-item"><a class="nav-link ps-4" href="/timers">TIMERS</a></li>
                     {% else %}
                     <li class="nav-item"><a class="nav-link ps-4" href="/">HOME</a></li>
-                    <li class="nav-item" id="spinner-link"><a class="nav-link ps-4" href="{{ url_for('.exercises_show', page_num=1)}}">EXERCISES</a></li>  
+                    <li class="nav-item" id="spinner-link"><a class="nav-link ps-4" href="{{ url_for('.exercises_show', page_num=1) }}">EXERCISES</a></li>  
                     <li class="nav-item"><a class="nav-link ps-4" href="/workouts">WORKOUTS</a></li>   
                     <li class="nav-item"><a class="nav-link ps-4" href="/timers">TIMERS</a></li>
                     <li class="nav-item"><a class="nav-link ps-4" href="/teams">TEAMS</a></li> 
                     <li class="nav-item"><a class="nav-link ps-4" href="/athletes">ATHLETES</a></li>
-                    <li class="nav-item"><a class="nav-link ps-4" href="{{ url_for('.users_show', user_id=g.user.id ) }} ">PROFILE</a></li> 
+                    <li class="nav-item"><a class="nav-link ps-4" href="{{ url_for('.users_show', user_id=g.user.id ) }}">MY PROFILE</a></li> 
                     {% endif %}   
                 </ul>
 
