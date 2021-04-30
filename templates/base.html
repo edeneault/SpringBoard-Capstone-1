@@ -55,8 +55,6 @@
             </div>
     </nav>
 
-    
-    
     <div class="container col-md-12 text-light align-center">
         <div class="row justify-content-center py-1 ">
 
@@ -90,7 +88,7 @@
                             <p class="tes2"> HTML | CSS | JAVASCRIPT | PYTHON | FLASK | POSTGRESQL</p>
                             
                         </div>
-                        <div class="col-md">
+                        <div class="col-4 offset-2 offset-sm-2 offset-md-0">
                             <ul class="list-unstyled">
                                 <li class="nav-item tes2"><a class="nav-link" href="/">HOME</a></li> 
                                 <li class="nav-item tes2"><a class="nav-link" href="{{ url_for('.exercises_show', page_num=1 )}}">EXERCISES</a></li>  
@@ -98,7 +96,7 @@
                                 <li class="nav-item tes2"><a class="nav-link" href="/timers">TIMERS</a></li>  
                             </ul>
                         </div>
-                        <div class="col-md">
+                        <div class="col-4 col-md">
                             <ul class="list-unstyled">
                                 {% if not g.user %}
                                 <li class="nav-item tes2"><a class="nav-link" href="/teams">TEAMS</a></li>
@@ -116,12 +114,16 @@
                         </div>
                         
                         <div class="col-md text-md-center">
-                            <ul class="social list-unstyled text-white fs-5">
-                                <li><a href="#"><i class="fab fa-instagram-square"></i></a></li>
-                                <li><a href="#"><i class="fab fa-twitter-square"></i></a></li>
-                                <li><a href="#"><i class="fab fa-facebook-square"></i></a></li>
-                                <li><a href="#"><i class="fab fa-reddit-square"></i></a></li>
-                            </ul>
+
+                            <div class="d-flex justify-content-center">
+                                <ul class="list-group flex-md-column list-unstyled flex-row text-white fs-5">
+                                    <li class="mx-2 my-2 mx-sm-0 my-sm-0"><a href="#"><i class="fab fa-instagram-square"></i></a></li>
+                                    <li class="mx-2 my-2 mx-sm-0 my-sm-0"><a href="#"><i class="fab fa-twitter-square"></i></a></li>
+                                    <li class="mx-2 my-2 mx-sm-0 my-sm-0"><a href="#"><i class="fab fa-facebook-square"></i></a></li>
+                                    <li class="mx-2 my-2 mx-sm-0 my-sm-0"><a href="#"><i class="fab fa-reddit-square"></i></a></li>
+                                </ul>
+                            </div>
+                            
                             
                         </div>
                     </div>
@@ -145,9 +147,6 @@
 
         </div>
        
-   
-        
-  
     <script src="https://unpkg.com/axios/dist/axios.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>

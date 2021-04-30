@@ -285,7 +285,7 @@ def athlete_workouts_assign():
     workouts = Workout.query.all() 
     workouts = [ (w.id, w.name) for w in workouts]
 
-    form.athlete.choices = [(a.id, a.first_name) for a in Athlete.query.all()] 
+    form.athlete.choices = [(a.id, a.full_name) for a in Athlete.query.all()] 
     form.workout.choices = [(w.id, w.name) for w in Workout.query.all()] 
     if form.validate_on_submit():
         athlete_id = form.athlete.data
@@ -313,3 +313,8 @@ def athlete_workout_delete(workout_id, athlete_id):
     db.session.commit()
     flash(f"Succesfully deleted WORKOUT {workout.id}", 'success')
     return redirect(f'/athletes/{athlete_id}' )
+
+
+@app.route('/workouts/athletes/completed/<int:workout_id>/<int:athlete_id>', methods=["POST"])
+def athlete_workout_completed(workout_id, athlete_id):
+    """Mark athlete workout as completed. Remove Workout from assigments."""
