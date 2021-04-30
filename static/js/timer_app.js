@@ -13,9 +13,6 @@ const tabataNav = document.querySelector("#tabata-timer");
 const hiitNav = document.querySelector("#hiit-timer");
 const roundNav = document.querySelector("#round-timer");
 
-// const exercise = document.querySelector("#exercise");
-// const rest = document.querySelector("#rest")
-// const sets = document.querySelector("#sets");
 
 // TIMER FORM TO DOM //
 showTimerHome();
@@ -37,12 +34,6 @@ tabataNav.addEventListener("click", (e) => {
     document.querySelector("#exercise").value = "20";
     document.querySelector("#rest").value = "10";
     document.querySelector("#sets").value = "8";
-    // exercise.value = "20";
-    // console.log("🚀 ~ file: app.js ~ line 28 ~ tabataNav.addEventListener ~ exercise.value", exercise.value)
-    // rest.value = "10";
-    // console.log("🚀 ~ file: app.js ~ line 30 ~ tabataNav.addEventListener ~ rest.value", rest.value)
-    // sets.value = "8";
-    // console.log("🚀 ~ file: app.js ~ line 32 ~ tabataNav.addEventListener ~ sets.value", sets.value)
     timerType.innerText = "TABATA Timer";
     sidebar.classList.remove("active");
     overlay.classList.remove("active");

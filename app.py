@@ -30,8 +30,7 @@ app.config['WTF_CSRF_ENABLED'] = True
 # toolbar = DebugToolbarExtension(app)
 
 connect_db(app)
-db.drop_all()
-db.create_all() 
+
 
 
 # import declared routes

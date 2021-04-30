@@ -31,8 +31,7 @@ def add_user_to_g():
 
     if CURR_USER_KEY in session:
         g.user = User.query.get(session[CURR_USER_KEY])
-        print("******************")
-        print(g.user)
+     
 
     else:
         g.user = None
@@ -53,7 +52,7 @@ def register_user():
 
     if form.validate_on_submit():
 
-        print("*************register validate***************")
+   
         try:
             user = User.register(
                 username=form.username.data,
@@ -67,14 +66,13 @@ def register_user():
             )
             db.session.add(user)
             db.session.commit()
-            print(user)
+          
 
         except IntegrityError:
             flash("Username already taken", 'danger')
             return render_template('/users/login_user_form.html', form=form)
 
         do_login(user)
-        print("*******************redirecting****************")
         return redirect("/")
 
     else:
@@ -85,16 +83,10 @@ def register_user():
 @app.route("/users/login", methods=['GET', 'POST'])
 def login_user():
     """ Login View and Handle Login """
-    # if "username" in session:
-    #     return redirect(f"/users/{session['username']}")
 
     form = LoginForm()
     
     if form.validate_on_submit():
-        # username = form.username.data
-        # password = form.password.data
-
-        # user = User.query.filter_by(username=username).first()
         user = User.authenticate(form.username.data,
                                  form.password.data)
 
