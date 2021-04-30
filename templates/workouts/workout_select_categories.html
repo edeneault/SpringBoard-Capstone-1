@@ -86,86 +86,82 @@
     </div>
 
   
-                    {% block show_exercises %} {% endblock %}
+    {% block show_exercises %} {% endblock %}
 
-        
+</div>  
 
-    <div class="container">
-        <!-- LEARN MORE teams modal -->
-        <div class="modal fade" id="workout-modal" role="dialog" tabindex="-1" >
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content ">
-                    <div class="modal-header">
-                        <h5 class="modal-title  text-white mt-1" id="workout-modal">WORKOUT PREVIEW</h5>
-                        <button type="button" class="btn-close text-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body ">
-                        <div class="row">
-                            <div class="d-flex justify-content-center align-items-center col-md-12 col-12 mt-2">
-                                <div class="flex-grow-1">
-                                    <i class="teams-fa-color fas fa-dumbbell mt-2 fa-3x"></i>
-                                    <h1 class="d-inline teams-fa-color display-5 px-1">Workout</h1>
-                                </div>
-                                
-                                <div class="pt-4">
-                                    <h6 class="tes2 text-center sm-font-size12 px-2">{{ g.user.full_name }}</h6>
-                                    <h6 class="tes2 text-center sm-font-size12 px-2">Joined: {{ g.user.friendly_date  }}</h6>
-                                </div>
-                            </div>  
-                        </div> 
-                        <div class="card bg-light m-2">
-                            <div class="row justify-items-center">
-                                <div class="d-flex align-items-center">
-                                    <div class="d-inline-flex row d-flex p-2">
-                                        <a class="card-title card-link text-decoration-none" href="/workouts/{{ workout.id }}">
-                                            <h5 class="card-link tes2 fs-4 ps-3 pt-3">{{workout.name}}</h5>
-                                        </a>
-                                        
-                                        <p class="text-small text-dark tes2 fs-5 ps-3 mb-0 pb-0">&ldquo;{{ workout.description}}&rdquo;</p>
-                                    </div>
+
+<!-- MODAL WORKOUT PREVIEW -->
+<div class="container">
+    <div class="modal fade" id="workout-modal" role="dialog" tabindex="-1" >
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content ">
+                <div class="modal-header">
+                    <h5 class="modal-title  text-white mt-1" id="workout-modal">WORKOUT PREVIEW</h5>
+                    <button type="button" class="btn-close text-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body ">
+                    <div class="row">
+                        <div class="d-flex justify-content-center align-items-center col-md-12 col-12 mt-2">
+                            <div class="flex-grow-1">
+                                <i class="teams-fa-color fas fa-dumbbell mt-2 fa-3x"></i>
+                                <h1 class="d-inline teams-fa-color display-5 px-1">Workout</h1>
+                            </div>
+                            
+                            <div class="pt-4">
+                                <h6 class="tes2 text-center sm-font-size12 px-2">{{ g.user.full_name }}</h6>
+                                <h6 class="tes2 text-center sm-font-size12 px-2">Joined: {{ g.user.friendly_date  }}</h6>
+                            </div>
+                        </div>  
+                    </div> 
+                    <div class="card bg-light m-2">
+                        <div class="row justify-items-center">
+                            <div class="d-flex align-items-center">
+                                <div class="d-inline-flex row d-flex p-2">
+                                    <a class="card-title card-link text-decoration-none" href="/workouts/{{ workout.id }}">
+                                        <h5 class="card-link tes2 fs-4 ps-3 pt-3">{{workout.name}}</h5>
+                                    </a>
+                                    
+                                    <p class="text-small text-dark tes2 fs-5 ps-3 mb-0 pb-0">&ldquo;{{ workout.description}}&rdquo;</p>
                                 </div>
                             </div>
-                            <div class="card-body text-dark"> 
-                                <div class="container">
-                                    <div class="row d-flex align-content-around flex-wrap">
-                                        {% for exercise in workout.workout_exercises %}
-                        
-                                        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                                            
-                                            <div class="card m-1 ">
-                                                <div class="card-body"> 
-                                                    <div class="card-contents">
-                                                        <p class="text-dark tes2">{{exercise.exercise.name.upper()}}</p>
-                                                        <!-- <p class="text-dark"><img class="workout-img" src="{{exercise.exercise.image_url}}" alt=""></p> -->
-                                                    </div>
-                                                    <div class="image-wrapper">      
-                                                        <a href="/exercises/exercise/{{ exercise.exercise.id }}" class="card-link">
-                                                            <img class="img-thumbnail" src="{{exercise.exercise.image_url}}" alt="Image for workout">
-                                                        </a>                                                            
-                                                    </div>
-                                                
+                        </div>
+                        <div class="card-body text-dark"> 
+                            <div class="container">
+                                <div class="row d-flex align-content-around flex-wrap">
+                                    {% for exercise in workout.workout_exercises %}
+                    
+                                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                                        
+                                        <div class="card m-1 ">
+                                            <div class="card-body"> 
+                                                <div class="card-contents">
+                                                    <p class="text-dark tes2">{{exercise.exercise.name.upper()}}</p>
+                                                    <!-- <p class="text-dark"><img class="workout-img" src="{{exercise.exercise.image_url}}" alt=""></p> -->
                                                 </div>
+                                                <div class="image-wrapper">      
+                                                    <a href="/exercises/exercise/{{ exercise.exercise.id }}" class="card-link">
+                                                        <img class="img-thumbnail" src="{{exercise.exercise.image_url}}" alt="Image for workout">
+                                                    </a>                                                            
+                                                </div>
+                                            
                                             </div>
                                         </div>
-                                        
-                                        {% endfor %}     
-                                    </div>       
-                                </div>
-                            </div>                        
-                        </div>            
-                    </div>
+                                    </div>
+                                    
+                                    {% endfor %}     
+                                </div>       
+                            </div>
+                        </div>                        
+                    </div>            
+                </div>
                 <div class="modal-footer">
                     <a class="btn btn-primary btn-customized btn-lg ms-2" data-bs-dismiss="modal" type="button">CLOSE</a>
                 </div>
-            </div>
+            </div>    
         </div>
     </div>
 </div>
-
-
-
-
-           
 
 {% endblock %}
 
