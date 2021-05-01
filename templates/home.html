@@ -39,7 +39,7 @@
 
 <!-- CAROUREL -->
 
-    <div id="myCarousel" class="carousel slide mb-2 pb-1" data-bs-ride="carousel">
+    <div id="myCarousel" class="carousel slide mb-2 mb-5" data-bs-ride="carousel">
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="d-none d-lg-block active" aria-current="true" aria-label="Slide 1"></button>
             <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" class="d-none d-lg-block"aria-label="Slide 2"></button>
@@ -50,10 +50,10 @@
             <img src="/static/images/carousel-images/lucas-favre-1100-unsplash-1.jpg" alt="..." class="d-block w-100">
             <div class="row no-gutters">
                 <div class="carousel-caption text-start d-none d-md-block">
-                    <h1 class="featurette-heading fs-4 mx-1 px-1">Performance Management</h1>
-                    <p class="col-md-8 fs-6 mx-1 px-1">Lightweight Athlete Management Application.</p>  
-                    <p class="col-md-8 d-inline  d-md-block mx-2 py-3">Try it! It's FREE. Build your team.</p>
-                    <a class="col-2 d-none d-lg-block btn btn-primary btn-customized btn p-2 my-2 fs-6" href="{{ url_for('.register_user') }}">REGISTER NOW!</a>
+                    <h1 class="featurette-heading fw-bold fs-1 mx-1 px-1">Performance Management</h1>
+                    <p class="featurette-text col-md-8 fs-3 mx-1 px-1">Lightweight Athlete Management Application.</p>  
+                    <p class="featurette-text col-md-8 d-inline  d-md-block fs-3 mx-2 py-3">Try it! It's FREE. Build your team.</p>
+                    <a class="col-2 d-none d-lg-block btn btn-primary btn-customized  p-2 ms-2 my-2 fs-6" href="{{ url_for('.register_user') }}">REGISTER NOW!</a>
                 </div>
             </div>
         </div>
@@ -62,11 +62,9 @@
             <img src="/static/images/carousel-images/cathy-pham-1100-unsplash-1.jpg" alt="..." class= "d-block w-100">
             <div class="row no-gutters">
                 <div class="carousel-caption d-none d-md-block">
-                   
-                        <h1 class="featurette-heading fs-4 mx-1 px-1">Track your Athletes Progress.</h1>
-                        <p class="d-md-block fs-6 mx-1 px-1">Focus on the Basics. View simple data analysis.</p>
-                        <button class="d-none d-md-block btn btn-primary btn-customized btn-lg ms-2 " type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop2">LEARN MORE</button>
-                 
+                    <h1 class="featurette-heading fw-bold fs-1  mx-1 px-1">Track your Athletes Progress.</h1>
+                    <p class="featurette-text d-md-block fs-3 mx-1 px-1">Focus on the Basics. View simple data analysis.</p>
+                    <button class="d-none d-md-block btn btn-primary btn-customized  p-2 ms-2 my-2 fs-6" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop2">LEARN MORE</button>
                 </div>
             </div>
         </div>
@@ -75,9 +73,9 @@
             <img src="/static/images/carousel-images/karsten-winegeart-1100-unsplash-1.jpg" alt="..." class="d-block w-100">
             <div class="row no-gutters">
                 <div class="carousel-caption d-none d-md-block">
-                    <h1 class="featurette-heading fs-4 mx-1 px-1">Register and create your team.</h1>
-                    <p class="col-md-12 d-md-block fs-6 mx-1 px-1">Built for Coaches. Simple to use in realtime.</p>
-                    <button class="d-none d-lg-block btn btn-primary btn-customized btn-lg ms-2 " type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">LEARN MORE</button>
+                    <h1 class="featurette-heading fw-bold fs-1  mx-1 px-1">Register and create your team.</h1>
+                    <p class="featurette-text col-md-12 d-md-block fs-3 mx-1 px-1">Built for Coaches. Simple to use in realtime.</p>
+                    <button class="d-none d-lg-block btn btn-primary btn-customized  p-2 ms-2 my-2 fs-6 " type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">LEARN MORE</button>
                 </div>
             </div>
         </div>
@@ -119,7 +117,7 @@
       <div class="container py-2" id="icon-grid">
         <h2 class="pb-2 border-bottom">Features</h2>
       
-        <div class="row row-cols-2 g-4 py-5">
+        <div class="row row-cols-2 offset-sm-1 g-4 py-5">
           <div class="col d-flex align-items-start">
             <svg xmlns="http://www.w3.org/2000/svg" class="bi text-muted flex-shrink-0 me-3" width="1.75em" height="1.75em"fill="currentColor" class="bi bi-tools" viewBox="0 0 16 16">
                 <path d="M1 0 0 1l2.2 3.081a1 1 0 0 0 .815.419h.07a1 1 0 0 1 .708.293l2.675 2.675-2.617 2.654A3.003 3.003 0 0 0 0 13a3 3 0 1 0 5.878-.851l2.654-2.617.968.968-.305.914a1 1 0 0 0 .242 1.023l3.356 3.356a1 1 0 0 0 1.414 0l1.586-1.586a1 1 0 0 0 0-1.414l-3.356-3.356a1 1 0 0 0-1.023-.242L10.5 9.5l-.96-.96 2.68-2.643A3.005 3.005 0 0 0 16 3c0-.269-.035-.53-.102-.777l-2.14 2.141L12 4l-.364-1.757L13.777.102a3 3 0 0 0-3.675 3.68L7.462 6.46 4.793 3.793a1 1 0 0 1-.293-.707v-.071a1 1 0 0 0-.419-.814L1 0zm9.646 10.646a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708zM3 11l.471.242.529.026.287.445.445.287.026.529L5 13l-.242.471-.026.529-.445.287-.287.445-.529.026L3 15l-.471-.242L2 14.732l-.287-.445L1.268 14l-.026-.529L1 13l.242-.471.026-.529.445-.287.287-.445.529-.026L3 11z"/>

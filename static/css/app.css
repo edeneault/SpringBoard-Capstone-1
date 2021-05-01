@@ -329,8 +329,8 @@ button.btn-customized-red.btn.btn-primary:not(:disabled):not(.disabled):active:f
     margin-bottom: 0;
     padding-bottom: 0;
     height: 200px;
-    padding-bottom: 0;
-    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
 }
 
 /* Since positioning the image, we need to help out the caption */
@@ -364,7 +364,18 @@ button.btn-customized-red.btn.btn-primary:not(:disabled):not(.disabled):active:f
     line-height: 1;
     /* rtl:remove */
     letter-spacing: -.05rem;
+    text-shadow: black 0.1em 0.1em 0.2em;
+    color: #7bb343;
+    font-weight: 800;
 }
+
+.featurette-text {
+    letter-spacing: -.05rem;
+    text-shadow: 0px 0px 30px black, 0px 0px 30px black, 0px 0px 30px black, 0px 0px 10px #553300, 0px 0px 10px #553300;
+
+    font-weight: 300;
+}
+
 
 
 /* RESPONSIVE CSS */
@@ -620,6 +631,8 @@ a.card-link:hover,
     object-fit: cover;
     object-position: center;
 }
+
+
 
 /* SPINNER */
 

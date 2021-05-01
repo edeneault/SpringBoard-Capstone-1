@@ -52,6 +52,7 @@
                         <div class="container d-flex flex-wrap p-2">
                             {% for workout in workouts %}
                                 {% if workout.id == athlete.id %}
+                                   
                                     <a class="card-link text-dark text-decoration-none " href="{{ url_for('.workout_show', workout_id=workout['workout_id'] ) }}">
                                     
                                             <div class="card col-lg-5 m-1 workout-athlete-card rounded ">
@@ -63,11 +64,19 @@
                                                         <a class="  me-1 d-flex-inline align-items-center page-links-dark" 
                                                             href="{{ url_for('.workout_edit', workout_id=workout['workout_id'] ) }}"><i class="bi bi-pen"></i>
                                                         </a>
-                                                        <a class="page-links-dark" href="#"><i class="bi bi-check-circle"></i></a>    
+                                                        <form action="{{ url_for('.athlete_workouts_completed',workout_id=workout['workout_id'], athlete_id=athlete.id) }}" method="POST">
+                                                            <a class="tooltips page-links-dark" data-toggle="tooltip" data-placement="top" title="Delete">
+                                                                <button class="page-links-dark " type="submit" onclick="return confirm('CONFIRM workout is completed.');" style="border: 0; background: none;">
+                                                                    <i class=" text-success bi bi-check-circle"></i>
+                                                                </button>
+                                                            </a> 
+                                                        </form>
+                                                        
+                                                   
                                                         <form action="{{ url_for('.athlete_workout_delete', workout_id=workout['workout_id'], athlete_id=athlete.id ) }}" method="POST">
-                                                            <a class="tooltips page-links-dark  " data-toggle="tooltip" data-placement="top" title="Delete">
+                                                            <a class="tooltips page-links-dark" data-toggle="tooltip" data-placement="top" title="Delete">
                                                                 <button class="page-links-dark " type="submit" onclick="return confirm('Are you sure to delete this workout ?');" style="border: 0; background: none;">
-                                                                    <i class="bi bi-trash"></i>
+                                                                    <i class="text-danger bi bi-trash"></i>
                                                                 </button>
                                                             </a> 
                                                         </form>

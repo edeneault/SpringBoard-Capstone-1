@@ -10,6 +10,7 @@ from forms import (WorkoutForm, WorkoutFormStep2, WorkoutEditForm, WorkoutExerci
 from utils import *
 
 WORKOUT = "workout_id"
+athlete_workout_list = []
 
 ## WORKOUT ROUTES ##
 
@@ -288,24 +289,12 @@ def athlete_workouts_show():
     user_id = g.user.id
     user = User.query.get_or_404(user_id)
     teams = Team.query.filter(user_id == Team.user_id)
-    # athletes = Athlete.query.filter(user_id == Athlete.team.user)
-
-
 
     workouts = db.session.query(Workout.name, Workout.description, Workout.id, Athlete.first_name, Athlete.last_name, 
                 Athlete.athlete_image_url, Athlete.position, Athlete.medical_status, Athlete.team_id, Athlete.id ). \
                 select_from(Workout). \
                 join(Athlete_workout). \
                 join(Athlete).all()
-                # filter(Workout.id == Athlete_workout.workout_id, Athlete.id == Athlete_workout.athlete_id). \
-                
-
-    # workouts = Athlete_workout.query.filter( athlete.id == athlete_workout.athlete_id).all()
-
-
-
-    print(workouts)
-    
 
     return render_template('/workouts/show_athlete_workouts.html', workouts=workouts, 
                                                                     teams=teams, user=user)
@@ -336,10 +325,36 @@ def athlete_workouts_assign():
         db.session.add(athlete_workout)
         db.session.commit()
 
+        athlete_workout_list.append(athlete_workout.id)
+        session['athlete_workout_list'] = athlete_workout_list
+        
+
         flash(f"Succesfully assigned WORKOUT {workout_id}", 'success')
         return redirect(f'/athletes/{athlete_id}' )
 
     return render_template('/workouts/assign_athlete_workout_form.html', form=form)
+
+
+@app.route('/workouts/athletes/assign/completed/<int:athlete_id>/<int:workout_id>', methods=["GET", "POST"] )
+def athlete_workouts_completed(workout_id, athlete_id):
+    """ Remove Competed Athlete Workout """
+    if not g.user:
+        flash("Access unauthorized.", "danger")
+        return redirect("/")
+    
+    if g.user:
+        user_id = g.user.id
+
+    workout = Athlete_workout.query.filter(Athlete_workout.athlete_id == athlete_id, Athlete_workout.workout_id == workout_id ).all()
+    workout = workout[0]
+    db.session.delete(workout)
+    db.session.commit()
+    flash(f"Succesfully COMPLETED WORKOUT {workout.id}", 'success')
+    return redirect(f'/athletes/{athlete_id}' )
+    
+
+
+    # return render_template('/workouts/assign_athlete_workout_form.html', form=form)
     
 @app.route('/workouts/athletes/delete/<int:workout_id>/<int:athlete_id>', methods=["POST"])
 def athlete_workout_delete(workout_id, athlete_id):
@@ -360,3 +375,6 @@ def athlete_workout_delete(workout_id, athlete_id):
 @app.route('/workouts/athletes/completed/<int:workout_id>/<int:athlete_id>', methods=["POST"])
 def athlete_workout_completed(workout_id, athlete_id):
     """Mark athlete workout as completed. Remove Workout from assigments."""
+
+
+

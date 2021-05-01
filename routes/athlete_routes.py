@@ -42,7 +42,7 @@ def athlete_show(athlete_id):
 
 
    
-    workouts = db.session.query(Workout.name, Workout.description, Workout.id.label("workout_id"), Athlete.first_name, Athlete.last_name, 
+    workouts = db.session.query(Athlete_workout.id.label("athlete_workout_id"), Workout.name, Workout.description, Workout.id.label("workout_id"), Athlete.first_name, Athlete.last_name, 
                 Athlete.athlete_image_url, Athlete.position, Athlete.medical_status, Athlete.team_id, Athlete.id ). \
                 select_from(Workout). \
                 join(Athlete_workout). \
