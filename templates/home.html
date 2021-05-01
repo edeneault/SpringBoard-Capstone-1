@@ -4,7 +4,7 @@
 
 <!-- QUICKLINKS -->
 
-<div class="container py-2">
+<div class="container">
     <div class="card py-2 px-1 ">
         <div class="row">
             <div class="col col-sm-6 align-self-center">
@@ -25,7 +25,7 @@
             </div>
         </div>
     </div>
-
+</div>
 <!-- AUTH FORMS -->
 
 <div id="register-link" class="container mt-2 mb-4 px-0">
@@ -46,36 +46,38 @@
             <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
         <div class="carousel-inner">
-            <div class="carousel-item item1 active">
-            
-            <div class="container">
-                <div class="carousel-caption text-start">
+            <div class="carousel-item active">
+            <img src="/static/images/carousel-images/lucas-favre-1100-unsplash-1.jpg" alt="..." class="d-block w-100">
+            <div class="row no-gutters">
+                <div class="carousel-caption text-start d-none d-md-block">
                     <h1 class="featurette-heading fs-4 mx-1 px-1">Performance Management</h1>
                     <p class="col-md-8 fs-6 mx-1 px-1">Lightweight Athlete Management Application.</p>  
-                    <p class="col-md-8 d-inline mx-2 py-3">Try it! It's FREE. Build your team.</p>
-                    <a class="col-2 d-none d-md-block btn btn-primary btn-customized btn p-2 my-2 fs-6" href="{{ url_for('.register_user') }}">REGISTER NOW!</a>
+                    <p class="col-md-8 d-inline  d-md-block mx-2 py-3">Try it! It's FREE. Build your team.</p>
+                    <a class="col-2 d-none d-lg-block btn btn-primary btn-customized btn p-2 my-2 fs-6" href="{{ url_for('.register_user') }}">REGISTER NOW!</a>
                 </div>
             </div>
         </div>
 
-        <div class="carousel-item item2">  
-            
-            <div class="container">
-                <div class="carousel-caption">
+        <div class="carousel-item ">
+            <img src="/static/images/carousel-images/cathy-pham-1100-unsplash-1.jpg" alt="..." class= "d-block w-100">
+            <div class="row no-gutters">
+                <div class="carousel-caption d-none d-md-block">
+                   
+                        <h1 class="featurette-heading fs-4 mx-1 px-1">Track your Athletes Progress.</h1>
+                        <p class="d-md-block fs-6 mx-1 px-1">Focus on the Basics. View simple data analysis.</p>
+                        <button class="d-none d-md-block btn btn-primary btn-customized btn-lg ms-2 " type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop2">LEARN MORE</button>
+                 
+                </div>
+            </div>
+        </div>
+
+        <div class="carousel-item ">  
+            <img src="/static/images/carousel-images/karsten-winegeart-1100-unsplash-1.jpg" alt="..." class="d-block w-100">
+            <div class="row no-gutters">
+                <div class="carousel-caption d-none d-md-block">
                     <h1 class="featurette-heading fs-4 mx-1 px-1">Register and create your team.</h1>
-                    <p class="col-md-12 fs-6 mx-1 px-1">Built for Coaches. Simple to use in realtime.</p>
-                    <button class="d-none d-md-block btn btn-primary btn-customized btn-lg ms-2 " type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">LEARN MORE</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="carousel-item item3">
-   
-            <div class="container">
-                <div class="carousel-caption text-end">
-                    <h1 class="featurette-heading fs-4 mx-1 px-1">Track your Athletes Progress. </h1>
-                    <p class="col-md-12 mx-1 px-1">Focus on the Basics. View simple data analysis.</p>
-                    <button class="d-none d-md-block btn btn-primary btn-customized btn-lg ms-2 " type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop2">LEARN MORE</button>
+                    <p class="col-md-12 d-md-block fs-6 mx-1 px-1">Built for Coaches. Simple to use in realtime.</p>
+                    <button class="d-none d-lg-block btn btn-primary btn-customized btn-lg ms-2 " type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">LEARN MORE</button>
                 </div>
             </div>
         </div>
