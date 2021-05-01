@@ -24,6 +24,33 @@
                 </div>  
             </div> 
         </div>
+        <div class="container">
+            <div class="container m-0 p-0">
+                <div class="row align-items-md-stretch">  
+                    <div id="add-athlete" class="col-md-12">
+                        <div class="h-100 p-1 text-darkrounded-3">
+                            <h1 class="display-4 text-center tes2">Select a Workout</h1>
+                            <form class="form" method="POST">
+                                {{ form.hidden_tag() }}
+                               
+                                {% for field in form if field.widget.input_type != 'hidden'%}
+                                <div class="fs-5 p-2 col-12 col-sm-12">   
+                                    <button class="btn btn-primary btn-customized btn my-2 " type="submit">SELECT</button>
+                                    <p class="d-inline"> from available {{field.label}}</p>
+                                        {{field}}  
+                                    {% for err in field.errors %}
+                                    <small class="text-danger">
+                                        {{err}}
+                                    </small>
+                                    {% endfor %}
+                                </div>
+                                {% endfor %}
+                            </form>
+                        </div>
+                    </div>  
+               </div>
+            </div>
+        </div>    
         {% for workout in workouts %}
         <div class="card bg-light m-2">
             <div class="row p-2">       

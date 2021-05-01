@@ -13,17 +13,17 @@ WORKOUT = "workout_id"
 
 ## WORKOUT ROUTES ##
 
-@app.route('/workouts')
+@app.route('/workouts', methods=["GET", "POST"] )
 def workouts_show():
     """ Show all workouts view """
 
     if g.user:
         user_id = g.user.id
 
-    
+    form = WorkoutSelectForm()
 
     workouts = Workout.query.all()
-   
+    workouts1 = [(w.id, w.name) for w in workouts] 
 
     exercises = db.session.query(Workout.name, Exercise.name, Workout_exercise). \
                 select_from(Workout). \
@@ -32,7 +32,19 @@ def workouts_show():
                 filter(Workout.id == Workout_exercise.workout_id). \
                 all()
 
-    return render_template('/workouts/show_workouts.html', workouts=workouts, exercises=exercises)
+    form.workouts.choices = workouts1
+    
+    if form.validate_on_submit():
+            
+        workout = form.workouts.data
+        print(workout)
+        
+
+        
+           
+        return redirect(f"/workouts/{workout}")
+
+    return render_template('/workouts/show_workouts.html', workouts=workouts, exercises=exercises, form=form, workouts1=workouts1)
 
 
 @app.route('/workouts/<int:workout_id>')
