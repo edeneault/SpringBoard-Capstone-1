@@ -6,7 +6,7 @@ from models import ( db, connect_db, User, Team, Athlete, Workout, Athlete_worko
                     Equipment, Muscle, Exercise, Workout_exercise, Athlete_workout_exercise )
 from forms import (WorkoutForm, WorkoutFormStep2, WorkoutEditForm, WorkoutExerciseEditForm, 
                     AddCategoryToWorkoutForm, AddEquipmentToWorkoutForm, AddMuscleToWorkoutForm,
-                    AthleteWorkoutAssignForm)
+                    AthleteWorkoutAssignForm, WorkoutSelectForm)
 from utils import *
 
 WORKOUT = "workout_id"
@@ -20,7 +20,11 @@ def workouts_show():
     if g.user:
         user_id = g.user.id
 
+    
+
     workouts = Workout.query.all()
+   
+
     exercises = db.session.query(Workout.name, Exercise.name, Workout_exercise). \
                 select_from(Workout). \
                 join(Workout_exercise). \

@@ -332,16 +332,6 @@ class AddEquipmentToWorkoutForm(FlaskForm):
         render_kw={"class": "form-select mt-2 me-2",}, 
         coerce=int)
 
-
-class WorkoutFormStep2(FlaskForm):
-    """ Step2 for """
-    categories = FormField(AddCategoryToWorkoutForm)
-
-    muscles = FormField(AddMuscleToWorkoutForm)
-
-    equipment = FormField(AddEquipmentToWorkoutForm)
-    
-
 class WorkoutForm(FlaskForm):
     """ Workout Add form. """
 
@@ -356,6 +346,22 @@ class WorkoutForm(FlaskForm):
         render_kw={"class": "form-control bg-light bg-gradient mt-2", "placeholder": "workout description"}
     )
 
+class WorkoutFormStep2(FlaskForm):
+    """ Step2 for """
+    categories = FormField(AddCategoryToWorkoutForm)
+
+    muscles = FormField(AddMuscleToWorkoutForm)
+
+    equipment = FormField(AddEquipmentToWorkoutForm)
+
+
+class WorkoutSelectForm(FlaskForm):
+    """ Workout Select form. """
+
+    workouts = SelectField('Workouts',
+        render_kw={"class": "form-select mt-2", "placeholder": "workout"}, 
+        coerce=int)
+    
 
 class WorkoutEditForm(FlaskForm):
     """ Workout Add form. """
@@ -372,7 +378,6 @@ class WorkoutEditForm(FlaskForm):
     )
 
    
-
 
 class WorkoutEditFormStep2(FlaskForm):
     """ Step2 for """
@@ -432,19 +437,3 @@ class AthleteWorkoutAssignForm(FlaskForm):
     workout = SelectField('Workout',
         render_kw={"class": "form-select mt-2", "placeholder": "workout"}, 
         coerce=int)
-
-# class AboutYouForm(FlaskForm):
-#     first_name = wtforms.StringField(
-#         label="First name", validators=[wtforms.validators.DataRequired()]
-#     )
-#     last_name = wtforms.StringField(label="Last name")
-
-# class ContactDetailsForm(FlaskForm):
-#     address_1 = wtforms.StringField(
-#         label="Address 1", validators=[wtforms.validators.DataRequired()]
-#     )
-#     address_2 = wtforms.StringField(label="Address 2")
-
-# class GiantForm(FlaskForm):
-#     about_you = wtforms.FormField(AboutYouForm)
-#     contact_details = wtforms.FormField(ContactDetailsForm)
