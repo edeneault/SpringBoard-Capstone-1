@@ -16,6 +16,7 @@
                 </div>
                 <div class="profile-text bg-light-gray padding-30px-all md-padding-25px-all sm-padding-20px-all text-center">
                     <h4 class="margin-10px-bottom font-size24 md-font-size22 sm-font-size20 font-weight-600 pt-2">{{g.user.username}}</h4>
+                    <a class="btn btn-primary btn-customized btn my-2 p-2 " href="{{ url_for('.users_edit', user_id=g.user.id ) }}">EDIT PROFILE</a>
                     <p>Name: {{g.user.full_name }}</p>
                     <p>Joined: {{ g.user.friendly_date }}</p>
                     <i class="fas fa-envelope text-pink"></i><p class="d-inline"><strong class="" > {{ g.user.email }}</strong></p>

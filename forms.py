@@ -52,12 +52,35 @@ class RegisterForm(FlaskForm):
     image_url = StringField('(Optional) Image URL', render_kw={"class": "form-control mt-2"} )
     header_image_url = StringField('(Optional) Team Image URL', render_kw={"class": "form-control mt-2"})
 
+
+
+class UserEditForm(FlaskForm):
+    """ User edit Form """
+    first_name = StringField(
+        "First Name",
+        validators=[InputRequired(), Length(max=30)],
+        render_kw={"class": "form-control mt-2"}
+    )
+    last_name = StringField(
+        "Last Name",
+        validators=[InputRequired(), Length(max=30)],
+        render_kw={"class": "form-control mt-2"}
+    )
+    email = StringField(
+        "Email",
+        validators=[InputRequired(), Email(), Length(max=50)],
+        render_kw={"class": "form-control mt-2"}
+    )
+    image_url = StringField('(Optional) Image URL', render_kw={"class": "form-control mt-2"} )
+    header_image_url = StringField('(Optional) Team Image URL', render_kw={"class": "form-control mt-2"})
+
+
 class TeamForm(FlaskForm):
     """ Team form. """
 
     name = StringField(
         "Name",
-        validators=[InputRequired(), Length(max=30)],
+        validators=[InputRequired(), Length(max=50)],
         render_kw={"class": "form-control mt-2", "placeholder": "name"}
     )
 
