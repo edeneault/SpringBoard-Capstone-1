@@ -272,14 +272,24 @@ def athlete_workouts_show():
     user_id = g.user.id
     user = User.query.get_or_404(user_id)
     teams = Team.query.filter(user_id == Team.user_id)
+    # athletes = Athlete.query.filter(user_id == Athlete.team.user)
+
+
 
     workouts = db.session.query(Workout.name, Workout.description, Workout.id, Athlete.first_name, Athlete.last_name, 
                 Athlete.athlete_image_url, Athlete.position, Athlete.medical_status, Athlete.team_id, Athlete.id ). \
                 select_from(Workout). \
                 join(Athlete_workout). \
-                join(Athlete). \
-                filter(Workout.id == Athlete_workout.workout_id, Athlete.id == Athlete_workout.athlete_id). \
-                all()
+                join(Athlete).all()
+                # filter(Workout.id == Athlete_workout.workout_id, Athlete.id == Athlete_workout.athlete_id). \
+                
+
+    # workouts = Athlete_workout.query.filter( athlete.id == athlete_workout.athlete_id).all()
+
+
+
+    print(workouts)
+    
 
     return render_template('/workouts/show_athlete_workouts.html', workouts=workouts, 
                                                                     teams=teams, user=user)
@@ -301,12 +311,21 @@ def athlete_workouts_assign():
     workouts = Workout.query.all() 
     workouts = [ (w.id, w.name) for w in workouts]
 
+    print("**********************workouts list****************")
+    print(workouts[0])
+
     form.athlete.choices = [(a.id, a.full_name) for a in Athlete.query.all()] 
     form.workout.choices = [(w.id, w.name) for w in Workout.query.all()] 
     if form.validate_on_submit():
         athlete_id = form.athlete.data
+        print(f'**********************{athlete_id}**************')
+        print(f'**********************{athlete_id}**************')
+        print(f'**********************{athlete_id}**************')
         workout_id = form.workout.data
-        athlete_workout = Athlete_workout(athlete_id=athlete_id, workout_id=workout_id)
+        print(f'**********************{workout_id}*************')
+        print(f'**********************{workout_id}**************')
+        print(f'**********************{workout_id}**************')
+        athlete_workout = Athlete_workout( workout_id=workout_id, athlete_id=athlete_id)
         db.session.add(athlete_workout)
         db.session.commit()
 

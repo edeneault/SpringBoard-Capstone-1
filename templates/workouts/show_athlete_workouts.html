@@ -50,8 +50,8 @@
                     {% for workout in workouts|selectattr('team_id') %}
                             {% if team.id == workout.team_id %}               
                                 <tr>
-                                    <td><strong>{{ workout.id }}</strong></td>
-                                    <td><a href="{{url_for('.workout_show', workout_id=workout.id) }}" class="card-link">{{ workout.name }} </a> </td>
+                                    <td><strong>{{ workout[2] }}</strong></td>
+                                    <td><a href="{{url_for('.workout_show', workout_id=workout[2]) }}" class="card-link">{{ workout.name }} </a> </td>
                                     <td>{{ workout.first_name}} {{ workout.last_name }} </td>
                                     <td><img class="athlete-thumb" src="{{ workout.athlete_image_url}}" alt="Athlete-image"></td> 
                                     <td>{{ workout.position }} </td>
