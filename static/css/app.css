@@ -340,13 +340,7 @@ button.btn-customized-red.btn.btn-primary:not(:disabled):not(.disabled):active:f
     height: 450px;
 }
 
-.carousel-item>img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    min-width: 100%;
-    height: 32rem;
-}
+
 
 
 .item1 {
@@ -364,6 +358,7 @@ button.btn-customized-red.btn.btn-primary:not(:disabled):not(.disabled):active:f
     -o-background-size: cover;
     background-size: cover center center;
 }
+
 
 .item3 {
     background: url('/static/images/cathy-pham-3jAN9InapQI-unsplash.jpg') no-repeat top center fixed;
@@ -426,12 +421,13 @@ button.btn-customized-red.btn.btn-primary:not(:disabled):not(.disabled):active:f
 }
 
 @media (min-width: 30rem) {
-    .carousel-item {
-
+    .item3 {
+        background: url('/static/images/carousel-images/lucas-favre-unsplash-medium.jpg') no-repeat center center fixed;
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
         background-size: cover;
+
     }
 }
 

@@ -278,7 +278,7 @@ def athlete_workouts_show():
                 select_from(Workout). \
                 join(Athlete_workout). \
                 join(Athlete). \
-                filter(Workout.id == Athlete_workout.workout_id). \
+                filter(Workout.id == Athlete_workout.workout_id, Athlete.id == Athlete_workout.athlete_id). \
                 all()
 
     return render_template('/workouts/show_athlete_workouts.html', workouts=workouts, 
