@@ -328,9 +328,7 @@ button.btn-customized-red.btn.btn-primary:not(:disabled):not(.disabled):active:f
 .carousel {
     margin-bottom: 0;
     padding-bottom: 0;
-    height: 200px;
-    padding-bottom: 1rem;
-    margin-bottom: 1rem;
+    height: 250px;
 }
 
 /* Since positioning the image, we need to help out the caption */
@@ -407,6 +405,7 @@ button.btn-customized-red.btn.btn-primary:not(:disabled):not(.disabled):active:f
 @media screen and (min-width: 480px) {
     .carousel {
         height: 450px;
+
     }
 
     .carousel-item {
