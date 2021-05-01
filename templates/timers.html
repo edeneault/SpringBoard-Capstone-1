@@ -137,39 +137,53 @@
     </div>
     <!-- End wrapper -->
     <div class="container-fluid p-0 m-0">
-        <footer class="text-center text-muted border-top footer-base pt-3 mt-0 ">
+        <footer class="text-center text-muted border-top footer-base pt-3 mt-4">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-4 pr-md-5 text-white">
                         <a href="#" class="d-block tes1 pb-2">GYM HERO</a>
-                        <p class=" tes2">CAPSTONE PROJECT</p>
+                        <p class=" tes2">DEMO APP &bull; MVP &bull; V1 &bull; CAPSTONE PROJECT</p>
                         <p class="tes2">SPRINGBOARD SOFTWARE ENGINEERING BOOTCAMP</p>
-                        <p class="tes2"> HTML | JAVASCRIPT | FLASK | POSTGRESQL</p>
+                        <p class="col-12 tes2"> HTML | CSS | JAVASCRIPT</p>
+                        <p class="col-12 tes2"> PYTHON | FLASK | POSTGRESQL</p>
+                        
                     </div>
-                    <div class="col-md">
+                    <div class="col-4 offset-2 offset-sm-2 offset-md-0">
                         <ul class="list-unstyled">
-                            <li class="nav-item tes2"><a class="nav-link" href="/">TEAMS</a></li> 
-                            <li class="nav-item tes2"><a class="nav-link" href="/">ATHLETES</a></li>  
-                            <li class="nav-item tes2"><a class="nav-link" href="/">WORKOUTS</a></li>   
+                            <li class="nav-item tes2"><a class="nav-link" href="/">HOME</a></li> 
+                            <li class="nav-item tes2"><a class="nav-link" href="{{ url_for('.exercises_show', page_num=1 )}}">EXERCISES</a></li>  
+                            <li class="nav-item tes2"><a class="nav-link" href="/workouts">WORKOUTS</a></li>   
                             <li class="nav-item tes2"><a class="nav-link" href="/timers">TIMERS</a></li>  
                         </ul>
                     </div>
-                    <div class="col-md">
+                    <div class="col-4 col-md">
                         <ul class="list-unstyled">
-                            <li class="nav-item tes2"><a class="nav-link" href="#">CLIENTS</a></li>
-                            <li class="nav-item tes2"><a class="nav-link" href="#">TEAM</a></li>
-                            <li class="nav-item tes2"><a class="nav-link" href="#">CAREER</a></li>
-                            <li class="nav-item tes2"><a class="nav-link" href="#">TESTIMONIALS</a></li>
+                            {% if not g.user %}
+                            <li class="nav-item tes2"><a class="nav-link" href="/teams">TEAMS</a></li>
+                            <li class="nav-item tes2"><a class="nav-link" href="/athletes">ATHLETES</a></li>
+                            <li class="nav-item tes2"><a class="nav-link" href="{{ url_for('.login_user') }}">LOGIN</a></li>
+                            <li class="nav-item tes2"><a class="nav-link" href="{{ url_for('.register_user') }}">REGISTER</a></li>
+                            {% else %}
+                            <li class="nav-item tes2"><a class="nav-link" href="/teams">TEAMS</a></li>
+                            <li class="nav-item tes2"><a class="nav-link" href="/athletes">ATHLETES</a></li>
+                            <li class="nav-item tes2"><a class="nav-link" href="{{ url_for('.users_show', user_id=g.user.id ) }}">MY PROFILE</a></li>
+                            <li class="nav-item tes2"><a class="nav-link" href="{{ url_for('.register_user') }}">REGISTER</a></li>
+                            {% endif %}
+                        
                         </ul>
                     </div>
                     
                     <div class="col-md text-md-center">
-                        <ul class="social list-unstyled text-white fs-5">
-                            <li><a href="#"><i class="fab fa-instagram-square"></i></a></li>
-                            <li><a href="#"><i class="fab fa-twitter-square"></i></a></li>
-                            <li><a href="#"><i class="fab fa-facebook-square"></i></a></li>
-                            <li><a href="#"><i class="fab fa-reddit-square"></i></a></li>
-                        </ul>
+
+                        <div class="d-flex justify-content-center">
+                            <ul class="list-group flex-md-column list-unstyled flex-row text-white fs-5">
+                                <li class="mx-2 my-2 mx-sm-0 my-sm-0"><a href="#"><i class="fab fa-instagram-square"></i></a></li>
+                                <li class="mx-2 my-2 mx-sm-0 my-sm-0"><a href="#"><i class="fab fa-twitter-square"></i></a></li>
+                                <li class="mx-2 my-2 mx-sm-0 my-sm-0"><a href="#"><i class="fab fa-facebook-square"></i></a></li>
+                                <li class="mx-2 my-2 mx-sm-0 my-sm-0"><a href="#"><i class="fab fa-reddit-square"></i></a></li>
+                            </ul>
+                        </div>
+                        
                         
                     </div>
                 </div>
@@ -184,10 +198,10 @@
                     </div>
                     <div class="col-12 text-center">
                         <div class="copyright">
-                            <p><small>&copy; 2019-2020 All Rights Reserved.</small></p>
+                            <p><small>&copy; 2021 All Rights Reserved.</small></p>
                         </div>
                     </div>
-                 </div>
+                    </div>
             </div>
         </footer>
 
