@@ -319,28 +319,19 @@ def athlete_workouts_assign():
         user_id = g.user.id
     
     form = AthleteWorkoutAssignForm()
-  
-    
     athletes = Athlete.query.all() 
-    athletes = [ (a.id, a.full_name) for a in athletes]
+    athletes = [ (a.id, a.full_name) for a in athletes if a.team.user.id == user_id]
+    print("**************************************")
+    print(athletes)
 
     workouts = Workout.query.all() 
     workouts = [ (w.id, w.name) for w in workouts]
 
-    print("**********************workouts list****************")
-    print(workouts[0])
-
-    form.athlete.choices = [(a.id, a.full_name) for a in Athlete.query.all()] 
+    form.athlete.choices = athletes
     form.workout.choices = [(w.id, w.name) for w in Workout.query.all()] 
     if form.validate_on_submit():
         athlete_id = form.athlete.data
-        print(f'**********************{athlete_id}**************')
-        print(f'**********************{athlete_id}**************')
-        print(f'**********************{athlete_id}**************')
         workout_id = form.workout.data
-        print(f'**********************{workout_id}*************')
-        print(f'**********************{workout_id}**************')
-        print(f'**********************{workout_id}**************')
         athlete_workout = Athlete_workout( workout_id=workout_id, athlete_id=athlete_id)
         db.session.add(athlete_workout)
         db.session.commit()
