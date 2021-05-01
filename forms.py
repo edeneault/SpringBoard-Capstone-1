@@ -265,7 +265,7 @@ class ExerciseForm(FlaskForm):
         coerce=int)
 
     equipment_id = SelectField('Equipment',
-        render_kw={"class": "form-select mt-2", "placeholder": "equipment}, 
+        render_kw={"class": "form-select mt-2", "placeholder": "equipment"}, 
         coerce=int)
     
     muscle_id = SelectField('Muscle',
