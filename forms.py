@@ -264,12 +264,12 @@ class ExerciseForm(FlaskForm):
         render_kw={"class": "form-select mt-2", "placeholder": "category"}, 
         coerce=int)
 
-    equipment_id = SelectField('Category',
-        render_kw={"class": "form-select mt-2", "placeholder": "category"}, 
+    equipment_id = SelectField('Equipment',
+        render_kw={"class": "form-select mt-2", "placeholder": "equipment}, 
         coerce=int)
     
-    muscle_id = SelectField('Category',
-        render_kw={"class": "form-select mt-2", "placeholder": "category"}, 
+    muscle_id = SelectField('Muscle',
+        render_kw={"class": "form-select mt-2", "placeholder": "primary muscle"}, 
         coerce=int)
 
 class ExerciseEditForm(FlaskForm):
@@ -359,7 +359,7 @@ class WorkoutSelectForm(FlaskForm):
     """ Workout Select form. """
 
     workouts = SelectField('Workouts',
-        render_kw={"class": "form-select mt-2", "placeholder": "workout"}, 
+        render_kw={"class": "form-select mt-2"}, 
         coerce=int)
     
 
