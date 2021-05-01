@@ -326,7 +326,11 @@ button.btn-customized-red.btn.btn-primary:not(:disabled):not(.disabled):active:f
 
 /* Carousel base class */
 .carousel {
-    margin-bottom: 4rem;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    height: 200px;
+    padding-bottom: 0;
+    margin-bottom: 0;
 }
 
 /* Since positioning the image, we need to help out the caption */
@@ -336,39 +340,7 @@ button.btn-customized-red.btn.btn-primary:not(:disabled):not(.disabled):active:f
 }
 
 /* Declare heights because of positioning of img element */
-.carousel-item {
-    max-height: 450px;
-}
-
-
-
-
-/* .item1 {
-    background: url('/static/images/lucas-favre-JnoNcfFwrNA-unsplash.jpg') no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover center center;
-} */
-
-/* .item2 {
-    background: url('/static/images/karsten-winegeart-WO_th3WRJvw-unsplash.jpg') no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover center center;
-} */
-
-
-/* .item3 {
-    background: url('/static/images/cathy-pham-3jAN9InapQI-unsplash.jpg') no-repeat top center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-} */
-
-
+.carousel-item {}
 
 /* FOOTER */
 
@@ -420,16 +392,16 @@ button.btn-customized-red.btn.btn-primary:not(:disabled):not(.disabled):active:f
 
 }
 
-/* @media (min-width: 30rem) {
-    .item3 {
-        background: url('/static/images/carousel-images/lucas-favre-unsplash-medium.jpg') no-repeat center center fixed;
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
-        background-size: cover;
 
+@media screen and (min-width: 480px) {
+    .carousel {
+        height: 450px;
     }
-} */
+
+    .carousel-item {
+        height: 450px;
+    }
+}
 
 
 /* MODALS CSS  */
