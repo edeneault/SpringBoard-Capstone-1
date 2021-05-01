@@ -330,7 +330,7 @@ button.btn-customized-red.btn.btn-primary:not(:disabled):not(.disabled):active:f
     padding-bottom: 0;
     height: 200px;
     padding-bottom: 0;
-    margin-bottom: 0;
+    margin-bottom: 2rem;
 }
 
 /* Since positioning the image, we need to help out the caption */
