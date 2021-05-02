@@ -158,12 +158,11 @@ def insert_images(resp):
                 wger_id = re.findall('\d{1,}', wger_id)
                 wger_id = int(wger_id[0])
                 ## Insert into images table ##
-                # try:
                 image = Image(exercise_image_url=exercise_image_url, wger_id=wger_id)
                 db.session.add(image)
                 db.session.commit()
-                # except:
-                #     continue
+                _
+           
         
         else:
             resp = requests.get("https://wger.de/api/v2/exerciseimage/?is_main=True", timeout=1.25)
@@ -210,8 +209,14 @@ def get_exercise_image(exercise_id, exercise):
     return image
     
 
+### QUERY FUNCTIONS ###
 
+def get_teams_by_user_id(user_id):
+    ### get all teams by user_id ###
+    print("***************** in get_teams_by_id ***********************")
 
+    teams = Team.query.filter(user_id == Team.user_id)
+    return teams
 
 
 

@@ -5,7 +5,7 @@ from sqlalchemy.exc import IntegrityError
 from models import ( db, connect_db, User, Team, Athlete, Workout, Athlete_workout, Category, 
                     Equipment, Muscle, Exercise, Workout_exercise, Athlete_workout_exercise )
 from forms import AthleteForm, AthleteEditForm
-# from utils import *
+from utils import *
 
 
 ## ATHLETE ROUTES ##
@@ -15,8 +15,8 @@ def athletes_show():
     """Show athletes profile."""
     user_id = g.user.id
     user = User.query.get_or_404(user_id)
-    teams = Team.query.filter(user_id == Team.user_id)
-
+    # teams = Team.query.filter(user_id == Team.user_id)
+    teams = get_teams_by_user_id(user_id)
     return render_template('/athletes/show_athletes.html', user=user, teams=teams)
 
 @app.route('/athletes/<int:athlete_id>')
