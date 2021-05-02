@@ -16,13 +16,13 @@
                 </div>
                 <div class="profile-text bg-light-gray padding-30px-all md-padding-25px-all sm-padding-20px-all text-center">
                     <h4 class="margin-10px-bottom font-size24 md-font-size22 sm-font-size20 font-weight-600 pt-2">{{g.user.username}}</h4>
-                    <a class="btn btn-primary btn-customized btn my-2 p-3 " href="{{ url_for('.users_edit', user_id=g.user.id ) }}">EDIT PROFILE</a>
+                    <a class="btn btn-primary btn-customized btn my-2 p-2 " href="{{ url_for('.users_edit', user_id=g.user.id ) }}">EDIT PROFILE</a>
                     <p>Name: {{g.user.full_name }}</p>
                     <p>Joined: {{ g.user.friendly_date }}</p>
                     <i class="fas fa-envelope text-pink"></i><p class="d-inline"><strong class="" > {{ g.user.email }}</strong></p>
                     <h4 class="margin-10px-bottom font-size24 md-font-size22 sm-font-size20 font-weight-600 pt-2">Workout Assignments</h4>
-                    <a class="btn btn-primary btn-customized btn my-2 p-3 " href="{{ url_for('.athlete_workouts_show' ) }}">VIEW ASSIGMENTS</a>
-                    <a class="btn btn-primary btn-customized btn my-2 p-3" href="{{ url_for('.athlete_workouts_assign' ) }}">ASSIGN WORKOUT</a>
+                    <a class="btn btn-primary btn-customized btn my-2 p-2 " href="{{ url_for('.athlete_workouts_show' ) }}">VIEW ASSIGMENTS</a>
+                    <a class="btn btn-primary btn-customized btn my-2 p-2" href="{{ url_for('.athlete_workouts_assign' ) }}">ASSIGN WORKOUT</a>
                 </div>
             </div>
             
@@ -42,41 +42,40 @@
                                             
                                                 {% if teams|length != 0  and team_is != 0%}
                                                 <div class="m-0 p-0">
-                                                    <a class="btn btn-primary btn-customized btn p-3 mb-2 " href="/teams/add">ADD</a>
+                                                    <a class="btn btn-primary btn-customized btn p-2 mb-2 " href="/teams/add">ADD</a>
                                                 {% else %} 
-                                                <div class="my-2 py-2">
-                                                   <a class="btn-floating btn-primary btn-customized text-decoration-none pulse p-3 my-4"  href="/teams/add">ADD</a>            
+                                                <div class="my-1 py-1">
+                                                   <a class="btn-floating btn-primary btn-customized text-decoration-none pulse p-2 my-4"  href="/teams/add">ADD</a>            
                                                 {% endif %}
                                             </div>
                                         </div>
 
                                         <div class="flex-row justify-center">
                                             <i class="d-inline fas fa-running fa-1x mt-0 pt-0"></i>
-                                            <strong class="tes2-md  mt-1 ms-2">Athletes</strong>
-                                            <div class="mb-3 mt-2">
-                                                <a class="btn-floating btn-primary btn-customized text-decoration-none p-3 mb-2"  href="/athletes/add">ADD</a>
+                                            <strong class="tes2-md mt-1 ms-2">Athletes</strong>
+                                            <div class="mb-1 mt-1">
+                                                <a class="btn-floating btn-primary btn-customized text-decoration-none p-2 mb-2"  href="/athletes/add">ADD</a>
                                             </div>
                                         </div>
 
                                         <div class="flex-row justify-center">
                                             <i class="d-inline fas fa-dumbbell fa-1x mt-2"></i>
                                             <strong class="tes2-md ms-2">Workouts</strong>
-                                            <div class="mb-3 mt-2">
-                                                <a class="btn-floating btn-primary btn-customized text-decoration-none p-3 mb-2" href="/workouts/add">ADD</a>
+                                            <div class="mb-1 mt-1">
+                                                <a class="btn-floating btn-primary btn-customized text-decoration-none p-2 mb-2" href="/workouts/add">ADD</a>
                                             </div>
                                         </div> 
                                         <div class="flex-row justify-center">
                                             <i class="d-inline fas fa-swimmer fa-1x mt-2"></i>
                                             <strong class="tes2-md ms-2">Exercises</strong>
-                                            <div class="mb-3 mt-2">
-                                                <a class="btn-floating btn-primary btn-customized text-decoration-none p-3 mb-2" href="/exercises/add">ADD</a>
+                                            <div class="mb-1 mt-1">
+                                                <a class="btn-floating btn-primary btn-customized text-decoration-none p-2 mb-2" href="/exercises/add">ADD</a>
                                             </div>
                                        
                                         </div>
                                     </div>
                                     <div class="col-md-8 col-9 mt-2">
                                         {% block user_content %} {% endblock %}
-                                        {{athletes}}
                                         {% if teams|length == 0  %}
                                             <div class="d-flex flex-row align-items-center m-0 pt-2">
                                                 <i class="bi bi-arrow-left-square-fill fa-2x me-2"></i>
@@ -112,8 +111,8 @@
                                                         <div class="d-flex pb-2">
                                                             <a class="btn-floating btn-primary btn-customized text-decoration-none p-3 mb-2 " href="/teams/edit/{{ team.id }}">EDIT</a>  
                                                             <form action="{{ url_for('.team_delete', team_id=team.id ) }}" method="POST">
-                                                                <a class="tooltips page-links-dark  " data-toggle="tooltip" data-placement="top" title="Delete">
-                                                                    <button class="page-links-dark " type="submit" onclick="return confirm('Are you sure to delete this team?');" style="border: 0; background: none;">
+                                                                <a class="tooltips page-links-dark" data-toggle="tooltip" data-placement="top" title="Delete">
+                                                                    <button class="page-links-dark" type="submit" onclick="return confirm('Are you sure to delete this team?');" style="border: 0; background: none;">
                                                                         <i class="bi bi-trash fa-2x"></i>
                                                                     </button>
                                                                 </a> 
