@@ -294,8 +294,8 @@ button.btn-customized-green.btn.btn-primary:not(:disabled):not(.disabled):active
     border: 0;
     color: #fff;
     box-shadow: none;
-    padding-right: .5rem;
-    padding-left: .5rem;
+    /* padding-right: .5rem;
+    padding-left: .5rem; */
 }
 
 a.btn-customized-red:hover,
@@ -317,8 +317,8 @@ button.btn-customized-red.btn.btn-primary:not(:disabled):not(.disabled):active:f
     border: 0;
     color: #fff;
     box-shadow: none;
-    padding-right: .5rem;
-    padding-left: .5rem;
+    /* padding-right: .5rem;
+    padding-left: .5rem; */
 }
 
 /* CUSTOMIZE THE CAROUSEL

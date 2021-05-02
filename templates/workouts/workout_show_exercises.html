@@ -22,22 +22,14 @@
                     </div>    
                 </row>
             
-
-
-
-            
-            
-            
-                    <div class="row">
-                        <div class="d-flex justify-content-center align-items-center col-md-12 col-12 mt-2">
-                            <div class="flex-grow-1">
-                                <i class="teams-fa-color fas fa-dumbbell mt-2 fa-3x"></i>
-                                <h1 class="d-inline teams-fa-color display-5 px-1">Exercises</h1>
-                            </div>
-                    
-                        </div> 
-                        
+                <div class="row">
+                    <div class="d-flex justify-content-center align-items-center col-md-12 col-12 mt-2">
+                        <div class="flex-grow-1">
+                            <i class="teams-fa-color fas fa-dumbbell mt-2 fa-3x"></i>
+                            <h1 class="d-inline teams-fa-color display-5 px-1">Exercises</h1>
+                        </div>
                     </div> 
+                </div> 
 
                 <div class="row d-inline">    
                     {% for page in exercises.iter_pages(left_edge=3, right_edge=3, left_current=3, right_current=3) %}
@@ -66,7 +58,7 @@
                                         
                                         <p class="text-small text-dark tes2 ps-3 mb-0 pb-0">default reps: {{ exercise.default_reps}}</p>
                                         <form action="submit">
-                                            <a href="{{ url_for('.workout_exercises_add', exercise_id=exercise.id)}}" class="submit btn btn-primary btn-customized btn my-2" >ADD TO WORKOUT</a>
+                                            <a href="{{ url_for('.workout_exercises_add', exercise_id=exercise.id)}}" class="submit btn btn-primary btn-customized btn ms-3 p-2" >ADD TO WORKOUT</a>
                                         </form>
                                     </div>
                                 </div>

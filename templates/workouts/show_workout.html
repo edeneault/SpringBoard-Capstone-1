@@ -26,14 +26,18 @@
                 <div class="col-sm-12">
                    <div class="col-sm-12">
                     <a class="card-title card-link text-decoration-none" href="/workouts/{{ workout.id }}">
-                        <h5 class="card-link tes2 fs-4 ps-3 pt-2">{{workout.name}}</h5>
+                        <h5 class="card-link fs-4 ps-3 pt-2">{{workout.name}}</h5>
                     </a>
                    </div>
                     
-                    <div class="col-sm-12  ms-3 mb-3">
-                        <a class="btn  btn-customized  col-sm-1 my-2 mb-4 d-inline" href="/workouts/edit/{{workout.id}}">EDIT</a> 
-                        <form  class="d-inline col-sm-1" action="/workouts/delete/{{ workout.id }}" method="POST">
-                            <button class="btn btn-customized-red p-1 d-inline" type="submit">DELETE</button>  
+                    <div class="col-sm-12 ms-3 mb-3">
+                        <a class="btn btn-customized p-2 d-inline" href="/workouts/edit/{{workout.id}}">EDIT</a> 
+                        <form  class="d-inline" action="/workouts/delete/{{ workout.id }}" method="POST">
+                            <a class="tooltips page-links-dark  " data-toggle="tooltip" data-placement="top" title="Delete">
+                                <button class="page-links-dark " type="submit" onclick="return confirm('Are you sure to delete this workout?');" style="border: 0; background: none;">
+                                    <i class=" d-inline col-sm-1 bi bi-trash"></i>
+                                </button>
+                            </a> 
                         </form>
                     </div>  
 

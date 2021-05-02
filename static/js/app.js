@@ -5,6 +5,7 @@ var carousel = new bootstrap.Carousel(myCarousel, {
   wrap: true
 })
 
+// SPINNER //
 const spinnerLink = document.getElementById("spinner-link").addEventListener('click', changeClass);
 
 function changeClass(e) {
@@ -13,15 +14,23 @@ function changeClass(e) {
     spinner.classList.toggle("d-none");
 }
 
+// FLASH MESSAGES //
 $(function() {
     $('#flash-messages').delay(500).fadeIn('normal', function() {
        $(this).delay(2500).fadeOut();
     });
  });
 
- function goBack() {
+ // BACK BUTTON //
+function goBack() {
     window.history.back();
-    }
+}
+
+// FORWARD BUTTON //
+function goForward(){
+    window.history.go(1);
+}
+
 
 
 
