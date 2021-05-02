@@ -1,7 +1,10 @@
 /// HIIT Timer Views and DOM Event Listeners ///
+
+
+// View Function for the timer value input form //
 function showTimerHome() {
     const homeTimer = document.createElement("div");
-    // homeTimer.classList.add("row");
+
     homeTimer.innerHTML = `<div class="form-goup  pt-5"  method="post">
                                 <div class="input-group row col-md-8 offset-md-2 mx-auto">
                                     <label class="input-group-text col-4 col-sm-2 col-form-label bg-timer-form text-black" for="exercise">EXERCISE</label>
@@ -15,13 +18,13 @@ function showTimerHome() {
                                     <span class="input-group-text col-4 col-sm-2 bg-timer-form text-black"><small>SECONDS</small></span>
                                 </div>
                                 <div class="input-group row col-md-8 offset-md-2 mx-auto">
-                                    <label class="input-group-text col-4 col-sm-2 col-form-label bg-timer-form text-black" for="sets">SETS</label>
+                                    <label class="input-group-text col-4 col-sm-2 col-form-label bg-timer-form text-black" for="sets">ROUNDS</label>
                                     <input class="form-control col-4 col-sm-2 bg-timer-form text-black" type="number" name="sets" id="sets" value="1"/>
-                                    <span class="input-group-text col-4 col-sm-2 bg-timer-form text-black"><small>SETS</small></span>
+                                    <span class="input-group-text col-4 col-sm-2 bg-timer-form text-black"><small>ROUNDS</small></span>
                                 </div>    
-                                <div class="row">
+                                <div class="row mt-2">
                                     <div class="col col-sm-12 align-self-center text-center mx-auto">
-                                        <a class="btn btn-primary btn-customized-1 px-4 py-2 m-2" role="button" type="submit" id="startBtn"><span class="text-white fs-5">START!</span></a>
+                                        <button class="btn btn-primary btn-customized-1 px-4 py-2 m-2" role="button" type="submit" id="startBtn"><span class="text-white fs-5">START!</span></button>
                                     </div>
                                 </div>
                             </div>
@@ -29,12 +32,12 @@ function showTimerHome() {
                                     <img src="static/images/clipart1066235.png" alt="TIMER_IMAGE">
                             </div>`
                             
-                            
     homeView.append(homeTimer);
     const submitBtn = document.querySelector("#startBtn");
     submitBtn.addEventListener("click", handleClickStart);
 }
 
+// View Function for exercise time //
 function showTimerExercise() {
     const exerciseTimer = document.createElement("div");
     exerciseTimer.classList.add("container-fluid", "main", "exercise-color");   
@@ -42,7 +45,7 @@ function showTimerExercise() {
     exerciseTimer.innerHTML = ` <p id="fullscreen" class="btn btn-outline-light col-4 col-md-2 m-2 fullscreen"><i class="fas fa-expand-arrows-alt fa-2x"></i></p>
                                 <h2 class="display-1 text-center text-light mb-5 pb-5">Exercise</h2>
                                 <span class="display-1 timer text-light mb-5" id="timer">${ exercise } </span>
-                                <h5 class=" text-center text-light my-5 py-5 " id="set">Sets left: ${sets} </h5>
+                                <h5 class=" text-center text-light my-5 py-5 " id="set">ROUNDS left: ${sets} </h5>
                                 <progress max="${ exercise}" value="${exercise}" class="progress progress--rest" id="progressBar"></progress>
                                 <p id="resetBtn" class="btn btn-outline-light col-2 col-md-1 m-3">RESET</p>
                                 `
@@ -59,6 +62,8 @@ function showTimerExercise() {
     });
 }
 
+// View Function for rest time //
+
 function showTimerRest() {
     const exerciseTimer = document.createElement("div");
     exerciseTimer.classList.add("container-fluid",  "main", "rest-color");
@@ -66,7 +71,7 @@ function showTimerRest() {
     exerciseTimer.innerHTML = ` <p id="fullscreen1" class="btn btn-outline-light col-4 col-md-2 m-2 fullscreen"><i class="fas fa-expand-arrows-alt fa-2x"></i></p> 
                                 <h2 class="display-1 text-center text-light mb-5 pb-5">Rest</h2>
                                 <span class="display-1 timer text-light my-5" id="timer">${ rest } </span>
-                                <h5 class="text-center text-light my-5 py-5" id="set"> Sets left: ${sets} </h5>
+                                <h5 class="text-center text-light my-5 py-5" id="set"> ROUNDS left: ${sets} </h5>
                                 <progress max="${ rest}" value="${rest}" class="progress progress--set" id="progressBar"></progress>
                                 <p id="resetBtn" class="btn btn-outline-light col-2 col-md-1 m-3">RESET</p>`
     exerciseView.append(exerciseTimer);
@@ -80,6 +85,7 @@ function showTimerRest() {
     });
 }
 
+// View Function for timer completed //
 function showTimerComplete(totalSets) {
     const completeTimer = document.createElement("div");
     completeTimer.classList.add("card", "pt-4", "col-md-8", "offset-md-2");
@@ -89,7 +95,7 @@ function showTimerComplete(totalSets) {
     completeView.append(completeTimer);
 }
 
-
+// Function to change the visibility of various elements //
 function changeVisibility(element) {
     element.classList.toggle("d-none");
     
