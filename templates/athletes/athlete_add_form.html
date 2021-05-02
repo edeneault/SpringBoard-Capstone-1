@@ -2,9 +2,13 @@
 
 {% block user_content %} 
 <div class="container col-sm-12 m-0 p-0">
+
+        athletes - {{athletes}}
+        tema_is - {{teams_is}}
+
     <div class="row align-items-md-stretch">  
         <div id="add-athlete" class="col-md-12">
-            <div class="h-100 p-5 fs-2 text-white bg-login rounded-3">
+            <div class="h-100 p-5 text-white bg-login rounded-3">
                 <h1 class="fs-1 text-center">Add Athlete</h1>
                 <form class="form" method="POST">
                     {{ form.hidden_tag() }}

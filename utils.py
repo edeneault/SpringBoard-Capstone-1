@@ -218,6 +218,13 @@ def get_teams_by_user_id(user_id):
     teams = Team.query.filter(user_id == Team.user_id)
     return teams
 
+def get_athletes_by_team_id(team_id):
+    ### get all teams by user_id ###
+    print("***************** in get_teams_by_id ***********************")
+
+    athletes = [a for a in Athlete.query.filter(Athlete.team_id == team_id)]
+    return athletes
+
 
 
 
