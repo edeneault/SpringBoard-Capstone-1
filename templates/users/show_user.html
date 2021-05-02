@@ -106,10 +106,11 @@
                                                     <div class="img-square-wrapper d-none d-md-block ps-1">
                                                         <img class="team-image rounded-circle col p-1 m-2" src="{{ team.team_image_url }}" alt="Card image cap">
                                                     </div>
+                                                    <a class="card-link text-dark text-decoration-none ms-0" href="/teams/{{ team.id }}">
                                                     <div class="card-body ms-4 ps-4 ">                                                  
-                                                        <a class="card-link text-dark text-decoration-none ms-0" href="/teams/{{ team.id }}"><p class="card-title tes2 fs-4 mt-2 d-inline">{{ team.name }}</p> </a>
+                                                        <p class="card-link card-title tes2 fs-4 mt-2 d-inline">{{ team.name }}</p> 
                                                         <div class="d-flex pb-2">
-                                                            <a class="btn-floating btn-primary btn-customized text-decoration-none p-3 mb-2 " href="/teams/edit/{{ team.id }}">EDIT</a>  
+                                                            <a class="btn-floating btn-primary btn-customized text-decoration-none m-2 pt-2 mb-2" href="/teams/edit/{{ team.id }}">EDIT</a>  
                                                             <form action="{{ url_for('.team_delete', team_id=team.id ) }}" method="POST">
                                                                 <a class="tooltips page-links-dark" data-toggle="tooltip" data-placement="top" title="Delete">
                                                                     <button class="page-links-dark" type="submit" onclick="return confirm('Are you sure to delete this team?');" style="border: 0; background: none;">
@@ -119,7 +120,7 @@
                                                             </form>
                                                         </div> 
                                                         <p class="tes2">LOCATION: {{ team.location }}</p>                                         
-                                                    </div>
+                                                    </div></a>
                                                 
                                                 </div>
                                          
