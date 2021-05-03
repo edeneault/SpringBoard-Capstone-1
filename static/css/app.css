@@ -721,3 +721,10 @@ div.description {
         transform: scale(1.5);
     }
 }
+
+/* FLASH MESSAGES */
+
+.flash-messages {
+    position: fixed;
+    z-index: 999;
+}

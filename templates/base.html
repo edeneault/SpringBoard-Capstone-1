@@ -55,9 +55,9 @@
             </div>
     </nav>
 
-    <div class="container col-md-12 text-light align-center">
+    <div class="container col-md-12 text-light align-center ">
         <div class="row justify-content-center py-1 ">
-            <div class="container-fluid col-sm-12 p-1 m-1" id="flash-messages">
+            <div class="container-fluid col-sm-12 p-1 m-1 flash-messages" id="flash-messages">
                 {% for category,message in get_flashed_messages(with_categories=True)  %}
                 <div class="alert alert-{{ category }} alert-dismissible fade show card col-sm-12" role="alert">
                     {{ message }}

@@ -2,28 +2,23 @@
 
 {% block content %}
 
-
 <div class="container">
-    <!-- <div class="col-sm-12 workouts-container py-3"> -->
-        <!-- <h1 class="text-dark text-center tes2 fs-3 mt-4"> WORKOUTS PAGE</h1> -->
         <div class="team-single-text padding-50px-left sm-no-padding-left">
      
-            
             <div class="row">
                 <div class="d-flex justify-content-center align-items-center col-md-12 col-12 mt-2">
                     <div class="flex-grow-1">
                         <i class="teams-fa-color fas fa-dumbbell mt-2 fa-3x"></i>
                         <h1 class="d-inline teams-fa-color display-5 px-1">Workouts</h1>
-                        <a class="btn btn-primary btn-customized btn my-2 mb-4 " href="/workouts/add">ADD</a>
-                    </div>
-                    
-                    <div class="text-center pt-1">
-                        <h6 class="d-inline tes2 text-center sm-font-size12 px-2">ATHLETE WORKOUTS</h6>
-                        <a class="btn btn-primary btn-customized btn me-2" href="{{ url_for('.athlete_workouts_show') }} ">VIEW</a>                       
+                        <div class="d-inline ">
+                            <a class="btn btn-primary btn-customized btn mb-3 " href="/workouts/add">ADD</a>
+                            <a class="btn btn-primary btn-customized btn mb-3 " href="{{ url_for('.athlete_workouts_show') }} ">VIEW ATHLETE WORKOUTS</a>    
+                        </div>   
                     </div>
                 </div>  
             </div> 
         </div>
+        
         <div class="container">
             <div class="container m-0 p-0">
                 <div class="row align-items-md-stretch">  

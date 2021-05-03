@@ -13,18 +13,6 @@ from models import (connect_db, db, User, Team, Athlete, Workout, Athlete_workou
                     Equipment, Muscle, Workout_exercise, Athlete_workout_exercise, Image)
 
 
-# def get_thumbnail_images():
-#     """ Function to get all thumbnail images from API """
-#     resp = requests.get(f"https://wger.de/api/v2/exerciseimage/{exercise_id}/thumbnails/", timeout=2)
-#     resp = resp.json()
-    
-#     if resp == []:
-#         image_url = "/media/exercise-images/192/Bench-press-1.png"
-#     else:
-#         image_url = resp["thumbnail"]["url"] 
-
-
-
 CATEGORY_OBJ = { "Abs": 1, "Arms": 2, "Back": 3, "Calves": 4, "Chest": 5, "Legs": 6, "Shoulders": 7 }
 
 EQUIPMENT_OBJ = {   "Barbell": 1, "Bench": 2, "Dumbbell": 3, "Gym mat": 4, "Incline bench": 5, "Kettlebell": 6,
@@ -48,9 +36,6 @@ def ip6_force_disabled():
     if urllib3_cn.HAS_IPV4:
         wger_request = socket.AF_INET4 
     return wger_request
-
-urllib3_cn.ip6_force_disabled = ip6_force_disabled
-
 
 def exercises_api_request():
     """ Request exercise data from wger API """
@@ -140,8 +125,6 @@ def insert_images(resp):
         if NEXT_IMAGE != "":
             url = NEXT_IMAGE
 
-            # url = "https://wger.de/api/v2/exerciseimage/?is_main=True"
-        
             resp = requests.get(url=url, timeout=1.25)
             resp = resp.json()
             NEXT_IMAGE = resp["next"]
@@ -161,9 +144,7 @@ def insert_images(resp):
                 image = Image(exercise_image_url=exercise_image_url, wger_id=wger_id)
                 db.session.add(image)
                 db.session.commit()
-                _
-           
-        
+
         else:
             resp = requests.get("https://wger.de/api/v2/exerciseimage/?is_main=True", timeout=1.25)
             resp = resp.json()
@@ -184,12 +165,10 @@ def insert_images(resp):
                 wger_id = re.findall('\d{1,}', wger_id)
                 wger_id = int(wger_id[0])
                 ## Insert into images table ##
-                # try:
                 image = Image(exercise_image_url=exercise_image_url, wger_id=wger_id)
                 db.session.add(image)
                 db.session.commit()
-                # except:
-                #     continue
+
         time.sleep(5)
    
 ### UNCOMMENT TO SEED images TABLE ###    
@@ -222,96 +201,55 @@ def get_athletes_by_team_id(team_id):
     athletes = [a for a in Athlete.query.filter(Athlete.team_id == team_id)]
     return athletes
 
-
-def get_categories():
-    ''' get all categories '''
+def get_select_categories():
+    ''' get all categories for SelectField '''
 
     categories = Category.query.all() 
     categories = [ (c.id, c.category_name) for c in categories]
     return categories
 
-def get_equipment():
-    ''' get all equipment '''
+def get_select_equipment():
+    ''' get all equipment for SelectField '''
 
     equipment = Equipment.query.all() 
     equipment = [ (e.id, e.equipment_name) for e in equipment]
     return equipment
 
-
-def get_muscles():
-    ''' get all muscles '''
+def get_select_muscles():
+    ''' get all muscles for SelectField '''
 
     muscles = Muscle.query.all() 
     muscles = [ (m.id, m.muscle_name) for m in muscles]
     return muscles
 
+def get_workouts():
+    ''' get all workouts '''
+    workouts = Workout.query.all()
+    return workouts
+
+def get_select_workouts(workouts):
+    ''' get all workouts for SelectField '''
+    workouts = [(w.id, w.name) for w in workouts] 
+    return workouts
+
+def get_workouts_exercises():
+    ''' get all exercises for workouts '''
+    exercises = db.session.query(Workout.name, Exercise.name, Workout_exercise). \
+            select_from(Workout). \
+            join(Workout_exercise). \
+            join(Exercise). \
+            filter(Workout.id == Workout_exercise.workout_id). \
+            all()
+    return exercises
 
 
 
 
 
 
+urllib3_cn.ip6_force_disabled = ip6_force_disabled
 
 
 
 
 
-
-
-# import aiohttp
-# import asyncio
-# import time
-
-# start_time = time.time()
-
-
-# async def get_exercise(session, url):
-#     async with session.get(url) as resp:
-#         exercise = await resp.json()
-#         return exercise
-
-# async def main():
-
-#     async with aiohttp.ClientSession() as session:
-
-#         url = f'https://wger.de/api/v2/exerciseinfo/?language=2'
-#         response = asyncio.ensure_future(get_exercise(session, url))
-
-#         result = await response
-#         return result
-
-# result = asyncio.run(main())
-# # print(result)
-
-# exercise1 = result["results"][5]
-
-# name = exercise1["name"]
-# description = exercise1["description"]
-# muscles = exercise1["muscles"]
-# equipment =  exercise1["equipment"]
-
-# new_exercise = { "name": name, "description": description, "muscles": muscles, "equipment": equipment }
-
-# print()
-# print()
-# print(new_exercise)
-# print("--- %s seconds ---" % (time.time() - start_time))
-
-
-
-# def parse_exercise_resp(result):
-
-
-# import logging
-
-# import http.client
-# http.client.HTTPConnection.debuglevel = 1
-
-# # You must initialize logging, otherwise you'll not see debug output.
-# logging.basicConfig()
-# logging.getLogger().setLevel(logging.DEBUG)
-# requests_log = logging.getLogger("requests.packages.urllib3")
-# requests_log.setLevel(logging.DEBUG)
-# requests_log.propagate = True
-
-# requests.get("https://wger.de/api/v2/exercise")

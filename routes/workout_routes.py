@@ -21,28 +21,16 @@ def workouts_show():
     if g.user:
         user_id = g.user.id
 
+    workouts = get_workouts()
+    workouts1 = get_select_workouts(workouts)
+    exercises = get_workouts_exercises()
+
     form = WorkoutSelectForm()
-
-    workouts = Workout.query.all()
-    workouts1 = [(w.id, w.name) for w in workouts] 
-
-    exercises = db.session.query(Workout.name, Exercise.name, Workout_exercise). \
-                select_from(Workout). \
-                join(Workout_exercise). \
-                join(Exercise). \
-                filter(Workout.id == Workout_exercise.workout_id). \
-                all()
-
     form.workouts.choices = workouts1
     
     if form.validate_on_submit():
             
         workout = form.workouts.data
-        print(workout)
-        
-
-        
-           
         return redirect(f"/workouts/{workout}")
 
     return render_template('/workouts/show_workouts.html', workouts=workouts, exercises=exercises, form=form, workouts1=workouts1)
@@ -227,9 +215,9 @@ def workout_edit(workout_id):
     form2= WorkoutExerciseEditForm()
 
 
-    categories = get_categories()
-    equipment = get_equipment()
-    muscles = get_muscles()
+    categories = get_select_categories()
+    equipment = get_select_equipment()
+    muscles = get_select_muscles()
 
     form2= WorkoutFormStep2()
     form2.categories.category.choices = [(c.id, c.category_name) for c in Category.query.all()] 
