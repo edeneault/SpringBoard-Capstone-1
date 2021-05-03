@@ -71,20 +71,24 @@
                                     <div class="col-md-8 col-9 mt-2">
                                         {% block user_content %} {% endblock %}
 
+                                        
+
                                         {% for team in teams %}
+                                   
+
+
                                         <a class="card-link text-dark text-decoration-none ms-0" href="/teams/{{ team.id }}">
 
                                             <div class="card user-team-card mb-3">
-                                                <div class="card-horizontal ">
-                                                    <img class="team-image card-img p-0 m-0" src="{{ team.team_image_url }}" alt="Card image cap">
-                                                    <a class="card-link text-dark text-decoration-none" href="/teams/{{ team.id }}">
-                                                 
-                                                        
-                                         
-                                                   
-                                                    <div class="card-body ms-1 ps-4 ">                                                  
-                                                        <p class="card-link card-title tes2 fs-4 mt-2 d-inline">{{ team.name }}</p> 
-                                                        <div class="d-flex pb-2">
+                                                <div class="card-horizontal">
+                                                    <div class="team-image-wrapper">
+                                                        <img class="d-none d-md-block team-image p-0 m-0" src="{{ team.team_image_url }}" alt="Card image cap">
+                                                    </div>
+                                                    <div class="card-body m-3 px-4">  
+                                                        <a class="card-link text-dark text-decoration-none m-0 p-0" href="/teams/{{ team.id }}">                                               
+                                                            <p class="card-link card-title fs-4 mt-2 d-inline">{{ team.name }}</p> 
+                                                        </a>
+                                                            <div class="d-flex pb-2">
                                                             <a class="btn-floating btn-primary btn-customized text-decoration-none m-2 pt-2 mb-2" href="/teams/edit/{{ team.id }}">EDIT</a>  
                                                             <form action="{{ url_for('.team_delete', team_id=team.id ) }}" method="POST">
                                                                 <a class="tooltips page-links-dark" data-toggle="tooltip" data-placement="top" title="Delete">
@@ -94,7 +98,7 @@
                                                                 </a> 
                                                             </form>
                                                         </div> 
-                                                        <p class="tes2">LOCATION: {{ team.location }}</p>                                         
+                                                        <p class="fs-6">LOCATION: {{ team.location }}</p>                                         
                                                     </div>
                                                 </div>
                                             </div>
