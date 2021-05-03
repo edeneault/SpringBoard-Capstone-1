@@ -26,6 +26,7 @@ def users_show(user_id):
                 .filter(Team.user_id == user_id)
                 .order_by(Team.created_on.desc())
                 .all())
+ 
 
     return render_template('users/show_user.html', user=user, teams=teams)
 

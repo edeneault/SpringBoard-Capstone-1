@@ -533,14 +533,16 @@ button.btn-customized-red.btn.btn-primary:not(:disabled):not(.disabled):active:f
 
 /* TEAM CARDS - USER PROFILE CSS  */
 
-/* .user-team-card {
-    height: 160px;
-} */
+.user-team-card {
+    border-color: rgba(0, 0, 0, 0.8);
+    border-width: 2px;
+    border-radius: 10px;
+}
 
 .user-team-card:hover,
 .user-team-card:focus {
     transform: scale(1.02);
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: rgba(0, 0, 0, 0.05);
     color: #8d3ff3;
     color: #572796;
     border-color: black;
@@ -554,10 +556,12 @@ button.btn-customized-red.btn.btn-primary:not(:disabled):not(.disabled):active:f
 }
 
 .team-image {
-    top: 0px;
+
     position: relative;
-    height: 136px;
-    width: 136px;
+    height: 100%;
+    width: 150px;
+    outline: none;
+
 }
 
 .profile-text {

@@ -67,27 +67,14 @@ def athlete_add():
     user_id = g.user.id
     teams = user.teams
 
-    try:
-        athletes = [athlete for athlete in g.user.teams.athletes] 
-    except:
-        athletes = 0
-    try:
-        teams_is = [team for team in g.user.teams] 
-    except:
-        teams_is = 0
-    
-    print(athletes)
+
+
     form = AthleteForm()
     teams = [(t.id, t.name) for t in teams]
     
     form.team_id.choices = teams
    
     print(teams)
-
-  
-    # athletes = get_athletes_by_team_id(team)
-
-    # print(athletes)
 
     if form.validate_on_submit():
         try:
@@ -109,12 +96,12 @@ def athlete_add():
 
         except:
             flash("Something went wrong", "danger")
-            return render_template('/athletes/athlete_add_form.html', form=form, athletes=athletes, teams_is=teams_is)
+            return render_template('/athletes/athlete_add_form.html', form=form)
 
         return redirect(f"/athletes")
 
     else:
-        return render_template('/athletes/athlete_add_form.html', form=form, athletes=athletes, teams_is=teams_is)
+        return render_template('/athletes/athlete_add_form.html', form=form)
 
 
 

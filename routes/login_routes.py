@@ -38,21 +38,10 @@ def add_user_to_g():
 
 @app.route('/users/register', methods=["GET", "POST"])
 def register_user():
-    """Handle user signup.
-
-    Create new user and add to DB. Redirect to home page.
-
-    If form not valid, present form.
-
-    If the there already is a user with that username: flash message
-    and re-present form.
-    """
+    """Handle user register."""
 
     form = RegisterForm()
-
     if form.validate_on_submit():
-
-   
         try:
             user = User.register(
                 username=form.username.data,
@@ -62,17 +51,17 @@ def register_user():
                 last_name=form.last_name.data,
                 image_url=form.image_url.data or User.image_url.default.arg,
                 header_image_url=form.header_image_url.data or User.header_image_url.default.arg
-              
             )
+            
             db.session.add(user)
             db.session.commit()
           
-
         except IntegrityError:
             flash("Username already taken", 'danger')
             return render_template('/users/login_user_form.html', form=form)
 
         do_login(user)
+        flash("Welcome to GYM HERO, ADD your first Team to gwt started", "info")
         return redirect("/")
 
     else:
