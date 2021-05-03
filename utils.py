@@ -212,18 +212,40 @@ def get_exercise_image(exercise_id, exercise):
 ### QUERY FUNCTIONS ###
 
 def get_teams_by_user_id(user_id):
-    ### get all teams by user_id ###
-    print("***************** in get_teams_by_id ***********************")
-
+    ''''get all teams by user_id '''
     teams = Team.query.filter(user_id == Team.user_id)
     return teams
 
 def get_athletes_by_team_id(team_id):
-    ### get all teams by user_id ###
-    print("***************** in get_teams_by_id ***********************")
+    ''' get all teams by user_id '''
 
     athletes = [a for a in Athlete.query.filter(Athlete.team_id == team_id)]
     return athletes
+
+
+def get_categories():
+    ''' get all categories '''
+
+    categories = Category.query.all() 
+    categories = [ (c.id, c.category_name) for c in categories]
+    return categories
+
+def get_equipment():
+    ''' get all equipment '''
+
+    equipment = Equipment.query.all() 
+    equipment = [ (e.id, e.equipment_name) for e in equipment]
+    return equipment
+
+
+def get_muscles():
+    ''' get all muscles '''
+
+    muscles = Muscle.query.all() 
+    muscles = [ (m.id, m.muscle_name) for m in muscles]
+    return muscles
+
+
 
 
 

@@ -1,9 +1,16 @@
 // VIEW CAROUSEL //
-var myCarousel = document.querySelector('#myCarousel')
-var carousel = new bootstrap.Carousel(myCarousel, {
+const myCarousel = document.querySelector('#myCarousel')
+const carousel = new bootstrap.Carousel(myCarousel, {
   interval: 4000,
   wrap: true
 })
+
+// $(function(){
+//     // You used .myCarousel here. 
+//     // That's the class selector not the id selector,
+//     // which is #myCarousel
+//     $('#myCarousel').carousel();
+//   });
 
 // SPINNER //
 const spinnerLink = document.getElementById("spinner-link").addEventListener('click', changeClass);
@@ -29,6 +36,11 @@ function goBack() {
 // FORWARD BUTTON //
 function goForward(){
     window.history.go(1);
+}
+
+
+function showWelcomeMessage() {
+
 }
 
 

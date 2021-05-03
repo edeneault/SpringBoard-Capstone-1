@@ -226,14 +226,10 @@ def workout_edit(workout_id):
     form= WorkoutEditForm(obj=workout)
     form2= WorkoutExerciseEditForm()
 
-    categories = Category.query.all() 
-    categories = [ (c.id, c.category_name) for c in categories]
 
-    equipment = Equipment.query.all() 
-    equipment = [ (e.id, e.equipment_name) for e in equipment]
-
-    muscles = Muscle.query.all() 
-    muscles = [ (m.id, m.muscle_name) for m in muscles]
+    categories = get_categories()
+    equipment = get_equipment()
+    muscles = get_muscles()
 
     form2= WorkoutFormStep2()
     form2.categories.category.choices = [(c.id, c.category_name) for c in Category.query.all()] 

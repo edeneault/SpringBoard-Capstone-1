@@ -19,21 +19,18 @@ def users_show(user_id):
 
     user = User.query.get_or_404(user_id)
 
-    # snagging messages in order from the database;
-    # user.messages won't be in order by default
     teams = (Team
                 .query
                 .filter(Team.user_id == user_id)
                 .order_by(Team.created_on.desc())
                 .all())
  
-
     return render_template('users/show_user.html', user=user, teams=teams)
 
 
 @app.route('/users/edit/<int:user_id>', methods=["GET", "POST"])
 def users_edit(user_id):
-    """Show user profile."""
+    """Show edit profile."""
 
     if not g.user:
         flash("Access unauthorized.", "danger")
