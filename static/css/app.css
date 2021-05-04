@@ -535,7 +535,7 @@ button.btn-customized-red.btn.btn-primary:not(:disabled):not(.disabled):active:f
 /* TEAM CARDS - USER PROFILE CSS  */
 
 .user-team-card {
-    border-color: rgba(0, 0, 0, 0.8);
+    border-color: rgba(0, 0, 0, 0.3);
     border-width: 2px;
     border-radius: 10px;
     max-height: 153px;
@@ -547,7 +547,7 @@ button.btn-customized-red.btn.btn-primary:not(:disabled):not(.disabled):active:f
     background-color: rgba(0, 0, 0, 0.05);
     color: #8d3ff3;
     color: #572796;
-    border-color: black;
+    border-color: #572796;
 }
 
 
@@ -642,6 +642,12 @@ a.card-link:hover,
 .image-wrapper {
     height: 300px;
     object-fit: cover;
+    object-position: center;
+}
+
+.exercise-workout-image {
+    height: 300px;
+    object-fit: contain;
     object-position: center;
 }
 

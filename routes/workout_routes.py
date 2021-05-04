@@ -17,7 +17,6 @@ athlete_workout_list = []
 @app.route('/workouts', methods=["GET", "POST"] )
 def workouts_show():
     """ Show all workouts view """
-
     if g.user:
         user_id = g.user.id
 
@@ -38,15 +37,12 @@ def workouts_show():
 
 @app.route('/workouts/<int:workout_id>')
 def workout_show(workout_id):
-    """ Show workout view """
-   
-    workout = Workout.query.get_or_404(workout_id)
-    exercises = db.session.query(Workout.name, Exercise.name, Exercise.id, Exercise.image_url, Workout_exercise). \
-                select_from(Workout). \
-                join(Workout_exercise). \
-                join(Exercise). \
-                filter(Workout.id == Workout_exercise.workout_id, Workout.id == workout_id).\
-                all()
+    """ Show workout view """ 
+    if g.user:
+        user_id = g.user.id
+
+    workout = get_workout(workout_id)
+    exercises = get_workout_exercises(workout_id)
 
     return render_template('workouts/show_workout.html', exercises=exercises, workout=workout)
 
@@ -54,7 +50,6 @@ def workout_show(workout_id):
 @app.route('/workouts/add', methods=["GET", "POST"])
 def workout_add():
     """ Add a workout. """
-
     if not g.user:
         flash("Access unauthorized.", "danger")
         return redirect("/")
@@ -62,12 +57,11 @@ def workout_add():
     form2 = WorkoutFormStep2()
     form= WorkoutForm()
 
-    form2.categories.category.choices = [(c.id, c.category_name) for c in Category.query.all()] 
-    form2.muscles.muscle.choices = [(m.id, m.muscle_name) for m in Muscle.query.all()] 
-    form2.equipment.equipment.choices = [(e.id, e.equipment_name) for e in Equipment.query.all()] 
+    form2.categories.category.choices = get_select_categories()
+    form2.muscles.muscle.choices = get_select_muscles()
+    form2.equipment.equipment.choices = get_select_equipment()
 
     if form.validate_on_submit():
-
         name = form.name.data
         description = form.description.data
         workout = Workout(name=name, description=description)
@@ -75,14 +69,10 @@ def workout_add():
         db.session.commit()
         session[WORKOUT] = workout.id
         workout_id = workout.id
-
-        exercises = db.session.query(Workout.name, Exercise.name, Workout_exercise). \
-                select_from(Workout). \
-                join(Workout_exercise). \
-                join(Exercise). \
-                filter(Workout.id == Workout_exercise.workout_id, Workout.id == workout_id).all()
-
         flash(f"Successfully added work out", "success")
+
+        exercises = get_workout_exercises(workout_id)
+
         return render_template('workouts/workout_select_categories.html', form=form, form2=form2, description=description,
                                                                              name=name, workout=workout, exercises=exercises)
     else:
@@ -93,22 +83,17 @@ def workout_add():
 @app.route('/workouts/add/select/', methods=["GET", "POST"])
 def workout_select():
     """ Select Categories of exercises. """
-    
     form= WorkoutForm()
     form2= WorkoutFormStep2()
 
     workout_id = session[WORKOUT] 
     workout = Workout.query.get_or_404(workout_id)
 
-    form2.categories.category.choices = [(c.id, c.category_name) for c in Category.query.all()] 
-    form2.muscles.muscle.choices = [(m.id, m.muscle_name) for m in Muscle.query.all()] 
-    form2.equipment.equipment.choices = [(e.id, e.equipment_name) for e in Equipment.query.all()] 
+    form2.categories.category.choices = get_select_categories()
+    form2.muscles.muscle.choices = get_select_muscles()
+    form2.equipment.equipment.choices = get_select_equipment()
 
-    exercises = db.session.query(Workout.name, Exercise.name, Workout_exercise). \
-            select_from(Workout). \
-            join(Workout_exercise). \
-            join(Exercise). \
-            filter(Workout.id == Workout_exercise.workout_id, Workout.id == workout_id).all()
+    exercises = get_workout_exercises(workout_id)
 
     if form2.validate_on_submit():
         category = form2.categories.data
@@ -131,14 +116,14 @@ def workout_exercises_show(page_num):
 
     ########################################################
     ### 3RD PARTY WGER API CALLS - UNCOMMENT TO ACTIVATE ###
-    ### BETWEEN HASH LINES TO ACTIVATE                   ###
+    ### BETWEEN HASH LINES                               ###
     ########################################################
     
     # exercises_api_request
     # exercise_images_api_request()
 
-    # insert_to_db(response)
-    # insert_images(resp)
+    # add_to_db(response)
+    # add_images(resp)
     
     ######################################################
 
@@ -146,28 +131,22 @@ def workout_exercises_show(page_num):
     form2= WorkoutFormStep2()
 
     workout_id = session[WORKOUT] 
-    workout = Workout.query.get_or_404(workout_id)
-    print(f"workout{workout}")
+    workout = get_workout(workout_id)
 
-    form2.categories.category.choices = [(c.id, c.category_name) for c in Category.query.all()] 
-    form2.muscles.muscle.choices = [(m.id, m.muscle_name) for m in Muscle.query.all()] 
-    form2.equipment.equipment.choices = [(e.id, e.equipment_name) for e in Equipment.query.all()] 
+    form2.categories.category.choices = get_select_categories()
+    form2.muscles.muscle.choices = get_select_muscles()
+    form2.equipment.equipment.choices = get_select_equipment()
    
-    cat= form2.categories.data["category"]
-    category = Category.query.filter(Category.id == cat).all() 
-    category = category[0]
+    category_id= form2.categories.data["category"]
+    category = get_category_by_id(category_id)
+   
+    muscle_id = form2.muscles.data["muscle"]
+    muscle = get_muscle_by_id(muscle_id)
  
-    mus = form2.muscles.data["muscle"]
-    muscle = Muscle.query.filter(Muscle.id == mus).all() 
-    muscle = muscle[0]
+    equipment_id = form2.equipment.data["equipment"]
+    equipment = get_equipment_by_id(equipment_id)
 
-    equip = form2.equipment.data["equipment"]
-    equipment = Equipment.query.filter(Equipment.id == equip).all() 
-    equipment = equipment[0]
-
-    exercises = Exercise.query. \
-            filter(Exercise.category_id == cat, Exercise.muscle_id == mus, Exercise.equipment_id == equip ). \
-            paginate(per_page=21, page=page_num, error_out=True)
+    exercises = get_exercises_paginated(page_num, category_id, muscle_id, equipment_id)
     
     if len(exercises.items) < 1:
         flash(f"no exercise found matching search parameters.", "warning")
@@ -177,25 +156,18 @@ def workout_exercises_show(page_num):
                                                                     category=category, muscle=muscle, equipment=equipment, workout=workout)
  
 
-
 @app.route('/workouts/add/select/exercises/add/<int:exercise_id>', methods=["GET", "POST"])
 def workout_exercises_add(exercise_id):
     """ Add exercise to workout """
-
     workout_id = session[WORKOUT] 
+    add_workout_exercise(exercise_id, workout_id)
     
-    workout_exercise = Workout_exercise(workout_id=workout_id, exercise_id=exercise_id)
-    db.session.add(workout_exercise)
-    db.session.commit()
-    
-    flash(f"Successfully added exercise to workout {workout_id}", "success")
     return redirect(f"/workouts/add/select/")
 
 
 @app.route('/workouts/add/select/exercises/add/complete/<int:workout_id>', methods=["GET", "POST"])
 def workout_complete(workout_id):
     """  Workout builder completed - redirect to workout and update session """
-
     session["workout_id"] = None
 
     return redirect(f"/workouts/{workout_id}") 
@@ -209,26 +181,17 @@ def workout_edit(workout_id):
         flash("Access unauthorized.", "danger")
         return redirect("/")
 
-    workout = Workout.query.get_or_404(workout_id)
+    workout = get_workout(workout_id)
     session[WORKOUT] = workout.id
     form= WorkoutEditForm(obj=workout)
     form2= WorkoutExerciseEditForm()
 
-
-    categories = get_select_categories()
-    equipment = get_select_equipment()
-    muscles = get_select_muscles()
-
     form2= WorkoutFormStep2()
-    form2.categories.category.choices = [(c.id, c.category_name) for c in Category.query.all()] 
-    form2.muscles.muscle.choices = [(m.id, m.muscle_name) for m in Muscle.query.all()] 
-    form2.equipment.equipment.choices = [(e.id, e.equipment_name) for e in Equipment.query.all()] 
+    form2.categories.category.choices = get_select_categories()
+    form2.muscles.muscle.choices = get_select_muscles()
+    form2.equipment.equipment.choices = get_select_equipment()
   
-    exercises = db.session.query(Workout.name, Exercise.name, Workout_exercise). \
-            select_from(Workout). \
-            join(Workout_exercise). \
-            join(Exercise). \
-            filter(Workout.id == Workout_exercise.workout_id, Workout.id == workout_id).all()
+    exercises = get_workout_exercises(workout_id)
     
     return render_template('/workouts/workout_edit_form.html',  form=form, form2=form2, workout=workout, exercises=exercises )
 
@@ -236,15 +199,17 @@ def workout_edit(workout_id):
 @app.route('/workouts/edit/delete/<int:workout_id>/<int:exercise_id>', methods=["GET", "POST"])
 def workout_exercises_edit_delete(exercise_id, workout_id):
     """ Add exercise to workout """
+    if not g.user:
+        flash("Access unauthorized.", "danger")
+        return redirect("/")
 
-    exercise = Exercise.query.get_or_404(exercise_id)
-    workout = Workout.query.get_or_404(workout_id)
+    exercise = get_exercise_by_ID(exercise_id)
+    workout = get_workout(workout_id)
 
-    workout_exercise = Workout_exercise.query.filter(Workout_exercise.exercise_id == exercise_id, Workout_exercise.workout_id == workout_id).all()
-    workout_exercise = workout_exercise[0]
-    db.session.delete(workout_exercise)
-    db.session.commit()
-    flash(f"Succesfully deleted exercise {exercise.id} from workout {workout.id}", 'success')
+    workout_exercise = get_workout_exercise(workout_id, exercise_id)
+    
+    delete_exercise_workout(workout_exercise, exercise, workout)
+    
     return redirect(f'/workouts/edit/{workout_id}' )
 
 
@@ -256,10 +221,8 @@ def workout_delete(workout_id):
         flash("Access unauthorized.", "danger")
         return redirect("/")
 
-    workout = Workout.query.get_or_404(workout_id)
-    db.session.delete(workout)
-    db.session.commit()
-    flash(f"Succesfully deleted WORKOUT {workout.name.upper()}", 'success')
+    workout = get_workout(workout_id)
+    delete_workout(workout)
     return redirect(f"/workouts")
 
 
@@ -271,14 +234,9 @@ def athlete_workouts_show():
         user_id = g.user.id
     
     user_id = g.user.id
-    user = User.query.get_or_404(user_id)
-    teams = Team.query.filter(user_id == Team.user_id)
-
-    workouts = db.session.query(Workout.name, Workout.description, Workout.id, Athlete.first_name, Athlete.last_name, 
-                Athlete.athlete_image_url, Athlete.position, Athlete.medical_status, Athlete.team_id, Athlete.id ). \
-                select_from(Workout). \
-                join(Athlete_workout). \
-                join(Athlete).all()
+    user = get_user_by_ID(user_id)
+    teams = get_teams_by_user_Id(user_id)
+    workouts = get_all_athlete_workouts()
 
     return render_template('/workouts/show_athlete_workouts.html', workouts=workouts, 
                                                                     teams=teams, user=user)
@@ -287,33 +245,21 @@ def athlete_workouts_show():
 @app.route('/workouts/athletes/assign', methods=["GET", "POST"] )
 def athlete_workouts_assign():
     """ Assign workout to Athlete """
+    if not g.user:
+        flash("Access unauthorized.", "danger")
+        return redirect("/")
 
-    if g.user:
-        user_id = g.user.id
+    user_id = g.user.id
     
     form = AthleteWorkoutAssignForm()
-    athletes = Athlete.query.all() 
-    athletes = [ (a.id, a.full_name) for a in athletes if a.team.user.id == user_id]
-    print("**************************************")
-    print(athletes)
-
-    workouts = Workout.query.all() 
-    workouts = [ (w.id, w.name) for w in workouts]
+    athletes = get_athletes() 
+    athletes = get_athletes_by_user_Id(athletes, user_id)
 
     form.athlete.choices = athletes
     form.workout.choices = [(w.id, w.name) for w in Workout.query.all()] 
+
     if form.validate_on_submit():
-        athlete_id = form.athlete.data
-        workout_id = form.workout.data
-        athlete_workout = Athlete_workout( workout_id=workout_id, athlete_id=athlete_id)
-        db.session.add(athlete_workout)
-        db.session.commit()
-
-        athlete_workout_list.append(athlete_workout.id)
-        session['athlete_workout_list'] = athlete_workout_list
-        
-
-        flash(f"Succesfully assigned WORKOUT {workout_id}", 'success')
+        athlete_id = add_assignment(form)
         return redirect(f'/athletes/{athlete_id}' )
 
     return render_template('/workouts/assign_athlete_workout_form.html', form=form)
@@ -325,20 +271,13 @@ def athlete_workouts_completed(workout_id, athlete_id):
     if not g.user:
         flash("Access unauthorized.", "danger")
         return redirect("/")
-    
-    if g.user:
-        user_id = g.user.id
+  
+    user_id = g.user.id
 
-    workout = Athlete_workout.query.filter(Athlete_workout.athlete_id == athlete_id, Athlete_workout.workout_id == workout_id ).all()
-    workout = workout[0]
-    db.session.delete(workout)
-    db.session.commit()
-    flash(f"Succesfully COMPLETED WORKOUT {workout.id}", 'success')
+    workout = get_workout_assigned_athlete(workout_id, athlete_id)
+    add_completed_athlete_workout_assignment(workout)
     return redirect(f'/athletes/{athlete_id}' )
     
-
-
-    # return render_template('/workouts/assign_athlete_workout_form.html', form=form)
     
 @app.route('/workouts/athletes/delete/<int:workout_id>/<int:athlete_id>', methods=["POST"])
 def athlete_workout_delete(workout_id, athlete_id):
@@ -348,11 +287,8 @@ def athlete_workout_delete(workout_id, athlete_id):
         flash("Access unauthorized.", "danger")
         return redirect("/")
 
-    workout = Athlete_workout.query.filter(Athlete_workout.athlete_id == athlete_id, Athlete_workout.workout_id == workout_id ).all()
-    workout = workout[0]
-    db.session.delete(workout)
-    db.session.commit()
-    flash(f"Succesfully deleted WORKOUT {workout.id}", 'success')
+    workout = get_workout_assigned_athlete(workout_id, athlete_id)
+    delete_athlete_workout_assignment(workout)
     return redirect(f'/athletes/{athlete_id}' )
 
 
