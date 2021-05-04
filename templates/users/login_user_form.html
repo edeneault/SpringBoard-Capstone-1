@@ -3,33 +3,34 @@
 
 {% block content1 %} 
 
-    <div class="container m-0 py-4">
-        <div class="row align-items-md-stretch">  
-            <div id="login" class="col-md-12">
-            <div class="h-100 p-5 text-white bg-login rounded-3">
-                <h1 class="display-4 text-center fs-4">Login</h1>
-                <p class="text-center">Welcome Back!.</p>
-                <!-- TODO implement: <p class="text-center"><a class="page-links-light text-decoration-none" href="#">Reset your password here.</a></p> -->
-            <form class="form" method="POST">
-                {{ form.hidden_tag() }}
-                <div class="row d-row align-self-center justify-content-center">
-                    {% for field in form if field.widget.input_type != 'hidden'%}
-                    <div class="fs-5 p-2 col-12 col-sm-12">
-                            {{field.label}}
-                            {{field}}  
-                        {% for err in field.errors %}
-                        <small class="text-danger">
-                            {{err}}
-                        </small>
+        <div class="container m-0 py-4">
+            <div class="row align-items-md-stretch">  
+                <div id="login" class="col-md-12">
+                <div class="h-100 p-5 text-white bg-login rounded-3">
+                    <h1 class="display-4 text-center fs-4">Login</h1>
+                    <p class="text-center">Welcome Back!.</p>
+                    <!-- TODO implement: <p class="text-center"><a class="page-links-light text-decoration-none" href="#">Reset your password here.</a></p> -->
+                <form class="form" method="POST">
+                    {{ form.hidden_tag() }}
+                    <div class="row d-row align-self-center justify-content-center">
+                        {% for field in form if field.widget.input_type != 'hidden'%}
+                        <div class="fs-5 p-2 col-12 col-sm-12">
+                                {{field.label}}
+                                {{field}}  
+                            {% for err in field.errors %}
+                            <small class="text-danger">
+                                {{err}}
+                            </small>
+                            {% endfor %}
+                        </div>
                         {% endfor %}
+                        <div class="">
+                            <button class="btn btn-primary btn-customized btn my-2 " type="submit">LOGIN</button>
+                            <a class="btn btn-primary btn-customized btn my-2 " href="/">CANCEL</a>
+                        </div>
                     </div>
-                    {% endfor %}
-                    <div class="">
-                        <button class="btn btn-primary btn-customized btn my-2 " type="submit">LOGIN</button>
-                        <a class="btn btn-primary btn-customized btn my-2 " href="/">CANCEL</a>
-                    </div>
-                </div>
-            </form>     
+                </form>     
+            </div>
         </div>
     </div>
 </div>
