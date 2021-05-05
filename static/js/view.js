@@ -8,18 +8,18 @@ function showTimerHome() {
     homeTimer.innerHTML = `<div class="form-goup  pt-5"  method="post">
                                 <div class="input-group row col-md-8 offset-md-2 mx-auto">
                                     <label class="input-group-text col-4 col-sm-2 col-form-label bg-timer-form text-black" for="exercise">EXERCISE</label>
-                                    <input class="form-control col-4 col-sm-2 bg-timer-form text-black " type="number" name="exercise" id="exercise" value="10"/>
+                                    <input class="form-control col-4 col-sm-2 bg-timer-form text-black " type="number" name="exercise" id="exercise" value="30"/>
                                     <span class="input-group-text col-4 col-sm-2 bg-timer-form text-black"><small>SECONDS</small></span>
                                 </div>
                                 
                                 <div class="input-group row col-md-8 offset-md-2 mx-auto">
                                     <label class="input-group-text col-4 col-sm-2 col-form-label bg-timer-form text-black" for="rest">REST</label>
-                                    <input class="form-control col-4 col-sm-2 bg-timer-form text-black" type="number" name="rest" id="rest" value="5"/>
+                                    <input class="form-control col-4 col-sm-2 bg-timer-form text-black" type="number" name="rest" id="rest" value="15"/>
                                     <span class="input-group-text col-4 col-sm-2 bg-timer-form text-black"><small>SECONDS</small></span>
                                 </div>
                                 <div class="input-group row col-md-8 offset-md-2 mx-auto">
                                     <label class="input-group-text col-4 col-sm-2 col-form-label bg-timer-form text-black" for="sets">ROUNDS</label>
-                                    <input class="form-control col-4 col-sm-2 bg-timer-form text-black" type="number" name="sets" id="sets" value="1"/>
+                                    <input class="form-control col-4 col-sm-2 bg-timer-form text-black" type="number" name="sets" id="sets" value="10"/>
                                     <span class="input-group-text col-4 col-sm-2 bg-timer-form text-black"><small>ROUNDS</small></span>
                                 </div>    
                                 <div class="row mt-2">
