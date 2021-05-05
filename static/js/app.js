@@ -5,13 +5,6 @@ const carousel = new bootstrap.Carousel(myCarousel, {
   wrap: true
 })
 
-// $(function(){
-//     // You used .myCarousel here. 
-//     // That's the class selector not the id selector,
-//     // which is #myCarousel
-//     $('#myCarousel').carousel();
-//   });
-
 // SPINNER //
 const spinnerLink = document.getElementById("spinner-link").addEventListener('click', changeClass);
 
@@ -37,7 +30,6 @@ function goBack() {
 function goForward(){
     window.history.go(1);
 }
-
 
 function showWelcomeMessage() {
 

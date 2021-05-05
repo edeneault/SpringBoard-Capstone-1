@@ -18,6 +18,8 @@ def exercises_show(page_num):
     """ Show all exercises view and call on API for exercise data """
     
     ### 3RD PARTY WGER API CALLS - UNCOMMENT TO ACTIVATE##
+
+    ### ONLY RUN resp = exercise_images_api_request() ONCE! it will make 5 requests, it may fail on the last request ###
     # response = exercises_api_request()
     # resp = exercise_images_api_request()
 
@@ -25,8 +27,6 @@ def exercises_show(page_num):
     # insert_images(resp)
 
     exercises = Exercise.query.paginate(per_page=21, page=page_num, error_out=True)
-    print("********************************************")
-    print(exercises.items[0].name)
 
     return render_template('/exercises/show_exercises.html',  exercises=exercises)
 
@@ -34,7 +34,7 @@ def exercises_show(page_num):
 @app.route('/exercises/exercise/<int:exercise_id>')
 def exercise_show(exercise_id):
     """ Show exercise by ID """
-    exercise = Exercise.query.get_or_404(exercise_id)
+    exercise = get_exercise_by_ID(exercise_id)
     image_id = exercise.wger_id
     image = get_exercise_image(exercise_id, exercise)
 
@@ -54,15 +54,9 @@ def exercise_add():
     page_num = 1
     exercises = Exercise.query.paginate(per_page=21, page=page_num, error_out=True)
 
-
-    categories = Category.query.all() 
-    categories = [ (c.id, c.category_name) for c in categories]
-
-    equipment = Equipment.query.all() 
-    equipment = [ (e.id, e.equipment_name) for e in equipment]
-
-    muscles = Muscle.query.all() 
-    muscles = [ (m.id, m.muscle_name) for m in muscles]
+    categories = get_select_categories()
+    equipment = get_select_equipment()
+    muscles = get_select_muscles()
 
     form = ExerciseForm()
     form.category_id.choices = categories
@@ -72,20 +66,7 @@ def exercise_add():
 
     if form.validate_on_submit():
         try:
-            exercise = Exercise(
-                name=form.name.data,
-                description=form.description.data,
-                default_reps=form.default_reps.data,
-                image_url=form.image_url.data,
-                category_id= form.category_id.data,
-                equipment_id= form.equipment_id.data,
-                muscle_id= form.muscle_id.data
-                
-            )
-            print(exercise)
-            db.session.add(exercise)
-            db.session.commit()
-            print(exercise)
+            exercise = add_exercise(form)
 
         except:
             flash("Something went wrong", "danger")
@@ -108,17 +89,10 @@ def exercise_edit(exercise_id):
         return redirect("/")
     
     user = g.user
-
-    categories = Category.query.all() 
-    categories = [ (c.id, c.category_name) for c in categories]
-
-    equipment = Equipment.query.all() 
-    equipment = [ (e.id, e.equipment_name) for e in equipment]
-
-    muscles = Muscle.query.all() 
-    muscles = [ (m.id, m.muscle_name) for m in muscles]
-
-    exercise = Exercise.query.get_or_404(exercise_id)
+    categories = get_select_categories()
+    equipment = get_select_equipment()
+    muscles = get_select_muscles()
+    exercise = get_exercise_by_ID(exercise_id)
     image = get_exercise_image(exercise_id, exercise)
 
     form = ExerciseEditForm(obj=exercise)
@@ -126,22 +100,9 @@ def exercise_edit(exercise_id):
     form.equipment_id.choices = equipment
     form.muscle_id.choices = muscles
 
-
     if form.validate_on_submit():
         try:
-            exercise.name=form.name.data,
-            exercise.description=form.description.data,
-            default_reps=form.default_reps.data,
-            exercise.image_url=form.image_url.data,
-            exercise.category_id= form.category_id.data,
-            exercise.equipment_id= form.equipment_id.data,
-            exercise.muscle_id= form.muscle_id.data
-                
-            db.session.commit()
-            print(exercise)
-            flash(f"Succesfully updated EXERCISE profile {exercise.name.upper()}", 'success')
-
-            
+            edit_exercise(form, exercise)
         except IntegrityError:
             flash("Problem updating.", 'danger')
             return redirect(f"/exercises/show_exercise/{exercise.id}")
@@ -154,14 +115,10 @@ def exercise_edit(exercise_id):
 @app.route('/exercises/delete/<int:exercise_id>', methods=["POST"])
 def exercise_delete(exercise_id):
     """Delete an exercise."""
-    
     if not g.user:
         flash("Access unauthorized.", "danger")
         return redirect("/")
 
+    delete_exercise(exercise_id)
     
-    exercise = Exercise.query.get_or_404(exercise_id)
-    db.session.delete(exercise)
-    db.session.commit()
-    flash(f"Succesfully deleted EXERCISE profile {exercise.name.upper()}", 'success')
     return redirect(f"/exercises/1")

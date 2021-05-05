@@ -9,8 +9,7 @@
             <div class="flex-grow-1">
                 <i class="teams-fa-color fas fa-dumbbell mt-2 fa-3x"></i>
                 <h1 class="d-inline teams-fa-color display-5 px-1">Workouts - Athlete Workouts</h1>
-                <a class="btn btn-primary btn-customized btn my-2 mb-4 " href="/workouts/add">ADD</a> 
-               
+                <a class="btn btn-primary btn-customized btn my-2 mb-4 " href="/workouts/add">ADD</a>  
                 <a class="btn btn-primary btn-customized btn my-2 mb-4" href="{{ url_for('.athlete_workouts_assign' ) }}">ASSIGN WORKOUT</a>  
             </div>
         </div>  
@@ -24,12 +23,8 @@
         <div class="row">
             <div class="d-flex justify-content-center align-items-center col-md-12 col-12 mt-2">
                 <div class="flex-grow-1">
-                    <i class="teams-fa-color fas fa-users mt-2 fa-3x"></i>
-                    <h1 class="d-inline teams-fa-color display-5 px-1">Assigned | team {{ team.name}}</h1>
-                    <!-- <div class="d-inline">
-                        <a class="btn btn-primary btn-customized mb-3" href="/teams/add">ADD</a>
-                    
-                    </div> -->
+                    <i class="teams-fa-color fas fa-users mt-2 fa-2x"></i>
+                    <h1 class="d-inline teams-fa-color fs-5 px-1">Assigned | team {{ team.name}}</h1>
                 </div> 
             </div>
         </div>        

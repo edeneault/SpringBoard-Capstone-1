@@ -14,47 +14,22 @@ CURR_USER_KEY = "curr_user"
 
 ### REGISTER - LOGIN - LOGOUT ###
 
-def do_logout():
-    """Logout user."""
-
-    if CURR_USER_KEY in session:
-        del session[CURR_USER_KEY]
-
-def do_login(user):
-    """Log in user."""
-
-    session[CURR_USER_KEY] = user.id
-
 @app.before_request
 def add_user_to_g():
-    """If we're logged in, add curr user to Flask global."""
-
+    """If logged in, add curr user to Flask global."""
     if CURR_USER_KEY in session:
         g.user = User.query.get(session[CURR_USER_KEY])
      
-
     else:
         g.user = None
 
 @app.route('/users/register', methods=["GET", "POST"])
 def register_user():
     """Handle user register."""
-
     form = RegisterForm()
     if form.validate_on_submit():
         try:
-            user = User.register(
-                username=form.username.data,
-                password=form.password.data,
-                email=form.email.data,
-                first_name=form.first_name.data,
-                last_name=form.last_name.data,
-                image_url=form.image_url.data or User.image_url.default.arg,
-                header_image_url=form.header_image_url.data or User.header_image_url.default.arg
-            )
-            
-            db.session.add(user)
-            db.session.commit()
+            user = do_register(form)
           
         except IntegrityError:
             flash("Username already taken", 'danger')
@@ -76,8 +51,7 @@ def login_user():
     form = LoginForm()
     
     if form.validate_on_submit():
-        user = User.authenticate(form.username.data,
-                                 form.password.data)
+        user = do_authentification(form)
 
         if user:
             do_login(user)

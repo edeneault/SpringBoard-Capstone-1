@@ -30,7 +30,6 @@ tabataNav.addEventListener("click", (e) => {
         timerCompleted = false;
         currView = "exercise"; 
     }
-    // exerciseView.removeChild(exerciseView.childNodes[0]);
     document.querySelector("#exercise").value = "20";
     document.querySelector("#rest").value = "10";
     document.querySelector("#sets").value = "8";
@@ -57,17 +56,11 @@ roundNav.addEventListener("click", (e) => {
     overlay.classList.remove("active");
 });
 
-
 // Instanciate Sound Objects and Set Volume Property //
 const snd = new Audio("static/assets/audio/Boxing_BELL_One_ring.mp3"); // buffers automatically when created
 const snd1 = new Audio("static/assets/audio/Boxing_BELL_three_rings.mp3"); // buffers automatically when created
 snd.volume = 0.2;
 snd1.volume = 0.5;
-
-function myTimer() {
-    console.log("insode my Timer");
-
-}
 
 // Click Event Handler //
 function handleClickStart(e) {
@@ -75,10 +68,7 @@ function handleClickStart(e) {
     exercise = document.querySelector("#exercise").value;
     rest = document.querySelector("#rest").value;
     sets = document.querySelector("#sets").value;
-    // homeView.removeChild(homeView.childNodes[0]);
-    console.log(homeView);
     changeVisibility(homeView);
-    console.log(timerType);
     changeVisibility(timerType);
     showTimerExercise();
     startTimer();
@@ -123,11 +113,9 @@ function startTimer() {
                 snd1.play();  
                 showTimerComplete(totalSets);
                 changeVisibility(timerType);
-                // submitBtn.disabled = false;
-                // sets.value = 3;
+
                 timerCompleted = true;
                 changeVisibility(homeView);   
-                // console.log("🚀 ~ file: app.js ~ line 66 ~ interval ~ showTimerHome(); ", showTimerHome);
             }
             
             else if (currView === "exercise") {
@@ -151,7 +139,6 @@ function startTimer() {
     }, 1000);
 
 }
-
 
 $('#fullscreen').click(function() {
     $('#theDiv').css({

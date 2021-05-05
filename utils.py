@@ -23,6 +23,7 @@ MUSCLE_OBJ = {  "Anterior deltoid": 1,  "Biceps brachii": 2, "Biceps femoris": 3
                 "Quadriceps femoris": 10, "Rectus abdominis": 11, "Serratus anterior": 12, "Soleus": 13, "Trapezius": 14,
                  "Triceps brachii": 15 }
 
+CURR_USER_KEY = "curr_user"
 NEXT = "next"
 NEXT_IMAGE = "next_image"
 ALT_IMAGE= "https://w7.pngwing.com/pngs/165/675/png-transparent-black-person-lifting-barbell-illustration-computer-icons-physical-exercise-physical-fitness-personal-trainer-fitness-centre-muscle-building-routine-miscellaneous-logo-monochrome-thumbnail.png"
@@ -189,7 +190,7 @@ def get_workout_assigned_athlete(workout_id, athlete_id):
     return workout
 
 def get_exercises_paginated(page_num, category_id, muscle_id, equipment_id):
-    ''' get all exercises paginated '''
+    ''' get all exercises paginated filtered by request categories '''
     exercises = Exercise.query. \
             filter(Exercise.category_id == category_id, Exercise.muscle_id == muscle_id, Exercise.equipment_id == equipment_id ). \
             paginate(per_page=21, page=page_num, error_out=True)
@@ -234,6 +235,50 @@ def get_athletes_by_user_Id(athletes, user_id):
     ''' get athletes filtered by user_id '''
     athletes = [ (a.id, a.full_name) for a in athletes if a.team.user.id == user_id]
     return athletes
+
+def get_team_by_team_id(team_id):
+    ''' get a team with the team_id '''
+    team = Team.query.get_or_404(team_id)
+    return team
+
+def get_athletes_by_team_id(team_id):
+    ''' get all athletes from a specific team with team_id '''
+    athletes = (Athlete
+                .query
+                .filter(Athlete.team_id == team_id)
+                .order_by(Athlete.created_on.desc())
+                .all())
+    return athletes
+
+def get_athlete_by_athlete_id(athlete_id):
+    ''' get an athlete by the athlete_id '''
+    athlete = Athlete.query.get_or_404(athlete_id)
+    return athlete
+
+def get_team_by_athlete_id(athlete):
+    ''' get a athletes team by using the athlete_id '''
+    team = Team.query.filter(Team.id == athlete.team_id)
+    return team
+
+def get_athlete_workouts(athlete_id, athlete):
+    ''' get all athlete_workout references to athlete '''
+    athlete_workouts = (Athlete_workout
+            .query
+            .filter(athlete_id == athlete.id)
+            .all())
+    return athlete_workouts
+
+def get_workouts_by_athlete_id():
+    ''' get the workouts for the athlete ''' 
+    workouts = db.session.query(Athlete_workout.id.label("athlete_workout_id"), Workout.name, Workout.description, Workout.id.label("workout_id"), Athlete.first_name, Athlete.last_name, 
+                Athlete.athlete_image_url, Athlete.position, Athlete.medical_status, Athlete.team_id, Athlete.id ). \
+                select_from(Workout). \
+                join(Athlete_workout). \
+                join(Athlete). \
+                filter(Workout.id == Athlete_workout.workout_id). \
+                all()
+    return workouts
+
 
 
 ## ADD TO DATABASE FUNCTIONS ##
@@ -335,8 +380,6 @@ def add_images(resp):
 
         time.sleep(5)
 
-### UNCOMMENT TO SEED images TABLE ###    
-# add_images()
 
 def add_assignment(form):
     ''' add assignment to athlete '''
@@ -357,6 +400,53 @@ def add_completed_athlete_workout_assignment(workout):
     db.session.commit()
     return flash(f"Succesfully COMPLETED WORKOUT {workout.id}", 'success')
 
+def add_team(form):
+    ''' add a new team '''
+    team = Team(
+                name=form.name.data,
+                location=form.location.data,
+                discipline=form.discipline.data,
+                team_image_url=form.team_image_url.data,
+                user_id = g.user.id
+            )
+    db.session.add(team)
+    db.session.commit()
+    return flash(f"Succesfully added new team - {team.name.upper()}", 'success')
+
+def add_exercise(form):
+    ''' add new exercise to db '''
+    exercise = Exercise(
+                name=form.name.data,
+                description=form.description.data,
+                default_reps=form.default_reps.data,
+                image_url=form.image_url.data,
+                category_id= form.category_id.data,
+                equipment_id= form.equipment_id.data,
+                muscle_id= form.muscle_id.data          
+            )
+    db.session.add(exercise)
+    db.session.commit()
+    flash(f"Succesfully added new team - {exercise.name.upper()}", 'success')
+    return exercise
+
+def add_athlete(form):
+    ''' add new athlete '''
+    athlete = Athlete(
+                first_name=form.first_name.data,
+                last_name=form.last_name.data,
+                email=form.email.data,
+                team_id= form.team_id.data,
+                position=form.position.data,
+                height=form.height.data,
+                weight=form.weight.data,
+                athlete_image_url=form.athlete_image_url.data,
+                medical_status=form.medical_status.data
+            )
+    db.session.add(athlete)
+    db.session.commit()
+    flash(f"Succesfully added new athlete - {athlete.full_name.upper()}", 'success')
+    return athlete
+
 ## EDIT FROM DATABASE FUNCTIONS ##
 
 def edit_user(form, user):
@@ -369,7 +459,47 @@ def edit_user(form, user):
     db.session.commit()
     return flash(f"Succesfully updated TEAM profile {user.full_name}", 'success')
 
-   
+def edit_team(form, team):
+    ''' edit team insert into db '''
+    team.name=form.name.data,
+    team.location=form.location.data,
+    team.discipline=form.discipline.data,
+    team.team_image_url=form.team_image_url.data,
+    team.user_id = g.user.id
+    db.session.commit()
+    return flash(f"Succesfully updated TEAM profile {team.name}", 'success')
+
+def edit_exercise(form, exercise):
+    ''' add exercise insert in db '''
+    exercise.name=form.name.data,
+    exercise.description=form.description.data,
+    default_reps=form.default_reps.data,
+    exercise.image_url=form.image_url.data,
+    exercise.category_id= form.category_id.data,
+    exercise.equipment_id= form.equipment_id.data,
+    exercise.muscle_id= form.muscle_id.data             
+    db.session.commit()
+    flash(f"Succesfully updated EXERCISE profile {exercise.name.upper()}", 'success')
+    return exercise
+
+def edit_athlete(form, athlete):
+    '''  edit athlete insert into db '''
+    athlete.first_name=form.first_name.data,
+    athlete.last_name=form.last_name.data,
+    athlete.email=form.email.data,
+    athlete.team_id= form.team_id.data,
+    athlete.position=form.position.data,
+    athlete.height=form.height.data,
+    athlete.weight=form.weight.data,
+    athlete.athlete_image_url=form.athlete_image_url.data,
+    athlete.medical_status=form.medical_status.data
+    
+    db.session.add(athlete)
+    db.session.commit()
+    flash(f"Succesfully updated ATHLETE profile {athlete.full_name}", 'success')
+    return athlete
+
+
 
 ## DELETE FROM DATABASE FUNCTIONS
 
@@ -391,3 +521,58 @@ def delete_athlete_workout_assignment(workout):
     db.session.delete(workout)
     db.session.commit()
     return flash(f"Succesfully DELETED WORKOUT {workout.id}", 'success')
+
+def delete_team(team_id):
+    ''' delete a team '''
+    team = Team.query.get(team_id)
+    db.session.delete(team)
+    db.session.commit()    
+    return flash(f"Succesfully deleted team {team.name}", 'success')
+
+def delete_exercise(exercise_id):
+    ''' delete an exercise '''
+    exercise = Exercise.query.get_or_404(exercise_id)
+    db.session.delete(exercise)
+    db.session.commit()
+    return flash(f"Succesfully deleted EXERCISE profile {exercise.name.upper()}", 'success')
+
+def delete_athlete(athlete_id):
+    ''' delete athlete '''
+    athlete = Athlete.query.get(athlete_id)
+    db.session.delete(athlete)
+    db.session.commit()
+    return flash(f"Succesfully deleted ATHLETE profile {athlete.full_name.upper()}", 'success')
+
+
+## LOGIN FUNCTIONS ##
+
+def do_logout():
+    """Logout user."""
+    if CURR_USER_KEY in session:
+        del session[CURR_USER_KEY]
+
+def do_login(user):
+    """Log in user."""
+    session[CURR_USER_KEY] = user.id
+
+def do_register(form):
+    ''' register new user '''
+    user = User.register(
+                username=form.username.data,
+                password=form.password.data,
+                email=form.email.data,
+                first_name=form.first_name.data,
+                last_name=form.last_name.data,
+                image_url=form.image_url.data or User.image_url.default.arg,
+                header_image_url=form.header_image_url.data or User.header_image_url.default.arg
+            )
+            
+    db.session.add(user)
+    db.session.commit()
+    return user
+
+def do_authentification(form):
+    ''' authenticate user '''
+    user = User.authenticate(form.username.data,
+                                 form.password.data)
+    return user
