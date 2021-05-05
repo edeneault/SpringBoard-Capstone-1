@@ -290,11 +290,3 @@ def athlete_workout_delete(workout_id, athlete_id):
     workout = get_workout_assigned_athlete(workout_id, athlete_id)
     delete_athlete_workout_assignment(workout)
     return redirect(f'/athletes/{athlete_id}' )
-
-
-@app.route('/workouts/athletes/completed/<int:workout_id>/<int:athlete_id>', methods=["POST"])
-def athlete_workout_completed(workout_id, athlete_id):
-    """Mark athlete workout as completed. Remove Workout from assigments."""
-
-
-

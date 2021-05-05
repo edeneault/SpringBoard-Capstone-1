@@ -104,7 +104,7 @@ def get_exercise_image(exercise_id, exercise):
 
 def get_teams_by_user_id(user_id):
     ''''get all teams by user_id '''
-    teams = Team.query.filter(user_id == Team.user_id)
+    teams = Team.query.filter(user_id == Team.user_id).order_by(Team.created_on.desc()).all()
     return teams
 
 def get_athletes_by_team_id(team_id):
@@ -356,6 +356,19 @@ def add_completed_athlete_workout_assignment(workout):
     db.session.delete(workout)
     db.session.commit()
     return flash(f"Succesfully COMPLETED WORKOUT {workout.id}", 'success')
+
+## EDIT FROM DATABASE FUNCTIONS ##
+
+def edit_user(form, user):
+    ''' edit user insert into db '''
+    user.first_name=form.first_name.data,
+    user.last_name=form.last_name.data,
+    user.email=form.email.data,
+    user.image_url=form.image_url.data,
+    user.header_image_url = form.header_image_url.data
+    db.session.commit()
+    return flash(f"Succesfully updated TEAM profile {user.full_name}", 'success')
+
    
 
 ## DELETE FROM DATABASE FUNCTIONS
@@ -378,9 +391,3 @@ def delete_athlete_workout_assignment(workout):
     db.session.delete(workout)
     db.session.commit()
     return flash(f"Succesfully DELETED WORKOUT {workout.id}", 'success')
-
-
-
-
-
-
