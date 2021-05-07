@@ -45,13 +45,54 @@ HTML | CSS | JAVASCRIPT | PYTHON | FLASK | POSTGRESQL
 
 ### Installing
 
-For the scope of this project, I will not prepare installation instructions for the dependencies.
+For macOS in BASH terminal:
 
-* create virtual environment:
+* clone and re-create environment
+
+<pre class="literal-block" style="background-color: black; color: white;">
+$ <span class="cmd">git clone https://github.com/edeneault/SpringBoard-Capstone-1.git</span>
+$ <span class="cmd">cd "your project folder"</span>
+$ <span class="cmd">python3 -m venv venv</span>
+</pre>
+<div class="docutils container">
+
+* install requirements 
+
+<pre class="literal-block" style="background-color: black; color: white;">
+$ <span class="cmd">source venv/bin/activate</span>
+(venv) $ <span class="cmd">pip3 install -r requirements.txt</span>
+<span class="gray">... pip output here ...</span>
+</pre>
+
+* start flask local server
+
+<pre class="literal-block" style="background-color: black; color: white;">
+(venv) $ <span class="cmd">flask run</span>
+</pre>
+
+### Contents and Details
+
+###### Folders and Files
 
 
+SB-Capstone-1/
+┣ Postgress-gymhero-db/
+┣ documentation/
+┣ routes/
+┣ static/
+┣ templates/
+┣ testing/
+┣ .gitignore
+┣ Procfile
+┣ README.md
+┣ app.py
+┣ forms.py
+┣ models.py
+┣ requirements.txt
+┣ runtime.txt
+┗ utils.py
 
-![Alt text](./static/images/readme-svg/carbon.svg)
+
 
 
 ###### Application Main Function
