@@ -80,19 +80,19 @@
 
                                         <a class="card-link text-dark text-decoration-none ms-0" href="/teams/{{ team.id }}">
 
-                                            <div class="card user-team-card mb-3">
+                                            <div class="card user-team-card rounded-pill mb-3">
                                                 <div class="card-horizontal">
                                                     <div class="team-image-wrapper">
-                                                        <img class="d-none d-md-block team-image p-1 m-0" src="{{ team.team_image_url }}" alt="Card image cap">
+                                                        <img class="d-none d-md-block rounded-circle team-image  p-1 m-0" src="{{ team.team_image_url }}" alt="Card image cap">
                                                     </div>
                                                     <div class="card-body m-1 pt-1 ">  
-                                                        <a class="card-link text-dark text-decoration-none m-0 p-0" href="/teams/{{ team.id }}">                                               
+                                                        <a class="card-link text-dark text-decoration-none  ml-3 p-0" href="/teams/{{ team.id }}">                                               
                                                             <p class="card-link card-title fs-4 fs-md-4-8 mt-2 d-inline">{{ team.name }}</p> 
                                                         </a>
                                                             <div class="d-flex pb-2">
-                                                            <a class="btn-floating btn-primary btn-customized text-decoration-none m-2 pt-2 mb-2" href="/teams/edit/{{ team.id }}">EDIT</a>  
+                                                            <a class="d-none d-md-block btn-floating btn-primary btn-customized text-decoration-none m-2 pt-2 mb-2" href="/teams/edit/{{ team.id }}">EDIT</a>  
                                                             <form action="{{ url_for('.team_delete', team_id=team.id ) }}" method="POST">
-                                                                <a class="tooltips page-links-dark" data-toggle="tooltip" data-placement="top" title="Delete">
+                                                                <a class="d-none d-md-block tooltips page-links-dark" data-toggle="tooltip" data-placement="top" title="Delete">
                                                                     <button class="page-links-dark" type="submit" onclick="return confirm('Are you sure to delete this team?');" style="border: 0; background: none;">
                                                                         <i class="bi bi-trash fa-2x"></i>
                                                                     </button>

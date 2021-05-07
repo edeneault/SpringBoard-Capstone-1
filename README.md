@@ -1,6 +1,9 @@
 ### GYM HERO - Lightweight Athlete/Performance Artist Management System
 ###### by: Etienne Deneault
 
+[VISIT GYM HERO](https://sb-gym-hero.herokuapp.com/)
+
+
 Designed as Capstone project for the SpringBoard Software Engineering Bootcamp, GYM HERO is a lightweight *Athlete Management Web Application*.  There are many athlete management systems avaialble in the market but most have a difficult barrier of access for coaches and smaller athletic organizations.  These "barriers" are due to the following: cost of access, complexity of implementation, complex tooling that generates a significant amount of work for the user/administrator.  
 
  Many of the athlete mamagement systems do not offer easy access to features that coaches use on a daily basis.  The result of this issue is that coaches do not use the functionality available because in "real-world" time it is difficult to integrate into their coaching workflows.
