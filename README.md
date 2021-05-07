@@ -76,20 +76,33 @@ $ <span class="cmd">source venv/bin/activate</span>
 
 
 SB-Capstone-1/
+
 ┣ Postgress-gymhero-db/
+
 ┣ documentation/
+
 ┣ routes/
+
 ┣ static/
+
 ┣ templates/
+
 ┣ testing/
+
 ┣ .gitignore
+
 ┣ Procfile
+
 ┣ README.md
+
 ┣ app.py
+
 ┣ forms.py
+
 ┣ models.py
-┣ requirements.txt
+
 ┣ runtime.txt
+
 ┗ utils.py
 
 
