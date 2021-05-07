@@ -52,7 +52,7 @@ For the scope of this project, I will not prepare installation instructions for 
 
 
 ![Alt text](./static/images/readme-svg/carbon.svg)
-<img src="./controllers_brief.svg">
+
 
 ###### Application Main Function
 
