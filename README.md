@@ -5,11 +5,13 @@ Designed as Capstone project for the SpringBoard Software Engineering Bootcamp, 
 
  Many of the athlete mamagement systems do not offer easy access to features that coaches use on a daily basis.  The result of this issue is that coaches do not use the functionality available because in "real-world" time it is difficult to integrate into their coaching workflows.
 
-<figure class="video_container">
- <video controls loop class="col-sm-12 border" width="640" height="360" muted>
-                    <source src="https://res.cloudinary.com/gym-hero/video/upload/v1620253316/gifs/Athlete-management_kc5nge.mp4" type="video/mp4">
- </video>
-</figure>
+
+
+### Video Demo on how to add a workout to an Atheles Profile
+
+https://user-images.githubusercontent.com/69206621/117402886-15eefa80-aebc-11eb-8539-08b46a043e78.mp4
+
+
 
 
 ###### Application Main Function
