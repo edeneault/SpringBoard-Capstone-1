@@ -8,13 +8,27 @@ Designed as Capstone project for the SpringBoard Software Engineering Bootcamp, 
 
  Many of the athlete mamagement systems do not offer easy access to features that coaches use on a daily basis.  The result of this issue is that coaches do not use the functionality available because in "real-world" time it is difficult to integrate into their coaching workflows.
 
-
-
-### Video Demo on how to add a workout to an Atheles Profile
+### Assign Workout Example View
 
 https://user-images.githubusercontent.com/69206621/117402886-15eefa80-aebc-11eb-8539-08b46a043e78.mp4
 
 
+### Execrcise Timer Example View
+
+https://res.cloudinary.com/gym-hero/video/upload/v1620393527/gifs/timer-demo_ebvame.mp4
+
+### Prerequisites
+
+**Software:**
+* Python 3.8
+* postgresql
+
+**Python Environment:**
+* *requirements.txt* lists all python requirements
+
+**Technologies:**
+
+HTML | CSS | JAVASCRIPT | PYTHON | FLASK | POSTGRESQL
 
 
 ###### Application Main Function
@@ -24,11 +38,6 @@ https://user-images.githubusercontent.com/69206621/117402886-15eefa80-aebc-11eb-
 ###### Application Secondary Function
 * Provide coaches and athletes quick access to the most useful tools for Day to Day use. Workouts and Timers.
 
-###### Problems Solved
-
-* There are many athlete management systems avaialble in the market but most have a difficult barrier of access for coaches and smaller athletic organizations.  These "barriers" are due to the following: cost of access, complexity of implementation, complex tooling that generates a significant amount of work for the user/administrator.
-
-* Many of the athlete mamagement systems do not offer easy access to features that coaches use on a daily basis.  The result of this issue is that coaches do not use the functionality available because in "real-world" time it is too difficult to integrate into their coaching workflows.
 
 ###### Target Users
 
@@ -39,19 +48,12 @@ https://user-images.githubusercontent.com/69206621/117402886-15eefa80-aebc-11eb-
 *No Auth Access*
 * Quick Access - *workout selector* 
 * Quick Access - *workout timer example configurations*
-    * Timers built with dynamic javasript **OOP class Timer extended classes HiitTimer, RoundTimer, CircuitTimer**
+    * Timers built with dynamic javasript - Presets: HiitTimer, RoundTimer, CircuitTimer**
 
 *With Auth Access*
 
 * Team/Athlete Managment (CRUD Teams, Athletes, Exercises, Workouts)
-* Team/Athlete Management Dashboard - Team Data view and basic analysis (RPE, workload over time)
-* CRUD workouts 
-* CRUD Timers
-* CRUD training sessions
-* CRUD training plans
-
-
-   
+* Assign to Athlete Workouts
 
 ###### API
 
@@ -131,3 +133,4 @@ https://user-images.githubusercontent.com/69206621/117402886-15eefa80-aebc-11eb-
 <p style="color: dark-gray;">Kindly start an issue to help me dedug the application and implement new features.</p>
 
 
+* TODO: Team/Athlete Management Dashboard - Team Data view and basic analysis (RPE, workload over time)
