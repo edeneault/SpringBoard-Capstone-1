@@ -1,3 +1,7 @@
+<img src="./static/images/social-media-images/gym-hero-social-header.png"
+     alt="DATABASE"
+     style="float: left; margin-right: 10px;" />
+
 ### GYM HERO - Lightweight Athlete/Performance Artist Management System
 ###### by: Etienne Deneault
 
@@ -42,6 +46,11 @@ https://user-images.githubusercontent.com/69206621/117459624-73a53600-af00-11eb-
 **Technologies:**
 
 HTML | CSS | JAVASCRIPT | PYTHON | FLASK | POSTGRESQL
+
+ * *bcrypt* for authentification and authorization
+ * *WTForms* for forms and validation
+ * *jinja2* for html templates
+ * *sqlalchemy* for database ORM
 
 ### Installing
 
@@ -134,12 +143,13 @@ SB-Capstone-1/
 
 ###### API
 
-* API to be used is: <a style="color: CadetBlue" href="https://wger.de/en/software/api">WEGR</a>
-    * >Public Endpoints to be used: 
-     exercise, exerciseinfo, exercisecategory, muscle, exercisecomment, exerciseimage, muscle, exerciseinfo, equipment
+* API to be used for exercise data and exercise images: <a style="color: CadetBlue" href="https://wger.de/en/software/api">WEGR</a>
+    * >Public Endpoints used: 
+      exercisecategory, muscle, exerciseimage, exerciseinfo, equipment
 
+<br>
 
-###### ATHLETE WORKOUT DATABASE SCHEMA 
+###### DATABASE SCHEMA REPRESENTATION 
 
 <img src="./documentation/Database-Design-Capstone-1.png"
      alt="DATABASE"
@@ -147,11 +157,9 @@ SB-Capstone-1/
 
 * additional tables will be needed for medical_status, timers and training_plans.
 
-<br>
 
 
-
-#### Authors
+#### Author
 
 * **Etienne Deneault** - *Initial work* - [edeneault](https://github.com/edeneault)
 
@@ -180,65 +188,11 @@ This step-by-step was very instructive to learn how to use bokeh, thank you *Reb
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 ###### API ENDPOINTS / ROUTES PLAN
 
-###### Base
-    * GET /homepage
-    * 404 error_handler
 
-###### No Auth - Timers and Workouts
-    * GET /timers
-        * GET /timers/id
-    * GET /workouts
-        * GET /workouts/id
-        
-    ***Authentification / Authorization***
-    * GET / POST /register
-    * GET / POST /login
-    * GET /logout
+##### Future Development
 
-###### With Auth 
-    * GET /dashboard
-
-###### Users
-    * GET /users/username
-    * GET /users/logout
-    * GET / POST /users/username/add_team
-
-###### Teams 
-    * GET / POST teams
-    * GET teams/id
-    * GET / POST teams/id/edit
-    * GET / POST teams/id/delete
-
-###### Athletes
-
-    * GET /POST athletes
-    * GET athletes/id
-    * GET / POST athletes/id/edit
-    * GET / POST athletes/id/delete
-
-###### Exercises
-    * GET / POST exercises
-    * GET exercises/id
-    * GET / POST exercises/id/edit
-    * GET / POST exercises/id/delete
-
-###### With Auth - Timers and Workouts
-    * POST timers
-    * GET / POST exercises/id/edit
-    * GET / POST exercises/id/delete
-    * POST workouts
-    * GET / POST workouts/id/edit
-    * GET / POST workouts/id/delete
-
-##### Additional Routes for workouts, workouts_sesssions and training plans needed as well.
-
-##### Technologies
-* Python/Flask, PostgreSQL, QLAlchemy, Heroku, Jinja, RESTful APIs, JavaScript, HTML, CSS, WTForms, Bcryt
-
+* TODO: Team/Athlete Management Dashboard - Team Data view and basic analysis (RPE, workload over time)
 
 
 <p style="color: red;">INFO:  Documentation and Testing in Progress</p>
 <p style="color: dark-gray;">Kindly start an issue to help me dedug the application and implement new features.</p>
-
-
-* TODO: Team/Athlete Management Dashboard - Team Data view and basic analysis (RPE, workload over time)
