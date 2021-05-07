@@ -1,6 +1,5 @@
 /// HIIT Timer Views and DOM Event Listeners ///
 
-
 // View Function for the timer value input form //
 function showTimerHome() {
     const homeTimer = document.createElement("div");

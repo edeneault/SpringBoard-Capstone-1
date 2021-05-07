@@ -64,8 +64,6 @@ def athlete_add():
         return render_template('/athletes/athlete_add_form.html', form=form)
 
 
-
-
 @app.route('/athletes/edit/<int:athlete_id>', methods=["GET", "POST"])
 def athlete_edit(athlete_id):
     """ Edit an Athlete: Show form if GET. If valid, update athlete and redirect to user page. """
@@ -95,7 +93,6 @@ def athlete_edit(athlete_id):
 
     else:
         return render_template('/athletes/athlete_edit_form.html', form=form, athlete=athlete)
-
 
 
 @app.route('/athletes/delete/<int:athlete_id>', methods=["POST"])
