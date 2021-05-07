@@ -1,17 +1,23 @@
-# SpringBoard - Capstone 1 - GYM HERO
+### GYM HERO - Lightweight Athlete/Performance Artist Management System
 ###### by: Etienne Deneault
 
-<p style="color: red;">INFO:  Documentation and Testing in Progress</p>
-<p style="color: dark-gray;">Kindly start an issue to help me dedug the application and implement new features.</p>
+Designed as Capstone project for the SpringBoard Software Engineering Bootcamp, GYM HERO is a lightweight *Athlete Management Web Application*.  There are many athlete management systems avaialble in the market but most have a difficult barrier of access for coaches and smaller athletic organizations.  These "barriers" are due to the following: cost of access, complexity of implementation, complex tooling that generates a significant amount of work for the user/administrator.  
 
-### Lightweight Athlete/Performance Artist Management System
+ Many of the athlete mamagement systems do not offer easy access to features that coaches use on a daily basis.  The result of this issue is that coaches do not use the functionality available because in "real-world" time it is difficult to integrate into their coaching workflows.
+
+<figure class="video_container">
+  <video controls="true" allowfullscreen="true" poster="path/to/poster_image.png">
+    <source src="/static/images/gifs/Athlete-management.mp4" type="video/mp4">
+  </video>
+</figure>
+
 
 ###### Application Main Function
 
 * Provide coaches and performance enhancement specialist with a lightweight system to manage their teams/athletes/performance artists.
 
 ###### Application Secondary Function
-* Provide coaches and athletes quick access to the most useful tools for Day to Day use.
+* Provide coaches and athletes quick access to the most useful tools for Day to Day use. Workouts and Timers.
 
 ###### Problems Solved
 
@@ -116,5 +122,7 @@
 
 
 
+<p style="color: red;">INFO:  Documentation and Testing in Progress</p>
+<p style="color: dark-gray;">Kindly start an issue to help me dedug the application and implement new features.</p>
 
 
