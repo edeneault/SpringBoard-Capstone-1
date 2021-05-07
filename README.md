@@ -15,7 +15,7 @@ https://user-images.githubusercontent.com/69206621/117402886-15eefa80-aebc-11eb-
 
 ### Execrcise Timer Example View
 
-https://res.cloudinary.com/gym-hero/video/upload/v1620393527/gifs/timer-demo_ebvame.mp4
+https://user-images.githubusercontent.com/69206621/117456143-bf55e080-aefc-11eb-91c1-daf03a7c3b99.mp4
 
 ### Prerequisites
 
