@@ -3,6 +3,15 @@
 
 [VISIT GYM HERO](https://sb-gym-hero.herokuapp.com/)
 
+Preloaded Profile for Testing:
+
+Username | Password
+------------ | -------------
+coach_E | coach_E
+
+<small>DATABASE RESETS EVERY 24 HRS - Make any changes you like!</small>
+
+### Project Description
 
 Designed as Capstone project for the SpringBoard Software Engineering Bootcamp, GYM HERO is a lightweight *Athlete Management Web Application*.  There are many athlete management systems available in the market but most have a difficult barrier of access for coaches and smaller athletic organizations.  These "barriers" are due to the following: cost of access, complexity of implementation, complex tooling that generates a significant amount of work for the user/administrator.  
 
@@ -13,7 +22,7 @@ Designed as Capstone project for the SpringBoard Software Engineering Bootcamp, 
 https://user-images.githubusercontent.com/69206621/117402886-15eefa80-aebc-11eb-8539-08b46a043e78.mp4
 
 
-### Execrcise Timer Example View
+### Exercise Timer Example View
 
 https://user-images.githubusercontent.com/69206621/117456143-bf55e080-aefc-11eb-91c1-daf03a7c3b99.mp4
 
@@ -34,6 +43,16 @@ https://user-images.githubusercontent.com/69206621/117459624-73a53600-af00-11eb-
 
 HTML | CSS | JAVASCRIPT | PYTHON | FLASK | POSTGRESQL
 
+### Installing
+
+For the scope of this project, I will not prepare installation instructions for the dependencies.
+
+* create virtual environment:
+
+
+
+![Alt text](./static/images/readme-svg/carbon.svg)
+<img src="./controllers_brief.svg">
 
 ###### Application Main Function
 
