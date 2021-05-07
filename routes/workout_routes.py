@@ -83,6 +83,10 @@ def workout_add():
 @app.route('/workouts/add/select/', methods=["GET", "POST"])
 def workout_select():
     """ Select Categories of exercises. """
+    if not g.user:
+        flash("Access unauthorized.", "danger")
+        return redirect("/")
+        
     form= WorkoutForm()
     form2= WorkoutFormStep2()
 
