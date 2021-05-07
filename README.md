@@ -6,9 +6,9 @@ Designed as Capstone project for the SpringBoard Software Engineering Bootcamp, 
  Many of the athlete mamagement systems do not offer easy access to features that coaches use on a daily basis.  The result of this issue is that coaches do not use the functionality available because in "real-world" time it is difficult to integrate into their coaching workflows.
 
 <figure class="video_container">
-  <video controls="true" allowfullscreen="true" poster="path/to/poster_image.png">
-    <source src="/static/images/gifs/Athlete-management.mp4" type="video/mp4">
-  </video>
+ <video controls loop class="col-sm-12 border" width="640" height="360" muted>
+                    <source src="https://res.cloudinary.com/gym-hero/video/upload/v1620253316/gifs/Athlete-management_kc5nge.mp4" type="video/mp4">
+ </video>
 </figure>
 
 
