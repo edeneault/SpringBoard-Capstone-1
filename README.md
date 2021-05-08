@@ -158,36 +158,13 @@ SB-Capstone-1/
 * additional tables will be needed for medical_status, timers and training_plans.
 
 
-
 #### Author
 
 * **Etienne Deneault** - *Initial work* - [edeneault](https://github.com/edeneault)
 
-#### Acknowledgments and Resources
-
-* A big **THANK YOU** to the teachers and assistant teachers from the *University of Michigan* in the Coursera, *Python for Everybody* Specialization. The courses were laid out well, instructive and easy to follow.
-
-* Reference: The Hiking Project CLI by Will Carter
-https://medium.com/@will.carter/the-hiking-project-cli-812b486332f
-The original inspiration for my project was another project from a student who built a CLI app using the hikingproject API, my curiosity was peaked as I am an avid hiker/backpacker. Thank you *Will Carter* for the inspiration.
-* Reference: Walkthrough: Mapping Basics with bokeh and GeoPandas in Python by Rebecca Weng
-https://towardsdatascience.com/walkthrough-mapping-basics-with-bokeh-and-geopandas-in-python-43f40aa5b7e9
-This step-by-step was very instructive to learn how to use bokeh, thank you *Rebecca Weng*.
-
-* Reference: https://towardsdatascience.com/walkthrough-mapping-basics-with-bokeh-and-geopandas-in-python-43f40aa5b7e9
-
-* Data: API - https://www.hikingproject.com/data
-
-* Data: cb_2018_us_state_20m.sgv https://www.census.gov/geographies/mapping-files/time-series/geo/carto-boundary-file.html
-
-* Data: https://www.infoplease.com/us/geography/highest-lowest-and-mean-elevations-united-states
-
-
 ##### License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-###### API ENDPOINTS / ROUTES PLAN
-
 
 ##### Future Development
 
@@ -197,6 +174,6 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 * TODO: Add NAVOGATE BACK TO WORKOUT OPTION after editing EXERCISE
 * TODO: ADD cloudinary storage and cdn image delivery | user image upload functionality
 
-
+<p style="color: red;">IMPORTANT: Application allows for uploading of images from users.  Image Rights may or may not be copyrighted.  All images used as base images, are Crative Commons License </p>
 <p style="color: red;">INFO:  Documentation and Testing in Progress</p>
 <p style="color: dark-gray;">Kindly start an issue to help me dedug the application and implement new features.</p>
