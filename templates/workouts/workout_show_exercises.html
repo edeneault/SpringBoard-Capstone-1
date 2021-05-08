@@ -45,7 +45,7 @@
 
 
                     <div class="row d-flex align-content-around flex-wrap">
-                        {{workout.id}}
+                    
                         {% for exercise in exercises.items %}
                         
                         <div class="col-lg-4 col-md-6 col-sm-12">
@@ -57,9 +57,10 @@
                                         </a>
                                         <p class="text-small text-dark tes2 ps-3 mb-0 pb-0"> CATEGORY: {{ exercise.categories.category_name }}</p>
                                         
-                                        <p class="text-small text-dark tes2 ps-3 mb-0 pb-0">default reps: {{ exercise.default_reps}} {{ exercise.id }}</p>
+                                        <p class="text-small text-dark tes2 ps-3 mb-0 pb-0">default reps: {{ exercise.default_reps}} ID: {{ exercise.id }}</p>
                                         
                                         <form action="submit">
+                                        
                                             <a href="{{ url_for('.workout_exercises_add', exercise_id=exercise.id)}}" class="submit btn btn-primary btn-customized btn ms-3 p-2" >ADD TO WORKOUT</a>
                                         </form>
                                     </div>
