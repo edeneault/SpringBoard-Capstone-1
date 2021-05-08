@@ -180,25 +180,48 @@ def workout_complete(workout_id):
 @app.route('/workouts/edit/<int:workout_id>', methods=["GET", "POST"])
 def workout_edit(workout_id):
     """ Edit exercise to workout """
-
     if not g.user:
         flash("Access unauthorized.", "danger")
         return redirect("/")
-
-    workout = get_workout(workout_id)
-    session[WORKOUT] = workout.id
-    form= WorkoutEditForm(obj=workout)
-    form2= WorkoutExerciseEditForm()
-
-    form2= WorkoutFormStep2()
-    form2.categories.category.choices = get_select_categories()
-    form2.muscles.muscle.choices = get_select_muscles()
-    form2.equipment.equipment.choices = get_select_equipment()
-  
-    exercises = get_workout_exercises(workout_id)
     
-    return render_template('/workouts/workout_edit_form.html',  form=form, form2=form2, workout=workout, exercises=exercises )
+    workout = get_workout(workout_id)
+    workout_exercises = get_workout_exercises(workout_id)
+    session[WORKOUT] = workout.id
+    workout_id = workout.id
+  
+    form= WorkoutEditForm(obj=workout)
+    form2= WorkoutExerciseEditForm(obj=workout)
 
+    if form.validate_on_submit():
+        try:
+            workout.name = form.name.data
+            workout.description = form.description.data
+            
+            
+            db.session.add(workout)
+            db.session.commit()
+            flash(f"Successfully edited work out", "success")
+          
+
+
+            form2= WorkoutFormStep2()
+            form2.categories.category.choices = get_select_categories()
+            form2.muscles.muscle.choices = get_select_muscles()
+            form2.equipment.equipment.choices = get_select_equipment()
+  
+            exercises = get_workout_exercises(workout_id)
+
+            return render_template('/workouts/workout_edit_form.html',  form=form, form2=form2, workout=workout, exercises=exercises )
+        except IntegrityError:
+            flash("Problem updating.", 'danger')
+            return render_template('/workouts/workout_edit_form.html', form=form)
+
+    return render_template('/workouts/workout_edit_form.html',  form=form,  workout=workout)
+
+
+    
+    
+   
 
 @app.route('/workouts/edit/delete/<int:workout_id>/<int:exercise_id>', methods=["GET", "POST"])
 def workout_exercises_edit_delete(exercise_id, workout_id):
