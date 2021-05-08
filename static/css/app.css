@@ -13,6 +13,7 @@ body {
     padding: 0px;
     margin: 0px auto;
     min-height: 1000px;
+    width: 100%;
 }
 
 .tes1 {
@@ -309,6 +310,14 @@ button.btn-customized-red.btn.btn-primary:not(:disabled):not(.disabled):active:f
     height: 300px;
 }
 
+.carousel-item {
+    height: 300px;
+}
+
+.carousel-item.active {
+    height: 300px;
+}
+
 .carousel-caption {
     bottom: 3rem;
     z-index: 10;
@@ -373,6 +382,10 @@ button.btn-customized-red.btn.btn-primary:not(:disabled):not(.disabled):active:f
     }
 
     .carousel-item {
+        height: 500px;
+    }
+
+    .carousel-item.active {
         height: 500px;
     }
 }
