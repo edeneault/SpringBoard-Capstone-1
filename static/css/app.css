@@ -305,17 +305,19 @@ button.btn-customized-red.btn.btn-primary:not(:disabled):not(.disabled):active:f
 /* CUSTOMIZE THE CAROUSEL */
 
 .carousel {
-    margin-bottom: 0;
-    padding-bottom: 0;
+
     height: 300px;
+
 }
 
 .carousel-item {
     height: 300px;
+
 }
 
 .carousel-item.active {
     height: 300px;
+
 }
 
 .carousel-caption {

@@ -51,9 +51,9 @@
             <img src="/static/images/carousel-images/lucas-favre-1100-unsplash-1.jpg" alt="..." class="d-block w-100">
             <div class="row no-gutters">
                 <div class="carousel-caption text-start d-none d-md-block">
-                    <h1 class="featurette-heading fw-bold fs-1 mx-1 px-1">Performance Management</h1>
-                    <p class="featurette-text col-md-8 fs-3 mx-1 px-1">Lightweight Athlete Management Application.</p>  
-                    <p class="featurette-text col-md-8 d-inline  d-md-block fs-3 mx-2 py-3">Try it! It's FREE. Build your team.</p>
+                    <h1 class="featurette-heading fw-bold fs-1 mx-1 px-1 mb-0 pb-1">Performance Management</h1>
+                    <p class="featurette-text col-md-8 fs-3 mx-1 px-1 mb-0">Lightweight Athlete Management Application.</p>  
+                    <p class="featurette-text col-md-8 d-inline  d-md-block fs-3 mx-2 py-1">Try it! It's FREE. Build your team.</p>
                     <a class="col-2 d-none d-lg-block btn btn-primary btn-customized  p-2 ms-2 my-2 fs-6" href="{{ url_for('.register_user') }}">REGISTER NOW!</a>
                 </div>
             </div>
@@ -63,9 +63,9 @@
             <img src="/static/images/carousel-images/cathy-pham-1100-unsplash-1.jpg" alt="..." class= "d-block w-100">
             <div class="row no-gutters">
                 <div class="carousel-caption d-none d-md-block">
-                    <h1 class="featurette-heading fw-bold fs-1  mx-1 px-1">Track your Athletes Progress.</h1>
-                    <p class="featurette-text d-md-block fs-3 mx-1 px-1">Focus on the basics.</p>
-                    <button class="d-none d-md-block btn btn-primary btn-customized  p-2 ms-2 my-2 fs-6" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop2">LEARN MORE</button>
+                    <h1 class="featurette-heading fw-bold fs-1  mx-1 px-1 mb-0 pb-1">Track your Athletes Progress.</h1>
+                    <p class="featurette-text d-md-block fs-3 mx-1 px-1 mb-0">Focus on the basics.</p>
+                    <button class="d-none d-md-inline btn btn-primary btn-customized p-2 ms-2 my-2 fs-6" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop2">LEARN MORE</button>
                 </div>
             </div>
         </div>
@@ -76,7 +76,7 @@
                 <div class="carousel-caption d-none d-md-block">
                     <h1 class="featurette-heading fw-bold fs-1  mx-1 px-1">Register and create your team.</h1>
                     <p class="featurette-text col-md-12 d-md-block fs-3 mx-1 px-1">Built for Coaches. Simple to use in realtime.</p>
-                    <button class="d-none d-lg-block btn btn-primary btn-customized  p-2 ms-2 my-2 fs-6 " type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">LEARN MORE</button>
+                    <button class="d-none d-md-inline btn btn-primary btn-customized p-2 ms-2 my-2 fs-6" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">LEARN MORE</button>
                 </div>
             </div>
         </div>
@@ -96,13 +96,13 @@
 <!-- COACH DASHBOARD FEATURE LG -->
 
     <div class="container col-xxl-10 mt-3 ">
-        <div class="row flex-lg-row align-items-center g-5 py-5">
-            <div class="col-12 col-sm-12 col-lg-6 mt-3 mx-0 px-0">
-                <video controls loop class="col-10 offset-1  col-sm-12 border" width="640" height="360" muted>
+        <div class="row flex-lg-row align-items-center mt-0 pt-2 px-0 mx-0 ">
+            <div class="col-sm-12 col-lg-6 mt-sm-3 mt-0 py-0 mx-0 px-0">
+                <video controls loop class="col-12 col-sm-12 border mt-0" width="640" height="360" muted>
                     <source src="https://res.cloudinary.com/gym-hero/video/upload/v1620253316/gifs/Athlete-management_kc5nge.mp4" type="video/mp4">
                   </video>
             </div>
-            <div class="col-lg-6">
+            <div class="col-lg-6 ps-3">
                 <h1 class="display-5 fw-bold lh-1 mb-3">Athlete Dashboard - Assign a workout!</h1>
                 <p class="lead">Quickly design and customize a workout. Assign the workout to your athlete and track the completion status.</p>
 
@@ -190,12 +190,12 @@
                     <div class="text-center mt-2 fa-10x"><i class="fas fa-users"></i> </div>
                 </div>
                 <div class="col-md-6">
-                    <div class="mt-4 tes2 fs-4"> <span class="intro-1">Team Creation</span>
+                    <div class="mt-4 fs-4"> <span class="intro-1">Team Creation</span>
                         <div class="mt-2 tes2 m-0"> <span>To create a team simply register and select "CREATE A TEAM".
                                                                 You will be prompted to fill-out a series of forms to input your teams information.
                                                                 The information required will be about your team (Ex: name, location, disciple, etc..) and 
                                                                 about your athletes (name, height, weight, position, etc..)</span> </div>
-                        <div class="mt-4 tes2 mb-5"> <button class="btn btn-primary btn-customized pt-3">CREATE A TEAM<i class="fa fa-cloud-download"></i></button> </div>
+                        <div class="mt-4 mb-5"> <a class="col-6 d-none d-lg-block btn btn-primary btn-customized btn-lg ms-2" href="{{ url_for('.team_add') }}"><i class="fa fa-cloud-download"></i>CREATE A TEAM</a></div>
                     </div>
                 </div>
             </div>
