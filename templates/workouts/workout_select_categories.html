@@ -39,7 +39,7 @@
                                                 <td>{{ exercise.exercise.default_reps}}</td>
                                                 <td class= d-flex><a id="" href="{{ url_for('.exercise_edit', exercise_id=exercise.exercise_id)}}" 
                                                     class="btn btn-primary btn-customized btn ms-2 " type="button" >EDIT</a> 
-                                                    <form action="{{ url_for('.exercise_delete', exercise_id=exercise.id ) }}" method="POST">
+                                                    <form action="{{ url_for('.workout_exercises_edit_delete', exercise_id=exercise.exercise.id, workout_id=workout.id) }}" method="POST">
                                                         <a class="tooltips page-links-dark" data-toggle="tooltip" data-placement="top" title="Delete">
                                                             <button class="page-links-dark" type="submit" onclick="return confirm('Are you sure to delete this exercise?');" 
                                                                 style="border: 0; background: none;"><i class=" bi bi-trash"></i>

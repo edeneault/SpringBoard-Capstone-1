@@ -61,7 +61,7 @@
                                     <tbody>
                                         {% for exercise in workout.workout_exercises %}
                                             <tr>
-                                                <th scope="row">{{ exercise.id }}</th>
+                                                <th scope="row">{{ exercise.exercise.id }}</th>
             
                                                     <td>{{ exercise.exercise.name }} </td>
                                                     <td>{{ exercise.exercise.muscles.muscle_name}}</td>
@@ -72,7 +72,7 @@
                                                     <td>  
 
                                                     
-                                                        <a id="" href="{{ url_for('.exercise_edit', exercise_id=exercise.id)}}" 
+                                                        <a id="" href="{{ url_for('.exercise_edit', exercise_id=exercise.exercise.id)}}" 
                                                         class="btn btn-primary btn-customized btn-lg ms-2 " type="button" >EDIT</a> 
                                                         <a id="completeBtn" href="{{ url_for('workout_exercises_edit_delete', workout_id=exercise.workout_id, exercise_id=exercise.exercise_id )}}" 
                                                         class="btn btn-primary btn-customized-red btn-lg ms-2 " type="button" >DEL</a>
