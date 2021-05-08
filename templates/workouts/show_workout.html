@@ -11,68 +11,72 @@
                 <div class="flex-grow-1">
                     <i class="teams-fa-color fas fa-dumbbell mt-2 fa-3x"></i>
                     <h1 class="d-inline teams-fa-color display-5 px-1">Workout</h1>
-                    <a class="btn btn-primary btn-customized btn my-2 mb-4 " href="/workouts/add">ADD</a>
+                    <div class="d-inline ">
+                        <a class="btn btn-primary btn-customized btn mb-3 " href="/workouts/add">ADD</a>
+                        <a class="btn btn-primary btn-customized btn mb-3 " href="/workouts">BACK TO WORKOUTS</a>
+                    </div>
                 </div>
             </div>  
         </div> 
+   </div>
 
-        <div class="card bg-light m-2">
-            <div class="row p-2 ">       
+    <div class="card bg-light m-2">
+        <div class="row p-2 ">       
+            <div class="col-sm-12">
                 <div class="col-sm-12">
-                   <div class="col-sm-12">
-                    <a class="card-title card-link text-decoration-none" href="/workouts/{{ workout.id }}">
-                        <h5 class="card-link fs-4 ps-3 pt-2">{{workout.name}}</h5>
-                    </a>
-                   </div>
-                    
-                    <div class="col-sm-12 ms-3 mb-3">
-                        <a class="btn btn-customized p-2 d-inline" href="/workouts/edit/{{workout.id}}">EDIT</a> 
-                        <form  class="d-inline" action="/workouts/delete/{{ workout.id }}" method="POST">
-                            <a class="tooltips page-links-dark  " data-toggle="tooltip" data-placement="top" title="Delete">
-                                <button class="page-links-dark " type="submit" onclick="return confirm('Are you sure to delete this workout?');" style="border: 0; background: none;">
-                                    <i class=" d-inline col-sm-1 bi bi-trash"></i>
-                                </button>
-                            </a> 
-                        </form>
-                    </div>  
+                <a class="card-title card-link text-decoration-none" href="/workouts/{{ workout.id }}">
+                    <h5 class="card-link fs-4 ps-3 pt-2">{{workout.name}}</h5>
+                </a>
+                </div>
+                
+                <div class="col-sm-12 ms-3 mb-3">
+                    <a class="btn btn-customized p-2 d-inline" href="/workouts/edit/{{workout.id}}">EDIT</a> 
+                    <form  class="d-inline" action="/workouts/delete/{{ workout.id }}" method="POST">
+                        <a class="tooltips page-links-dark  " data-toggle="tooltip" data-placement="top" title="Delete">
+                            <button class="page-links-dark " type="submit" onclick="return confirm('Are you sure to delete this workout?');" style="border: 0; background: none;">
+                                <i class=" d-inline col-sm-1 bi bi-trash"></i>
+                            </button>
+                        </a> 
+                    </form>
+                </div>  
 
-                    <div class="col-sm-12">
-                        <p class="text-small text-dark tes2 fs-5 ps-3 mb-0 pb-0">&ldquo;{{ workout.description}}&rdquo;</p>  
-                    </div> 
-            
-                </div>
-            </div>
-            
-            <div class="card-body text-dark"> 
-                <div class="container">
-                    <div class="row d-flex align-content-around flex-wrap">
-                        {% for exercise in workout.workout_exercises %}
+                <div class="col-sm-12">
+                    <p class="text-small text-dark tes2 fs-5 ps-3 mb-0 pb-0">&ldquo;{{ workout.description}}&rdquo;</p>  
+                </div> 
         
-                        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                            
-                            <div class="card m-1 ">
-                                <div class="card-body"> 
-                                    <div class="card-contents">
-                                        <p class="text-dark tes2">{{exercise.exercise.name.upper()}}</p>
-                                        <!-- <p class="text-dark"><img class="workout-img" src="{{exercise.exercise.image_url}}" alt=""></p> -->
-                                    </div>
-                                    <div class="image-wrapper">
-                                        
-                                        <a href="/exercises/exercise/{{ exercise.exercise.id }}" class="card-link">
-                                            <img class="img-thumbnail" src="{{exercise.exercise.image_url}}" alt="Image for workout">
-                                        </a>
-          
-                                    </div>
-                                
-                                </div>
-                            </div>
-                        </div>
-                        
-                        {% endfor %}     
-                    </div>       
-                </div>
             </div>
         </div>
-    </div>   
-</div>
+        
+        <div class="card-body text-dark"> 
+            <div class="container">
+                <div class="row d-flex align-content-around flex-wrap">
+                    {% for exercise in workout.workout_exercises %}
+    
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                        
+                        <div class="card m-1 ">
+                            <div class="card-body"> 
+                                <div class="card-contents">
+                                    <p class="text-dark tes2">{{exercise.exercise.name.upper()}}</p>
+                                    <!-- <p class="text-dark"><img class="workout-img" src="{{exercise.exercise.image_url}}" alt=""></p> -->
+                                </div>
+                                <div class="image-wrapper">
+                                    
+                                    <a href="/exercises/exercise/{{ exercise.exercise.id }}" class="card-link">
+                                        <img class="img-thumbnail" src="{{exercise.exercise.image_url}}" alt="Image for workout">
+                                    </a>
+        
+                                </div>
+                            
+                            </div>
+                        </div>
+                    </div>
+                    
+                    {% endfor %}     
+                </div>       
+            </div>
+        </div>
+    </div>
+</div>   
+
 {% endblock %}

@@ -18,7 +18,7 @@
                 </div>  
             </div> 
         </div>
-        
+
         <div class="container">
             <div class="container m-0 p-0">
                 <div class="row align-items-md-stretch">  
@@ -27,7 +27,7 @@
                             <h1 class="display-4 text-center tes2">Select a Workout</h1>
                             <form class="form" method="POST">
                                 {{ form.hidden_tag() }}
-                               
+                                
                                 {% for field in form if field.widget.input_type != 'hidden'%}
                                 <div class="fs-5 p-2 col-12 col-sm-12">   
                                     <button class="btn btn-primary btn-customized btn my-2 " type="submit">SELECT</button>
@@ -43,35 +43,30 @@
                             </form>
                         </div>
                     </div>  
-               </div>
+                </div>
             </div>
         </div>    
         {% for workout in workouts %}
         <div class="card bg-light m-2">
             <div class="row p-2">       
-                    <div class="col-sm-12  p-2">
-                        <a class="card-title card-link text-decoration-none" href="/workouts/{{ workout.id }}">
-                            <h5 class="card-link tes2 fs-4 ps-3 pt-3 d-inline">{{workout.name}}</h5>
-                        </a>
-                    </div>
-                    <div class="col-sm-2  ms-3">
-                        <a class="btn  btn-customized  col-sm-1 my-0 mb-4 d-inline" href="/workouts/edit/{{workout.id}}">EDIT</a> 
+                <div class="col-sm-12  p-2">
+                    <a class="card-title card-link text-decoration-none" href="/workouts/{{ workout.id }}">
+                        <h5 class="card-link tes2 fs-4 ps-3 pt-3 d-inline">{{workout.name}}</h5>
+                    </a>
+                </div>
+                <div class="col-sm-2  ms-3">
+                    <a class="btn  btn-customized  col-sm-1 my-0 mb-4 d-inline" href="/workouts/edit/{{workout.id}}">EDIT</a> 
 
-                        <form  class="d-inline col-sm-1" action="/workouts/delete/{{ workout.id }}" method="POST">
-                            
-                            <!-- <button class="btn btn-customized-red p-1 d-inline" type="submit">DELETE</button>  -->
-                            
-                            <a class="tooltips  " data-toggle="tooltip" data-placement="top" title="Delete">
-                                <button class="page-links-dark" type="submit" onclick="return confirm('Are you sure to delete this workout ?');" style="border: 0; background: none;">
-                                <i class="fas fa-trash-alt" aria-hidden="true"></i>
-                                </button>
-                            </a> 
-                        </form>
-                    </div>
-                   
-        
-                     
+                    <!-- <form  class="d-inline col-sm-1" action="/workouts/delete/{{ workout.id }}" method="POST">                            
+                        <a class="tooltips  " data-toggle="tooltip" data-placement="top" title="Delete">
+                            <button class="page-links-dark" type="submit" onclick="return confirm('Are you sure to delete this workout ?');" style="border: 0; background: none;">
+                            <i class="fas fa-trash-alt" aria-hidden="true"></i>
+                            </button>
+                        </a> 
+                    </form> -->
+                </div>       
             </div>
+
             <div class="col-sm-12  p-2 mb-3">
                 <p class="text-small text-dark tes2 fs-5 ps-3 mb-0 pb-0"> Description: &ldquo;{{ workout.description}}&rdquo;</p>
             </div> 
@@ -80,7 +75,7 @@
             
                     <div class="row d-flex align-content-around flex-wrap">
                         {% for exercise in workout.workout_exercises %}
-        
+
                         <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                             
                             <div class="card workout-exercise m-1 ">
@@ -100,7 +95,7 @@
                         
                         {% endfor %}     
                     </div>       
-               </div>
+                </div>
             </div>
         </div>
         {% endfor %}

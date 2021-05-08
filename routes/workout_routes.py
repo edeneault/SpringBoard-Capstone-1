@@ -151,7 +151,7 @@ def workout_exercises_show(page_num):
     equipment = get_equipment_by_id(equipment_id)
 
     exercises = get_exercises_paginated(page_num, category_id, muscle_id, equipment_id)
-    
+ 
     if len(exercises.items) < 1:
         flash(f"no exercise found matching search parameters.", "warning")
         return redirect("/workouts/add/select/")
@@ -159,6 +159,44 @@ def workout_exercises_show(page_num):
     return render_template('workouts/workout_show_exercises.html', form=form, form2=form2, exercises=exercises, 
                                                                     category=category, muscle=muscle, equipment=equipment, workout=workout)
  
+@app.route('/workouts/add/select/exercises/all/<int:page_num>', methods=["GET", "POST"])
+def workout_exercises_show_all(page_num):
+    """ Show all filterd workout exercises view and call on API for exercise data """
+
+    if not g.user:
+        flash("Access unauthorized.", "danger")
+        return redirect("/")
+
+    
+
+    form= WorkoutForm()
+    form2= WorkoutFormStep2()
+
+    workout_id = session[WORKOUT] 
+    workout = get_workout(workout_id)
+
+    form2.categories.category.choices = get_select_categories()
+    form2.muscles.muscle.choices = get_select_muscles()
+    form2.equipment.equipment.choices = get_select_equipment()
+   
+    category_id= form2.categories.data["category"]
+    category = get_select_categories()
+   
+    muscle_id = form2.muscles.data["muscle"]
+    muscle = get_select_muscles()
+ 
+    equipment_id = form2.equipment.data["equipment"]
+    equipment = get_select_equipment()
+    exercises = get_exercises_paginated(page_num, category_id, muscle_id, equipment_id)
+    all_exercises = Exercise.query.paginate(per_page=21, page=page_num, error_out=True)
+    
+    if len(all_exercises.items) < 1:
+        flash(f"no exercise found matching search parameters.", "warning")
+        return redirect("/workouts/add/select/")
+
+    return render_template('workouts/workout_show_exercises_all.html', form=form, form2=form2, exercises=exercises, all_exercises=all_exercises,
+                                                                    category=category, muscle=muscle, equipment=equipment, workout=workout)
+
 
 @app.route('/workouts/add/select/exercises/add/<int:exercise_id>', methods=["GET", "POST"])
 def workout_exercises_add(exercise_id):
@@ -196,14 +234,9 @@ def workout_edit(workout_id):
         try:
             workout.name = form.name.data
             workout.description = form.description.data
-            
-            
             db.session.add(workout)
             db.session.commit()
             flash(f"Successfully edited work out", "success")
-          
-
-
             form2= WorkoutFormStep2()
             form2.categories.category.choices = get_select_categories()
             form2.muscles.muscle.choices = get_select_muscles()

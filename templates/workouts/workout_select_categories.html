@@ -78,8 +78,15 @@
                             <li class="pb-2">{{form2.muscles.label}}{{form2.muscles.muscle}}</li>
                             <li class="pb-2">{{form2.equipment.label}}{{form2.equipment.equipment}}</li>
                         </ul>
-                        <button class="btn btn-primary btn-customized btn p-2 " type="submit">SEARCH EXERCISES</button>
-                    </form>    
+                        <button class="d-inline btn btn-primary btn-customized btn p-2 " type="submit">SEARCH EXERCISES</button>
+                    </form> 
+                    <div class="mt-4">
+                        <form class="d-inline form" action="{{ url_for('.workout_exercises_show_all', page_num=1)}}" method="POST">
+                            <h5 class="tes2 text-dark fs-5">SELECT | ALL EXERCISES</h5>
+                            <button class="btn btn-primary btn-customized btn p-2 " type="submit">SEARCH ALL EXERCISES</button>
+                        </form>     
+                    </div>
+                     
                 </div>
             </div>  
         </div>     
