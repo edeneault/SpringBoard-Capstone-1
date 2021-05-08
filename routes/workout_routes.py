@@ -270,7 +270,7 @@ def workout_exercises_edit_delete(exercise_id, workout_id):
     workout_exercise = get_workout_exercise(workout_id, exercise_id)
     
     delete_exercise_workout(workout_exercise, exercise, workout)
-    
+        
     return redirect(f'/workouts/edit/{workout_id}' )
 
 

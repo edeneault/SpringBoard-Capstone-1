@@ -34,11 +34,7 @@ https://user-images.githubusercontent.com/69206621/117456143-bf55e080-aefc-11eb-
 
 https://user-images.githubusercontent.com/69206621/117459624-73a53600-af00-11eb-992f-ceeabe25403f.mp4
 
-### Prerequisites
-
-**Software:**
-* Python 3.8
-* postgresql
+## Prerequisites
 
 **Python Environment:**
 * *requirements.txt* lists all python requirements

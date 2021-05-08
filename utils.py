@@ -290,6 +290,13 @@ def add_workout_exercise(exercise_id, workout_id):
     db.session.commit()   
     return flash(f"Successfully added exercise to workout {workout_id}", "success")
 
+def add_workout_exercises(workout_exercises):
+    ''' add all workout_exercises to workout '''
+    
+    db.session.add_all(workout_exercises)
+    db.session.commit()   
+    return flash(f"Successfully added exercise to workout {workout_id}", "success")
+
 def add_to_db(response):
     """ Function to insert retrieved API data into the database """
     for exercise in response:
@@ -499,6 +506,8 @@ def edit_athlete(form, athlete):
     flash(f"Succesfully updated ATHLETE profile {athlete.full_name}", 'success')
     return athlete
 
+def edit_workkout(form):
+    ''' edit a workout name and description '''
 
 
 ## DELETE FROM DATABASE FUNCTIONS
