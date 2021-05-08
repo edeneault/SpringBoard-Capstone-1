@@ -201,6 +201,7 @@ def workout_exercises_show_all(page_num):
 @app.route('/workouts/add/select/exercises/add/<int:exercise_id>', methods=["GET", "POST"])
 def workout_exercises_add(exercise_id):
     """ Add exercise to workout """
+    print("**************", exercise_id)
     workout_id = session[WORKOUT] 
     add_workout_exercise(exercise_id, workout_id)
     

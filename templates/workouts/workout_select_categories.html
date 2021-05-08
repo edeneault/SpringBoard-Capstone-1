@@ -30,14 +30,14 @@
                                     {% for exercise in workout.workout_exercises %}
                                     
                                         <tr>
-                                            <th scope="d-flex row">{{ exercise.id }}</th>
+                                            <th scope="d-flex row">{{ exercise.exercise_id }}</th>
     
                                                 <td>{{ exercise.exercise.name }} </td>
                                                 <td>{{ exercise.exercise.muscles.muscle_name}}</td>
                                                 <td>{{ exercise.exercise.equipment.equipment_name}}</td>
                                                 <td>{{ exercise.exercise.categories.category_name}}</td>
                                                 <td>{{ exercise.exercise.default_reps}}</td>
-                                                <td class= d-flex><a id="" href="{{ url_for('.exercise_edit', exercise_id=exercise.id)}}" 
+                                                <td class= d-flex><a id="" href="{{ url_for('.exercise_edit', exercise_id=exercise.exercise_id)}}" 
                                                     class="btn btn-primary btn-customized btn ms-2 " type="button" >EDIT</a> 
                                                     <form action="{{ url_for('.exercise_delete', exercise_id=exercise.id ) }}" method="POST">
                                                         <a class="tooltips page-links-dark" data-toggle="tooltip" data-placement="top" title="Delete">
