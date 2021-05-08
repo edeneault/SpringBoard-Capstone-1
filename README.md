@@ -79,7 +79,7 @@ $ <span class="cmd">source venv/bin/activate</span>
 
 ###### Folders and Files
 
-
+```
 SB-Capstone-1/
 
 ┣ Postgress-gymhero-db/
@@ -110,7 +110,7 @@ SB-Capstone-1/
 
 ┗ utils.py
 
-
+```
 
 
 ###### Application Main Function
