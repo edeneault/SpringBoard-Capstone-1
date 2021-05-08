@@ -192,6 +192,10 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 ##### Future Development
 
 * TODO: Team/Athlete Management Dashboard - Team Data view and basic analysis (RPE, workload over time)
+* TODO: Add CRUD CATEGORY, EQUIPMENT, MUSCLE routes
+* TODO: Add SEARCH BY category || equipment || muscles
+* TODO: Add NAVOGATE BACK TO WORKOUT OPTION after editing EXERCISE
+* TODO: ADD cloudinary storage and cdn image delivery | user image upload functionality
 
 
 <p style="color: red;">INFO:  Documentation and Testing in Progress</p>
