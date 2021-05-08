@@ -35,7 +35,7 @@
                     {% for page in all_exercises.iter_pages(left_edge=3, right_edge=3, left_current=3, right_current=3) %}
 
                     {% if page %}
-                    <a class="page-links-dark " href="{{ url_for('.workout_exercises_show', page_num=page)}}">{{ page }}</a>
+                    <a class="page-links-dark " href="{{ url_for('.workout_exercises_show_all', page_num=page)}}">{{ page }}</a>
                     {% else %}
                     ...
                     {% endif %}
@@ -71,10 +71,10 @@
 
                     <div class="row d-inline">    
 
-                        {% for page in exercises.iter_pages(left_edge=3, right_edge=3, left_current=3, right_current=3) %}
+                        {% for page in all_exercises.iter_pages(left_edge=3, right_edge=3, left_current=3, right_current=3) %}
 
                             {% if page %}
-                                <a class="page-links-dark " href="{{ url_for('.workout_exercises_show', page_num=page)}}">{{ page }}</a>
+                                <a class="page-links-dark " href="{{ url_for('.workout_exercises_show_all', page_num=page)}}">{{ page }}</a>
                             {% else %}
                             ...
                             {% endif %}

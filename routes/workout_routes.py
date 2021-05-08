@@ -187,14 +187,14 @@ def workout_exercises_show_all(page_num):
  
     equipment_id = form2.equipment.data["equipment"]
     equipment = get_select_equipment()
-    exercises = get_exercises_paginated(page_num, category_id, muscle_id, equipment_id)
+    # exercises = get_exercises_paginated(page_num, category_id, muscle_id, equipment_id)
     all_exercises = Exercise.query.paginate(per_page=21, page=page_num, error_out=True)
-    
+ 
     if len(all_exercises.items) < 1:
         flash(f"no exercise found matching search parameters.", "warning")
         return redirect("/workouts/add/select/")
 
-    return render_template('workouts/workout_show_exercises_all.html', form=form, form2=form2, exercises=exercises, all_exercises=all_exercises,
+    return render_template('workouts/workout_show_exercises_all.html', form=form, form2=form2, all_exercises=all_exercises,
                                                                     category=category, muscle=muscle, equipment=equipment, workout=workout)
 
 

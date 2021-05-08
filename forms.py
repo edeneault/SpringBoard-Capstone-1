@@ -245,7 +245,7 @@ class ExerciseForm(FlaskForm):
 
     description = TextAreaField(
         "Description",
-        validators=[InputRequired(), Length(max=600)],
+        validators=[InputRequired(), Length(max=1800)],
         render_kw={"class": "form-control mt-2", "placeholder": " exercise description"}
     )
 
@@ -283,7 +283,7 @@ class ExerciseEditForm(FlaskForm):
 
     description = TextAreaField(
         "Description",
-        validators=[InputRequired(), Length(max=600)],
+        validators=[InputRequired(), Length(max=1800)],
         render_kw={"class": "form-control mt-2", "placeholder": " exercise description"}
     )
 
