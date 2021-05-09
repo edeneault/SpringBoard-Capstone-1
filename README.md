@@ -80,35 +80,21 @@ $ <span class="cmd">source venv/bin/activate</span>
 ###### Folders and Files
 
 ```
-SB-Capstone-1/
-
-┣ Postgress-gymhero-db/
-
-┣ documentation/
-
-┣ routes/
-
-┣ static/
-
-┣ templates/
-
-┣ testing/
-
-┣ .gitignore
-
-┣ Procfile
-
-┣ README.md
-
-┣ app.py
-
-┣ forms.py
-
-┣ models.py
-
-┣ runtime.txt
-
-┗ utils.py
+.
+├── SB-Capstone-1/
+├── Postgress-gymhero-db/
+├── documentation/routes/
+├── static/
+├── templates/
+├── testing/
+├── .gitignore
+├── Procfile
+├── README.md
+├── app.py
+├── forms.py
+├── models.py
+├── runtime.txt
+└── utils.py
 
 ```
 
@@ -123,7 +109,7 @@ SB-Capstone-1/
 
 ###### Target Users
 
-* The target user fir the application are Coaches working with smaller team organizations or a coach with a "single" or "few" athletes in individual sports
+* The target user for this application are Coaches working with smaller team organizations or a coach with a "single" or "few" athletes in individual sports
 
 ###### Application Features
 
@@ -162,14 +148,14 @@ SB-Capstone-1/
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
-##### Future Development
+### Future Development
 
-* TODO: Team/Athlete Management Dashboard - Team Data view and basic analysis (RPE, workload over time)
-* TODO: Add CRUD CATEGORY, EQUIPMENT, MUSCLE routes
-* TODO: Add SEARCH BY category || equipment || muscles
-* TODO: Add NAVOGATE BACK TO WORKOUT OPTION after editing EXERCISE
-* TODO: ADD cloudinary storage and cdn image delivery | user image upload functionality
+- [ ] Team/Athlete Management Dashboard - Team Data view and basic analysis (RPE, workload over time)
+- [ ] Add CRUD CATEGORY, EQUIPMENT, MUSCLE routes
+- [ ] Add SEARCH BY category || equipment || muscles
+- [ ] Add NAVOGATE BACK TO WORKOUT OPTION after editing EXERCISE
+- [ ] ADD cloudinary storage and cdn image delivery | user image upload functionality
 
-<p style="color: red;">IMPORTANT: Application allows for uploading of images from users.  Image Rights may or may not be copyrighted.  All images used as base images, are Crative Commons License </p>
+<p style="color: red;">IMPORTANT: Application allows for uploading of images from users.  Image Rights may or may not be copyrighted.  All images used as base images, are Creative Commons License </p>
 <p style="color: red;">INFO:  Documentation and Testing in Progress</p>
 <p style="color: dark-gray;">Kindly start an issue to help me dedug the application and implement new features.</p>
