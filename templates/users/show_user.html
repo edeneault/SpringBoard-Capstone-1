@@ -89,17 +89,19 @@
                                                         <a class="card-link text-dark text-decoration-none  ml-3 p-0" href="/teams/{{ team.id }}">                                               
                                                             <p class="card-link card-title fs-4 fs-md-4-8 mt-2 d-inline">{{ team.name }}</p> 
                                                         </a>
-                                                            <div class="d-flex pb-2">
-                                                            <a class="d-none d-md-block btn-floating btn-primary btn-customized text-decoration-none m-2 pt-2 mb-2" href="/teams/edit/{{ team.id }}">EDIT</a>  
+                                                            <div class="d-flex p-0 m-0">
+                                                            <!-- <a class="d-none d-md-block btn-floating btn-primary btn-customized text-decoration-none m-2 pt-2 mb-2" href="/teams/edit/{{ team.id }}">EDIT</a>  
                                                             <form action="{{ url_for('.team_delete', team_id=team.id ) }}" method="POST">
                                                                 <a class="d-none d-md-block tooltips page-links-dark" data-toggle="tooltip" data-placement="top" title="Delete">
                                                                     <button class="page-links-dark" type="submit" onclick="return confirm('Are you sure to delete this team?');" style="border: 0; background: none;">
                                                                         <i class="bi bi-trash fa-2x"></i>
                                                                     </button>
                                                                 </a> 
-                                                            </form>
-                                                        </div> 
-                                                        <p class="fs-6">LOCATION: {{ team.location }}</p>                                         
+                                                            </form> -->
+                                                        </div>
+                                                        <p class="fs-6 m-0 ps-3">Discipline: {{ team.discipline }}</p>
+                                                        <p class="fs-6 m-0 ps-3">Location: {{ team.location }}</p> 
+                                                        <p class="fs-6 m-0 ps-3">Athletes: {{ team.athletes | length }}px</p>                       
                                                     </div>
                                                 </div>
                                             </div>

@@ -1,3 +1,9 @@
+:root {
+  --color: #2c3539;
+  --bg-color: #e2e2e2;
+  --bg-card: #dedede;
+}
+
 @font-face {
   font-family: tesla;
   src: url(/static/fonts/TESLA.ttf);
@@ -10,6 +16,7 @@
 }
 
 body {
+  background-color: var(--bg-color);
   padding: 0px;
   margin: 0px auto;
   min-height: 1000px;
@@ -87,8 +94,12 @@ footer .tes1 {
   padding: 0px;
 }
 
+.page-sub-title {
+  color: var(--color);
+}
+
 nav {
-  background-color: white;
+  background-color: var(--bg-color);
 }
 
 .navbar-brand {
@@ -128,8 +139,7 @@ footer li a {
 a.page-links-light:hover,
 i.page-links-light:hover,
 footer li a:hover {
-  color: #8d3ff3;
-  color: #572796;
+  color: var(--color);
 }
 
 .logo1 {
@@ -159,7 +169,7 @@ footer li a:hover {
 /* FORMS */
 
 .form-control:focus {
-  border-color: #572796;
+  border-color: var(--color);
   box-shadow: none;
   -webkit-box-shadow: none;
 }
@@ -199,8 +209,7 @@ footer li a:hover {
 
 button.btn-customized,
 a.btn-customized {
-  background: #8d3ff3;
-  background: #572796;
+  background: var(--color);
   border: 0;
   border-radius: 4px;
   font-size: 12px;
@@ -466,6 +475,15 @@ button.btn-customized-red.btn.btn-primary:not(:disabled):not(.disabled):active:f
   height: 27rem;
 }
 
+.card-athlete:hover,
+.card-athlete-focus {
+  transform: scale(1.02);
+  z-index: 10;
+  background-color: var(--card-bg-color);
+  color: var(--color);
+  border-color: var(--color);
+}
+
 .card-img-top {
   width: 100%;
   height: 250px;
@@ -480,18 +498,17 @@ button.btn-customized-red.btn.btn-primary:not(:disabled):not(.disabled):active:f
 
 .exercise-card:hover,
 .exercise-card-focus {
-  transform: scale(1.1);
+  transform: scale(1.03);
   background-color: rgba(0, 0, 0, 0.1);
-  color: #8d3ff3;
-  color: #572796;
-  border-color: black;
+  color: var(--color);
+  border-color: var(--color);
 }
 
 /* TEAM CARDS - USER PROFILE CSS  */
 
 .user-team-card {
-  border-color: rgba(0, 0, 0, 0.3);
-  border-width: 2px;
+  border-color: var(--color);
+  border-width: 1px;
   border-radius: 10px;
   max-height: 153px;
 }
@@ -500,9 +517,8 @@ button.btn-customized-red.btn.btn-primary:not(:disabled):not(.disabled):active:f
 .user-team-card:focus {
   transform: scale(1.02);
   background-color: rgba(0, 0, 0, 0.05);
-  color: #8d3ff3;
-  color: #572796;
-  border-color: #572796;
+  color: var(--color);
+  border-color: var(--color);
 }
 
 .card-horizontal {
@@ -538,8 +554,7 @@ a.card-link,
 
 a.card-link:hover,
 .card-teams a.card-link:hover {
-  color: #8d3ff3;
-  color: #572796;
+  color: var(--color);
 }
 
 /* TEAM TABLE - TEAMS CSS  */
@@ -551,13 +566,13 @@ a.card-link:hover,
 }
 
 .teams-fa-color {
-  border-color: #8d3ff3;
-  color: #572796;
+  border-color: var(--color);
+  color: var(--color);
 }
 
-.athlete-card {
+/* .athlete-card {
   background-image: var(--bs-gradient);
-}
+} */
 
 .athlete-thumb {
   height: 4rem;
@@ -577,10 +592,10 @@ a.card-link:hover,
 
 .workout-exercise:hover,
 .workout-exercise:focus {
-  background-color: rgba(0, 0, 0, 0.1);
-  color: #8d3ff3;
-  color: #572796;
-  border-color: black;
+  background-color: var(--card-bg-color);
+  color: var(--color);
+
+  border-color: var(--color);
 }
 
 .image-wrapper {
