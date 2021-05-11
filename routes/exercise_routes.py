@@ -38,9 +38,10 @@ def exercise_show(exercise_id):
     """ Show exercise by ID """
     exercise = get_exercise_by_ID(exercise_id)
     image_id = exercise.wger_id
-    image = get_exercise_image(exercise_id, exercise)
+    # image = get_exercise_image(exercise_id, exercise)
+    print(exercise)
 
-    return render_template('exercises/show_exercise.html', exercise=exercise, image=image, alt_image=ALT_IMAGE)
+    return render_template('exercises/show_exercise.html', exercise=exercise, alt_image=ALT_IMAGE)
 
 
 @app.route('/exercises/add', methods=["GET", "POST"])
@@ -103,7 +104,6 @@ def exercise_edit(exercise_id):
     if form.validate_on_submit():
         try:
             edit_exercise(form, exercise)
-            print(exercise)
         except IntegrityError:
             flash("Problem updating.", 'danger')
             return redirect(f"/exercises/show_exercise/{exercise.id}")
