@@ -18,12 +18,13 @@
     <div class="card my-3">
         <div class="row g-0">
           <div class="col-md-4">
-            {% if image == None: %}
+            <!-- uncomment to activate images from image table -->
+            <!-- {% if image == None: %}
                 <img class="img-thumbnail" src="{{exercise.image_url}}" alt="Image for workout">
-            {% else %}
+            {% else %} -->
                 
                 <img class="img-thumbnail" src="{{image.exercise_image_url}}" alt="Image for workout">
-            {% endif %}
+            <!-- {% endif %} -->
             </div>
                 <div class="col-md-8">
                     <div class="card-body">
@@ -33,13 +34,13 @@
                                 <a class="btn btn-primary btn-customized btn me-1 p-2 " href="/exercises/edit/{{ exercise.id }}">EDIT</a>  
                             </div>
                             <div>
-                                <form action="{{ url_for('.exercise_delete', exercise_id=exercise.id ) }}" method="POST">
+                                <!-- <form action="{{ url_for('.exercise_delete', exercise_id=exercise.id ) }}" method="POST">
                                     <a class="tooltips page-links-dark" data-toggle="tooltip" data-placement="top" title="Delete">
                                         <button class="page-links-dark" type="submit" onclick="return confirm('Are you sure to delete this exercise?');" style="border: 0; background: none;">
                                             <i class="bi bi-trash"></i>
                                         </button>
                                     </a> 
-                                </form>
+                                </form> -->
                             </div>
                         </div>
                         
