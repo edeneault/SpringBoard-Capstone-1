@@ -1,239 +1,240 @@
 @font-face {
-    font-family: tesla;
-    src: url(/static/fonts/TESLA.ttf);
+  font-family: tesla;
+  src: url(/static/fonts/TESLA.ttf);
 }
 
 @font-face {
-    font-family: gotham;
-    font-style: normal;
-    src: url(/static/fonts/Gotham-Font/GothamMedium_1.ttf)
+  font-family: gotham;
+  font-style: normal;
+  src: url(/static/fonts/Gotham-Font/GothamMedium_1.ttf);
 }
 
 body {
-    padding: 0px;
-    margin: 0px auto;
-    min-height: 1000px;
-    width: 100%;
+  padding: 0px;
+  margin: 0px auto;
+  min-height: 1000px;
+  width: 100%;
 }
 
 .tes1 {
-    font-family: tesla;
-    font-size: 1.2rem;
-    font-style: oblique;
-    object-position: middle;
-    text-decoration: none;
+  font-family: tesla;
+  font-size: 1.2rem;
+  font-style: oblique;
+  object-position: middle;
+  text-decoration: none;
 }
 
 .tes1-lg {
-    font-family: tesla;
-    font-size: 2rem;
-    font-style: oblique;
-    object-position: middle;
-    text-decoration: none;
+  font-family: tesla;
+  font-size: 2rem;
+  font-style: oblique;
+  object-position: middle;
+  text-decoration: none;
 }
 
 footer .tes1 {
-    font-family: tesla;
-    font-size: 1.2rem;
-    font-style: oblique;
-    object-position: middle;
-    color: white;
+  font-family: tesla;
+  font-size: 1.2rem;
+  font-style: oblique;
+  object-position: middle;
+  color: white;
 }
 
 .tes2 {
-    font-family: gotham;
-    font-size: 0.85rem;
-    font-weight: 400;
-    object-position: middle;
-    margin: 0px auto;
-    padding: 0px;
+  font-family: gotham;
+  font-size: 0.85rem;
+  font-weight: 400;
+  object-position: middle;
+  margin: 0px auto;
+  padding: 0px;
 }
 
 .tes2-md {
-    font-family: gotham;
-    font-size: 1rem;
-    font-weight: 400;
-    object-position: middle;
-    margin: 0px auto;
-    padding: 0px;
+  font-family: gotham;
+  font-size: 1rem;
+  font-weight: 400;
+  object-position: middle;
+  margin: 0px auto;
+  padding: 0px;
 }
 
 .tes2-lg {
-    font-family: gotham;
-    font-size: 1.5rem;
-    font-weight: 400;
-    object-position: middle;
-    margin: 0px auto;
-    padding: 0px;
+  font-family: gotham;
+  font-size: 1.5rem;
+  font-weight: 400;
+  object-position: middle;
+  margin: 0px auto;
+  padding: 0px;
 }
 
 .display-4.tes2 {
-    font-family: gotham;
-    font-size: 2.2rem;
-    font-weight: 100;
+  font-family: gotham;
+  font-size: 2.2rem;
+  font-weight: 100;
 }
 
 .top-title.tes2 {
-    font-family: gotham;
-    font-size: 1.2rem;
-    font-weight: 100;
+  font-family: gotham;
+  font-size: 1.2rem;
+  font-weight: 100;
 }
 
 .display-1.tes2 {
-    font-family: gotham;
-    font-size: 1.75rem;
-    font-weight: 100;
-    margin: 0px auto;
-    padding: 0px;
+  font-family: gotham;
+  font-size: 1.75rem;
+  font-weight: 100;
+  margin: 0px auto;
+  padding: 0px;
 }
 
 nav {
-    background-color: white;
+  background-color: white;
 }
 
 .navbar-brand {
-    padding: 0;
+  padding: 0;
 }
 
 .navbar-nav .nav-link {
-    padding-top: 0;
-    padding-bottom: 0;
-    height: 40px;
-    line-height: 50px;
+  padding-top: 0;
+  padding-bottom: 0;
+  height: 40px;
+  line-height: 50px;
 }
 
 .navbar-light .navbar-nav .nav-link {
-    color: black;
+  color: black;
 }
 
 .navbar-light .navbar-nav .nav-link:hover {
-    color: rgb(148, 148, 148);
+  color: rgb(148, 148, 148);
 }
 
 a.page-links-dark {
-    color: black;
-    text-decoration: none;
+  color: black;
+  text-decoration: none;
 }
 
 a.page-links-dark:hover {
-    color: rgb(148, 148, 148);
+  color: rgb(148, 148, 148);
 }
 
 a.page-links-light,
 i.page-links-light,
 footer li a {
-    color: rgb(255, 255, 255);
+  color: rgb(255, 255, 255);
 }
 
 a.page-links-light:hover,
 i.page-links-light:hover,
 footer li a:hover {
-    color: #8d3ff3;
-    color: #572796;
+  color: #8d3ff3;
+  color: #572796;
 }
 
 .logo1 {
-    border-bottom: 1px solid #444;
-    transition: all .3s;
+  border-bottom: 1px solid #444;
+  transition: all 0.3s;
 }
 
 .logo2 {
-    border-bottom: 1px solid #444;
-    transition: all .3s;
+  border-bottom: 1px solid #444;
+  transition: all 0.3s;
 }
 
 .logo1 {
-    display: inline-block;
-    width: 90px;
-    height: 40px;
-    background: url(/static/images/clipart1066235.png) center center no-repeat;
-    background-size: 40%;
-    border: 0;
+  display: inline-block;
+  width: 90px;
+  height: 40px;
+  background: url(/static/images/clipart1066235.png) center center no-repeat;
+  background-size: 40%;
+  border: 0;
 }
 
 .quicklinks:hover {
-    background-color: rgba(0, 0, 0, 0.1);
-    color: white;
+  background-color: rgba(0, 0, 0, 0.1);
+  color: white;
 }
-
 
 /* FORMS */
 
 .form-control:focus {
-    border-color: #572796;
-    box-shadow: none;
-    -webkit-box-shadow: none;
+  border-color: #572796;
+  box-shadow: none;
+  -webkit-box-shadow: none;
 }
 
 .bg-login {
-    background: url('/static/images/brett-jordan-NAENofLAWjE-unsplash.jpg') no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+  background: url("/static/images/brett-jordan-NAENofLAWjE-unsplash.jpg")
+    no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 .bg-register {
-    background-color: white;
-    background: url('/static/images/helen-thomas-GYwI6WeTDXY-unsplash.jpg') no-repeat bottom center fixed;
+  background-color: white;
+  background: url("/static/images/helen-thomas-GYwI6WeTDXY-unsplash.jpg")
+    no-repeat bottom center fixed;
 
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 .bg-workouts {
-    background-color: white;
-    background: url('https://res.cloudinary.com/gym-hero/image/upload/c_scale,h_1233/v1619377386/Form-Background-images/sven-mieke-jO6vBWX9h9Y-unsplash_1_vwh0vx.jpg') no-repeat bottom center fixed;
+  background-color: white;
+  background: url("https://res.cloudinary.com/gym-hero/image/upload/c_scale,h_1233/v1619377386/Form-Background-images/sven-mieke-jO6vBWX9h9Y-unsplash_1_vwh0vx.jpg")
+    no-repeat bottom center fixed;
 
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
-
 
 /* BUTTONS CSS */
 
 button.btn-customized,
 a.btn-customized {
-    background: #8d3ff3;
-    background: #572796;
-    border: 0;
-    border-radius: 4px;
-    font-size: 12px;
-    font-weight: 300;
-    color: #fff;
-    box-shadow: none;
-    padding-right: .5rem;
-    padding-left: .5rem;
+  background: #8d3ff3;
+  background: #572796;
+  border: 0;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 300;
+  color: #fff;
+  box-shadow: none;
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
 }
 
 button.btn-customized-green,
 a.btn-customized-green {
-    background: #7bb343;
-    border: 0;
-    border-radius: 4px;
-    font-size: 12px;
-    font-weight: 300;
-    color: #fff;
-    box-shadow: none;
-    padding-right: .5rem;
-    padding-left: .5rem;
+  background: #7bb343;
+  border: 0;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 300;
+  color: #fff;
+  box-shadow: none;
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
 }
 
 button.btn-customized-red,
 a.btn-customized-red {
-    background: #be2841;
-    border: 0;
-    border-radius: 4px;
-    font-size: 12px;
-    font-weight: 300;
-    color: #fff;
-    box-shadow: none;
-    padding-right: .5rem;
-    padding-left: .5rem;
+  background: #be2841;
+  border: 0;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 300;
+  color: #fff;
+  box-shadow: none;
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
 }
 
 a.btn-customized:hover,
@@ -242,7 +243,8 @@ a.btn-customized:focus,
 a.btn-customized:active:focus,
 a.btn-customized.active:focus,
 a.btn-customized.btn.btn-primary:not(:disabled):not(.disabled):active,
-a.btn-customized.btn.btn-primary:not(:disabled):not(.disabled):active:focus button.btn-customized:hover,
+a.btn-customized.btn.btn-primary:not(:disabled):not(.disabled):active:focus
+  button.btn-customized:hover,
 button.btn-customized:hover,
 button.btn-customized:active,
 button.btn-customized:focus,
@@ -250,13 +252,13 @@ button.btn-customized:active:focus,
 button.btn-customized.active:focus,
 button.btn-customized.btn.btn-primary:not(:disabled):not(.disabled):active,
 button.btn-customized.btn.btn-primary:not(:disabled):not(.disabled):active:focus {
-    outline: 0;
-    background: #000000;
-    border: 0;
-    color: #fff;
-    box-shadow: none;
-    padding-right: .5rem;
-    padding-left: .5rem;
+  outline: 0;
+  background: #000000;
+  border: 0;
+  color: #fff;
+  box-shadow: none;
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
 }
 
 a.btn-customized-green:hover,
@@ -265,7 +267,8 @@ a.btn-customized-green:focus,
 a.btn-customized-green:active:focus,
 a.btn-customized-green.active:focus,
 a.btn-customized-green.btn.btn-primary:not(:disabled):not(.disabled):active,
-a.btn-customized-green.btn.btn-primary:not(:disabled):not(.disabled):active:focus button.btn-customized:hover,
+a.btn-customized-green.btn.btn-primary:not(:disabled):not(.disabled):active:focus
+  button.btn-customized:hover,
 button.btn-customized-green:hover,
 button.btn-customized-green:active,
 button.btn-customized-green:focus,
@@ -273,11 +276,11 @@ button.btn-customized-green:active:focus,
 button.btn-customized-green.active:focus,
 button.btn-customized-green.btn.btn-primary:not(:disabled):not(.disabled):active,
 button.btn-customized-green.btn.btn-primary:not(:disabled):not(.disabled):active:focus {
-    outline: 0;
-    background: #000000;
-    border: 0;
-    color: #fff;
-    box-shadow: none;
+  outline: 0;
+  background: #000000;
+  border: 0;
+  color: #fff;
+  box-shadow: none;
 }
 
 a.btn-customized-red:hover,
@@ -286,7 +289,8 @@ a.btn-customized-red:focus,
 a.btn-customized-red:active:focus,
 a.btn-customized-red.active:focus,
 a.btn-customized-red.btn.btn-primary:not(:disabled):not(.disabled):active,
-a.btn-customized-red.btn.btn-primary:not(:disabled):not(.disabled):active:focus button.btn-customized:hover,
+a.btn-customized-red.btn.btn-primary:not(:disabled):not(.disabled):active:focus
+  button.btn-customized:hover,
 button.btn-customized-red:hover,
 button.btn-customized-red:active,
 button.btn-customized-red:focus,
@@ -294,401 +298,377 @@ button.btn-customized-red:active:focus,
 button.btn-customized-red.active:focus,
 button.btn-customized-red.btn.btn-primary:not(:disabled):not(.disabled):active,
 button.btn-customized-red.btn.btn-primary:not(:disabled):not(.disabled):active:focus {
-    outline: 0;
-    background: #000000;
-    border: 0;
-    color: #fff;
-    box-shadow: none;
+  outline: 0;
+  background: #000000;
+  border: 0;
+  color: #fff;
+  box-shadow: none;
 }
-
 
 /* CUSTOMIZE THE CAROUSEL */
 
 .carousel {
-
-    height: 300px;
-
+  height: 300px;
 }
 
 .carousel-item {
-    height: 300px;
-
+  height: 300px;
 }
 
 .carousel-item.active {
-    height: 300px;
-
+  height: 300px;
 }
 
 .carousel-caption {
-    bottom: 3rem;
-    z-index: 10;
+  bottom: 3rem;
+  z-index: 10;
 }
-
 
 /* FOOTER */
 
 .footer-base {
-    background-color: black;
+  background-color: black;
 }
-
-
 
 /* Featurettes */
 
 .featurette-divider {
-    margin: 5rem 0;
+  margin: 5rem 0;
 }
 
 .featurette-heading {
-    font-weight: 300;
-    line-height: 1;
-    letter-spacing: -.05rem;
-    text-shadow: black 0.1em 0.1em 0.2em;
-    color: #7bb343;
-    font-weight: 800;
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -0.05rem;
+  text-shadow: black 0.1em 0.1em 0.2em;
+  color: #7bb343;
+  font-weight: 800;
 }
 
 .featurette-text {
-    letter-spacing: -.05rem;
-    text-shadow: 0px 0px 30px black, 0px 0px 30px black, 0px 0px 30px black, 0px 0px 10px #553300, 0px 0px 10px #553300;
-    font-weight: 300;
+  letter-spacing: -0.05rem;
+  text-shadow: 0px 0px 30px black, 0px 0px 30px black, 0px 0px 30px black,
+    0px 0px 10px #553300, 0px 0px 10px #553300;
+  font-weight: 300;
 }
-
 
 /* RESPONSIVE CSS */
 
 @media (min-width: 40em) {
+  .carousel-caption p {
+    margin-bottom: 1.25rem;
+    font-size: 1.25rem;
+    line-height: 1.4;
+  }
 
-    .carousel-caption p {
-        margin-bottom: 1.25rem;
-        font-size: 1.25rem;
-        line-height: 1.4;
-    }
-
-    .featurette-heading {
-        font-size: 50px;
-    }
+  .featurette-heading {
+    font-size: 50px;
+  }
 }
 
 @media (min-width: 62em) {
-    .featurette-heading {
-        margin-top: 7rem;
-    }
-
+  .featurette-heading {
+    margin-top: 7rem;
+  }
 }
 
 @media screen and (min-width: 480px) {
-    .carousel {
-        height: 500px;
-    }
+  .carousel {
+    height: 500px;
+  }
 
-    .carousel-item {
-        height: 500px;
-    }
+  .carousel-item {
+    height: 500px;
+  }
 
-    .carousel-item.active {
-        height: 500px;
-    }
+  .carousel-item.active {
+    height: 500px;
+  }
 }
-
 
 /* MODALS CSS  */
 
 #workout-modal {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 #edit-modal {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 .modal-header {
-    background-color: black;
+  background-color: black;
 }
 
 .modal-body {
-    background-color: #e9ecef;
-    border-color: #e9ecef;
-    color: black;
+  background-color: #e9ecef;
+  border-color: #e9ecef;
+  color: black;
 }
 
 .intro-1 {
-    font-size: 20px
+  font-size: 20px;
 }
 
 .close {
-    color: #fff
+  color: #fff;
 }
 
 .close:hover {
-    color: #fff
+  color: #fff;
 }
 
 .intro-2 {
-    font-size: 13px;
-
+  font-size: 13px;
 }
-
 
 /* USER PROFILE CSS  */
 
 .profile-img {
-    height: 203px;
-    width: 200px;
-    top: -125px;
-    position: relative;
-    border: 1px solid rgba(0, 0, 0, .5);
+  height: 203px;
+  width: 200px;
+  top: -125px;
+  position: relative;
+  border: 1px solid rgba(0, 0, 0, 0.5);
 }
 
 .nav-user-img {
-    height: 26px;
-    width: 26px;
-    border: 1px solid rgba(0, 0, 0, .5);
+  height: 26px;
+  width: 26px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
 }
 
 .nav-user-img:hover {
-    height: 26px;
-    width: 26px;
-    border: 2px solid rgba(0, 0, 0, .5);
-    opacity: 0.5;
+  height: 26px;
+  width: 26px;
+  border: 2px solid rgba(0, 0, 0, 0.5);
+  opacity: 0.5;
 }
 
 .header-img {
-    height: 350px;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+  height: 350px;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
 }
 
 .profile-container {
-    color: black;
+  color: black;
 }
-
 
 /* ATHLETE CARDS - ATHLETES VIEWCSS  */
 
 .card-athlete {
-    height: 27rem;
+  height: 27rem;
 }
 
 .card-img-top {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
 }
-
 
 /* EXERCISE CARD CSS  */
 
 .exercise-card {
-    height: 165px;
+  height: 165px;
 }
 
 .exercise-card:hover,
 .exercise-card-focus {
-
-    transform: scale(1.1);
-    background-color: rgba(0, 0, 0, 0.1);
-    color: #8d3ff3;
-    color: #572796;
-    border-color: black;
+  transform: scale(1.1);
+  background-color: rgba(0, 0, 0, 0.1);
+  color: #8d3ff3;
+  color: #572796;
+  border-color: black;
 }
 
 /* TEAM CARDS - USER PROFILE CSS  */
 
 .user-team-card {
-    border-color: rgba(0, 0, 0, 0.3);
-    border-width: 2px;
-    border-radius: 10px;
-    max-height: 153px;
+  border-color: rgba(0, 0, 0, 0.3);
+  border-width: 2px;
+  border-radius: 10px;
+  max-height: 153px;
 }
 
 .user-team-card:hover,
 .user-team-card:focus {
-    transform: scale(1.02);
-    background-color: rgba(0, 0, 0, 0.05);
-    color: #8d3ff3;
-    color: #572796;
-    border-color: #572796;
+  transform: scale(1.02);
+  background-color: rgba(0, 0, 0, 0.05);
+  color: #8d3ff3;
+  color: #572796;
+  border-color: #572796;
 }
 
 .card-horizontal {
-    display: flex;
-    flex: 1 1 auto;
+  display: flex;
+  flex: 1 1 auto;
 }
 
 .team-image-wrapper {
-
-    max-width: 180px;
-    max-height: 200px;
+  max-width: 180px;
+  max-height: 200px;
 }
 
 .team-image {
-    position: relative;
-    height: 150px;
-    width: 150px;
-    border-radius: 13px;
-
+  position: relative;
+  height: 150px;
+  width: 150px;
+  border-radius: 13px;
 }
 
 .profile-text {
-    top: -125px;
-    position: relative;
+  top: -125px;
+  position: relative;
 }
 
 .teams-container {
-    color: rgba(0, 0, 0, 1);
+  color: rgba(0, 0, 0, 1);
 }
 
 a.card-link,
 .card-teams a.card-link {
-    color: #000000;
+  color: #000000;
 }
 
 a.card-link:hover,
 .card-teams a.card-link:hover {
-    color: #8d3ff3;
-    color: #572796;
+  color: #8d3ff3;
+  color: #572796;
 }
-
 
 /* TEAM TABLE - TEAMS CSS  */
 
 .teams-team-image {
-    padding: 20px;
-    height: 150px;
-    width: 150px;
+  padding: 20px;
+  height: 150px;
+  width: 150px;
 }
 
 .teams-fa-color {
-    border-color: #8d3ff3;
-    color: #572796;
+  border-color: #8d3ff3;
+  color: #572796;
 }
 
 .athlete-card {
-    background-image: var(--bs-gradient);
+  background-image: var(--bs-gradient);
 }
 
 .athlete-thumb {
-    height: 4rem;
-    width: 4rem;
+  height: 4rem;
+  width: 4rem;
 }
 
 .team-coach-img {
-    height: 4rem;
-    width: 4rem;
+  height: 4rem;
+  width: 4rem;
 }
-
 
 /* WORKOUTS CSS */
 
 .workouts-container {
-    color: rgba(0, 0, 0, 1);
+  color: rgba(0, 0, 0, 1);
 }
 
 .workout-exercise:hover,
 .workout-exercise:focus {
-    background-color: rgba(0, 0, 0, 0.1);
-    color: #8d3ff3;
-    color: #572796;
-    border-color: black;
+  background-color: rgba(0, 0, 0, 0.1);
+  color: #8d3ff3;
+  color: #572796;
+  border-color: black;
 }
 
 .image-wrapper {
-    height: 300px;
-    object-fit: cover;
-    object-position: center;
+  height: 300px;
+  object-fit: cover;
+  object-position: center;
 }
 
 .exercise-workout-image {
-    height: 300px;
-    object-fit: contain;
-    object-position: center;
+  height: 300px;
+  object-fit: contain;
+  object-position: center;
 }
-
 
 /* SPINNER */
 
 @keyframes spinner-border {
-    to {
-        transform: rotate(360deg)
-    }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes spinner-grow {
-    0% {
-        transform: scale(0);
-    }
+  0% {
+    transform: scale(0);
+  }
 
-    50% {
-        opacity: 1;
-        transform: none;
-    }
+  50% {
+    opacity: 1;
+    transform: none;
+  }
 }
-
 
 /* EXERCISE CARD */
 
 div.description {
-    display: inline-flex;
-    margin-left: 1rem;
+  display: inline-flex;
+  margin-left: 1rem;
 }
 
 /* WORKOUT BUILDER */
 .workout-builder-title {
-    color: #7bb343;
-    font-weight: 800;
+  color: #7bb343;
+  font-weight: 800;
 }
-
 
 /* PULSE BUTTONS */
 
 .pulse {
-    overflow: visible;
-    position: relative;
+  overflow: visible;
+  position: relative;
 }
 
 .pulse:before {
-    content: '';
-    display: block;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background-color: inherit;
-    border-radius: inherit;
-    transition: opacity .3s, transform .3s;
-    animation: pulse-animation 1s cubic-bezier(0.24, 0, 0.38, 1) infinite;
-    z-index: -1;
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: inherit;
+  border-radius: inherit;
+  transition: opacity 0.3s, transform 0.3s;
+  animation: pulse-animation 1s cubic-bezier(0.24, 0, 0.38, 1) infinite;
+  z-index: -1;
 }
 
 @keyframes pulse-animation {
-    0% {
-        opacity: 1;
-        transform: scale(1);
-    }
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
 
-    50% {
-        opacity: 0;
-        transform: scale(1.5);
-    }
+  50% {
+    opacity: 0;
+    transform: scale(1.5);
+  }
 
-    100% {
-        opacity: 0;
-        transform: scale(1.5);
-    }
+  100% {
+    opacity: 0;
+    transform: scale(1.5);
+  }
 }
-
 
 /* FLASH MESSAGES */
 
 .flash-messages {
-    position: fixed;
-    z-index: 999;
+  position: fixed;
+  z-index: 999;
 }

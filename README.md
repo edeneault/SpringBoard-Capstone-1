@@ -3,28 +3,28 @@
      style="float: left; margin-right: 10px;" />
 
 ### GYM HERO - Lightweight Athlete/Performance Artist Management System
+
 ###### by: Etienne Deneault
 
 [VISIT GYM HERO](https://sb-gym-hero.herokuapp.com/)
 
 Preloaded Profile for Testing:
 
-Username | Password
------------- | -------------
-coach_E | coach_E
+| Username | Password |
+| -------- | -------- |
+| coach_E  | coach_E  |
 
 <small>DATABASE RESETS EVERY 24 HRS - Make any changes you like!</small>
 
 ### Project Description
 
-Designed as Capstone project for the SpringBoard Software Engineering Bootcamp, GYM HERO is a lightweight *Athlete Management Web Application*.  There are many athlete management systems available in the market but most have a difficult barrier of access for coaches and smaller athletic organizations.  These "barriers" are due to the following: cost of access, complexity of implementation, complex tooling that generates a significant amount of work for the user/administrator.  
+Designed as Capstone project for the SpringBoard Software Engineering Bootcamp, GYM HERO is a lightweight _Athlete Management Web Application_. There are many athlete management systems available in the market but most have a difficult barrier of access for coaches and smaller athletic organizations. These "barriers" are due to the following: cost of access, complexity of implementation, complex tooling that generates a significant amount of work for the user/administrator.
 
- Many of the athlete mamagement systems do not offer easy access to features that coaches use on a daily basis.  The result of this challenge is that coaches are less likely to use the functionality available.  In "real-world" time, it can be difficult to integrate the management tools into regular training workflows.
+Many of the athlete mamagement systems do not offer easy access to features that coaches use on a daily basis. The result of this challenge is that coaches are less likely to use the functionality available. In "real-world" time, it can be difficult to integrate the management tools into regular training workflows.
 
 ### Assign Workout Example View
 
 https://user-images.githubusercontent.com/69206621/117402886-15eefa80-aebc-11eb-8539-08b46a043e78.mp4
-
 
 ### Exercise Timer Example View
 
@@ -37,22 +37,23 @@ https://user-images.githubusercontent.com/69206621/117459624-73a53600-af00-11eb-
 ## Prerequisites
 
 **Python Environment:**
-* *requirements.txt* lists all python requirements
+
+- _requirements.txt_ lists all python requirements
 
 **Technologies:**
 
 HTML | CSS | JAVASCRIPT | PYTHON | FLASK | POSTGRESQL
 
- * *bcrypt* for authentification and authorization
- * *WTForms* for forms and validation
- * *jinja2* for html templates
- * *sqlalchemy* for database ORM
+- _bcrypt_ for authentification and authorization
+- _WTForms_ for forms and validation
+- _jinja2_ for html templates
+- _sqlalchemy_ for database ORM
 
 ### Installing
 
 For macOS in BASH terminal:
 
-* clone and re-create environment
+- clone and re-create environment
 
 <pre class="literal-block" style="background-color: black; color: white;">
 $ <span class="cmd">git clone https://github.com/edeneault/SpringBoard-Capstone-1.git</span>
@@ -61,7 +62,7 @@ $ <span class="cmd">python3 -m venv venv</span>
 </pre>
 <div class="docutils container">
 
-* install requirements 
+- install requirements
 
 <pre class="literal-block" style="background-color: black; color: white;">
 $ <span class="cmd">source venv/bin/activate</span>
@@ -69,7 +70,7 @@ $ <span class="cmd">source venv/bin/activate</span>
 <span class="gray">... pip output here ...</span>
 </pre>
 
-* start flask local server
+- start flask local server
 
 <pre class="literal-block" style="background-color: black; color: white;">
 (venv) $ <span class="cmd">flask run</span>
@@ -98,51 +99,50 @@ $ <span class="cmd">source venv/bin/activate</span>
 
 ```
 
-
 ###### Application Main Function
 
-* Provide coaches and performance enhancement specialist with a lightweight system to manage their teams/athletes/performance artists.
+- Provide coaches and performance enhancement specialist with a lightweight system to manage their teams/athletes/performance artists.
 
 ###### Application Secondary Function
-* Provide coaches and athletes quick access to the most useful tools for Day to Day use. Workouts and Timers.
 
+- Provide coaches and athletes quick access to the most useful tools for Day to Day use. Workouts and Timers.
 
 ###### Target Users
 
-* The target user for this application are Coaches working with smaller team organizations or a coach with a "single" or "few" athletes in individual sports
+- The target user for this application are Coaches working with smaller team organizations or a coach with a "single" or "few" athletes in individual sports
 
 ###### Application Features
 
-*No Auth Access*
-* Quick Access - *workout selector* 
-* Quick Access - *workout timer example configurations*
-    * Timers built with dynamic javasript - Presets: HiitTimer, RoundTimer, CircuitTimer**
+_No Auth Access_
 
-*With Auth Access*
+- Quick Access - _workout selector_
+- Quick Access - _workout timer example configurations_
+  - Timers built with dynamic javasript - Presets: HiitTimer, RoundTimer, CircuitTimer\*\*
 
-* Team/Athlete Managment (CRUD Teams, Athletes, Exercises, Workouts)
-* Assign to Athlete Workouts
+_With Auth Access_
+
+- Team/Athlete Managment (CRUD Teams, Athletes, Exercises, Workouts)
+- Assign to Athlete Workouts
 
 ###### API
 
-* API to be used for exercise data and exercise images: <a style="color: CadetBlue" href="https://wger.de/en/software/api">WEGR</a>
-    * >Public Endpoints used: 
-      exercisecategory, muscle, exerciseimage, exerciseinfo, equipment
+- API to be used for exercise data and exercise images: <a style="color: CadetBlue" href="https://wger.de/en/software/api">WEGR</a>
+  - > Public Endpoints used:
+    > exercisecategory, muscle, exerciseimage, exerciseinfo, equipment
 
 <br>
 
-###### DATABASE SCHEMA REPRESENTATION 
+###### DATABASE SCHEMA REPRESENTATION
 
 <img src="./documentation/Database-Design-Capstone-1.png"
      alt="DATABASE"
      style="float: left; margin-right: 10px;" />
 
-* additional tables will be needed for medical_status, timers and training_plans.
-
+- additional tables will be needed for medical_status, timers and training_plans.
 
 #### Author
 
-* **Etienne Deneault** - *Initial work* - [edeneault](https://github.com/edeneault)
+- **Etienne Deneault** - _Initial work_ - [edeneault](https://github.com/edeneault)
 
 ##### License
 
@@ -153,7 +153,7 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 - [ ] Team/Athlete Management Dashboard - Team Data view and basic analysis (RPE, workload over time)
 - [ ] Add CRUD CATEGORY, EQUIPMENT, MUSCLE routes
 - [ ] Add SEARCH BY category || equipment || muscles
-- [ ] Add NAVOGATE BACK TO WORKOUT OPTION after editing EXERCISE
+- [ ] Add NAVIGATE BACK TO WORKOUT OPTION after editing EXERCISE
 - [ ] ADD cloudinary storage and cdn image delivery | user image upload functionality
 
 <p style="color: red;">IMPORTANT: Application allows for uploading of images from users.  Image Rights may or may not be copyrighted.  All images used as base images, are Creative Commons License </p>
