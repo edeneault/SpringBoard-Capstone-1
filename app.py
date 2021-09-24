@@ -45,11 +45,7 @@ def timers():
 ### HOME ROUTE and ERROR ROUTE ###
 @app.route('/')
 def homepage():
-    """Show homepage:
-
-    - anon users: no messages
-    - logged in: 100 most recent messages of followed_users
-    """
+    """ Show homepage """
     form = LoginForm()
     form1 = RegisterForm()
 
